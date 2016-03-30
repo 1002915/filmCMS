@@ -19,4 +19,4 @@
     </select><BR>
     <input type='submit' name='Submit' value='Submit' />
 </form><BR>
-  <a href='index.php'>Back to home</a>
+  <a href='login.php'>Back to home</a>

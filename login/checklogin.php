@@ -1,41 +1,41 @@
 <?php
+session_start();
 include('connection.php');
 
-// username and password sent from form 
-$email=$_POST['email']; 
-$password=$_POST['password_hash']; 
 
-// To protect MySQL injection (more detail about MySQL injection)
-$email = stripslashes($email);
-$password = stripslashes($password);
-$email = mysqli_real_escape_string($mysqli, $email);
-$password = mysqli_real_escape_string($mysqli, $password);
-$sql="SELECT * FROM users WHERE email='$email' and password_hash='$password'";
-$result=mysqli_query($mysqli, $sql);
+$email = $_POST['email']; 
 
-// Mysql_num_row is counting table row
-$count=mysqli_num_rows($result);
+$password = $_POST['password_hash']; 
 
-// If result matched $myusername and $mypassword, table row must be 1 row
-if($count==1){
+echo $email;
 
-// Register $myusername, $mypassword and redirect to file "login_success.php"
-$_SESSION['email']= "email";
-$_SESSION['password_hash']= "password_hash";
+echo $password;
 
-header("location:login_success.php");
+$sql = "SELECT * FROM users WHERE email = '$email'";
+
+$result = mysqli_query($mysqli, $sql);
+
+$row = mysqli_fetch_row($result);
+
+$databasekey = $row[6];
+
+echo $databasekey . '<BR>';
+
+echo $row[5];
+
+
+if (password_verify($password, $databasekey)) {
+    
+    echo 'Password is valid! setting session...done.';
+
+    $_SESSION['email'] = $_POST['email'];
+        
+    $_SESSION['password_hash'] = $_POST['password_hash'];
+
+    header('Location: login.php');
+
+} else {
+    echo 'Invalid password.';
 }
-else {
-echo "Wrong Username or Password";
-}
+
 ?>
-
-// Query the database for username and password
-// ...
-
-if(password_verify($password, $hashed_password)) {
-    // If the password inputs matched the hashed password in the database
-    // Do something, you know... log them in.
-} 
-
-// Else, Redirect them back to the login page.
