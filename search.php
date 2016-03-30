@@ -1,7 +1,6 @@
 <!-- THIS IS WHAT YOU PUT ON THE INDEX PAGE -->
 <?php
-	include('connection.php');
-	include('overload.php');
+	include('overlord.php');
 ?>
 
 <!DOCTYPE html>
@@ -21,7 +20,7 @@
 					var search = $('#search').val();
 					$.ajax({
 						type:"POST",
-						url:"overload.php",
+						url:"overlord.php",
 						data:{
 							function:'search_project'
 						},
@@ -39,16 +38,17 @@
 			Test Search Bar
 			<!-- SEARCH BOX -->
 			<input type='text' name='target' placeholder='Search...' id='search'>
+			<input type='hidden' name='search_project'>
 			<!-- SEARCH RESULTS CONTAINER -->
 			<div id='searchList'>
-				<?php 
-				foreach (){?>
+				<?php
+				//foreach (){?>
 					<img scr="<?php echo $data['cover_image']; ?>" alt='coverImg' class='coverImage'><br>
 					<span><?php echo $data['title']; ?></span><br>
 					<span class='runTime'><?php echo $data['runtime']; ?></span><br>
 					<span><?php echo $data['synopsis']; ?></span><br>
 
-			<?php }?>
+			<?php //}?>
 			</div>
 		</div>
 		<!-- THIS IS THE INFORMATION THAT BELONGS ON THIS PAGE  IS IN TEH GET_UESRS PHP FILE-->
