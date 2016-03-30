@@ -14,8 +14,11 @@
 		   
 	/* Execute statement */
 		$stmt->execute();
+
+		$data = array();
 	
-	while($data = $stmt -> fetch()){?>
+	while($data = $stmt -> fetch()){ ?>
+
 		<div>
 			<img scr="<?php echo $data['cover_image']; ?>" alt='coverImg' class='coverImage'><br>
 			<span><?php echo $data['title']; ?></span><br>
