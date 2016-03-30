@@ -24,7 +24,7 @@
 		</div>
 
 	<?php 
-	}
+	} 
 }else {
 	echo "type in film title";
 }
