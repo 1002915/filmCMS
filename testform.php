@@ -1,7 +1,7 @@
 <?php
 	require "overlord.php";
 ?>
-
+<!--
 <form method="POST" action="#">
 	<h2>Search</h2>
 	<input type='hidden' name='function' value='search_project'>
@@ -21,7 +21,7 @@
 	<input type="submit">
 </form>
 
-
+-->
 
 
 
@@ -34,7 +34,7 @@
 </form>
 
 
-
+<!--
 
 
 <form method="POST" action="#">
@@ -61,8 +61,7 @@
 
 
 
-
-
+-->
 
 <form method="POST" action="#">
 	<h2>Create a project</h2>
@@ -83,12 +82,30 @@
 	<input type="text" name="published"><br>
 	<h3>Active</h3><br>
 	<input type="text" name="active"><br>
+
+	<h3>Collaborator 1 First Name</h3><br>
+	<input type="text" name="collab[1][]"><br>
+	<h3>Collaborator 1 Last Name</h3><br>
+	<input type="text" name="collab[1][]"><br>
+	<h3>Collaborator 1 Role</h3><br>
+	<input type="text" name="collab[1][]"><br>
+	<h3>Collaborator 1 Email</h3><br>
+	<input type="text" name="collab[1][]"><br>
+
+	<h3>Collaborator 2 First Name</h3><br>
+	<input type="text" name="collab[2][]"><br>
+	<h3>Collaborator 2 Last Name</h3><br>
+	<input type="text" name="collab[2][]"><br>
+	<h3>Collaborator 2 Role</h3><br>
+	<input type="text" name="collab[2][]"><br>
+	<h3>Collaborator 2 Email</h3><br>
+	<input type="text" name="collab[2][]"><br>
 	<input type="submit">
 </form>
 
 
 
-
+<!--
 
 
 <form method="POST" action="#">
@@ -139,7 +156,7 @@
 
 
 
-
+-->
 
 
 	

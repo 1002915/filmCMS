@@ -213,9 +213,38 @@
 						}
 						$stmt->close();
 
+
+						// Insert collaborators
+
+						// FIX EVERYTHING HERE!!!
+						$sql = "SELECT id FROM film WHERE ?????????"
+
+						$colab = $_POST['collab'];
+						$sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES";
+						$format = " ('%d', '%s', '%s', '%s', '%s'),";
+
+						foreach($colab as $row) {
+						    $sql .= sprintf($format, $target, $row[0], $row[1], $row[2], $row[3]);
+						}
+						$sql = rtrim($sql, ',');
+
+						if(!$stmt = $mysqli->prepare ($sql)) {
+							echo "prepare failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failed";
+						}
+						$stmt->close();
+
 					} //end if isset all post variables
 
 				break; // end new project
+
+
+
+
+
+
 
 
 
