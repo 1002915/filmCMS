@@ -180,6 +180,27 @@
 						}
 						$stmt->close();
 
+
+
+
+						// update collaborators
+						$collab = $_POST['collab'];
+						$sql = "UPDATE collaborators SET first_name = ?, last_name = ?, role = ?, email = ? WHERE film_id = film.id AND film.id = ?";
+
+						if(!$stmt = $mysqli->prepare ($sql)) {
+							echo "prepare failed";
+						}
+						
+
+
+
+
+
+						if(!$stmt->execute()){
+							echo "execute failed";
+						}
+						$stmt->close();
+
 					} //end if isset all post variables
 					
 				break; // end update project
@@ -201,6 +222,8 @@
 						$published = $_POST['published'];
 						$active = $_POST['active'];
 
+
+						// Insert film details
 						$sql  = "INSERT INTO film (title, synopsis, video_link, cover_image, runtime, user_id, published, active) VALUES (?,?,?,?,?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
@@ -211,19 +234,16 @@
 						if(!$stmt->execute()){
 							echo "execute failed";
 						}
-						$stmt->close();
+
+						$target = $mysqli->insert_id;
 
 
 						// Insert collaborators
-
-						// FIX EVERYTHING HERE!!!
-						$sql = "SELECT id FROM film WHERE ?????????"
-
-						$colab = $_POST['collab'];
+						$collab = $_POST['collab'];
 						$sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES";
 						$format = " ('%d', '%s', '%s', '%s', '%s'),";
 
-						foreach($colab as $row) {
+						foreach($collab as $row) {
 						    $sql .= sprintf($format, $target, $row[0], $row[1], $row[2], $row[3]);
 						}
 						$sql = rtrim($sql, ',');
