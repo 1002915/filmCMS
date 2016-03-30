@@ -1,163 +1,277 @@
 <?php 
 	require "connection.php";
 
-	$function = $_POST['function'];
-	$target = $_POST['target'];
+	if(!empty($_POST['function'])) {
 
-	/*
-		Available Functions:
-			return_all_projects
-			return_project
-			upddate_project
-			new_project
-			hide_project
-	*/
-	
-	switch($function){
+		if(isset($_POST['target'])) {
 
-		case "return_all_projects":
-			$sql = "SELECT * FROM film";
-			$result = $mysqli->query($sql);
+			$function = $_POST['function'];
+			$target = $_POST['target'];
+			$errormsg = "";
 
-			while ($results = $result->fetch_assoc()) {
-				$data = array(
-					"id" => $results['id'],
-					"title" => $results['title'],
-					"synopsis" => $results['synopsis'],
-					"video_link" => $results['video_link'],
-					"cover_image" => $results['cover_image'],
-					"runtime" => $results['runtime'],
-					"user_id" => $results['user_id'],
-					"published" => $results['published'],
-					"active" => $results['active']
-				);
-			}
-		break;
-
-		case "return_project";
-			$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active FROM film, users WHERE film.user_id = users.id AND film.id = ?";
-			if(!$stmt = $mysqli->prepare ($sql)) {
-				echo "prepare failed";
-			}
-			if(!$stmt->bind_param("i", $target)){
-				echo "binding param failed";
-			}
-			if(!$stmt->execute()){
-				echo "execute failied";
-			}
-			if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)) {
-				echo "binding results failed";
-			}
+			/*
+				Available Functions:
+					return_all_projects
+					return_project
+					upddate_project
+					new_project
+					hide_project
+					add_rating
+					add_academic_feedback
+			*/
 			
-			while($stmt->fetch()) {
-				$data = array(
-					"id" => $id,
-					"title" => $title,
-					"synopsis" => $synopsis,
-					"video_link" => $video_link,
-					"cover_image" => $cover_image,
-					"runtime" => $runtime,
-					"user_id" => $user_id,
-					"published" => $published,
-					"active" => $active
-				);
-			}
+			switch($function){
 
-		break;
+				case "return_all_projects":
+					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id";
 
-		case "update_project";
-			$title = $_POST['title'];
-			$synopsis = $_POST['synopsis'];
-			$video_link = $_POST['video_link'];
-			$cover_image = $_POST['cover_image'];
-			$runtime = $_POST['runtime'];
-			$user_id = $_POST['user_id'];
-			$published = $_POST['published'];
-			$active = $_POST['active'];
+					if(!$stmt = $mysqli->prepare ($sql)){
+						echo "prepare failed";
+					}
+					if(!$stmt->execute()){
+						echo "execute failed";
+					}
+					
+					if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+						echo "binding results failed";
+					}
 
-			$sql = "UPDATE film SET title = ?, synopsis = ?, video_link = ?, cover_image = ?, runtime = ?, user_id = ?, published = ?, active = ? WHERE id = ?";
-			if(!$stmt = $mysqli->prepare ($sql)) {
-				echo "prepare failed";
-			}
-			if(!$stmt->bind_param("ssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $target)){
-				echo "binding param failed";
-			}
-			if(!$stmt->execute()){
-				echo "execute failed";
-			}
-			$stmt->close();
+					while($stmt->fetch()) {
+						$data = array(
+							"id" => $id,
+							"title" => $title,
+							"synopsis" => $synopsis,
+							"video_link" => $video_link,
+							"cover_image" => $cover_image,
+							"runtime" => $runtime,
+							"user_id" => $user_id,
+							"published" => $published,
+							"active" => $active,
+							"average_rating" => $average_rating,
+							"first_name" => $first_name,
+							"last_name" => $last_name,
+							"campus" => $location
+						);
+					}
+
+				break; // end return all projects
 
 
 
-/*
-			$sql = "SELECT id, title, synopsis, video_link, cover_image, runtime, published, active FROM film WHERE id = ?";
-			if(!$stmt = $mysqli->prepare ($sql)) {
-				echo "prepare failed";
-			}
-			if(!$stmt->bind_param("i", $target)){
-				echo "binding param failed";
-			}
-			if(!$stmt->execute()){
-				echo "execute failied";
-			}
-			if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active)) {
-				echo "binding results failed";
-			}
-			
-			while($stmt->fetch()) {
-				$data = array(
-					"id" => $id,
-					"title" => $title,
-					"synopsis" => $synopsis,
-					"video_link" => $video_link,
-					"cover_image" => $cover_image,
-					"runtime" => $runtime,
-					"user_id" => $user_id,
-					"published" => $published,
-					"active" => $active
-				);
-			}*/
-			
-		break;
 
-		case "new_project";
-			$title = $_POST['title'];
-			$synopsis = $_POST['synopsis'];
-			$video_link = $_POST['video_link'];
-			$cover_image = $_POST['cover_image'];
-			$runtime = $_POST['runtime'];
-			$user_id = $_POST['user_id'];
-			$published = $_POST['published'];
-			$active = $_POST['active'];
 
-			$sql  = "INSERT INTO film (title, synopsis, video_link, cover_image, runtime, user_id, published, active) VALUES (?,?,?,?,?,?,?,?)";
-			if(!$stmt = $mysqli->prepare ($sql)) {
-				echo "prepare failed";
-			}
-			if(!$stmt->bind_param("ssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
-				echo "binding param failed";
-			}
-			if(!$stmt->execute()){
-				echo "execute failed";
-			}
-			$stmt->close();
+				case "return_project":
+					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ?";
+					if(!$stmt = $mysqli->prepare ($sql)) {
+						echo "prepare failed";
+					}
+					if(!$stmt->bind_param("i", $target)){
+						echo "binding param failed";
+					}
+					if(!$stmt->execute()){
+						echo "execute failied";
+					}
+					if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+						echo "binding results failed";
+					}
+					
+					while($stmt->fetch()) {
+						$data = array(
+							"id" => $id,
+							"title" => $title,
+							"synopsis" => $synopsis,
+							"video_link" => $video_link,
+							"cover_image" => $cover_image,
+							"runtime" => $runtime,
+							"user_id" => $user_id,
+							"published" => $published,
+							"active" => $active,
+							"average_rating" => $average_rating,
+							"first_name" => $first_name,
+							"last_name" => $last_name,
+							"campus" => $location
+						);
+					}
 
-			break;
+					$stmt->close();
 
-		case "hide_project";
-			$active = $_POST['active'];
-			$sql = "UPDATE film SET active = ? WHERE id = ?";
-			if(!$stmt = $mysqli->prepare($sql)) {
-				echo "prepare failed";
-			}
-			if(!$stmt->bind_param("ii", $active, $target)){
-				echo "binding param failed";
-			}
-			if(!$stmt->execute()){
-				echo "execute failed";
-			}
-			$stmt->close();
-			break;
-	}	
+				break; // end return single project
+
+
+
+
+
+				case "update_project":
+					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ?";
+					if(!$stmt = $mysqli->prepare ($sql)) {
+						echo "prepare failed";
+					}
+					if(!$stmt->bind_param("i", $target)){
+						echo "binding param failed";
+					}
+					if(!$stmt->execute()){
+						echo "execute failied";
+					}
+					if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+						echo "binding results failed";
+					}
+					
+					while($stmt->fetch()) {
+						$data = array(
+							"id" => $id,
+							"title" => $title,
+							"synopsis" => $synopsis,
+							"video_link" => $video_link,
+							"cover_image" => $cover_image,
+							"runtime" => $runtime,
+							"user_id" => $user_id,
+							"published" => $published,
+							"active" => $active,
+							"average_rating" => $average_rating,
+							"first_name" => $first_name,
+							"last_name" => $last_name,
+							"campus" => $location
+						);
+					}
+
+					$stmt->close();
+
+					if(!isset($_POST['title'], $_POST['synopsis'], $_POST['video_link'], $_POST['cover_image'], $_POST['runtime'], $_POST['user_id'], $_POST['published'], $_POST['active'])){
+						$errormsg = "Project was unable to be created. Please make sure you have filled in every field.";
+					} else {
+
+						$title = $_POST['title'];
+						$synopsis = $_POST['synopsis'];
+						$video_link = $_POST['video_link'];
+						$cover_image = $_POST['cover_image'];
+						$runtime = $_POST['runtime'];
+						$user_id = $_POST['user_id'];
+						$published = $_POST['published'];
+						$active = $_POST['active'];
+
+						$sql = "UPDATE film SET title = ?, synopsis = ?, video_link = ?, cover_image = ?, runtime = ?, published = ?, active = ? WHERE film.user_id = users.id AND film.id = ?";
+						if(!$stmt = $mysqli->prepare ($sql)) {
+							echo "prepare failed";
+						}
+						if(!$stmt->bind_param("ssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $target)){
+							echo "binding param failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failed";
+						}
+						$stmt->close();
+
+					} //end if isset all post variables
+					
+				break; // end update project
+
+
+
+
+
+				case "new_project":
+					if(!isset($_POST['title'], $_POST['synopsis'], $_POST['video_link'], $_POST['cover_image'], $_POST['runtime'], $_POST['user_id'], $_POST['published'], $_POST['active'])){
+						$errormsg = "Project was unable to be created. Please make sure you have filled in every field.";
+					} else {
+
+						$title = $_POST['title'];
+						$synopsis = $_POST['synopsis'];
+						$video_link = $_POST['video_link'];
+						$cover_image = $_POST['cover_image'];
+						$runtime = $_POST['runtime'];
+						$user_id = $_POST['user_id'];
+						$published = $_POST['published'];
+						$active = $_POST['active'];
+
+						$sql  = "INSERT INTO film (title, synopsis, video_link, cover_image, runtime, user_id, published, active) VALUES (?,?,?,?,?,?,?,?)";
+						if(!$stmt = $mysqli->prepare ($sql)) {
+							echo "prepare failed";
+						}
+						if(!$stmt->bind_param("ssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
+							echo "binding param failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failed";
+						}
+						$stmt->close();
+
+					} //end if isset all post variables
+
+				break; // end new project
+
+
+
+
+
+				case "hide_project":
+					if(!isset($_POST['active'])){
+						$errormsg = "Please select whether the project is active or not";
+					} else {
+						$active = $_POST['active'];
+						$sql = "UPDATE film SET active = ? WHERE id = ?";
+						if(!$stmt = $mysqli->prepare($sql)) {
+							echo "prepare failed";
+						}
+						if(!$stmt->bind_param("ii", $active, $target)){
+							echo "binding param failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failed";
+						}
+						$stmt->close();
+				break; // end hide project
+
+
+
+
+				case "add_rating":
+					$rating = $_POST['rating'];
+					$ip = $_POST['ip'];
+
+					$sql = "INSERT INTO rating (rating, IP, film_id) VALUES (?,?,?)";
+					if(!$stmt = $mysqli->prepare ($sql)) {
+						echo "prepare failed";
+					}
+					if(!$stmt->bind_param("isi", $rating, $ip, $target)) {
+						echo "binding param failed";
+					}
+					if(!$stmt->execute()){
+						echo "execute failed";
+					}
+					if(!$stmt->bind_result($rating, $ip, $film_id)){
+						echo "binding result failed";
+					}
+					$stmt->close();
+
+				break;//end add rating
+
+
+
+
+				case "add_academic_feedback":
+					$user_id = $_POST['user_id'];
+					$q1 = $_POST['q1'];
+					$q2 = $_POST['q2'];
+					$q3 = $_POST['q3'];
+
+					$sql = "INSERT INTO academic (user_id, film_id) VALUES (?,?)";
+					if(!$stmt = $mysqli->prepare ($sql)) {
+						echo "prepare failed";
+					}
+					if(!$stmt->bind_param("ii", $user_id, $target)) {
+						echo "binding param failed";
+					}
+					if(!$stmt->execute()){
+						echo "execute failed";
+					}
+					if(!$stmt->bind_result($user_id, $film_id)){
+						echo "binding result failed";
+					}
+					$stmt->close();
+				break; // end add academic feedback
+
+			} // end switch
+		} // end if target is set
+	} //end if function not empty
 	
 ?>
