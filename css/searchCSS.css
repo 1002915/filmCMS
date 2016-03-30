@@ -1,0 +1,42 @@
+body {
+	font-family: arial;
+}
+
+input {
+	font-size: 16px;
+}
+
+span {
+	font-size: 16px;
+}
+
+#searchBar {
+	height:500px;
+	width:90%;
+	margin: 0 auto;
+}
+
+#search {
+	width:50%;
+	margin:0 auto;
+	display:block;
+	border:#3b3b3b 2px solid;
+	padding:20px;
+}
+
+#searchList {
+	width:80%;
+	margin:0 auto;
+	margin-top:20px;
+	height:400px;
+	padding:20px;
+	border:#3b3b3b 1px solid;
+}
+
+.coverImage {
+
+}
+
+.runTime {
+	font-size: 12px
+}
