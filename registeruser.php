@@ -61,8 +61,7 @@ $sql = "INSERT INTO users (campus_id, first_name, Last_name, email, password_has
 
 if (mysqli_query($mysqli, $sql)) {
 
-           $confirm_url = 'localhost/filmCMS/login/confirmreg.php?code='.$verify_hash;
-            $confirm_id = $mysqli->insert_id;
+           $confirm_url = 'localhost/filmCMS/confirmreg.php?code='.$verify_hash;
 
     require_once('PHPMailerAutoload.php');
 
@@ -71,7 +70,7 @@ if (mysqli_query($mysqli, $sql)) {
     $body = "Hello ".$formvars['first_name']."!<BR>\r\n\r\n".
     "Thanks for your registration with "."FilmCMS"."\r\n<BR>".
     "Please click the link below to confirm your registration.\r\n".
-    "<a href='$confirm_url&id=$confirm_id'>Click here to confirm your registration</a>\r\n".
+    "<a href='$confirm_url'>Click here to confirm your registration</a>\r\n".
     "\r\n".
     "Regards,\r\n".
     "Webmaster\r\n";
@@ -93,8 +92,7 @@ if (mysqli_query($mysqli, $sql)) {
     $sendmail->AddAddress($formvars['email'],$formvars['first_name']);
     $sendmail->Send();
 
-    echo 'Thanks for registering. Please check your student email for the confirmation link to finalise the registration process.<BR><BR><a href="login.php">HOME</a>';
-
+    echo 'Thanks for registering. Please check your student email for the confirmation link to finalise the registration process.<a href="login.php>Back to login</a>';
     
 } else {
     
