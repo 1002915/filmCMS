@@ -2,7 +2,7 @@
 
 $dbhost = "localhost";
 $dbusername = "mattyjneal";
-$dbpassword = "";
+$dbpassword = "filmcms";
 $dbname = "c9";
 
 $mysqli = new mysqli($dbhost, $dbusername, $dbpassword, $dbname);
