@@ -33,9 +33,10 @@
 					if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
 						echo "binding results failed";
 					}
+					$data = array();
 
 					while($stmt->fetch()) {
-						$data = array(
+						$data[] = array(
 							"id" => $id,
 							"title" => $title,
 							"synopsis" => $synopsis,
@@ -77,9 +78,10 @@
 						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
 							echo "binding results failed";
 						}
+						$data = array();
 						
 						while($stmt->fetch()) {
-							$data = array(
+							$data[] = array(
 								"id" => $id,
 								"title" => $title,
 								"synopsis" => $synopsis,
@@ -124,9 +126,10 @@
 						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
 							echo "binding results failed";
 						}
+						$data = array();
 						
 						while($stmt->fetch()) {
-							$data = array(
+							$data[] = array(
 								"id" => $id,
 								"title" => $title,
 								"synopsis" => $synopsis,
@@ -168,6 +171,8 @@
 						$published = $_POST['published'];
 						$active = $_POST['active'];
 
+						$collab = $_POST['collab'];
+
 						$sql = "UPDATE film SET title = ?, synopsis = ?, video_link = ?, cover_image = ?, runtime = ?, published = ?, active = ? WHERE film.user_id = users.id AND film.id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
@@ -178,28 +183,6 @@
 						if(!$stmt->execute()){
 							echo "execute failed";
 						}
-						$stmt->close();
-
-
-
-
-						// update collaborators
-						$collab = $_POST['collab'];
-						$sql = "UPDATE collaborators SET first_name = ?, last_name = ?, role = ?, email = ? WHERE film_id = film.id AND film.id = ?";
-
-						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
-						}
-						
-
-
-
-
-
-						if(!$stmt->execute()){
-							echo "execute failed";
-						}
-						$stmt->close();
 
 					} //end if isset all post variables
 					
@@ -237,24 +220,30 @@
 
 						$target = $mysqli->insert_id;
 
+						$stmt->close();
 
 						// Insert collaborators
+
 						$collab = $_POST['collab'];
-						$sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES";
-						$format = " ('%d', '%s', '%s', '%s', '%s'),";
 
-						foreach($collab as $row) {
-						    $sql .= sprintf($format, $target, $row[0], $row[1], $row[2], $row[3]);
-						}
-						$sql = rtrim($sql, ',');
+						foreach($collab as $value=>$data) {
+						     $collab_fn = $data['firstname'];
+						     $collab_ln = $data['lastname'];
+						     $collab_role = $data['role'];
+						     $collab_email = $data['email'];
 
-						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
+						     $sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES (?,?,?,?,?)";
+						     if(!$stmt = $mysqli->prepare ($sql)){
+						     	echo "prepare failed";
+						     }
+						     if(!$stmt->bind_param("issss", $target, $collab_fn, $collab_ln, $collab_role, $collab_email)){
+						     	echo "binding param failed";
+						     }
+						     if(!$stmt->execute()){
+						     	echo "execute failed";
+						     }
+						     $stmt->close();
 						}
-						if(!$stmt->execute()){
-							echo "execute failed";
-						}
-						$stmt->close();
 
 					} //end if isset all post variables
 
@@ -354,8 +343,16 @@
 				
 				break; // end add academic feedback
 
+
+
+
+
+				$data = json_encode($data);
+				echo $data;
+
 			} // end switch
 
 	} //end if function not empty
+
 	
 ?>
