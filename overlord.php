@@ -158,7 +158,7 @@
 
 				case "update_project":
 
-					if(!isset($_POST['target'], $_POST['title'], $_POST['synopsis'], $_POST['video_link'], $_POST['cover_image'], $_POST['runtime'], $_POST['user_id'], $_POST['published'], $_POST['active'])){
+					if(!isset($_POST['target'], $_POST['title'], $_POST['synopsis'], $_POST['video_link'], $_POST['cover_image'], $_POST['runtime'], $_POST['published'], $_POST['active'])){
 						$errormsg = "Project was unable to be created. Please make sure you have filled in every field.";
 					} else {
 						$target = $_POST['target'];
@@ -167,13 +167,11 @@
 						$video_link = $_POST['video_link'];
 						$cover_image = $_POST['cover_image'];
 						$runtime = $_POST['runtime'];
-						$user_id = $_POST['user_id'];
+						//$user_id = $_POST['user_id'];
 						$published = $_POST['published'];
 						$active = $_POST['active'];
 
-						$collab = $_POST['collab'];
-
-						$sql = "UPDATE film SET title = ?, synopsis = ?, video_link = ?, cover_image = ?, runtime = ?, published = ?, active = ? WHERE film.user_id = users.id AND film.id = ?";
+						$sql = "UPDATE film SET title = ?, synopsis = ?, video_link = ?, cover_image = ?, runtime = ?, published = ?, active = ? WHERE film.id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -183,6 +181,96 @@
 						if(!$stmt->execute()){
 							echo "execute failed";
 						}
+						$stmt->close();
+
+
+
+						// collaborator mess
+
+						$collab = $_POST['collab'];
+
+						// loop through collaborators currently listed for that film
+						
+						$sql = "SELECT id, first_name, last_name, role, email FROM collaborators WHERE film_id = ?";
+						if(!$stmt = $mysqli->prepare ($sql)){
+							echo "prepare failed";
+						}
+						if(!$stmt->bind_param("i", $target)){
+							echo "binding param failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failed";
+						}
+
+						$res = $stmt->get_result();
+						
+						// loop through sql response
+						while($row = $res->fetch_assoc()){
+							$found = 0;
+
+							//loop through collabs input in form
+							foreach($collab as $k => $collabrow){
+								$rowcompare = array_slice($row, 1);
+
+								// if current collab loop matches sql response
+								if($collabrow == $rowcompare){
+									$found = 1;
+
+									unset($collab[$k]);
+									// remove from collab array
+									
+								} else {
+
+									//add to delete array -> value should be the id
+									$delete = array(
+										"id" => $row['id']
+									);
+
+								} // end else 
+
+								echo "collab loop after if/else";
+								var_dump($collab);
+								
+							} // end foreach
+
+ 						} // end while
+
+ 						// if delete array > 0
+ 						if($delete > 0){
+ 							
+ 							foreach($delete as $rowtodelete) {
+ 								$sql = "DELETE FROM collaborators WHERE id = ?";
+ 								$stmt = $mysqli->prepare($sql);
+ 								$stmt->bind_param("i", $rowtodelete);
+ 								$stmt->execute();
+ 								$stmt->close();
+ 							}
+ 						}
+ 						
+ 						// if collab array > 0
+ 						if($collab > 0){
+ 							foreach($collab as $collabtoadd){
+ 								$film_id = $target;
+ 								$first_name = $collabtoadd['first_name'];
+ 								$last_name = $collabtoadd['last_name'];
+ 								$role = $collabtoadd['role'];
+ 								$email = $collabtoadd['email'];
+
+ 								$sql = "INSERT INTO collaborators(film_id, first_name, last_name, role, email) VALUES (?,?,?,?,?)";
+ 								if(!$stmt = $mysqli->prepare ($sql)) {
+									echo "prepare failed";
+								}
+								if(!$stmt->bind_param("issss", $film_id, $first_name, $last_name, $role, $email)){
+									echo "binding param failed";
+								}
+								if(!$stmt->execute()){
+									echo "execute failed";
+								}
+								$stmt->close();
+
+ 							} // end foreach
+
+ 						} // end if collabs to add
 
 					} //end if isset all post variables
 					

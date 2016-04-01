@@ -52,22 +52,23 @@
 	<input type="text" name="active"><br>
 
 	<h3>Collaborator 1 First Name</h3><br>
-	<input type="text" name="collab[1][firstname]"><br>
+	<input type="text" name="collab[1][first_name]"><br>
 	<h3>Collaborator 1 Last Name</h3><br>
-	<input type="text" name="collab[1][lastname]"><br>
+	<input type="text" name="collab[1][last_name]"><br>
 	<h3>Collaborator 1 Role</h3><br>
 	<input type="text" name="collab[1][role]"><br>
 	<h3>Collaborator 1 Email</h3><br>
 	<input type="text" name="collab[1][email]"><br>
 
 	<h3>Collaborator 2 First Name</h3><br>
-	<input type="text" name="collab[2][firstname]"><br>
+	<input type="text" name="collab[2][first_name]"><br>
 	<h3>Collaborator 2 Last Name</h3><br>
-	<input type="text" name="collab[2][lastname]"><br>
+	<input type="text" name="collab[2][last_name]"><br>
 	<h3>Collaborator 2 Role</h3><br>
 	<input type="text" name="collab[2][role]"><br>
 	<h3>Collaborator 2 Email</h3><br>
 	<input type="text" name="collab[2][email]"><br>
+
 	<input type="submit">
 </form>
 
@@ -167,7 +168,6 @@
 
 
 
--->
 
 
 	
@@ -260,3 +260,5 @@
 		</tbody>
 	</table>
 	
+
+-->
