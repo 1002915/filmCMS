@@ -29,7 +29,7 @@
 </form>
 
 
--->
+
 
 <form method="POST" action="#">
 	<h2>Update a project</h2>
@@ -74,7 +74,7 @@
 
 
 
-<!--
+
 
 <form method="POST" action="#">
 	<h2>Create a project</h2>
@@ -148,7 +148,7 @@
 
 
 
-
+-->
 
 
 
@@ -157,14 +157,29 @@
 	<input type="hidden" name="function" value="add_academic_feedback">
 	<h3>Film Id:</h3><br>
 	<input type="number" name="target">
+	<h3>User Id:</h3><br>
+	<input type="number" name="user_id">
 	<h3>Question 1</h3><br>
-	<input type="text" name="q1"><br>
+	<input type="text" name="feedback_1"><br>
 	<h3>Question 2</h3><br>
-	<input type="text" name="q2"><br>
+	<input type="text" name="feedback_2"><br>
 	<h3>Question 3</h3><br>
-	<input type="text" name="q3"><br>
+	<input type="text" name="feedback_3"><br>
 	<input type="submit">
 </form>
+
+
+<form method="POST" action="#">
+	<h2>Return Academic Feedback</h2>
+	<input type="hidden" name="function" value="return_academic_feedback">
+	<h3>Campus Id:</h3><br>
+	<input type="number" name="target">
+	<input type="submit">
+</form>
+
+
+
+
 
 
 
