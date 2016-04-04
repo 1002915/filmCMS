@@ -469,6 +469,28 @@
 				case "save_film_history":
 					$target = $_POST['target'] //film id
 
+					if(!isset($_POST['target'], $_POST['user_id'], $_POST['user_action'])){
+						$errormsg = "Please select whether the project is active or not";
+					} else {
+						$target = $_POST['target']; // film id
+						$user_id = $_POST['user_id'];
+						$user_action = $_POST['user_action'];
+
+						$sql = "INSERT INTO film_history(film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						if(!$stmt = $mysqli->prepare ($sql)) {
+							echo "prepare failed";
+						}
+						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $user_action)) {
+							echo "binding param failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failed";
+						}
+						if(!$stmt->bind_result($film_id, $user_id, $time_now, $user_action)){
+							echo "binding result failed";
+						}
+						$stmt->close();
+
 				break;
 
 
