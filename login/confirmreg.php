@@ -16,15 +16,14 @@ $row = mysqli_fetch_row($result);
 $databasekey = $row[8];
 
 
-
 if ($databasekey == $getemailconfirm) {
 
 	$verifiedupdate = "UPDATE users SET verified='1' WHERE id = '$idconfirm'";
 
 if ($mysqli->query($verifiedupdate) === TRUE) {
+
 	echo "updated! Thank you for registering. click <a href='login.php'>HERE</a> to login.";
 }
-
 
 } else {
 
