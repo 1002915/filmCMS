@@ -536,6 +536,9 @@
 
 				$data = json_encode($data);
 				echo $data;
+				if(empty($data)){
+					$errormsg = "You haven't typed anything!";
+				}
 
 			} // end switch
 
