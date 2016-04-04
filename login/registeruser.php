@@ -3,15 +3,13 @@ session_start();
 
 include('connection.php');
   
-$submitted = e($_POST['submitted']);
-
 $first_name = e($_POST['first_name']);
 
 $last_name = e($_POST['last_name']);
 
 $email = e($_POST['email']);
 
-$password = e($_POST['password']);
+$password = e($_POST['pass_confirmation']);
 
 $campus_id = e($_POST['campus_id']);
 
@@ -63,7 +61,7 @@ $formvars['last_name'] = Sanitize($_POST['last_name']);
 
 $formvars['email'] = Sanitize($_POST['email']);
 
-$formvars['password'] = Sanitize($_POST['password']);
+$formvars['password'] = Sanitize($_POST['pass_confirmation']);
 
 
 function e($text) {
