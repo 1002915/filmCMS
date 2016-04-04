@@ -18,6 +18,7 @@
 				$('#search').keyup(function(){
 					console.log('Keypress!');
 					var search = $('#search').val();
+					console.log({$data});
 					$.ajax({
 						type:"POST",
 						url:"overlord.php",
@@ -26,7 +27,12 @@
 						},
 						success:function(res) {
 							console.log(res);
-							$('#searchList').html(res);
+							// loop through data
+ 							for ( data in {$data}) {
+								$('#searchList').append( "<img src='data['.'cover_image'.']'class='coverImage' alt='cover_image'> <p>test</p>" );
+							}
+								
+							//$('#searchList').html(res);
 						}
 					});
 				});
@@ -38,15 +44,15 @@
 			Test Search Bar
 			<!-- SEARCH BOX -->
 			<input type='text' name='target' placeholder='Search...' id='search'>
-			<input type='hidden' name='search_project'>
+
 			<!-- SEARCH RESULTS CONTAINER -->
 			<div id='searchList'>
 				<?php
 				//foreach (){?>
-					<img scr="<?php echo $data['cover_image']; ?>" alt='coverImg' class='coverImage'><br>
+					<!--<img src="<?php echo $data['cover_image']; ?>" alt='coverImg' class='coverImage'><br>
 					<span><?php echo $data['title']; ?></span><br>
 					<span class='runTime'><?php echo $data['runtime']; ?></span><br>
-					<span><?php echo $data['synopsis']; ?></span><br>
+					<span><?php echo $data['synopsis']; ?></span><br>-->
 
 			<?php //}?>
 			</div>
