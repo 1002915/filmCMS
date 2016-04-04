@@ -29,7 +29,7 @@
 </form>
 
 
--->
+
 
 <form method="POST" action="#">
 	<h2>Update a project</h2>
@@ -52,28 +52,29 @@
 	<input type="text" name="active"><br>
 
 	<h3>Collaborator 1 First Name</h3><br>
-	<input type="text" name="collab[1][firstname]"><br>
+	<input type="text" name="collab[1][first_name]"><br>
 	<h3>Collaborator 1 Last Name</h3><br>
-	<input type="text" name="collab[1][lastname]"><br>
+	<input type="text" name="collab[1][last_name]"><br>
 	<h3>Collaborator 1 Role</h3><br>
 	<input type="text" name="collab[1][role]"><br>
 	<h3>Collaborator 1 Email</h3><br>
 	<input type="text" name="collab[1][email]"><br>
 
 	<h3>Collaborator 2 First Name</h3><br>
-	<input type="text" name="collab[2][firstname]"><br>
+	<input type="text" name="collab[2][first_name]"><br>
 	<h3>Collaborator 2 Last Name</h3><br>
-	<input type="text" name="collab[2][lastname]"><br>
+	<input type="text" name="collab[2][last_name]"><br>
 	<h3>Collaborator 2 Role</h3><br>
 	<input type="text" name="collab[2][role]"><br>
 	<h3>Collaborator 2 Email</h3><br>
 	<input type="text" name="collab[2][email]"><br>
+
 	<input type="submit">
 </form>
 
 
 
-<!--
+
 
 <form method="POST" action="#">
 	<h2>Create a project</h2>
@@ -147,7 +148,7 @@
 
 
 
-
+-->
 
 
 
@@ -156,18 +157,32 @@
 	<input type="hidden" name="function" value="add_academic_feedback">
 	<h3>Film Id:</h3><br>
 	<input type="number" name="target">
+	<h3>User Id:</h3><br>
+	<input type="number" name="user_id">
 	<h3>Question 1</h3><br>
-	<input type="text" name="q1"><br>
+	<input type="text" name="feedback_1"><br>
 	<h3>Question 2</h3><br>
-	<input type="text" name="q2"><br>
+	<input type="text" name="feedback_2"><br>
 	<h3>Question 3</h3><br>
-	<input type="text" name="q3"><br>
+	<input type="text" name="feedback_3"><br>
+	<input type="submit">
+</form>
+
+
+<form method="POST" action="#">
+	<h2>Return Academic Feedback</h2>
+	<input type="hidden" name="function" value="return_academic_feedback">
+	<h3>Campus Id:</h3><br>
+	<input type="number" name="target">
 	<input type="submit">
 </form>
 
 
 
--->
+
+
+
+
 
 
 	
@@ -260,3 +275,5 @@
 		</tbody>
 	</table>
 	
+
+-->
