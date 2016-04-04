@@ -66,7 +66,7 @@
             name="accept" 
             value="accept"> I have selected the correct campus AND entered in the correct details. I also agree to the terms and conditions.<br>
 
-    <input type='submit' name='Submit' value='Submit' />
+    <input id="SubmitButton" type='submit' name='Submit' value='Submit' />
 
 </form><BR>
 
@@ -81,5 +81,8 @@ $.validate();
   $.validate({
     modules : 'security'
   });
+
+ 
 </script>
+
 
