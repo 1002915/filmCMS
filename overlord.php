@@ -322,7 +322,7 @@
 							$action =  "Insert new film execute failed";
 						} 
 						else {
-							$action = "New film inserted"
+							$action = "New film inserted";
 						}
 
 						$target = $mysqli->insert_id; // film id
