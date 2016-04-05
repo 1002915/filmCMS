@@ -115,7 +115,7 @@
 					} else {
 						$target = $_POST['target']; // any search term entered
 						$searchstring = "%".$target."%";
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, users.first_name, users.last_name, location, collaborators.first_name, collaborators.last_name, role FROM film, rating, users, campus, collaborators WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND collaborators.film_id=film.id AND title LIKE ? OR synopsis LIKE ? OR first_name LIKE ? OR last_name LIKE ?";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, users.first_name, users.last_name, location, collaborators.first_name, collaborators.last_name, role FROM film, rating, users, campus, collaborators WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND collaborators.film_id=film.id AND title LIKE ? OR synopsis LIKE ? OR cafirst_name LIKE ? OR last_name LIKE ?";
 						if(!$stmt = $mysqli->prepare($sql)){
 							echo "prepare failed";
 						}

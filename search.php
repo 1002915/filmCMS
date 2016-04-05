@@ -18,21 +18,27 @@
 				$('#search').keyup(function(){
 					console.log('Keypress!');
 					var search = $('#search').val();
-					console.log({$data});
 					$.ajax({
 						type:"POST",
 						url:"overlord.php",
 						data:{
-							function:'search_project'
+							function:'search_project',
+							target:search
 						},
 						success:function(res) {
 							console.log(res);
 							// loop through data
- 							for ( data in {$data}) {
-								$('#searchList').append( "<img src='data['.'cover_image'.']'class='coverImage' alt='cover_image'> <p>test</p>" );
+ 							for ( data in res) {
+								$('#searchList').append( "<img src='"+data['cover_image']+"'class='coverImage' alt='cover_image'> <p>test</p>" );
 							}
 								
 							//$('#searchList').html(res);
+						},
+						error:function(req,text,error) {
+							console.log('Oops!');
+							console.log(req);
+							console.log(text);
+							console.log(error);
 						}
 					});
 				});
