@@ -1,8 +1,3 @@
-<!doctype html5>
-<head>
-
-</head>
-
 <div class="loginbox">
 <form name="loginForm" id="login" method="post" action="checklogin.php">
   <input type="text" data-validation="email" name='email' id='email' placeholder="email" maxlength="50" /><br/>
