@@ -1,8 +1,9 @@
 <?php 
 
-require "header.php";
 
 ?>
+
+	<link rel='stylesheet' type='text/css' href='css/tatiana_styles.css'>
 
 	<script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
 	
@@ -10,10 +11,16 @@ require "header.php";
 		$(document).ready(function(){
 
 			$('#new_video_link').on('input', function(){
-				var input=$(this);
-
+				var input= $(this);
+				var re= /http:\/\/(?:www.)?(?:(vimeo).com\/(.*)|(youtube).com\/watch\?v=(.*?)&)/
+				var is_video = re.test(input.val());
+				if(is_video){
+					input.removeClass("invalid").addClass("valid");
+				}
+				else {
+					input.removeClass("valid")}.addClass("invalid");
+				}
 			});
-
 		});
 
 	</script>
@@ -24,7 +31,7 @@ require "header.php";
 
 <form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
-	<input type="text" class='edit_film' id='new_video_link' name="video_link"><button>
+	<input type="text" class='edit_film' id='new_video_link' name="video_link"><button>Upload</button>
 
 	<div class='display_video'>
 	</div>
