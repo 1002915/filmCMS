@@ -81,6 +81,11 @@ if (mysqli_query($mysqli, $sql)) {
 
     $confirm_id = $mysqli->insert_id;
 
+
+
+
+    
+
 require_once('PHPMailerAutoload.php');
 
 $body = "Hello ".$formvars['first_name']."!<BR>\r\n\r\n".

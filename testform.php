@@ -1,7 +1,7 @@
 <?php
 	require "overlord.php";
 ?>
-<!--
+
 <form method="POST" action="#">
 	<h2>Search</h2>
 	<input type='hidden' name='function' value='search_project'>
@@ -18,7 +18,7 @@
 </form>
 
 
-<!--
+
 
 
 <form method="POST" action="#">
