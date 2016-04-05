@@ -115,7 +115,7 @@
 					} else {
 						$target = $_POST['target']; // any search term entered
 						$searchstring = "%".$target."%";
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, users.first_name, users.last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND title LIKE ? OR synopsis LIKE ? OR first_name LIKE ? OR last_name LIKE ?";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, location, collaborators.first_name, collaborators.last_name FROM film, rating, users, campus, collaborators WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND collaborators.film_id = film.id AND title LIKE ? OR synopsis LIKE ? OR collaborators.first_name LIKE ? OR collaborators.last_name LIKE ?";
 						if(!$stmt = $mysqli->prepare($sql)){
 							echo "prepare failed";
 						}
@@ -125,7 +125,7 @@
 						if(!$stmt->execute()){
 							echo "execute failed";
 						}
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $location, $first_name, $last_name)) {
 							echo "binding results failed";
 						}
 						$data = array();
@@ -138,7 +138,7 @@
 								"video_link" => $video_link,
 								"cover_image" => $cover_image,
 								"runtime" => $runtime,
-								"user_id" => $user_id,
+								//"user_id" => $user_id,
 								"published" => $published,
 								"active" => $active,
 								"average_rating" => $average_rating,
