@@ -175,13 +175,16 @@
 
 						$sql = "UPDATE film SET title = ?, synopsis = ?, video_link = ?, cover_image = ?, runtime = ?, published = ?, active = ? WHERE film.id = ? AND user_id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
+							$action = "Update project prepare failed";
 						}
 						if(!$stmt->bind_param("ssssiiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $target, $user_id)){
-							echo "binding param failed";
+							$action = "Update project binding param failed";
 						}
 						if(!$stmt->execute()){
-							echo "execute failed";
+							$action = "Update project execute failed";
+						}
+						else {
+							$action = "Project updated";
 						}
 						$stmt->close();
 
@@ -250,13 +253,17 @@
 
  								$sql = "INSERT INTO collaborators(film_id, first_name, last_name, role, email) VALUES (?,?,?,?,?)";
  								if(!$stmt = $mysqli->prepare ($sql)) {
-									echo "prepare failed";
+									$action = "inserting collaborators prepare failed";
+
 								}
 								if(!$stmt->bind_param("issss", $film_id, $first_name, $last_name, $role, $email)){
-									echo "binding param failed";
+									$action = "Insert collaborators binding param failed";
 								}
 								if(!$stmt->execute()){
-									echo "execute failed";
+									$action = "Insert collaborators execute failed";
+								} 
+								else {
+									$action = 'Collaborators updated';
 								}
 								$stmt->close();
 
@@ -268,7 +275,6 @@
 
 
  						// Film history
- 						$action = "Film edited";
 						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
@@ -307,13 +313,16 @@
 						// Insert film details
 						$sql  = "INSERT INTO film (title, synopsis, video_link, cover_image, runtime, user_id, published, active) VALUES (?,?,?,?,?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
+							$action =  "Insert new film prepare failed";
 						}
 						if(!$stmt->bind_param("ssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
-							echo "binding param failed";
+							$action =  "Insert new film binding param failed";
 						}
 						if(!$stmt->execute()){
-							echo "execute failed";
+							$action =  "Insert new film execute failed";
+						} 
+						else {
+							$action = "New film inserted"
 						}
 
 						$target = $mysqli->insert_id; // film id
@@ -346,7 +355,6 @@
 
 
 						// Insert into film history
-						$action = "Film added";
 						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
@@ -381,20 +389,23 @@
 						$active = $_POST['active'];
 						$sql = "UPDATE film SET active = ? WHERE id = ?";
 						if(!$stmt = $mysqli->prepare($sql)) {
-							echo "prepare failed";
+							$action = "hiding film prepare failed";
 						}
 						if(!$stmt->bind_param("ii", $active, $target)){
-							echo "binding param failed";
+							$action = "hiding film binding param failed";
 						}
 						if(!$stmt->execute()){
-							echo "execute failed";
+							$action = "hiding film execute failed";
+						}
+						else {
+							$action = "Film hidden";
 						}
 						$stmt->close();
 
 
 						
 						// Insert into film history
-						$action = "Film hidden";
+						
 						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
@@ -456,16 +467,19 @@
 
 						$sql = "INSERT INTO academic (film_id, user_id, feedback_1, feedback_2, feedback_3) VALUES (?,?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
+							$action =  "Inserting film feedback prepare failed";
 						}
 						if(!$stmt->bind_param("iisss", $target, $user_id, $feedback_1, $feedback_2, $feedback_3)) {
-							echo "binding param failed";
+							$action =  "Inserting film feedback binding param failed";
 						}
 						if(!$stmt->execute()){
-							echo "execute failed";
+							$action =  "Inserting film feedback execute failed";
 						}
 						if(!$stmt->bind_result($film_id, $user_id, $feedback_1, $feedback_2, $feedback_3)){
-							echo "binding result failed";
+							$action =  "Inserting film feedback binding result failed";
+						} 
+						else {
+							$action = "Film feedback submitted";
 						}
 						$stmt->close();
 
@@ -473,7 +487,7 @@
 
 
 						// Film history
- 						$action = "Film feedback submitted";
+ 						
 						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
