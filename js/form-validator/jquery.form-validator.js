@@ -1694,7 +1694,7 @@
       requiredField: 'This is a required field',
       requiredFields: 'You have not answered all required fields',
       badTime: 'You have not given a correct time',
-      badEmail: 'You have not given a correct e-mail address',
+      badEmail: 'Please check your email address (It must be an SAE valid email)',
       badTelephone: 'You have not given a correct phone number',
       badSecurityAnswer: 'You have not given a correct answer to the security question',
       badDate: 'You have not given a correct date',
@@ -1759,8 +1759,10 @@
       var emailParts = email.toLowerCase().split('@'),
         localPart = emailParts[0],
         domain = emailParts[1];
+        var email_student = "student.sae.edu";
+        var email_staff = "sae.edu";
 
-      if (localPart && domain) {
+      if (localPart && domain && domain == email_student || localPart && domain && domain == email_staff) {
 
         if( localPart.indexOf('"') === 0 ) {
           var len = localPart.length;
