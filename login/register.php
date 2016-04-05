@@ -27,9 +27,8 @@
     <input  id="email"
             name="email"
             type="text" 
-            data-validation="email" 
+            data-validation="email"
             placeholder="email address" 
-            data-validation-error-msg="Please enter your SAE email address"
             maxlength="50" /><br/>
 
     <input  id="password"
@@ -70,13 +69,11 @@
 
 </form><BR>
 
- 
-
-
 <script src="../js/jquery-2.2.2.min.js"></script>
-<script src="../js/form-validator/jquery.form-validator.min.js"></script>
+<script src="../js/form-validator/jquery.form-validator.js"></script>
 
 <script>
+
 $.validate();
   $.validate({
     modules : 'security'
