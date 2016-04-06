@@ -123,9 +123,12 @@ html {
 
 
 .footer {
-	height: 80px;
+	height: auto;
 	background-color: #2f2f2f;
 	padding: 5px;
 	width: 100%;
 	box-sizing: border-box;
+	display: flex;
+	justify-content: center;
+
 }
