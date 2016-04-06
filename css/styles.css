@@ -25,7 +25,7 @@ html {
 }
 
 .login_button, input[type=submit] {
-	color: rgba(255, 238, 0, 1);
+	color: #ffd00b;
 	background-color: rgba(255, 238, 0, 0);
 	font-family: 'Montserrat', sans-serif;
     font-weight: 700;
@@ -47,7 +47,7 @@ html {
    	width: 200px;
 	height: 35px;
 	background-color: rgba(255, 255, 255, 1);
-    border: 3px solid rgba(255, 238, 0, 1);
+    border: 3px solid #ffd00b;
     color: #2f2f2f;
     font-size: 14px;
     -webkit-border-radius: 1px;
