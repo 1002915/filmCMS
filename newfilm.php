@@ -1,5 +1,9 @@
 <?php 
 	require 'overlord.php';
+
+	$collab = 1;
+	0
+
 ?>
 
 	<link rel='stylesheet' type='text/css' href='css/tatiana_styles.css'>
@@ -8,23 +12,13 @@
 	
 	<script>
 		$(document).ready(function(){
-			$('#new_video_link').on('input', function(){
-				var input= $(this);
-				var re= /http:\/\/(?:www.)?(?:(vimeo).com\/(.*)|(youtube).com\/watch\?v=(.*?)&)/
-				var is_video = re.test(input.val());
-				if(is_video){
-					input.removeClass("invalid").addClass("valid");
-				}
-				else {
-					input.removeClass("valid")}.addClass("invalid");
-				}
-			});
+
 		});
 	</script>
 
 
 <h2>Link Your Video</h2>
-<p>Please copy and paste your url into the field below</p>
+<p>Please copy and paste the link from youtube or vimeo</p>
 
 <form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
