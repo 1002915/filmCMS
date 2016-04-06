@@ -1904,10 +1904,11 @@
    */
   $.formUtils.addValidator({
     name: 'youtube',
-    validatorFunction: function (val) {
+    validatorFunction: function (url) {
+      console.log('hello');
       var youtubeFilter = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
       //var youtubeFilter = /^.*((youtu.be/)|(v/)|(/u/w/)|(embed/)|(watch?))??v?=?([^#&?]*).*/;
-      if (youtubeFilter.test(val)) {
+      if (youtubeFilter.test(url)) {
         console.log('youtube validate worked');
         return true;
       }
