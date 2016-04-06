@@ -1,8 +1,3 @@
-<!-- THIS IS WHAT YOU PUT ON THE INDEX PAGE -->
-<?php
-	include('overlord.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 	<head>
@@ -25,12 +20,21 @@
 							function:'search_project',
 							target:search
 						},
+						dataType:'json',
 						success:function(res) {
-							console.log(res);
 							// loop through data
- 							for ( data in res) {
-								$('#searchList').append( "<img src='"+data['cover_image']+"'class='coverImage' alt='cover_image'> <p>test</p>" );
-							}
+							$('#searchList').html('');
+ 							$.each(res, function(index,value) {
+ 								console.log(value);
+ 								// WHEN SOMEONE SEARCHES THE DATABASE
+ 								$('#searchList').html('');
+								$('#searchList').append( "<img src='"+value['cover_image']+"'class='coverImage' alt='cover_image'> <p>"+value['title']+"</p><p>"+value['synopsis']+"</p> " );
+								// WHEN THE CONENT IS NOT IN THE DATABASE
+    							if(value['id'] == null){
+									$('#searchList').html('');
+ 									$('#searchList').append("<p>Sorry there are no results</p>");
+ 								}	 
+							});
 								
 							//$('#searchList').html(res);
 						},

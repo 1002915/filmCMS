@@ -64,3 +64,11 @@
    -webkit-appearance: none;
    }
 
+.footer_col_one, .footer_col_two, .footer_col_three, .footer_col_four {
+  width: 25%;
+  box-sizing: border-box;
+  padding: 5px;
+  font-weight: 400;
+  font-size: 0.7em;
+  color: grey;
+}
