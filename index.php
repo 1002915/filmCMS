@@ -58,6 +58,12 @@
 				<div class="film_title_medium">Placeholder Film Title</div>
 			</div>
 		</div>
+
+		<div class="film_medium">
+				<img src="img/placeholder.jpg">
+				<div class="film_title_medium">Placeholder Film Title</div>
+			</div>
+		</div>
 	</div>
 </div>
 	
