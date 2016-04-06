@@ -8,7 +8,6 @@
 	
 	<script>
 		$(document).ready(function(){
-
 			$('#new_video_link').on('input', function(){
 				var input= $(this);
 				var re= /http:\/\/(?:www.)?(?:(vimeo).com\/(.*)|(youtube).com\/watch\?v=(.*?)&)/
@@ -21,7 +20,6 @@
 				}
 			});
 		});
-
 	</script>
 
 
@@ -30,11 +28,10 @@
 
 <form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
-	<input type="text" class='edit_film' id='new_video_link' name="video_link"><button>Upload</button>
+	<input type="text" id='new_video_link' name="video_link"><button>Upload</button>
 
 	<div class='display_video'>
 	</div>
-
 
 	<h3>Title:</h3><br>
 	<input type="text" name="title"><br>
