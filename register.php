@@ -1,5 +1,7 @@
-<h2>Register</h2>
-<div id="email-error-dialog"></div>
+<?php include('header.php');?>
+
+<div class="login_box">
+
 <form   id="registerForm"
         name="registerForm" 
         method="post" 
@@ -48,7 +50,7 @@
             placeholder="confirm password" 
             maxlength="50" /><br/>
 
-            <select name="campus_id" id="campus_id" data-validation="required">
+            <select class="campus_id" name="campus_id" id="campus_id" data-validation="required">
                 <option value="">Select Campus</option>
                 <option value="1" name="1">Brisbane</option>
                 <option value="2" name="2">Byron Bay</option>
@@ -71,10 +73,10 @@
 </form><BR>
 
  
+</div>
 
-
-<script src="../js/jquery-2.2.2.min.js"></script>
-<script src="../js/form-validator/jquery.form-validator.min.js"></script>
+<script src="js/jquery-2.2.2.min.js"></script>
+<script src="js/form-validator/jquery.form-validator.min.js"></script>
 
 <script>
 $.validate();
@@ -85,4 +87,4 @@ $.validate();
  
 </script>
 
-
+<?php include('footer.php'); ?>

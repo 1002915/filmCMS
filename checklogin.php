@@ -25,9 +25,10 @@ if (password_verify($password, $databasekey)) {
     header('Location: index.php');
 
 } else {
-
-    echo 'Invalid password for ' . $email . ' Please try again. <a href="login.php">BACK</a>';
-
+	$_SESSION['errors'] = array("Your username or password was incorrect.");
+	header('Location: login.php');
+    //echo 'Invalid password for ' . $email . ' Please try again. <a href="login.php">BACK</a>';
+	
 }
 
 ?>

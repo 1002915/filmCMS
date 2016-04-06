@@ -1,6 +1,5 @@
 <?php include('header.php'); ?>
 
-<div class="site_content">
 	<div class="content_left">
 		<div class="film_large">
 			<img src="img/placeholder.jpg">
