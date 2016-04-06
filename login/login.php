@@ -1,3 +1,6 @@
+<?php include('header.php'); ?>
+
+<div class="site_content">
 <div class="loginbox">
 <form name="loginForm" id="login" method="post" action="checklogin.php">
   <input type="text" data-validation="email" name='email' id='email' placeholder="email" maxlength="50" /><br/>
@@ -15,3 +18,4 @@
     modules : 'html5'
   });
 </script>
+<?php include('footer.php'); ?>

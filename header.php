@@ -10,7 +10,10 @@
 	<link rel="stylesheet" type="text/css" href="css/alex_styles.css">
 	<link rel="stylesheet" type="text/css" href="css/anna_styles.css">
 
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+
 			<script>
 			$(document).ready(function(){
 				$('#search').keyup(function(){
@@ -35,12 +38,13 @@
 
 <div class="site_container">
 	<div class="header_navigation">
-		<a href="index.php"><img src="img/logo.jpg" class="logo" alt="logo"></a>
+		<a href="index.php"><img src="img/logo.png" class="logo" alt="logo"></a>
+		
+		<form id="login_button" action="login.php">
+			<input type="submit" Value="Login">
+		</form>
 		<div id='search_bar'>
 			<input type='text' name='search' placeholder='Search...' id='search'>
 		</div>
-		<form id="login_button" action="login/login.php">
-			<input type="submit" Value="Login">
-		</form>
 	</div>
 
