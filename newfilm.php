@@ -1,20 +1,13 @@
 <?php 
-	require 'overlord.php';
-
 	$collab = 1;
-	0
-
 ?>
 
 	<link rel='stylesheet' type='text/css' href='css/tatiana_styles.css'>
 
-	<script type="text/javascript" src="js/jquery-2.2.2.min.js"></script>
+	<script src="js/jquery-2.2.2.min.js"></script>
+	<script src="js/form-validator/jquery.form-validator.js"></script>
 	
-	<script>
-		$(document).ready(function(){
 
-		});
-	</script>
 
 
 <h2>Link Your Video</h2>
@@ -22,15 +15,17 @@
 
 <form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
-	<input type="text" id='new_video_link' name="video_link"><button>Upload</button>
+
+	<input type="text" id='new_video_link' name="video_link" data-validation="youtube">
 
 	<div class='display_video'>
 	</div>
 
 	<h3>Title:</h3><br>
-	<input type="text" name="title"><br>
+	<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+
 	<h3>Synopsis</h3><br>
-	<input type="text" name="synopsis"><br>
+	<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
 	<h3>Collaborator 1 First Name</h3><br>
 	<input type="text" name="collab[1][firstname]"><br>
@@ -68,5 +63,9 @@
 
 	<input type="submit">
 
-
 </form>
+
+
+	<script>
+		$.validate();
+    </script>
