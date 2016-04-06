@@ -144,13 +144,15 @@
 								"average_rating" => $average_rating,
 								"first_name" => $first_name,
 								"last_name" => $last_name,
-								"campus" => $location,
+								"campus" => $location
 							);
 						} // end while
 
 						$stmt->close();
 
 					} // end if target isset
+
+					var_dump($data);
 
 				break; //end search project
 
@@ -528,7 +530,6 @@
 					$rows = $res->fetch_all();
 					$stmt->close();
 					
-
 					// output array as csv file
 					$output = fopen("php://output", 'w') or die("Could not open php://output");
 					header("Content-Type:application/csv");
@@ -542,16 +543,15 @@
 					
 				break; // end return academic feedback
 
+			} // end switch
 
 
 
-				$data = json_encode($data);
+			$data = json_encode($data);
 				echo $data;
 				if(empty($data)){
 					$errormsg = "You haven't typed anything!";
 				}
-
-			} // end switch
 
 	} //end if function not empty
 
