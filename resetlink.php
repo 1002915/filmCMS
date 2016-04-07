@@ -1,12 +1,15 @@
 <?php 
-session_start();
-
+include('header.php');
 include('connection.php');
 
 if (isset($_GET['code'])) {
+
 $confirmation = $_GET['code'];
+
 $id = $_GET['id'];
+
 }
+
 ?>
 
 <p>Reset your Password</p>
@@ -38,5 +41,5 @@ if ($mysqli->query($sql) === TRUE) {
 } else {
 	echo 'please update your password';
 }
-
+include('footer.php');
 ?>
