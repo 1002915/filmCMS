@@ -40,3 +40,7 @@ span {
 .runTime {
 	font-size: 12px
 }
+
+#campus_selection {
+	float:left;
+}
