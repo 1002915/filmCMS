@@ -1900,6 +1900,26 @@
   });
 
   /*
+   * Validate youtube
+   */
+  $.formUtils.addValidator({
+    name: 'youtube',
+    validatorFunction: function (url) {
+      console.log('hello');
+      var youtubeFilter = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+      //var youtubeFilter = /^.*((youtu.be/)|(v/)|(/u/w/)|(embed/)|(watch?))??v?=?([^#&?]*).*/;
+      if (youtubeFilter.test(url)) {
+        console.log('youtube validate worked');
+        return true;
+      }
+      console.log('youtube validate did not work');
+      return false;
+    },
+    errorMessage: 'incorrect link',
+    errorMessageKey: 'badUrl'
+  });
+
+  /*
    * Validate number (floating or integer)
    */
   $.formUtils.addValidator({
