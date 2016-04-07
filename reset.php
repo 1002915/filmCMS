@@ -7,7 +7,9 @@ function e($text) {
     return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
    
 }
-
+?>
+<div class="login_box"> <a href="register.php">REGISTER HERE</a>
+    <?php
 /* 
 SELECT the 'id' of the user where their email address matches their input 
 */
@@ -124,4 +126,5 @@ echo '<h3>Thanks for being a part of Film CMS.</h3>We have sent your password to
 }
 
 ?>
+</div>
 <?php include('footer.php'); ?>

@@ -24,6 +24,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 	font-family: 'Montserrat', sans-serif;
 	color: white;
+	text-decoration: none;
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -47,4 +48,11 @@ q:before, q:after {
 table {
 	border-collapse: collapse;
 	border-spacing: 0;
+}
+
+* {
+  margin: 0;
+}
+html, body {
+  height: 100%;
 }
