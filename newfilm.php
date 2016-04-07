@@ -1,6 +1,3 @@
-<?php 
-	$collab = 1;
-?>
 
 	<link rel='stylesheet' type='text/css' href='css/tatiana_styles.css'>
 
@@ -26,14 +23,30 @@
 	<h3>Synopsis</h3><br>
 	<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-	<h3>Collaborator 1 First Name</h3><br>
-	<input type="text" name="collab[1][firstname]"><br>
-	<h3>Collaborator 1 Last Name</h3><br>
-	<input type="text" name="collab[1][lastname]"><br>
-	<h3>Collaborator 1 Role</h3><br>
-	<input type="text" name="collab[1][role]"><br>
-	<h3>Collaborator 1 Email</h3><br>
-	<input type="text" name="collab[1][email]"><br>
+	<h3>Collaborators</h3>
+	<table id="new_collaborator">
+		<tr>
+			<td>First Name</td>
+			<td>Last Name</td>
+			<td>Role</td>
+			<td>Email</td>
+		</tr>
+		<tr>
+			<td>
+				<input type="text" class="new_collab_firstname" name="collab[1][firstname]">
+			</td>
+			<td>
+				<input type="text" class="new_collab_lastname" name="collab[1][lastname]">
+			</td>
+			<td>
+				<input type="text" class="new_collab_role" name="collab[1][role]">
+			</td>
+			<td>
+				<input type="text" class="new_collab_email" name="collab[1][email]">
+			</td>
+		</tr>
+	</table>
+
 	
 	<h3>Cover Image</h3><br>
 	<input type="text" name="cover_image"><br>
@@ -71,6 +84,18 @@
 			}
 
 		    $(".preview-video").attr("src", videolinkiframe);
+		});
+
+
+		$("#new_collaborator > tbody > tr:last > td > .new_collab_firstname").on('blur', function(){
+			if($("#new_collaborator > tbody > tr:last > td > .new_collab_firstname").val() != ''){
+				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
+				$('#new_collaborator > tbody > tr:last > td > input').val('');
+
+				var rowcount = $('#new_collaborator tr').length;
+				var newcollab = 'collab['.concat(rowcount -1).concat(']');
+				$('#new_collaborator > tbody > tr:last > td > input').attr("name", newcollab);
+			}
 		});
 
     </script>
