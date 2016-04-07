@@ -1,4 +1,4 @@
-
+</div></div>
 <div class="footer">
 	<div class="footer_col_one"> 
 		<a href="index.php">HOME</a> <BR><BR>

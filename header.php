@@ -16,17 +16,19 @@
 
 <div class="site_container">
 	<div class="header_navigation">
-		<a href="index.php">
-			<img src="img/logo.png" class="logo" alt="logo">
-		</a>
+		<a href="index.php"><img src="img/logo.png" class="logo" alt="logo"></a>
 		<?php if (!isset($_SESSION['email'])) { ?>
 		<div class="login_header">
 			<form name="login_form_front" id="login" method="post" action="checklogin.php">
-  				<input type="text" data-validation="email" name='email' placeholder="email" maxlength="50" />
-  				<input type='password' data-validation="alphanumeric" name='password_hash' maxlength="50" placeholder="password"/>
-  				<input type='submit' name='Submit' value='login' />
+  				<input type="text" name='email' placeholder="email" maxlength="50" />
+  				<input type='password'  name='password_hash' maxlength="50" placeholder="password"/>
+  				<input class="parallelogram" type='submit' name='Submit' value='login' />
   			</form>
   		</div>
+  		  			<form id="register" action="register.php">
+				<input type="submit" Value="register">
+			</form>
+  		
 		<?php } else echo''; ?>
 		<?php if (isset($_SESSION['email'])) { ?>
 		<form id="login_button" action="logout.php">

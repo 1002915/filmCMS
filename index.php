@@ -69,7 +69,8 @@ Etiam in dui nulla. Nullam ac nunc mauris.putate in luctus vel, congue id augue.
 				<div class="film_title_medium">Placeholder Film Title</div>
 			</div>
 
-
+<div class="push"></div>
+</div>
 
 
 	

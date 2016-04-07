@@ -1,6 +1,5 @@
 <?php
-session_start();
-
+include('header.php');
 include('connection.php');
   
 $first_name = e($_POST['first_name']);
@@ -131,15 +130,24 @@ $sendmail->MsgHTML($body);
 $sendmail->AddAddress($formvars['email'],$formvars['first_name']);
 
 $sendmail->Send();
-
-echo 'Thanks for registering. Please check your student email for the confirmation link to finalise the registration process.<BR><BR><a href="login.php">HOME</a>';
-
+?>
+<div class="error_box">  </div>  
+<div class="security_box reset_email">
+<?php
+echo 'Thanks for registering. Please check your student email for the confirmation link to finalise the registration process.';
+?>
+</div>
+<?php
 } else {
     
     echo "Error updating record: " . mysqli_error($mysqli);
 }
 
 mysqli_close($mysqli);
+
+include('footer.php'); 
+
 ?>
+
 
 
