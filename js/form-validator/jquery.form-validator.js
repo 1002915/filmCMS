@@ -1905,14 +1905,20 @@
   $.formUtils.addValidator({
     name: 'youtube',
     validatorFunction: function (url) {
-      console.log('hello');
+
       var youtubeFilter = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
-      //var youtubeFilter = /^.*((youtu.be/)|(v/)|(/u/w/)|(embed/)|(watch?))??v?=?([^#&?]*).*/;
+      var vimeoFilter = /^(?:https?\:\/\/)?(www\.)?vimeo\.com\/(\d+)/;
+
       if (youtubeFilter.test(url)) {
         console.log('youtube validate worked');
         return true;
+
+      } if (vimeoFilter.test(url)) {
+        console.log('vimeo validate worked');
+        return true;
       }
-      console.log('youtube validate did not work');
+
+      console.log('video validation did not work');
       return false;
     },
     errorMessage: 'incorrect link',

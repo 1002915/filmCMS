@@ -125,7 +125,7 @@
 						if(!$stmt = $mysqli->prepare($sql)){
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param('ssss', $searchstring, $searchstring, $searchstring, $searchstring, $campus)) {
+						if(!$stmt->bind_param('ssss', $searchstring, $searchstring, $searchstring, $searchstring)) {
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){

@@ -8,8 +8,6 @@
 	<script src="js/form-validator/jquery.form-validator.js"></script>
 	
 
-
-
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
 
@@ -19,6 +17,7 @@
 	<input type="text" id='new_video_link' name="video_link" data-validation="youtube">
 
 	<div class='display_video'>
+		<iframe class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
 
 	<h3>Title:</h3><br>
@@ -35,16 +34,6 @@
 	<input type="text" name="collab[1][role]"><br>
 	<h3>Collaborator 1 Email</h3><br>
 	<input type="text" name="collab[1][email]"><br>
-
-	<h3>Collaborator 2 First Name</h3><br>
-	<input type="text" name="collab[2][firstname]"><br>
-	<h3>Collaborator 2 Last Name</h3><br>
-	<input type="text" name="collab[2][lastname]"><br>
-	<h3>Collaborator 2 Role</h3><br>
-	<input type="text" name="collab[2][role]"><br>
-	<h3>Collaborator 2 Email</h3><br>
-	<input type="text" name="collab[2][email]"><br>
-
 	
 	<h3>Cover Image</h3><br>
 	<input type="text" name="cover_image"><br>
@@ -65,7 +54,24 @@
 
 </form>
 
-
 	<script>
 		$.validate();
+
+		$("#new_video_link").on('input', function () {
+		    var videolink = $('#new_video_link').val();
+
+		    var str = "youtube";
+
+			if(videolink.indexOf(str) > -1){
+				var videolinkiframe = videolink.replace("watch?v=", "v/");
+			} else {
+				var videolinkiframe = videolink.replace("//", "//player.");
+		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
+		    	var videolinkiframe = videolinkiframe.concat("?badge=0");
+			}
+
+		    $(".preview-video").attr("src", videolinkiframe);
+		});
+
     </script>
+
