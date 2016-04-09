@@ -1907,7 +1907,7 @@
     validatorFunction: function (url) {
 
       var youtubeFilter = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
-      var vimeoFilter = /^(?:https?\:\/\/)?(www\.)?vimeo\.com\/(\d+)/;
+      var vimeoFilter = /https?:\/\/(?:www\.|player\.)?vimeo.com\/(.*)$/;
 
       if (youtubeFilter.test(url)) {
         console.log('youtube validate worked');

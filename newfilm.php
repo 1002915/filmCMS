@@ -11,7 +11,7 @@
 <form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
 
-	<input type="text" id='new_video_link' name="video_link" data-validation="youtube">
+	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required">
 
 	<div class='display_video'>
 		<iframe class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -33,16 +33,16 @@
 		</tr>
 		<tr>
 			<td>
-				<input type="text" class="new_collab_firstname" name="collab[1][firstname]">
+				<input type="text" class="firstname" name="collab[1][firstname]">
 			</td>
 			<td>
-				<input type="text" class="new_collab_lastname" name="collab[1][lastname]">
+				<input type="text" class="lastname" name="collab[1][lastname]">
 			</td>
 			<td>
-				<input type="text" class="new_collab_role" name="collab[1][role]">
+				<input type="text" class="role" name="collab[1][role]">
 			</td>
 			<td>
-				<input type="text" class="new_collab_email" name="collab[1][email]">
+				<input type="text" class="email" name="collab[1][email]">
 			</td>
 		</tr>
 	</table>
@@ -70,14 +70,18 @@
 	<script>
 		$.validate();
 
+
+		// load video after user inputs link
 		$("#new_video_link").on('input', function () {
 		    var videolink = $('#new_video_link').val();
 
 		    var str = "youtube";
 
+		    // if video was on youtube
 			if(videolink.indexOf(str) > -1){
 				var videolinkiframe = videolink.replace("watch?v=", "v/");
 			} else {
+				// if video was on vimeo
 				var videolinkiframe = videolink.replace("//", "//player.");
 		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
 		    	var videolinkiframe = videolinkiframe.concat("?badge=0");
@@ -87,15 +91,24 @@
 		});
 
 
-		$("#new_collaborator > tbody > tr:last > td > .new_collab_firstname").on('blur', function(){
-			if($("#new_collaborator > tbody > tr:last > td > .new_collab_firstname").val() != ''){
+		// Increase collaborators as user inputs info
+		$("#new_collaborator > tbody > tr:last > td > .firstname").on('blur', function(){
+			if($("#new_collaborator > tbody > tr:last > td > .firstname").val() != ''){
+				// clone last row of table and empty its values
 				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
-				$('#new_collaborator > tbody > tr:last > td > input').val('');
+				var input = $('#new_collaborator > tbody > tr:last > td > input');
+				input.val('');
 
+				// get number of rows in table
 				var rowcount = $('#new_collaborator tr').length;
-				var newcollab = 'collab['.concat(rowcount -1).concat(']');
-				$('#new_collaborator > tbody > tr:last > td > input').attr("name", newcollab);
+				var rowcurrent = rowcount -1;
+
+				$('#new_collaborator > tbody > tr:last > td > input.firstname').attr('name', 'collab[' + rowcurrent + '][firstname]');
+				$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + rowcurrent + '][lastname]');
+				$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
+				$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
 			}
+
 		});
 
     </script>
