@@ -11,7 +11,9 @@
 <form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
 
-	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required">
+	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
+
+	<div id="runtime"></div>
 
 	<div class='display_video'>
 		<iframe class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -55,8 +57,6 @@
 
 
 	<!-- automatically filled in-->
-	<h3>Runtime</h3><br>
-	<input type="text" name="runtime"><br>
 	<h3>User ID</h3><br>
 	<input type="text" name="user_id"><br>
 	<h3>Active</h3><br>
@@ -67,9 +67,13 @@
 
 </form>
 
+
+
+
+	
+	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script>
 		$.validate();
-
 
 		// load video after user inputs link
 		$("#new_video_link").on('input', function () {
@@ -88,7 +92,39 @@
 			}
 
 		    $(".preview-video").attr("src", videolinkiframe);
-		});
+
+
+
+		    //get youtube id
+		   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
+
+		   	// start youtube api
+			gapi.client.setApiKey('AIzaSyAD94F0GwBoXnncL0ck2bZdSeZf6RDW_3s');
+			gapi.client.load('youtube', 'v3').then(makeRequest);
+
+			// display results
+			function appendResults(text) {
+		        var results = document.getElementById('runtime');
+		        results.appendChild(document.createElement('p'));
+		        results.appendChild(document.createTextNode(text));
+		    }
+			
+			// actually make api request
+			function makeRequest() {
+	            var request = gapi.client.youtube.videos.list({
+					part: "contentDetails",
+					id: videoid
+				});
+	            console.log('request made');
+				request.then(function(response){					
+					appendResults(response.result.items[0].contentDetails.duration);
+		        }, function(reason) {
+		          	console.log('Error: ' + reason.result.error.message);
+		        });
+	        }
+
+
+		});	
 
 
 		// Increase collaborators as user inputs info
@@ -111,5 +147,6 @@
 
 		});
 
-    </script>
+	</script>
 
+	
