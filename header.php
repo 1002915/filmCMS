@@ -14,6 +14,8 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 </head>
 
+<body>
+<header>
 <div class="site_container">
 	<div class="header_navigation">
 		<a href="index.php"><img src="img/logo.png" class="logo" alt="logo"></a>
@@ -54,4 +56,5 @@
 
 		</div>
 	</div>
+</header>
 <div class="site_content">
