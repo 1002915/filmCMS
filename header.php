@@ -15,7 +15,7 @@
 </head>
 
 <body>
-<header>
+
 <div class="site_container">
 	<div class="header_navigation">
 		<a href="index.php"><img src="img/logo.png" class="logo" alt="logo"></a>
@@ -56,5 +56,4 @@
 
 		</div>
 	</div>
-</header>
 <div class="site_content">
