@@ -140,7 +140,7 @@ input[type="submit"]:hover{
 input[type="text"], input[type="password"] {
   height: 35px;
   background-color: rgba(255, 255, 255, 1);
-  border: 3px solid #ffd00b;
+  border: 1px solid #ffd00b;
   color: #2f2f2f;
   font-size: 0.8em;
   -webkit-border-radius: 1px;
