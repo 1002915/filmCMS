@@ -115,17 +115,19 @@
 					} else {
 						$target = $_POST['target']; // any search term entered
 						$campus = $_POST['campus'];
+
 						if ($campus != "all") {
 							$campus = ' AND campus = "'.$campus.'"';
 						} else {
 							$campus = '';
 						}
+
 						$searchstring = "%".$target."%";
 						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, location, collaborators.first_name, collaborators.last_name FROM film, rating, users, campus, collaborators WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND collaborators.film_id = film.id AND title LIKE ? OR synopsis LIKE ? OR collaborators.first_name LIKE ? OR collaborators.last_name LIKE ?".$campus;
 						if(!$stmt = $mysqli->prepare($sql)){
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param('ssss', $searchstring, $searchstring, $searchstring, $searchstring, $campus)) {
+						if(!$stmt->bind_param('ssss', $searchstring, $searchstring, $searchstring, $searchstring)) {
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -157,6 +159,7 @@
 						$stmt->close();
 
 					} // end if target isset
+
 
 					//var_dump($data);
 
