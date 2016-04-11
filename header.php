@@ -50,6 +50,7 @@
 
 		<div id='search_bar'>
 			<form action="search.php" method="post">
+				<input type='hidden' name='function' value='search_project'>
 				<input type='text' name='search' placeholder='Search...' class='search'>
 				<input type="submit" name="Search" value="Search">
 			</form>

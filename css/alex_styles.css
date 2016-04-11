@@ -10,6 +10,12 @@ span {
 	font-size: 16px;
 }
 
+select {
+	border: 1px #420420 solid;
+	border-radius: 0;
+	padding:10px;
+}
+
 #searchBar {
 	height:500px;
 	width:90%;
