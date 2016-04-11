@@ -193,3 +193,33 @@ select {
 .site_content .reset_email input[type="text"] {
   width: calc(100% - 80px);
 }
+
+.contribute  input[type="submit"]{
+  background-color: #1899df;
+}
+
+.contribute input[type="submit"]:hover{
+  color:#000;
+  background-color: white;
+  text-shadow: none;
+}
+
+.logout  input[type="submit"]{
+  background-color: #eb5555;
+}
+
+.logout input[type="submit"]:hover{
+  color:#000;
+  background-color: white;
+  text-shadow: none;
+}
+
+.profile  input[type="submit"]{
+  background-color: #f59a49;
+}
+
+.profile input[type="submit"]:hover{
+  color:#000;
+  background-color: white;
+  text-shadow: none;
+}

@@ -26,7 +26,7 @@
 </form><BR>
 
 <script src="js/jquery-2.2.2.min.js"></script>
-<script src="js/form-validator/jquery.form-validator.min.js"></script>
+<script src="js/form-validator/jquery.form-validator.js"></script>
 
 <script>
 $.validate();

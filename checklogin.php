@@ -19,7 +19,7 @@ $campus_id = $row[1];
 $first_name = $row[2];
 $last_name = $row[3];
 $user_type = $row[4];
-$email = $row[4];
+$email = $row[5];
 $databasekey = $row[6];
 
 
