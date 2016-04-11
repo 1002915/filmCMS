@@ -10,7 +10,6 @@
 				Available Functions:
 					return_all_projects
 					return_project
-					return_user_project
 					search_project
 					upddate_project
 					new_project
@@ -24,7 +23,7 @@
 			switch($function){
 
 				case "return_all_projects":
-					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id ORDER BY average_rating DESC";
+					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id";
 
 					if(!$stmt = $mysqli->prepare ($sql)){
 						echo "prepare failed";
@@ -61,6 +60,7 @@
 
 
 
+
 				case "return_project":
 					if(!isset($_POST['target'])){
 						$errormsg = "No film has been selected";
@@ -68,54 +68,6 @@
 						$target = $_POST['target']; // film id
 
 						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ?";
-						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
-						}
-						if(!$stmt->bind_param("i", $target)){
-							echo "binding param failed";
-						}
-						if(!$stmt->execute()){
-							echo "execute failied";
-						}
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
-							echo "binding results failed";
-						}
-						$data = array();
-						
-						while($stmt->fetch()) {
-							$data[] = array(
-								"id" => $id,
-								"title" => $title,
-								"synopsis" => $synopsis,
-								"video_link" => $video_link,
-								"cover_image" => $cover_image,
-								"runtime" => $runtime,
-								"user_id" => $user_id,
-								"published" => $published,
-								"active" => $active,
-								"average_rating" => $average_rating,
-								"first_name" => $first_name,
-								"last_name" => $last_name,
-								"campus" => $location
-							);
-						} // end while
-
-						$stmt->close();
-
-					} // end if target is set
-
-				break; // end return single project
-
-
-
-
-				case "return_user_project":
-					if(!isset($_POST['target'])){
-						$errormsg = "No user has been selected";
-					} else {
-						$target = $_POST['target']; // user id
-
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND users.id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -209,6 +161,7 @@
 					//var_dump($data);
 
 				break; //end search project
+
 
 
 
@@ -349,6 +302,7 @@
 
 
 
+
 				case "new_project":
 					if(!isset($_POST['title'], $_POST['synopsis'], $_POST['video_link'], $_POST['cover_image'], $_POST['runtime'], $_POST['user_id'], $_POST['published'], $_POST['active'])){
 						$errormsg = "Project was unable to be created. Please make sure you have filled in every field.";
@@ -424,6 +378,13 @@
 					} //end if isset all post variables
 
 				break; // end new project
+
+
+
+
+
+
+
 
 
 
@@ -593,12 +554,11 @@
 
 
 			$data = json_encode($data);
-			echo $data;
-			if(empty($data)){
-				$errormsg = "You haven't typed anything!";
-			}
+				echo $data;
+				if(empty($data)){
+					$errormsg = "You haven't typed anything!";
+				}
 
 	} //end if function not empty
 
-	
 ?>
