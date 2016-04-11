@@ -561,5 +561,4 @@
 
 	} //end if function not empty
 
-	
 ?>
