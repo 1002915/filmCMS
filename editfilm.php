@@ -1,4 +1,6 @@
 <?php 
+
+	require('overlord.php');
 	include('header.php'); 
 
 ?>
@@ -10,7 +12,7 @@
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
 
-<form method="POST" action="displayfilm.php">
+<form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
 
 	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>

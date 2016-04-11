@@ -61,7 +61,6 @@
 
 
 
-
 				case "return_project":
 					if(!isset($_POST['target'])){
 						$errormsg = "No film has been selected";
@@ -106,7 +105,6 @@
 					} // end if target is set
 
 				break; // end return single project
-
 
 
 
@@ -211,7 +209,6 @@
 					//var_dump($data);
 
 				break; //end search project
-
 
 
 
@@ -352,7 +349,6 @@
 
 
 
-
 				case "new_project":
 					if(!isset($_POST['title'], $_POST['synopsis'], $_POST['video_link'], $_POST['cover_image'], $_POST['runtime'], $_POST['user_id'], $_POST['published'], $_POST['active'])){
 						$errormsg = "Project was unable to be created. Please make sure you have filled in every field.";
@@ -428,13 +424,6 @@
 					} //end if isset all post variables
 
 				break; // end new project
-
-
-
-
-
-
-
 
 
 
@@ -604,10 +593,10 @@
 
 
 			$data = json_encode($data);
-				echo $data;
-				if(empty($data)){
-					$errormsg = "You haven't typed anything!";
-				}
+			echo $data;
+			if(empty($data)){
+				$errormsg = "You haven't typed anything!";
+			}
 
 	} //end if function not empty
 
