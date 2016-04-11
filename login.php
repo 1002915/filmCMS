@@ -20,7 +20,7 @@
   			<input type='submit' name='Submit' value='Submit' /><BR>
   		
   		<a href='resetpassword.php'>Forgot Password?</a><BR><BR>
-  		<a href='register.php'>register</a>
+  		<a href='register.php'>register</a><BR><BR>
 	</form>
 </div>
 
