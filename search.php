@@ -57,7 +57,7 @@
 					});
 			}
 
-			$(document).ready(function(){
+			$(document).ready(function(){ 
 
 					<?php if (isset($_POST['search'])) { ?>
 						search();
