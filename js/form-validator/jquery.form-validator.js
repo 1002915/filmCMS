@@ -1,9563 +1,3004 @@
-
-
-
-
 <!DOCTYPE html>
-<html lang="en" class=" is-copy-enabled emoji-size-boost is-u2f-enabled">
-  <head prefix="og: http://ogp.me/ns# fb: http://ogp.me/ns/fb# object: http://ogp.me/ns/object# article: http://ogp.me/ns/article# profile: http://ogp.me/ns/profile#">
-    <meta charset='utf-8'>
+<html lang="en" >
 
-    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/frameworks-b0061fb9735ea0401cff1e8b15e4b9a6c08c306f0a7176370153964b4caa26e5.css" integrity="sha256-sAYfuXNeoEAc/x6LFeS5psCMMG8KcXY3AVOWS0yqJuU=" media="all" rel="stylesheet" />
-    <link crossorigin="anonymous" href="https://assets-cdn.github.com/assets/github-1a130c4fd82a09ccb1d9c83d678395c735b0221156e0555a031572e22b4311ea.css" integrity="sha256-GhMMT9gqCcyx2cg9Z4OVxzWwIhFW4FVaAxVy4itDEeo=" media="all" rel="stylesheet" />
-    
-    
-    
-    
+<head>
 
-    <link as="script" href="https://assets-cdn.github.com/assets/frameworks-5faa70560d8748e1620ffff551ee0dc677a5f6e0f6b76ca60dd2152e8e116ce3.js" rel="preload" />
-    
-    <link as="script" href="https://assets-cdn.github.com/assets/github-259a40261a4df544deea8e9b191122ec14dec6b42af385dcf9641d25fa85fa17.js" rel="preload" />
+	
+	<script>
+window.ts_endpoint_url = "https:\/\/slack.com\/beacon\/timing";
 
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta http-equiv="Content-Language" content="en">
-    <meta name="viewport" content="width=1020">
-    
-    
-    <title>filmCMS/jquery.form-validator.js at master · 1002915/filmCMS</title>
-    <link rel="search" type="application/opensearchdescription+xml" href="/opensearch.xml" title="GitHub">
-    <link rel="fluid-icon" href="https://github.com/fluidicon.png" title="GitHub">
-    <link rel="apple-touch-icon" href="/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="57x57" href="/apple-touch-icon-57x57.png">
-    <link rel="apple-touch-icon" sizes="60x60" href="/apple-touch-icon-60x60.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="76x76" href="/apple-touch-icon-76x76.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="/apple-touch-icon-114x114.png">
-    <link rel="apple-touch-icon" sizes="120x120" href="/apple-touch-icon-120x120.png">
-    <link rel="apple-touch-icon" sizes="144x144" href="/apple-touch-icon-144x144.png">
-    <link rel="apple-touch-icon" sizes="152x152" href="/apple-touch-icon-152x152.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon-180x180.png">
-    <meta property="fb:app_id" content="1401488693436528">
+(function(e) {
+	var n=Date.now?Date.now():+new Date,r=e.performance||{},t=[],a={},i=function(e,n){for(var r=0,a=t.length,i=[];a>r;r++)t[r][e]==n&&i.push(t[r]);return i},o=function(e,n){for(var r,a=t.length;a--;)r=t[a],r.entryType!=e||void 0!==n&&r.name!=n||t.splice(a,1)};r.now||(r.now=r.webkitNow||r.mozNow||r.msNow||function(){return(Date.now?Date.now():+new Date)-n}),r.mark||(r.mark=r.webkitMark||function(e){var n={name:e,entryType:"mark",startTime:r.now(),duration:0};t.push(n),a[e]=n}),r.measure||(r.measure=r.webkitMeasure||function(e,n,r){n=a[n].startTime,r=a[r].startTime,t.push({name:e,entryType:"measure",startTime:n,duration:r-n})}),r.getEntriesByType||(r.getEntriesByType=r.webkitGetEntriesByType||function(e){return i("entryType",e)}),r.getEntriesByName||(r.getEntriesByName=r.webkitGetEntriesByName||function(e){return i("name",e)}),r.clearMarks||(r.clearMarks=r.webkitClearMarks||function(e){o("mark",e)}),r.clearMeasures||(r.clearMeasures=r.webkitClearMeasures||function(e){o("measure",e)}),e.performance=r,"function"==typeof define&&(define.amd||define.ajs)&&define("performance",[],function(){return r}) // eslint-disable-line
+})(window);
 
-      <meta content="https://avatars3.githubusercontent.com/u/13760617?v=3&amp;s=400" name="twitter:image:src" /><meta content="@github" name="twitter:site" /><meta content="summary" name="twitter:card" /><meta content="1002915/filmCMS" name="twitter:title" /><meta content="filmCMS - Film CMS" name="twitter:description" />
-      <meta content="https://avatars3.githubusercontent.com/u/13760617?v=3&amp;s=400" property="og:image" /><meta content="GitHub" property="og:site_name" /><meta content="object" property="og:type" /><meta content="1002915/filmCMS" property="og:title" /><meta content="https://github.com/1002915/filmCMS" property="og:url" /><meta content="filmCMS - Film CMS" property="og:description" />
-      <meta name="browser-stats-url" content="https://api.github.com/_private/browser/stats">
-    <meta name="browser-errors-url" content="https://api.github.com/_private/browser/errors">
-    <link rel="assets" href="https://assets-cdn.github.com/">
-    <link rel="web-socket" href="wss://live.github.com/_sockets/MTM3NjA2MTc6ZjM4MjAwMjUwNDIyOTg2Y2ExZTEyY2NlYWE1YjgwMGQ6ZTNkZWQ5ZDllZTA4MDUxNjdhMTRhZGMxYTllNDc3OTRiMTQxNTI5ZDg0NGZlNDI4ZWRkYzAwZDU0ODc5NTZmZQ==--f268dbae8de54458d9edb6553b02ceb2624ef5d1">
-    <meta name="pjax-timeout" content="1000">
-    <link rel="sudo-modal" href="/sessions/sudo_modal">
+</script>
+<script>;(function() {
 
-    <meta name="msapplication-TileImage" content="/windows-tile.png">
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="selected-link" value="repo_source" data-pjax-transient>
-
-    <meta name="google-site-verification" content="KT5gs8h0wvaagLKAVWq8bbeNwnZZK1r1XQysX3xurLU">
-<meta name="google-site-verification" content="ZzhVyEFwb7w3e0-uOTltm8Jsck2F5StVihD0exw2fsA">
-    <meta name="google-analytics" content="UA-3769691-2">
-
-<meta content="collector.githubapp.com" name="octolytics-host" /><meta content="github" name="octolytics-app-id" /><meta content="CBA19DBC:4D5F:47E8FF8:5705B80E" name="octolytics-dimension-request_id" /><meta content="13760617" name="octolytics-actor-id" /><meta content="1002915" name="octolytics-actor-login" /><meta content="6560e81a1935a7ecb1361398e26711f12e9191cca25967c6e07de172bfbeb3e3" name="octolytics-actor-hash" />
-<meta content="/&lt;user-name&gt;/&lt;repo-name&gt;/blob/show" data-pjax-transient="true" name="analytics-location" />
+'use strict';
 
 
-
-  <meta class="js-ga-set" name="dimension1" content="Logged In">
-
-
-
-        <meta name="hostname" content="github.com">
-    <meta name="user-login" content="1002915">
-
-        <meta name="expected-hostname" content="github.com">
-      <meta name="js-proxy-site-detection-payload" content="NDkyN2UzNTM3NzlhZDEzYmYyMzAwYTU2NDIwYWQ3NzY5YWMxZTNlNjM4ODMzY2VlNzdhZGFhMTg5NzYzYWY0ZXx7InJlbW90ZV9hZGRyZXNzIjoiMjAzLjE2MS4xNTcuMTg4IiwicmVxdWVzdF9pZCI6IkNCQTE5REJDOjRENUY6NDdFOEZGODo1NzA1QjgwRSIsInRpbWVzdGFtcCI6MTQ1OTk5MjU5MX0=">
-
-      <link rel="mask-icon" href="https://assets-cdn.github.com/pinned-octocat.svg" color="#4078c0">
-      <link rel="icon" type="image/x-icon" href="https://assets-cdn.github.com/favicon.ico">
-
-    <meta content="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" name="form-nonce" />
-
-    <meta http-equiv="x-pjax-version" content="c0e4164e7d3bc4bf75d750a3f5fcf340">
-    
-
-      
-  <meta name="description" content="filmCMS - Film CMS">
-  <meta name="go-import" content="github.com/1002915/filmCMS git https://github.com/1002915/filmCMS.git">
-
-  <meta content="13760617" name="octolytics-dimension-user_id" /><meta content="1002915" name="octolytics-dimension-user_login" /><meta content="54433966" name="octolytics-dimension-repository_id" /><meta content="1002915/filmCMS" name="octolytics-dimension-repository_nwo" /><meta content="true" name="octolytics-dimension-repository_public" /><meta content="false" name="octolytics-dimension-repository_is_fork" /><meta content="54433966" name="octolytics-dimension-repository_network_root_id" /><meta content="1002915/filmCMS" name="octolytics-dimension-repository_network_root_nwo" />
-  <link href="https://github.com/1002915/filmCMS/commits/master.atom" rel="alternate" title="Recent Commits to filmCMS:master" type="application/atom+xml">
+window.TSMark = function(mark_label) {
+	if (!window.performance || !window.performance.mark) return;
+	performance.mark(mark_label);
+};
+window.TSMark('start_load');
 
 
-      <link rel="canonical" href="https://github.com/1002915/filmCMS/blob/master/js/form-validator/jquery.form-validator.js" data-pjax-transient>
-  </head>
+window.TSMeasureAndBeacon = function(measure_label, start_mark_label) {
+	if (start_mark_label === 'start_nav' && window.performance && window.performance.timing) {
+		window.TSBeacon(measure_label, (new Date()).getTime() - performance.timing.navigationStart);
+		return;
+	}
+	if (!window.performance || !window.performance.mark || !window.performance.measure) return;
+	performance.mark(start_mark_label + '_end');
+	try {
+		performance.measure(measure_label, start_mark_label, start_mark_label + '_end');
+		window.TSBeacon(measure_label, performance.getEntriesByName(measure_label)[0].duration);
+	} catch(e) { return; }
+};
 
 
-  <body class="logged-in   env-production macintosh vis-public page-blob">
-    <div id="js-pjax-loader-bar" class="pjax-loader-bar"></div>
-    <a href="#start-of-content" tabindex="1" class="accessibility-aid js-skip-to-content">Skip to content</a>
+window.TSBeacon = function(label, value) {
+	var endpoint_url = window.ts_endpoint_url || 'https://slack.com/beacon/timing';
+	(new Image()).src = endpoint_url + '?data=' + encodeURIComponent(label + ':' + value);
+};
 
-    
-    
-    
+})();
+</script>
+ 
 
+<script>
+window.TSMark('step_load');
+</script>	<noscript><meta http-equiv="refresh" content="0; URL=/files/tatiana/F0ZFS5Y5V/jquery.form-validator.js?nojsmode=1" /></noscript>
+<script type="text/javascript">
+(function() {
+	var start_time = Date.now();
+	var logs = [];
+	var connecting = true;
+	var ever_connected = false;
+	var log_namespace;
+		
+	var logWorker = function(ob) {
+		var log_str = ob.secs+' start_label:'+ob.start_label+' measure_label:'+ob.measure_label+' description:'+ob.description;
+		
+		if (TS.timing.getLatestMark(ob.start_label)){
+			TS.timing.measure(ob.measure_label, ob.start_label);
+			TS.log(88, log_str);
+			
+			if (ob.do_reset) {
+				window.TSMark(ob.start_label);
+			}
+		} else {
+			TS.maybeWarn(88, 'not timing: '+log_str);
+		}
+	}
+	
+	var log = function(k, description) {
+		var secs = (Date.now()-start_time)/1000;
 
+		logs.push({
+			k: k,
+			d: description,
+			t: secs,
+			c: !!connecting
+		})
+	
+		if (!window.boot_data) return;
+		if (!window.TS) return;
+		if (!TS.timing) return;
+		if (!connecting) return;
+		
+		// lazy assignment
+		log_namespace = log_namespace || (function() {
+			if (boot_data.app == 'client') return 'client';
+			if (boot_data.app == 'space') return 'post';
+			if (boot_data.app == 'api') return 'apisite';
+			if (boot_data.app == 'mobile') return 'mobileweb';
+			if (boot_data.app == 'web' || boot_data.app == 'oauth') return 'web';
+			return 'unknown';
+		})();
+		
+		var modifier = (TS.boot_data.feature_no_rollups) ? '_no_rollups' : '';
+		
+		logWorker({
+			k: k,
+			secs: secs,
+			description: description,
+			start_label: ever_connected ? 'start_reconnect' : 'start_load',
+			measure_label: 'v2_'+log_namespace+modifier+(ever_connected ? '_reconnect__' : '_load__')+k,
+			do_reset: false,
+		});
+	}
+	
+	var setConnecting = function(val) {
+		val = !!val;
+		if (val == connecting) return;
+		
+		if (val) {
+			log('start');
+			if (ever_connected) {
+				// we just started reconnecting, so reset timing
+				window.TSMark('start_reconnect');
+				window.TSMark('step_reconnect');
+				window.TSMark('step_load');
+			}
+		
+			connecting = val;
+			log('start');
+		} else {
+			log('over');
+			ever_connected = true;
+			connecting = val;
+		}
+	}
+	
+	window.TSConnLogger = {
+		log: log,
+		logs: logs,
+		start_time: start_time,
+		setConnecting: setConnecting
+	}
+})();
 
-        <div class="header header-logged-in true" role="banner">
-  <div class="container clearfix">
-
-    <a class="header-logo-invertocat" href="https://github.com/" data-hotkey="g d" aria-label="Homepage" data-ga-click="Header, go to dashboard, icon:logo">
-  <svg aria-hidden="true" class="octicon octicon-mark-github" height="28" version="1.1" viewBox="0 0 16 16" width="28"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
-</a>
-
-
-        <div class="header-search scoped-search site-scoped-search js-site-search" role="search">
-  <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/1002915/filmCMS/search" class="js-site-search-form" data-scoped-search-url="/1002915/filmCMS/search" data-unscoped-search-url="/search" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-    <label class="form-control header-search-wrapper js-chromeless-input-container">
-      <div class="header-search-scope">This repository</div>
-      <input type="text"
-        class="form-control header-search-input js-site-search-focus js-site-search-field is-clearable"
-        data-hotkey="s"
-        name="q"
-        placeholder="Search"
-        aria-label="Search this repository"
-        data-unscoped-placeholder="Search GitHub"
-        data-scoped-placeholder="Search"
-        tabindex="1"
-        autocapitalize="off">
-    </label>
-</form></div>
-
-
-      <ul class="header-nav left" role="navigation">
-        <li class="header-nav-item">
-          <a href="/pulls" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:pulls context:user" data-hotkey="g p" data-selected-links="/pulls /pulls/assigned /pulls/mentioned /pulls">
-            Pull requests
-</a>        </li>
-        <li class="header-nav-item">
-          <a href="/issues" class="js-selected-navigation-item header-nav-link" data-ga-click="Header, click, Nav menu - item:issues context:user" data-hotkey="g i" data-selected-links="/issues /issues/assigned /issues/mentioned /issues">
-            Issues
-</a>        </li>
-          <li class="header-nav-item">
-            <a class="header-nav-link" href="https://gist.github.com/" data-ga-click="Header, go to gist, text:gist">Gist</a>
-          </li>
-      </ul>
-
-    
-<ul class="header-nav user-nav right" id="user-links">
-  <li class="header-nav-item">
-    
-    <a href="/notifications" aria-label="You have unread notifications" class="header-nav-link notification-indicator tooltipped tooltipped-s js-socket-channel js-notification-indicator" data-channel="notification-changed-v2:13760617" data-ga-click="Header, go to notifications, icon:unread" data-hotkey="g n">
-        <span class="mail-status unread"></span>
-        <svg aria-hidden="true" class="octicon octicon-bell" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 12v1H0v-1l0.73-0.58c0.77-0.77 0.81-2.55 1.19-4.42 0.77-3.77 4.08-5 4.08-5 0-0.55 0.45-1 1-1s1 0.45 1 1c0 0 3.39 1.23 4.16 5 0.38 1.88 0.42 3.66 1.19 4.42l0.66 0.58z m-7 4c1.11 0 2-0.89 2-2H5c0 1.11 0.89 2 2 2z"></path></svg>
-</a>
-  </li>
-
-  <li class="header-nav-item dropdown js-menu-container">
-    <a class="header-nav-link tooltipped tooltipped-s js-menu-target" href="/new"
-       aria-label="Create new…"
-       data-ga-click="Header, create new, icon:add">
-      <svg aria-hidden="true" class="octicon octicon-plus left" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 9H7v5H5V9H0V7h5V2h2v5h5v2z"></path></svg>
-      <span class="dropdown-caret"></span>
-    </a>
-
-    <div class="dropdown-menu-content js-menu-content">
-      <ul class="dropdown-menu dropdown-menu-sw">
-        
-<a class="dropdown-item" href="/new" data-ga-click="Header, create new repository">
-  New repository
-</a>
-
-
-  <a class="dropdown-item" href="/organizations/new" data-ga-click="Header, create new organization">
-    New organization
-  </a>
-
-
-
-  <div class="dropdown-divider"></div>
-  <div class="dropdown-header">
-    <span title="1002915/filmCMS">This repository</span>
-  </div>
-    <a class="dropdown-item" href="/1002915/filmCMS/issues/new" data-ga-click="Header, create new issue">
-      New issue
-    </a>
-    <a class="dropdown-item" href="/1002915/filmCMS/settings/collaboration" data-ga-click="Header, create new collaborator">
-      New collaborator
-    </a>
-
-      </ul>
-    </div>
-  </li>
-
-  <li class="header-nav-item dropdown js-menu-container">
-    <a class="header-nav-link name tooltipped tooltipped-sw js-menu-target" href="/1002915"
-       aria-label="View profile and more"
-       data-ga-click="Header, show menu, icon:avatar">
-      <img alt="@1002915" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/13760617?v=3&amp;s=40" width="20" />
-      <span class="dropdown-caret"></span>
-    </a>
-
-    <div class="dropdown-menu-content js-menu-content">
-      <div class="dropdown-menu  dropdown-menu-sw">
-        <div class=" dropdown-header header-nav-current-user css-truncate">
-            Signed in as <strong class="css-truncate-target">1002915</strong>
-
-        </div>
+if(self!==top)window.document.write("\u003Cstyle>body * {display:none !important;}\u003C\/style>\u003Ca href=\"#\" onclick="+
+"\"top.location.href=window.location.href\" style=\"display:block !important;padding:10px\">Go to Slack.com\u003C\/a>");
+</script>
 
 
-        <div class="dropdown-divider"></div>
+<script type="text/javascript">
+window.callSlackAPIUnauthed = function(method, args, callback) {
+	var url = '/api/'+method+'?t='+Date.now();
+	var req = new XMLHttpRequest();
+	
+	req.onreadystatechange = function() {
+		if (req.readyState == 4) {
+			req.onreadystatechange = null;
+			var obj;
+			
+			if (req.status == 200) {
+				if (req.responseText.indexOf('{') == 0) {
+					try {
+						eval('obj = '+req.responseText);
+					} catch (err) {
+						console.warn('unable to do anything with api rsp');
+					}
+				}
+			}
+			
+			obj = obj || {
+				ok: false	
+			}
+			
+			callback(obj.ok, obj, args);
+		}
+	}
+	
+	req.open('POST', url, 1);
+	req.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
 
-          <a class="dropdown-item" href="/1002915" data-ga-click="Header, go to profile, text:your profile">
-            Your profile
-          </a>
-        <a class="dropdown-item" href="/stars" data-ga-click="Header, go to starred repos, text:your stars">
-          Your stars
-        </a>
-          <a class="dropdown-item" href="/explore" data-ga-click="Header, go to explore, text:explore">
-            Explore
-          </a>
-          <a class="dropdown-item" href="/integrations" data-ga-click="Header, go to integrations, text:integrations">
-            Integrations
-          </a>
-        <a class="dropdown-item" href="https://help.github.com" data-ga-click="Header, go to help, text:help">
-          Help
-        </a>
+	var args2 = [];
+	for (i in args) {
+		args2[args2.length] = encodeURIComponent(i)+'='+encodeURIComponent(args[i]);
+	}
+
+	req.send(args2.join('&'));
+}
+</script>
+
+						
+	
+		<script>
+			if (window.location.host == 'slack.com' && window.location.search.indexOf('story') < 0) {
+				document.cookie = '__cvo_skip_doc=' + escape(document.URL) + '|' + escape(document.referrer) + ';path=/';
+			}
+		</script>
+	
+
+	
+	<script type="text/javascript">
+
+				(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+		(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+		m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+		})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+		ga('create', "UA-106458-17", 'slack.com');
+
+				
+		ga('send', 'pageview');
+	
+		(function(e,c,b,f,d,g,a){e.SlackBeaconObject=d;
+		e[d]=e[d]||function(){(e[d].q=e[d].q||[]).push([1*new Date(),arguments])};
+		e[d].l=1*new Date();g=c.createElement(b);a=c.getElementsByTagName(b)[0];
+		g.async=1;g.src=f;a.parentNode.insertBefore(g,a)
+		})(window,document,"script","https://a.slack-edge.com/dcf8/js/libs/beacon.js","sb");
+		sb('set', 'token', '3307f436963e02d4f9eb85ce5159744c');
+
+					sb('set', 'user_id', "U0MRF6CA0");
+							sb('set', 'user_' + "batch", "signup_api");
+							sb('set', 'user_' + "created", "2016-02-17");
+						sb('set', 'name_tag', "saebneweb" + '/' + "matthew_neal");
+				sb('track', 'pageview');
+
+		function track(a){ga('send','event','web',a);sb('track',a);}
+
+	</script>
 
 
-          <div class="dropdown-divider"></div>
+		<script type='text/javascript'>
+		
+		(function(f,b){if(!b.__SV){var a,e,i,g;window.mixpanel=b;b._i=[];b.init=function(a,e,d){function f(b,h){var a=h.split(".");2==a.length&&(b=b[a[0]],h=a[1]);b[h]=function(){b.push([h].concat(Array.prototype.slice.call(arguments,0)))}}var c=b;"undefined"!==typeof d?c=b[d]=[]:d="mixpanel";c.people=c.people||[];c.toString=function(b){var a="mixpanel";"mixpanel"!==d&&(a+="."+d);b||(a+=" (stub)");return a};c.people.toString=function(){return c.toString(1)+".people (stub)"};i="disable track track_pageview track_links track_forms register register_once alias unregister identify name_tag set_config people.set people.set_once people.increment people.append people.track_charge people.clear_charges people.delete_user".split(" ");
+		for(g=0;g<i.length;g++)f(c,i[g]);b._i.push([a,e,d])};b.__SV=1.2;a=f.createElement("script");a.type="text/javascript";a.async=!0;a.src="//cdn.mxpnl.com/libs/mixpanel-2-latest.min.js";e=f.getElementsByTagName("script")[0];e.parentNode.insertBefore(a,e)}})(document,window.mixpanel||[]);
+		
 
-          <a class="dropdown-item" href="/settings/profile" data-ga-click="Header, go to settings, icon:settings">
-            Settings
-          </a>
+		mixpanel.init("12d52d8633a5b432975592d13ebd3f34");
 
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/logout" class="logout-form" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ZZej3GMpAnG2Ch9xCE+0AWQKtoiizYwt2CXmIxyBZn5B1+6axilNjVFtUs5lcJC1GBBHr84jXDJXo88NBlkd+w==" /></div>
-            <button class="dropdown-item dropdown-signout" data-ga-click="Header, sign out, icon:logout">
-              Sign out
-            </button>
+		
+			function mixpanel_track(){if(window.mixpanel)mixpanel.track.apply(mixpanel, arguments);}
+			function mixpanel_track_forms(){if(window.mixpanel)mixpanel.track_forms.apply(mixpanel, arguments);}
+			function mixpanel_track_links(){if(window.mixpanel)mixpanel.track_links.apply(mixpanel, arguments);}
+		
+	</script>
+	
+	<meta name="referrer" content="no-referrer">
+		<meta name="superfish" content="nofish">
+
+	<script type="text/javascript">
+
+
+
+var TS_last_log_date = null;
+var TSMakeLogDate = function() {
+	var date = new Date();
+
+	var y = date.getFullYear();
+	var mo = date.getMonth()+1;
+	var d = date.getDate();
+
+	var time = {
+	  h: date.getHours(),
+	  mi: date.getMinutes(),
+	  s: date.getSeconds(),
+	  ms: date.getMilliseconds()
+	};
+
+	Object.keys(time).map(function(moment, index) {
+		if (moment == 'ms') {
+			if (time[moment] < 10) {
+				time[moment] = time[moment]+'00';
+			} else if (time[moment] < 100) {
+				time[moment] = time[moment]+'0';
+			}
+		} else if (time[moment] < 10) {
+			time[moment] = '0' + time[moment];
+		}
+	});
+
+	var str = y + '/' + mo + '/' + d + ' ' + time.h + ':' + time.mi + ':' + time.s + '.' + time.ms;
+	if (TS_last_log_date) {
+		var diff = date-TS_last_log_date;
+		//str+= ' ('+diff+'ms)';
+	}
+	TS_last_log_date = date;
+	return str+' ';
+}
+
+var parseDeepLinkRequest = function(code) {
+	var m = code.match(/"id":"([CDG][A-Z0-9]{8})"/);
+	var id = m ? m[1] : null;
+
+	m = code.match(/"team":"(T[A-Z0-9]{8})"/);
+	var team = m ? m[1] : null;
+
+	m = code.match(/"message":"([0-9]+\.[0-9]+)"/);
+	var message = m ? m[1] : null;
+
+	return { id: id, team: team, message: message };
+}
+
+if ('rendererEvalAsync' in window) {
+	var origRendererEvalAsync = window.rendererEvalAsync;
+	window.rendererEvalAsync = function(blob) {
+		try {
+			var data = JSON.parse(decodeURIComponent(atob(blob)));
+			if (data.code.match(/handleDeepLink/)) {
+				var request = parseDeepLinkRequest(data.code);
+				if (!request.id || !request.team || !request.message) return;
+
+				request.cmd = 'channel';
+				TSSSB.handleDeepLinkWithArgs(JSON.stringify(request));
+				return;
+			} else {
+				origRendererEvalAsync(blob);
+			}
+		} catch (e) {
+		}
+	}
+}
+</script>
+
+
+
+<script type="text/javascript">
+
+	var TSSSB = {
+		call: function() {
+			return false;
+		}
+	};
+
+</script>
+<script>TSSSB.env = (function() {
+	var v = {
+		win_ssb_version: null,
+		win_ssb_version_minor: null,
+		mac_ssb_version: null,
+		mac_ssb_version_minor: null,
+		mac_ssb_build: null,
+		lin_ssb_version: null,
+		lin_ssb_version_minor: null
+	};
+	
+	var is_win = (navigator.appVersion.indexOf("Windows") !== -1);
+	var is_lin = (navigator.appVersion.indexOf("Linux") !== -1);
+	var is_mac = !!(navigator.userAgent.match(/(OS X)/g));
+
+	if (navigator.userAgent.match(/(Slack_SSB)/g) || navigator.userAgent.match(/(Slack_WINSSB)/g)) {
+		
+		var parts = navigator.userAgent.split('/');
+		var version_str = parts[parts.length-1];
+		var version_float = parseFloat(version_str);
+		var versionA = version_str.split('.');
+		var version_minor = (versionA.length == 3) ? parseInt(versionA[2]) : 0;
+
+		if (navigator.userAgent.match(/(AtomShell)/g)) {
+			
+			if (is_lin) {
+				v.lin_ssb_version = version_float;
+				v.lin_ssb_version_minor = version_minor;
+			} else {
+				v.win_ssb_version = version_float;
+				v.win_ssb_version_minor = version_minor;
+			}
+		} else {
+			
+			v.mac_ssb_version = version_float;
+			v.mac_ssb_version_minor = version_minor;
+			
+			
+			
+			var app_ver = window.macgap && macgap.app && macgap.app.buildVersion && macgap.app.buildVersion();
+			var matches = String(app_ver).match(/(?:\()(.*)(?:\))/);
+			v.mac_ssb_build = (matches && matches.length == 2) ? parseInt(matches[1] || 0) : 0;
+		}
+	}
+
+	return v;
+})();
+</script>
+
+
+	<script type="text/javascript">
+		
+		var was_TS = window.TS;
+		delete window.TS;
+		TSSSB.call('didFinishLoading');
+		if (was_TS) window.TS = was_TS;
+	</script>
+	    <title>jquery.form-validator.js | SAEBNEWeb Slack</title>
+    <meta name="author" content="Slack">
+
+	
+		
+	
+	
+					
+	
+				
+	
+	
+	
+	
+			<!-- output_css "core" -->
+    <link href="https://a.slack-edge.com/63eeb/style/rollup-plastic.css" rel="stylesheet" type="text/css">
+
+		<!-- output_css "before_file_pages" -->
+    <link href="https://a.slack-edge.com/4821/style/libs/codemirror.css" rel="stylesheet" type="text/css">
+    <link href="https://a.slack-edge.com/838e/style/codemirror_overrides.css" rel="stylesheet" type="text/css">
+
+	<!-- output_css "file_pages" -->
+    <link href="https://a.slack-edge.com/3a14/style/rollup-file_pages.css" rel="stylesheet" type="text/css">
+
+	<!-- output_css "regular" -->
+    <link href="https://a.slack-edge.com/d64a/style/print.css" rel="stylesheet" type="text/css">
+    <link href="https://a.slack-edge.com/1d9c/style/libs/lato-1-compressed.css" rel="stylesheet" type="text/css">
+
+	
+
+	
+	
+	
+	
+
+	
+<link id="favicon" rel="shortcut icon" href="https://a.slack-edge.com/66f9/img/icons/favicon-32.png" sizes="16x16 32x32 48x48" type="image/png" />
+
+<link rel="icon" href="https://a.slack-edge.com/0180/img/icons/app-256.png" sizes="256x256" type="image/png" />
+
+<link rel="apple-touch-icon-precomposed" sizes="152x152" href="https://a.slack-edge.com/66f9/img/icons/ios-152.png" />
+<link rel="apple-touch-icon-precomposed" sizes="144x144" href="https://a.slack-edge.com/66f9/img/icons/ios-144.png" />
+<link rel="apple-touch-icon-precomposed" sizes="120x120" href="https://a.slack-edge.com/66f9/img/icons/ios-120.png" />
+<link rel="apple-touch-icon-precomposed" sizes="114x114" href="https://a.slack-edge.com/66f9/img/icons/ios-114.png" />
+<link rel="apple-touch-icon-precomposed" sizes="72x72" href="https://a.slack-edge.com/0180/img/icons/ios-72.png" />
+<link rel="apple-touch-icon-precomposed" href="https://a.slack-edge.com/66f9/img/icons/ios-57.png" />
+
+<meta name="msapplication-TileColor" content="#FFFFFF" />
+<meta name="msapplication-TileImage" content="https://a.slack-edge.com/66f9/img/icons/app-144.png" />	<script>
+!function(a,b){function c(a,b){try{if("function"!=typeof a)return a;if(!a.bugsnag){var c=e();a.bugsnag=function(d){if(b&&b.eventHandler&&(u=d),v=c,!y){var e=a.apply(this,arguments);return v=null,e}try{return a.apply(this,arguments)}catch(f){throw l("autoNotify",!0)&&(x.notifyException(f,null,null,"error"),s()),f}finally{v=null}},a.bugsnag.bugsnag=a.bugsnag}return a.bugsnag}catch(d){return a}}function d(){B=!1}function e(){var a=document.currentScript||v;if(!a&&B){var b=document.scripts||document.getElementsByTagName("script");a=b[b.length-1]}return a}function f(a){var b=e();b&&(a.script={src:b.src,content:l("inlineScript",!0)?b.innerHTML:""})}function g(b){var c=l("disableLog"),d=a.console;void 0===d||void 0===d.log||c||d.log("[Bugsnag] "+b)}function h(b,c,d){if(d>=5)return encodeURIComponent(c)+"=[RECURSIVE]";d=d+1||1;try{if(a.Node&&b instanceof a.Node)return encodeURIComponent(c)+"="+encodeURIComponent(r(b));var e=[];for(var f in b)if(b.hasOwnProperty(f)&&null!=f&&null!=b[f]){var g=c?c+"["+f+"]":f,i=b[f];e.push("object"==typeof i?h(i,g,d):encodeURIComponent(g)+"="+encodeURIComponent(i))}return e.join("&")}catch(j){return encodeURIComponent(c)+"="+encodeURIComponent(""+j)}}function i(a,b){if(null==b)return a;a=a||{};for(var c in b)if(b.hasOwnProperty(c))try{a[c]=b[c].constructor===Object?i(a[c],b[c]):b[c]}catch(d){a[c]=b[c]}return a}function j(a,b){a+="?"+h(b)+"&ct=img&cb="+(new Date).getTime();var c=new Image;c.src=a}function k(a){var b={},c=/^data\-([\w\-]+)$/;if(a)for(var d=a.attributes,e=0;e<d.length;e++){var f=d[e];if(c.test(f.nodeName)){var g=f.nodeName.match(c)[1];b[g]=f.value||f.nodeValue}}return b}function l(a,b){C=C||k(J);var c=void 0!==x[a]?x[a]:C[a.toLowerCase()];return"false"===c&&(c=!1),void 0!==c?c:b}function m(a){return a&&a.match(D)?!0:(g("Invalid API key '"+a+"'"),!1)}function n(b,c){var d=l("apiKey");if(m(d)&&A){A-=1;var e=l("releaseStage"),f=l("notifyReleaseStages");if(f){for(var h=!1,k=0;k<f.length;k++)if(e===f[k]){h=!0;break}if(!h)return}var n=[b.name,b.message,b.stacktrace].join("|");if(n!==w){w=n,u&&(c=c||{},c["Last Event"]=q(u));var o={notifierVersion:H,apiKey:d,projectRoot:l("projectRoot")||a.location.protocol+"//"+a.location.host,context:l("context")||a.location.pathname,userId:l("userId"),user:l("user"),metaData:i(i({},l("metaData")),c),releaseStage:e,appVersion:l("appVersion"),url:a.location.href,userAgent:navigator.userAgent,language:navigator.language||navigator.userLanguage,severity:b.severity,name:b.name,message:b.message,stacktrace:b.stacktrace,file:b.file,lineNumber:b.lineNumber,columnNumber:b.columnNumber,payloadVersion:"2"},p=x.beforeNotify;if("function"==typeof p){var r=p(o,o.metaData);if(r===!1)return}return 0===o.lineNumber&&/Script error\.?/.test(o.message)?g("Ignoring cross-domain script error. See https://bugsnag.com/docs/notifiers/js/cors"):(j(l("endpoint")||G,o),void 0)}}}function o(){var a,b,c=10,d="[anonymous]";try{throw new Error("")}catch(e){a="<generated>\n",b=p(e)}if(!b){a="<generated-ie>\n";var f=[];try{for(var h=arguments.callee.caller.caller;h&&f.length<c;){var i=E.test(h.toString())?RegExp.$1||d:d;f.push(i),h=h.caller}}catch(j){g(j)}b=f.join("\n")}return a+b}function p(a){return a.stack||a.backtrace||a.stacktrace}function q(a){var b={millisecondsAgo:new Date-a.timeStamp,type:a.type,which:a.which,target:r(a.target)};return b}function r(a){if(a){var b=a.attributes;if(b){for(var c="<"+a.nodeName.toLowerCase(),d=0;d<b.length;d++)b[d].value&&"null"!=b[d].value.toString()&&(c+=" "+b[d].name+'="'+b[d].value+'"');return c+">"}return a.nodeName}}function s(){z+=1,a.setTimeout(function(){z-=1})}function t(a,b,c){var d=a[b],e=c(d);a[b]=e}var u,v,w,x={},y=!0,z=0,A=10;x.noConflict=function(){return a.Bugsnag=b,x},x.refresh=function(){A=10},x.notifyException=function(a,b,c,d){b&&"string"!=typeof b&&(c=b,b=void 0),c||(c={}),f(c),n({name:b||a.name,message:a.message||a.description,stacktrace:p(a)||o(),file:a.fileName||a.sourceURL,lineNumber:a.lineNumber||a.line,columnNumber:a.columnNumber?a.columnNumber+1:void 0,severity:d||"warning"},c)},x.notify=function(b,c,d,e){n({name:b,message:c,stacktrace:o(),file:a.location.toString(),lineNumber:1,severity:e||"warning"},d)};var B="complete"!==document.readyState;document.addEventListener?(document.addEventListener("DOMContentLoaded",d,!0),a.addEventListener("load",d,!0)):a.attachEvent("onload",d);var C,D=/^[0-9a-f]{32}$/i,E=/function\s*([\w\-$]+)?\s*\(/i,F="https://notify.bugsnag.com/",G=F+"js",H="2.4.7",I=document.getElementsByTagName("script"),J=I[I.length-1];if(a.atob){if(a.ErrorEvent)try{0===new a.ErrorEvent("test").colno&&(y=!1)}catch(K){}}else y=!1;if(l("autoNotify",!0)){t(a,"onerror",function(b){return function(c,d,e,g,h){var i=l("autoNotify",!0),j={};!g&&a.event&&(g=a.event.errorCharacter),f(j),v=null,i&&!z&&n({name:h&&h.name||"window.onerror",message:c,file:d,lineNumber:e,columnNumber:g,stacktrace:h&&p(h)||o(),severity:"error"},j),b&&b(c,d,e,g,h)}});var L=function(a){return function(b,d){if("function"==typeof b){b=c(b);var e=Array.prototype.slice.call(arguments,2);return a(function(){b.apply(this,e)},d)}return a(b,d)}};t(a,"setTimeout",L),t(a,"setInterval",L),a.requestAnimationFrame&&t(a,"requestAnimationFrame",function(a){return function(b){return a(c(b))}}),a.setImmediate&&t(a,"setImmediate",function(a){return function(){var b=Array.prototype.slice.call(arguments);return b[0]=c(b[0]),a.apply(this,b)}}),"EventTarget Window Node ApplicationCache AudioTrackList ChannelMergerNode CryptoOperation EventSource FileReader HTMLUnknownElement IDBDatabase IDBRequest IDBTransaction KeyOperation MediaController MessagePort ModalWindow Notification SVGElementInstance Screen TextTrack TextTrackCue TextTrackList WebSocket WebSocketWorker Worker XMLHttpRequest XMLHttpRequestEventTarget XMLHttpRequestUpload".replace(/\w+/g,function(b){var d=a[b]&&a[b].prototype;d&&d.hasOwnProperty&&d.hasOwnProperty("addEventListener")&&(t(d,"addEventListener",function(a){return function(b,d,e,f){return d&&d.handleEvent&&(d.handleEvent=c(d.handleEvent,{eventHandler:!0})),a.call(this,b,c(d,{eventHandler:!0}),e,f)}}),t(d,"removeEventListener",function(a){return function(b,d,e,f){return a.call(this,b,d,e,f),a.call(this,b,c(d),e,f)}}))})}a.Bugsnag=x,"function"==typeof define&&define.amd?define([],function(){return x}):"object"==typeof module&&"object"==typeof module.exports&&(module.exports=x)}(window,window.Bugsnag);
+Bugsnag.apiKey = "2a86b308af5a81d2c9329fedfb4b30c7";
+Bugsnag.appVersion = "9fbe87666e87cb4161d238f7868871797e8b2f58" + '-' + "1460330883";
+Bugsnag.endpoint = "https://errors-webapp.slack-core.com/js";
+Bugsnag.releaseStage = "prod";
+Bugsnag.autoNotify = false;
+Bugsnag.user = {id:"U0MRF6CA0",name:"matthew_neal",email:"1002915@student.sae.edu.au"};
+Bugsnag.metaData = {};
+Bugsnag.metaData.team = {id:"T0MFS1C1X",name:"SAEBNEWeb",domain:"saebneweb"};
+Bugsnag.refresh_interval = setInterval(function () { (window.TS && window.TS.client) ? Bugsnag.refresh() : clearInterval(Bugsnag.refresh_interval); }, 15 * 60 * 1000);
+</script>
+	
+	<!--[if lt IE 9]>
+	<script src="https://a.slack-edge.com/ef0d/js/libs/html5shiv.js"></script>
+	<![endif]-->
+
+</head>
+
+<body class="		">
+
+		  			<script>
+		
+			var w = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+			if (w > 1440) document.querySelector('body').classList.add('widescreen');
+		
+		</script>
+	
+  	
+	
+
+			<nav id="site_nav" class="no_transition">
+
+	<div id="site_nav_contents">
+
+		<div id="user_menu">
+			<div id="user_menu_contents">
+				<div id="user_menu_avatar">
+										<span class="member_image thumb_48" style="background-image: url('https://avatars.slack-edge.com/2016-02-18/21872958295_24ee33803810f0cd11b7_192.jpg')" data-thumb-size="48" data-member-id="U0MRF6CA0"></span>
+					<span class="member_image thumb_36" style="background-image: url('https://avatars.slack-edge.com/2016-02-18/21872958295_24ee33803810f0cd11b7_72.jpg')" data-thumb-size="36" data-member-id="U0MRF6CA0"></span>
+				</div>
+				<h3>Signed in as</h3>
+				<span id="user_menu_name">matthew_neal</span>
+			</div>
+		</div>
+
+		<div class="nav_contents">
+
+			<ul class="primary_nav">
+				<li><a href="/home" data-qa="home"><i class="ts_icon ts_icon_home"></i>Home</a></li>
+				<li><a href="/account" data-qa="account_profile"><i class="ts_icon ts_icon_user"></i>Account & Profile</a></li>
+				<li><a href="/apps/manage" data-qa="configure_apps" target="_blank"><i class="ts_icon ts_icon_plug"></i>Configure Apps</a></li>
+				<li><a href="/archives"data-qa="archives"><i class="ts_icon ts_icon_archive" ></i>Message Archives</a></li>
+				<li><a href="/files" data-qa="files"><i class="ts_icon ts_icon_all_files clear_blue"></i>Files</a></li>
+				<li><a href="/team" data-qa="team_directory"><i class="ts_icon ts_icon_team_directory"></i>Team Directory</a></li>
+									<li><a href="/stats" data-qa="statistics"><i class="ts_icon ts_icon_dashboard"></i>Statistics</a></li>
+													<li><a href="/customize" data-qa="customize"><i class="ts_icon ts_icon_magic"></i>Customize</a></li>
+													<li><a href="/account/team" data-qa="team_settings"><i class="ts_icon ts_icon_cog_o"></i>Team Settings</a></li>
+							</ul>
+
+			
+		</div>
+
+		<div id="footer">
+
+			<ul id="footer_nav">
+				<li><a href="/is" data-qa="tour">Tour</a></li>
+				<li><a href="/downloads" data-qa="download_apps">Download Apps</a></li>
+				<li><a href="/brand-guidelines" data-qa="brand_guidelines">Brand Guidelines</a></li>
+				<li><a href="/help" data-qa="help">Help</a></li>
+				<li><a href="https://api.slack.com" target="_blank" data-qa="api">API<i class="ts_icon ts_icon_external_link small_left_margin ts_icon_inherit"></i></a></li>
+								<li><a href="/pricing" data-qa="pricing">Pricing</a></li>
+				<li><a href="/help/requests/new" data-qa="contact">Contact</a></li>
+				<li><a href="/terms-of-service" data-qa="policies">Policies</a></li>
+				<li><a href="http://slackhq.com/" target="_blank" data-qa="our_blog">Our Blog</a></li>
+				<li><a href="https://slack.com/signout/21536046065?crumb=s-1460341060-ecbded3a41-%E2%98%83" data-qa="sign_out">Sign Out<i class="ts_icon ts_icon_sign_out small_left_margin ts_icon_inherit"></i></a></li>
+			</ul>
+
+			<p id="footer_signature">Made with <i class="ts_icon ts_icon_heart"></i> by Slack</p>
+
+		</div>
+
+	</div>
+</nav>	
+			<header>
+			<a id="menu_toggle" class="no_transition" data-qa="menu_toggle_hamburger">
+			<span class="menu_icon"></span>
+			<span class="menu_label">Menu</span>
+			<span class="vert_divider"></span>
+		</a>
+		<h1 id="header_team_name" class="inline_block no_transition" data-qa="header_team_name">
+			<a href="/home">
+				<i class="ts_icon ts_icon_home" /></i>
+				SAEBNEWeb
+			</a>
+		</h1>
+		<div class="header_nav">
+			<div class="header_btns float_right">
+				<a id="team_switcher" data-qa="team_switcher">
+					<i class="ts_icon ts_icon_th_large ts_icon_inherit"></i>
+					<span class="block label">Teams</span>
+				</a>
+				<a href="/help" id="help_link" data-qa="help_link">
+					<i class="ts_icon ts_icon_life_ring ts_icon_inherit"></i>
+					<span class="block label">Help</span>
+				</a>
+									<a href="/messages" data-qa="launch">
+						<img src="https://a.slack-edge.com/66f9/img/icons/ios-64.png" srcset="https://a.slack-edge.com/66f9/img/icons/ios-32.png 1x, https://a.slack-edge.com/66f9/img/icons/ios-64.png 2x" />
+						<span class="block label">Launch</span>
+					</a>
+							</div>
+				                    <ul id="header_team_nav" data-qa="team_switcher_menu">
+	                        	                            <li class="active">
+	                            	<a href="https://saebneweb.slack.com/home" target="https://saebneweb.slack.com/">
+	                            			                            			<i class="ts_icon small ts_icon_check_circle_o active_icon s"></i>
+	                            			                            				                            		<i class="team_icon small" style="background-image: url('https://s3-us-west-2.amazonaws.com/slack-files2/avatars/2016-02-17/21701475441_1a50db4e22c1cf9ca4ca_88.png');"></i>
+		                            		                            		<span class="switcher_label team_name">SAEBNEWeb</span>
+	                            	</a>
+	                            </li>
+	                        	                        <li id="add_team_option"><a href="https://slack.com/signin" target="_blank"><i class="ts_icon ts_icon_plus team_icon small"></i> <span class="switcher_label">Sign in to another team...</span></a></li>
+	                    </ul>
+	                		</div>
+	
+	
+</header>	
+	<div id="page" >
+
+		<div id="page_contents" data-qa="page_contents" class="">
+
+<p class="print_only">
+	<strong>Created by tatiana on April 11, 2016 at 12:10 PM</strong><br />
+	<span class="subtle_silver break_word">https://saebneweb.slack.com/files/tatiana/F0ZFS5Y5V/jquery.form-validator.js</span>
+</p>
+
+<div class="file_header_container no_print"></div>
+
+<div class="alert_container">
+		<div class="file_public_link_shared alert" style="display: none;">
+		
+	<i class="ts_icon ts_icon_link"></i> Public Link: <a class="file_public_link" href="https://slack-files.com/T0MFS1C1X-F0ZFS5Y5V-169670f89f" target="new">https://slack-files.com/T0MFS1C1X-F0ZFS5Y5V-169670f89f</a>
+</div></div>
+
+<div id="file_page" class="card top_padding">
+
+	<p class="small subtle_silver no_print meta">
+		71KB JavaScript/JSON snippet created on <span class="date">April 11th 2016</span>.
+		This file is private.		<span class="file_share_list"></span>
+	</p>
+
+	<a id="file_action_cog" class="action_cog action_cog_snippet float_right no_print">
+		<span>Actions </span><i class="ts_icon ts_icon_cog"></i>
+	</a>
+	<a id="snippet_expand_toggle" class="float_right no_print">
+		<i class="ts_icon ts_icon_expand "></i>
+		<i class="ts_icon ts_icon_compress hidden"></i>
+	</a>
+
+	<div class="large_bottom_margin clearfix">
+		<pre id="file_contents">(function (root, factory) {
+  if (typeof define === &#039;function&#039; &amp;&amp; define.amd) {
+    // AMD. Register as an anonymous module unless amdModuleId is set
+    define([&quot;jquery&quot;], function (a0) {
+      return (factory(a0));
+    });
+  } else if (typeof exports === &#039;object&#039;) {
+    // Node. Does not work with strict CommonJS, but
+    // only CommonJS-like environments that support module.exports,
+    // like Node.
+    module.exports = factory(require(&quot;jquery&quot;));
+  } else {
+    factory(jQuery);
+  }
+}(this, function (jQuery) {
+
+/** File generated by Grunt -- do not modify
+ *  JQUERY-FORM-VALIDATOR
+ *
+ *  @version 2.2.201
+ *  @website http://formvalidator.net/
+ *  @author Victor Jonsson, http://victorjonsson.se
+ *  @license MIT
+ */
+/**
+ * Deprecated functions and attributes
+ * @todo: Remove in release of 3.0
+ */
+(function ($, undefined) {
+
+  &#039;use strict&#039;;
+
+  /**
+   * @deprecated
+   * @param language
+   * @param conf
+   */
+  $.fn.validateForm = function (language, conf) {
+    $.formUtils.warn(&#039;Use of deprecated function $.validateForm, use $.isValid instead&#039;);
+    return this.isValid(language, conf, true);
+  };
+
+  $(window).on(&#039;validatorsLoaded formValidationSetup&#039;, function(evt, $form, config) {
+    if( !$form ) {
+      $form = $(&#039;form&#039;);
+    }
+
+    addSupportForCustomErrorMessageCallback(config);
+    addSupportForElementReferenceInPositionParam(config);
+    addSupportForValidationDependingOnCheckedInput($form);
+  });
+
+
+  function addSupportForCustomErrorMessageCallback(config) {
+    if (config &amp;&amp;
+        config.errorMessagePosition === &#039;custom&#039; &amp;&amp;
+        typeof config.errorMessageCustom === &#039;function&#039;) {
+
+      $.formUtils.warn(&#039;Use of deprecated function errorMessageCustom, use config.submitErrorMessageCallback instead&#039;);
+
+      config.submitErrorMessageCallback = function($form, errorMessages) {
+        config.errorMessageCustom(
+            $form,
+            config.language.errorTitle,
+            errorMessages,
+            config
+        );
+      };
+    }
+  }
+
+  function addSupportForElementReferenceInPositionParam(config) {
+    if (config.errorMessagePosition &amp;&amp; typeof config.errorMessagePosition === &#039;object&#039;) {
+      $.formUtils.warn(&#039;Deprecated use of config parameter errorMessagePosition, use config.submitErrorMessageCallback instead&#039;);
+      var $errorMessageContainer = config.errorMessagePosition;
+      config.errorMessagePosition = &#039;top&#039;;
+      config.submitErrorMessageCallback = function() {
+        return $errorMessageContainer;
+      };
+    }
+  }
+
+  function addSupportForValidationDependingOnCheckedInput($form) {
+    var $inputsDependingOnCheckedInputs = $form.find(&#039;[data-validation-if-checked]&#039;);
+    if ($inputsDependingOnCheckedInputs.length) {
+      $.formUtils.warn(
+        &#039;Detected use of attribute &quot;data-validation-if-checked&quot; which is &#039;+
+        &#039;deprecated. Use &quot;data-validation-depends-on&quot; provided by module &quot;logic&quot;&#039;
+      );
+    }
+
+    $inputsDependingOnCheckedInputs
+      .on(&#039;beforeValidation&#039;, function() {
+
+        var $elem = $(this),
+          nameOfDependingInput = $elem.valAttr(&#039;if-checked&#039;);
+
+        // Set the boolean telling us that the validation depends
+        // on another input being checked
+        var $dependingInput = $(&#039;input[name=&quot;&#039; + nameOfDependingInput + &#039;&quot;]&#039;, $form),
+          dependingInputIsChecked = $dependingInput.is(&#039;:checked&#039;),
+          valueOfDependingInput = ($.formUtils.getValue($dependingInput) || &#039;&#039;).toString(),
+          requiredValueOfDependingInput = $elem.valAttr(&#039;if-checked-value&#039;);
+
+        if (!dependingInputIsChecked || !(
+              !requiredValueOfDependingInput ||
+              requiredValueOfDependingInput === valueOfDependingInput
+          )) {
+          $elem.valAttr(&#039;skipped&#039;, true);
+        }
+
+      });
+    }
+
+})(jQuery);
+
+/**
+ * Utility methods used for displaying error messages (attached to $.formUtils)
+ */
+(function ($) {
+
+  &#039;use strict&#039;;
+
+  var dialogs = {
+
+    resolveErrorMessage: function($elem, validator, validatorName, conf, language) {
+      var errorMsgAttr = conf.validationErrorMsgAttribute + &#039;-&#039; + validatorName.replace(&#039;validate_&#039;, &#039;&#039;),
+        validationErrorMsg = $elem.attr(errorMsgAttr);
+
+      if (!validationErrorMsg) {
+        validationErrorMsg = $elem.attr(conf.validationErrorMsgAttribute);
+        if (!validationErrorMsg) {
+          if (typeof validator.errorMessageKey !== &#039;function&#039;) {
+            validationErrorMsg = language[validator.errorMessageKey];
+          }
+          else {
+            validationErrorMsg = language[validator.errorMessageKey(conf)];
+          }
+          if (!validationErrorMsg) {
+            validationErrorMsg = validator.errorMessage;
+          }
+        }
+      }
+      return validationErrorMsg;
+    },
+    getParentContainer: function ($elem) {
+      if ($elem.valAttr(&#039;error-msg-container&#039;)) {
+        return $($elem.valAttr(&#039;error-msg-container&#039;));
+      } else {
+        var $parent = $elem.parent();
+        if (!$parent.hasClass(&#039;form-group&#039;) &amp;&amp; !$parent.closest(&#039;form&#039;).hasClass(&#039;form-horizontal&#039;)) {
+          var $formGroup = $parent.closest(&#039;.form-group&#039;);
+          if ($formGroup.length) {
+            return $formGroup.eq(0);
+          }
+        }
+        return $parent;
+      }
+    },
+    applyInputErrorStyling: function ($input, conf) {
+      $input
+        .addClass(conf.errorElementClass)
+        .removeClass(&#039;valid&#039;);
+
+      this.getParentContainer($input)
+        .addClass(conf.inputParentClassOnError)
+        .removeClass(conf.inputParentClassOnSuccess);
+
+      if (conf.borderColorOnError !== &#039;&#039;) {
+        $input.css(&#039;border-color&#039;, conf.borderColorOnError);
+      }
+    },
+    applyInputSuccessStyling: function($input, conf) {
+      $input.addClass(&#039;valid&#039;);
+      this.getParentContainer($input)
+        .addClass(conf.inputParentClassOnSuccess);
+    },
+    removeInputStylingAndMessage: function($input, conf) {
+
+      // Reset input css
+      $input
+        .removeClass(&#039;valid&#039;)
+        .removeClass(conf.errorElementClass)
+        .css(&#039;border-color&#039;, &#039;&#039;);
+
+      var $parentContainer = dialogs.getParentContainer($input);
+
+      // Reset parent css
+      $parentContainer
+        .removeClass(conf.inputParentClassOnError)
+        .removeClass(conf.inputParentClassOnSuccess);
+
+      // Remove possible error message
+      if (typeof conf.inlineErrorMessageCallback === &#039;function&#039;) {
+        var $errorMessage = conf.inlineErrorMessageCallback($input, conf);
+        if ($errorMessage) {
+          $errorMessage.html(&#039;&#039;);
+        }
+      } else {
+        $parentContainer
+          .find(&#039;.&#039; + conf.errorMessageClass)
+          .remove();
+      }
+
+    },
+    removeAllMessagesAndStyling: function($form, conf) {
+
+      // Remove error messages in top of form
+      if (typeof conf.submitErrorMessageCallback === &#039;function&#039;) {
+        var $errorMessagesInTopOfForm = conf.submitErrorMessageCallback($form, conf);
+        if ($errorMessagesInTopOfForm) {
+          $errorMessagesInTopOfForm.html(&#039;&#039;);
+        }
+      } else {
+        $form.find(&#039;.&#039; + conf.errorMessageClass + &#039;.alert&#039;).remove();
+      }
+
+      // Remove input css/messages
+      $form.find(&#039;.&#039; + conf.errorElementClass + &#039;,.valid&#039;).each(function() {
+        dialogs.removeInputStylingAndMessage($(this), conf);
+      });
+    },
+    setInlineMessage: function ($input, errorMsg, conf) {
+
+      this.applyInputErrorStyling($input, conf);
+
+      var custom = document.getElementById($input.attr(&#039;name&#039;) + &#039;_err_msg&#039;),
+        $messageContainer = false,
+        setErrorMessage = function ($elem) {
+          $.formUtils.$win.trigger(&#039;validationErrorDisplay&#039;, [$input, $elem]);
+          $elem.html(errorMsg);
+        },
+        addErrorToMessageContainer = function() {
+          var $found = false;
+          $messageContainer.find(&#039;.&#039; + conf.errorMessageClass).each(function () {
+            if (this.inputReferer === $input[0]) {
+              $found = $(this);
+              return false;
+            }
+          });
+          console.log($found);
+          if ($found) {
+            if (!errorMsg) {
+              $found.remove();
+            } else {
+              setErrorMessage($found);
+            }
+          } else if(errorMsg !== &#039;&#039;) {
+            $message = $(&#039;&lt;div class=&quot;&#039; + conf.errorMessageClass + &#039; alert&quot;&gt;&lt;/div&gt;&#039;);
+            setErrorMessage($message);
+            $message[0].inputReferer = $input[0];
+            $messageContainer.prepend($message);
+          }
+        },
+        $message;
+
+      if (custom) {
+        // Todo: remove in 3.0
+        $.formUtils.warn(&#039;Using deprecated element reference &#039; + custom.id);
+        $messageContainer = $(custom);
+        addErrorToMessageContainer();
+      } else if (typeof conf.inlineErrorMessageCallback === &#039;function&#039;) {
+        $messageContainer = conf.inlineErrorMessageCallback($input, conf);
+        if (!$messageContainer) {
+          // Error display taken care of by inlineErrorMessageCallback
+          return;
+        }
+        addErrorToMessageContainer();
+      } else {
+        var $parent = this.getParentContainer($input);
+        $message = $parent.find(&#039;.&#039; + conf.errorMessageClass + &#039;.help-block&#039;);
+        if ($message.length === 0) {
+          $message = $(&#039;&lt;span&gt;&lt;/span&gt;&#039;).addClass(&#039;help-block&#039;).addClass(conf.errorMessageClass);
+          $message.appendTo($parent);
+        }
+        setErrorMessage($message);
+      }
+    },
+    setMessageInTopOfForm: function ($form, errorMessages, conf, lang) {
+      var view = &#039;&lt;div class=&quot;{errorMessageClass} alert alert-danger&quot;&gt;&#039;+
+                    &#039;&lt;strong&gt;{errorTitle}&lt;/strong&gt;&#039;+
+                    &#039;&lt;ul&gt;{fields}&lt;/ul&gt;&#039;+
+                &#039;&lt;/div&gt;&#039;,
+          $container = false;
+
+      if (typeof conf.submitErrorMessageCallback === &#039;function&#039;) {
+        $container = conf.submitErrorMessageCallback($form, errorMessages, conf);
+        console.log($container);
+        if (!$container) {
+          // message display taken care of by callback
+          return;
+        }
+      }
+
+      var viewParams = {
+            errorTitle: lang.errorTitle,
+            fields: &#039;&#039;,
+            errorMessageClass: conf.errorMessageClass
+          };
+
+      $.each(errorMessages, function (i, msg) {
+        viewParams.fields += &#039;&lt;li&gt;&#039;+msg+&#039;&lt;/li&gt;&#039;;
+      });
+
+      $.each(viewParams, function(param, value) {
+        view = view.replace(&#039;{&#039;+param+&#039;}&#039;, value);
+      });
+
+      if ($container) {
+        $container.html(view);
+      } else {
+        $form.children().eq(0).before($(view));
+      }
+    }
+  };
+
+  $.formUtils = $.extend($.formUtils || {}, {
+    dialogs: dialogs
+  });
+
+})(jQuery);
+
+/**
+ * File declaring all methods if this plugin which is applied to $.fn.
+ */
+(function($, window) {
+
+  &#039;use strict&#039;;
+
+  var _helpers = 0;
+
+
+  /**
+   * Assigns validateInputOnBlur function to elements blur event
+   *
+   * @param {Object} language Optional, will override $.formUtils.LANG
+   * @param {Object} conf Optional, will override the default settings
+   * @return {jQuery}
+   */
+  $.fn.validateOnBlur = function (language, conf) {
+    this.find(&#039;*[data-validation]&#039;)
+      .bind(&#039;blur.validation&#039;, function () {
+        $(this).validateInputOnBlur(language, conf, true, &#039;blur&#039;);
+      });
+    if (conf.validateCheckboxRadioOnClick) {
+      // bind click event to validate on click for radio &amp; checkboxes for nice UX
+      this.find(&#039;input[type=checkbox][data-validation],input[type=radio][data-validation]&#039;)
+        .bind(&#039;click.validation&#039;, function () {
+          $(this).validateInputOnBlur(language, conf, true, &#039;click&#039;);
+        });
+    }
+
+    return this;
+  };
+
+  /*
+   * Assigns validateInputOnBlur function to elements custom event
+   * @param {Object} language Optional, will override $.formUtils.LANG
+   * @param {Object} settings Optional, will override the default settings
+   * * @return {jQuery}
+   */
+  $.fn.validateOnEvent = function (language, config) {
+    var $elements = this[0].nodeName === &#039;FORM&#039; ? this.find(&#039;*[data-validation-event]&#039;) : this;
+    $elements
+      .each(function () {
+        var $el = $(this),
+          etype = $el.valAttr(&#039;event&#039;);
+        if (etype) {
+          $el
+            .unbind(etype + &#039;.validation&#039;)
+            .bind(etype + &#039;.validation&#039;, function (evt) {
+              if( (evt || {}).keyCode !== 9 ) {
+                $(this).validateInputOnBlur(language, config, true, etype);
+              }
+            });
+        }
+      });
+    return this;
+  };
+
+  /**
+   * fade in help message when input gains focus
+   * fade out when input loses focus
+   * &lt;input data-help=&quot;The info that I want to display for the user when input is focused&quot; ... /&gt;
+   *
+   * @param {String} attrName - Optional, default is data-help
+   * @return {jQuery}
+   */
+  $.fn.showHelpOnFocus = function (attrName) {
+    if (!attrName) {
+      attrName = &#039;data-validation-help&#039;;
+    }
+
+    // Remove previously added event listeners
+    this.find(&#039;.has-help-txt&#039;)
+      .valAttr(&#039;has-keyup-event&#039;, false)
+      .removeClass(&#039;has-help-txt&#039;);
+
+    // Add help text listeners
+    this.find(&#039;textarea,input&#039;).each(function () {
+      var $elem = $(this),
+        className = &#039;jquery_form_help_&#039; + (++_helpers),
+        help = $elem.attr(attrName);
+
+      if (help) {
+        $elem
+          .addClass(&#039;has-help-txt&#039;)
+          .unbind(&#039;focus.help&#039;)
+          .bind(&#039;focus.help&#039;, function () {
+            var $help = $elem.parent().find(&#039;.&#039; + className);
+            if ($help.length === 0) {
+              $help = $(&#039;&lt;span /&gt;&#039;)
+                .addClass(className)
+                .addClass(&#039;help&#039;)
+                .addClass(&#039;help-block&#039;) // twitter bs
+                .text(help)
+                .hide();
+
+              $elem.after($help);
+            }
+            $help.fadeIn();
+          })
+          .unbind(&#039;blur.help&#039;)
+          .bind(&#039;blur.help&#039;, function () {
+            $(this)
+              .parent()
+              .find(&#039;.&#039; + className)
+              .fadeOut(&#039;slow&#039;);
+          });
+      }
+    });
+
+    return this;
+  };
+
+  /**
+   * @param {Function} cb
+   * @param {Object} [conf]
+   * @param {Object} [lang]
+   */
+  $.fn.validate = function(cb, conf, lang) {
+    var language = $.extend({}, $.formUtils.LANG, lang || {});
+    this.each(function() {
+      var $elem = $(this),
+        formDefaultConfig = $elem.closest(&#039;form&#039;).get(0).validationConfig || {};
+
+      $elem.one(&#039;validation&#039;, function(evt, isValid) {
+        if ( typeof cb === &#039;function&#039; ) {
+          cb(isValid, this, evt);
+        }
+      });
+
+      $elem.validateInputOnBlur(
+        language,
+        $.extend({}, formDefaultConfig, conf || {}),
+        true
+      );
+    });
+  };
+
+  /**
+   * Tells whether or not validation of this input will have to postpone the form submit ()
+   * @returns {Boolean}
+   */
+  $.fn.willPostponeValidation = function() {
+    return (this.valAttr(&#039;suggestion-nr&#039;) ||
+      this.valAttr(&#039;postpone&#039;) ||
+      this.hasClass(&#039;hasDatepicker&#039;)) &amp;&amp;
+      !window.postponedValidation;
+  };
+
+  /**
+   * Validate single input when it loses focus
+   * shows error message in a span element
+   * that is appended to the parent element
+   *
+   * @param {Object} [language] Optional, will override $.formUtils.LANG
+   * @param {Object} [conf] Optional, will override the default settings
+   * @param {Boolean} attachKeyupEvent Optional
+   * @param {String} eventType
+   * @return {jQuery}
+   */
+  $.fn.validateInputOnBlur = function (language, conf, attachKeyupEvent, eventType) {
+
+    $.formUtils.eventType = eventType;
+
+    if ( this.willPostponeValidation() ) {
+      // This validation has to be postponed
+      var _self = this,
+        postponeTime = this.valAttr(&#039;postpone&#039;) || 200;
+
+      window.postponedValidation = function () {
+        _self.validateInputOnBlur(language, conf, attachKeyupEvent, eventType);
+        window.postponedValidation = false;
+      };
+
+      setTimeout(function () {
+        if (window.postponedValidation) {
+          window.postponedValidation();
+        }
+      }, postponeTime);
+
+      return this;
+    }
+
+    language = $.extend({}, $.formUtils.LANG, language || {});
+    $.formUtils.dialogs.removeInputStylingAndMessage(this, conf);
+
+    var $elem = this,
+      $form = $elem.closest(&#039;form&#039;),
+      result = $.formUtils.validateInput(
+        $elem,
+        language,
+        conf,
+        $form,
+        eventType
+      );
+
+    if (attachKeyupEvent) {
+      $elem.unbind(&#039;keyup.validation&#039;);
+    }
+
+    if (result.shouldChangeDisplay) {
+      if (result.isValid) {
+        $.formUtils.dialogs.applyInputSuccessStyling($elem, conf);
+      } else {
+        $.formUtils.dialogs.setInlineMessage($elem, result.errorMsg, conf);
+      }
+    }
+
+    if (!result.isValid &amp;&amp; attachKeyupEvent) {
+      $elem.bind(&#039;keyup.validation&#039;, function (evt) {
+        if( evt.keyCode !== 9 ) {
+          $(this).validateInputOnBlur(language, conf, false, &#039;keyup&#039;);
+        }
+      });
+    }
+
+    return this;
+  };
+
+  /**
+   * Short hand for fetching/adding/removing element attributes
+   * prefixed with &#039;data-validation-&#039;
+   *
+   * @param {String} name
+   * @param {String|Boolean} [val]
+   * @return {String|undefined|jQuery}
+   * @protected
+   */
+  $.fn.valAttr = function (name, val) {
+    if (val === undefined) {
+      return this.attr(&#039;data-validation-&#039; + name);
+    } else if (val === false || val === null) {
+      return this.removeAttr(&#039;data-validation-&#039; + name);
+    } else {
+      name = ((name.length &gt; 0) ? &#039;-&#039; + name : &#039;&#039;);
+      return this.attr(&#039;data-validation&#039; + name, val);
+    }
+  };
+
+  /**
+   * Function that validates all inputs in active form
+   *
+   * @param {Object} [language]
+   * @param {Object} [conf]
+   * @param {Boolean} [displayError] Defaults to true
+   */
+  $.fn.isValid = function (language, conf, displayError) {
+
+    if ($.formUtils.isLoadingModules) {
+      var $self = this;
+      setTimeout(function () {
+        $self.isValid(language, conf, displayError);
+      }, 200);
+      return null;
+    }
+
+    conf = $.extend({}, $.formUtils.defaultConfig(), conf || {});
+    language = $.extend({}, $.formUtils.LANG, language || {});
+    displayError = displayError !== false;
+
+    if ($.formUtils.errorDisplayPreventedWhenHalted) {
+      // isValid() was called programmatically with argument displayError set
+      // to false when the validation was halted by any of the validators
+      delete $.formUtils.errorDisplayPreventedWhenHalted;
+      displayError = false;
+    }
+
+    $.formUtils.isValidatingEntireForm = true;
+    $.formUtils.haltValidation = false;
+
+    /**
+     * Adds message to error message stack if not already in the message stack
+     *
+     * @param {String} mess
+     * @para {jQuery} $elem
+     */
+    var addErrorMessage = function (mess, $elem) {
+        if ($.inArray(mess, errorMessages) &lt; 0) {
+          errorMessages.push(mess);
+        }
+        errorInputs.push($elem);
+        $elem.attr(&#039;current-error&#039;, mess);
+        if (displayError) {
+          $.formUtils.dialogs.applyInputErrorStyling($elem, conf);
+        }
+      },
+
+      /** Holds inputs (of type checkox or radio) already validated, to prevent recheck of mulitple checkboxes &amp; radios */
+      checkedInputs = [],
+
+      /** Error messages for this validation */
+      errorMessages = [],
+
+      /** Input elements which value was not valid */
+      errorInputs = [],
+
+      /** Form instance */
+      $form = this,
+
+      /**
+       * Tells whether or not to validate element with this name and of this type
+       *
+       * @param {String} name
+       * @param {String} type
+       * @return {Boolean}
+       */
+      ignoreInput = function (name, type) {
+        if (type === &#039;submit&#039; || type === &#039;button&#039; || type === &#039;reset&#039;) {
+          return true;
+        }
+        return $.inArray(name, conf.ignore || []) &gt; -1;
+      };
+
+    // Reset style and remove error class
+    if (displayError) {
+      $.formUtils.dialogs.removeAllMessagesAndStyling($form, conf);
+    }
+
+    // Validate element values
+    $form.find(&#039;input,textarea,select&#039;).filter(&#039;:not([type=&quot;submit&quot;],[type=&quot;button&quot;])&#039;).each(function () {
+      var $elem = $(this),
+        elementType = $elem.attr(&#039;type&#039;),
+        isCheckboxOrRadioBtn = elementType === &#039;radio&#039; || elementType === &#039;checkbox&#039;,
+        elementName = $elem.attr(&#039;name&#039;);
+
+      if (!ignoreInput(elementName, elementType) &amp;&amp; (!isCheckboxOrRadioBtn || $.inArray(elementName, checkedInputs) &lt; 0)) {
+
+        if (isCheckboxOrRadioBtn) {
+          checkedInputs.push(elementName);
+        }
+
+        var result = $.formUtils.validateInput(
+          $elem,
+          language,
+          conf,
+          $form,
+          &#039;submit&#039;
+        );
+
+        if (result.shouldChangeDisplay) {
+          if (!result.isValid) {
+            addErrorMessage(result.errorMsg, $elem);
+          } else if (result.isValid) {
+            $elem.valAttr(&#039;current-error&#039;, false);
+            $.formUtils.dialogs.applyInputSuccessStyling($elem, conf);
+          }
+        }
+      }
+
+    });
+
+    // Run validation callback
+    if (typeof conf.onValidate === &#039;function&#039;) {
+      var errors = conf.onValidate($form);
+      if ($.isArray(errors)) {
+        $.each(errors, function (i, err) {
+          addErrorMessage(err.message, err.element);
+        });
+      }
+      else if (errors &amp;&amp; errors.element &amp;&amp; errors.message) {
+        addErrorMessage(errors.message, errors.element);
+      }
+    }
+
+    // Reset form validation flag
+    $.formUtils.isValidatingEntireForm = false;
+
+    // Validation failed
+    if (!$.formUtils.haltValidation &amp;&amp; errorInputs.length &gt; 0) {
+
+      if (displayError) {
+
+        if (conf.errorMessagePosition === &#039;top&#039;) {
+          $.formUtils.dialogs.setMessageInTopOfForm($form, errorMessages, conf, language);
+        } else {
+          $.each(errorInputs, function (i, $input) {
+            $.formUtils.dialogs.setInlineMessage($input, $input.attr(&#039;current-error&#039;), conf);
+          });
+        }
+        if (conf.scrollToTopOnError) {
+          $.formUtils.$win.scrollTop($form.offset().top - 20);
+        }
+
+      }
+
+      return false;
+    }
+
+    if (!displayError &amp;&amp; $.formUtils.haltValidation) {
+      $.formUtils.errorDisplayPreventedWhenHalted = true;
+    }
+
+    return !$.formUtils.haltValidation;
+  };
+
+  /**
+   * Plugin for displaying input length restriction
+   */
+  $.fn.restrictLength = function (maxLengthElement) {
+    new $.formUtils.lengthRestriction(this, maxLengthElement);
+    return this;
+  };
+
+  /**
+   * Add suggestion dropdown to inputs having data-suggestions with a comma
+   * separated string with suggestions
+   * @param {Array} [settings]
+   * @returns {jQuery}
+   */
+  $.fn.addSuggestions = function (settings) {
+    var sugs = false;
+    this.find(&#039;input&#039;).each(function () {
+      var $field = $(this);
+
+      sugs = $.split($field.attr(&#039;data-suggestions&#039;));
+
+      if (sugs.length &gt; 0 &amp;&amp; !$field.hasClass(&#039;has-suggestions&#039;)) {
+        $.formUtils.suggest($field, sugs, settings);
+        $field.addClass(&#039;has-suggestions&#039;);
+      }
+    });
+    return this;
+  };
+
+
+})(jQuery, window);
+
+/**
+ * Utility methods used for handling loading of modules (attached to $.formUtils)
+ */
+(function($) {
+
+  &#039;use strict&#039;;
+
+  $.formUtils = $.extend($.formUtils || {}, {
+
+    /**
+     * @var {Boolean}
+     */
+    isLoadingModules: false,
+
+    /**
+     * @var {Object}
+     */
+    loadedModules: {},
+
+    /**
+     * @example
+     *  $.formUtils.loadModules(&#039;date, security.dev&#039;);
+     *
+     * Will load the scripts date.js and security.dev.js from the
+     * directory where this script resides. If you want to load
+     * the modules from another directory you can use the
+     * path argument.
+     *
+     * The script will be cached by the browser unless the module
+     * name ends with .dev
+     *
+     * @param {String} modules - Comma separated string with module file names (no directory nor file extension)
+     * @param {String} [path] - Optional, path where the module files is located if their not in the same directory as the core modules
+     * @param {function} [callback] - Optional, whether or not to fire event &#039;load&#039; when modules finished loading
+     */
+    loadModules: function (modules, path, callback) {
+
+      if ($.formUtils.isLoadingModules) {
+        setTimeout(function () {
+          $.formUtils.loadModules(modules, path, callback);
+        }, 10);
+        return;
+      }
+
+      var hasLoadedAnyModule = false,
+        loadModuleScripts = function (modules, path) {
+
+          var moduleList = $.split(modules),
+            numModules = moduleList.length,
+            moduleLoadedCallback = function () {
+              numModules--;
+              if (numModules === 0) {
+                $.formUtils.isLoadingModules = false;
+                if (callback &amp;&amp; hasLoadedAnyModule) {
+                  if( typeof callback === &#039;function&#039; ) {
+                    callback();
+                  }
+                }
+              }
+            };
+
+
+          if (numModules &gt; 0) {
+            $.formUtils.isLoadingModules = true;
+          }
+
+          var cacheSuffix = &#039;?_=&#039; + ( new Date().getTime() ),
+            appendToElement = document.getElementsByTagName(&#039;head&#039;)[0] || document.getElementsByTagName(&#039;body&#039;)[0];
+
+          $.each(moduleList, function (i, modName) {
+            modName = $.trim(modName);
+            if (modName.length === 0) {
+              moduleLoadedCallback();
+            }
+            else {
+              var scriptUrl = path + modName + (modName.slice(-3) === &#039;.js&#039; ? &#039;&#039; : &#039;.js&#039;),
+                script = document.createElement(&#039;SCRIPT&#039;);
+
+              if (scriptUrl in $.formUtils.loadedModules) {
+                // already loaded
+                moduleLoadedCallback();
+              }
+              else {
+
+                // Remember that this script is loaded
+                $.formUtils.loadedModules[scriptUrl] = 1;
+                hasLoadedAnyModule = true;
+
+                // Load the script
+                script.type = &#039;text/javascript&#039;;
+                script.onload = moduleLoadedCallback;
+                script.src = scriptUrl + ( scriptUrl.slice(-7) === &#039;.dev.js&#039; ? cacheSuffix : &#039;&#039; );
+                script.onerror = function() {
+                  $.formUtils.warn(&#039;Unable to load form validation module &#039;+scriptUrl);
+                };
+                script.onreadystatechange = function () {
+                  // IE 7 fix
+                  if (this.readyState === &#039;complete&#039; || this.readyState === &#039;loaded&#039;) {
+                    moduleLoadedCallback();
+                    // Handle memory leak in IE
+                    this.onload = null;
+                    this.onreadystatechange = null;
+                  }
+                };
+                appendToElement.appendChild(script);
+              }
+            }
+          });
+        };
+
+      if (path) {
+        loadModuleScripts(modules, path);
+      } else {
+        var findScriptPathAndLoadModules = function () {
+          var foundPath = false;
+          $(&#039;script[src*=&quot;form-validator&quot;]&#039;).each(function () {
+            foundPath = this.src.substr(0, this.src.lastIndexOf(&#039;/&#039;)) + &#039;/&#039;;
+            if (foundPath === &#039;/&#039;) {
+              foundPath = &#039;&#039;;
+            }
+            return false;
+          });
+
+          if (foundPath !== false) {
+            loadModuleScripts(modules, foundPath);
+            return true;
+          }
+          return false;
+        };
+
+        if (!findScriptPathAndLoadModules()) {
+          $(findScriptPathAndLoadModules);
+        }
+      }
+    }
+
+  });
+
+})(jQuery);
+
+/**
+ * Setup function for the plugin
+ */
+(function ($) {
+
+  &#039;use strict&#039;;
+
+
+  /**
+   * A bit smarter split function
+   * delimiter can be space, comma, dash or pipe
+   * @param {String} val
+   * @param {Function|String} [callback]
+   * @returns {Array|void}
+   */
+  $.split = function (val, callback) {
+    if (typeof callback !== &#039;function&#039;) {
+      // return array
+      if (!val) {
+        return [];
+      }
+      var values = [];
+      $.each(val.split(callback ? callback : /[,|\-\s]\s*/g),
+        function (i, str) {
+          str = $.trim(str);
+          if (str.length) {
+            values.push(str);
+          }
+        }
+      );
+      return values;
+    } else if (val) {
+      // exec callback func on each
+      $.each(val.split(/[,|\-\s]\s*/g),
+        function (i, str) {
+          str = $.trim(str);
+          if (str.length) {
+            return callback(str, i);
+          }
+        }
+      );
+    }
+  };
+
+  /**
+   * Short hand function that makes the validation setup require less code
+   * @param conf
+   */
+  $.validate = function (conf) {
+
+    var defaultConf = $.extend($.formUtils.defaultConfig(), {
+      form: &#039;form&#039;,
+      validateOnEvent: false,
+      validateOnBlur: true,
+      validateCheckboxRadioOnClick: true,
+      showHelpOnFocus: true,
+      addSuggestions: true,
+      modules: &#039;&#039;,
+      onModulesLoaded: null,
+      language: false,
+      onSuccess: false,
+      onError: false,
+      onElementValidate: false
+    });
+
+    conf = $.extend(defaultConf, conf || {});
+
+    if( conf.lang &amp;&amp; conf.lang !== &#039;en&#039; ) {
+      var langModule = &#039;lang/&#039;+conf.lang+&#039;.js&#039;;
+      conf.modules += conf.modules.length ? &#039;,&#039;+langModule : langModule;
+    }
+
+    // Add validation to forms
+    $(conf.form).each(function (i, form) {
+
+      // Make a reference to the config for this form
+      form.validationConfig = conf;
+
+      // Trigger jQuery event that we&#039;re about to setup validation
+      var $form = $(form);
+      // $.formUtils.$win.trigger(&#039;formValidationSetup&#039;, [$form, conf]);
+      $form.trigger(&#039;formValidationSetup&#039;, [$form, conf]);
+
+      // Remove classes and event handlers that might have been
+      // added by a previous call to $.validate
+      $form.find(&#039;.has-help-txt&#039;)
+          .unbind(&#039;focus.validation&#039;)
+          .unbind(&#039;blur.validation&#039;);
+
+      $form
+        .removeClass(&#039;has-validation-callback&#039;)
+        .unbind(&#039;submit.validation&#039;)
+        .unbind(&#039;reset.validation&#039;)
+        .find(&#039;input[data-validation],textarea[data-validation]&#039;)
+          .unbind(&#039;blur.validation&#039;);
+
+      // Validate when submitted
+      $form.bind(&#039;submit.validation&#039;, function () {
+
+        var $form = $(this);
+
+        if ($.formUtils.haltValidation) {
+          // pressing several times on submit button while validation is halted
+          return false;
+        }
+
+        if ($.formUtils.isLoadingModules) {
+          setTimeout(function () {
+            $form.trigger(&#039;submit.validation&#039;);
+          }, 200);
+          return false;
+        }
+
+        var valid = $form.isValid(conf.language, conf);
+
+        if ($.formUtils.haltValidation) {
+          // Validation got halted by one of the validators
+          return false;
+        } else {
+          if (valid &amp;&amp; typeof conf.onSuccess === &#039;function&#039;) {
+            var callbackResponse = conf.onSuccess($form);
+            if (callbackResponse === false) {
+              return false;
+            }
+          } else if (!valid &amp;&amp; typeof conf.onError === &#039;function&#039;) {
+            conf.onError($form);
+            return false;
+          } else {
+            return valid;
+          }
+        }
+      })
+      .bind(&#039;reset.validation&#039;, function () {
+        $.formUtils.dialogs.removeAllMessagesAndStyling($form, conf);
+      })
+      .addClass(&#039;has-validation-callback&#039;);
+
+      if (conf.showHelpOnFocus) {
+        $form.showHelpOnFocus();
+      }
+      if (conf.addSuggestions) {
+        $form.addSuggestions();
+      }
+      if (conf.validateOnBlur) {
+        $form.validateOnBlur(conf.language, conf);
+        $form.bind(&#039;html5ValidationAttrsFound&#039;, function () {
+          $form.validateOnBlur(conf.language, conf);
+        });
+      }
+      if (conf.validateOnEvent) {
+        $form.validateOnEvent(conf.language, conf);
+      }
+    });
+
+    if (conf.modules !== &#039;&#039;) {
+      $.formUtils.loadModules(conf.modules, false, function() {
+        if (typeof conf.onModulesLoaded === &#039;function&#039;) {
+          conf.onModulesLoaded();
+        }
+        var $form = typeof conf.form === &#039;string&#039; ? $(conf.form) : conf.form;
+        $.formUtils.$win.trigger(&#039;validatorsLoaded&#039;, [$form, conf]);
+      });
+    }
+  };
+
+})(jQuery);
+
+/**
+ * Utility methods and properties attached to $.formUtils
+ */
+(function($, window) {
+
+  &#039;use strict&#039;;
+
+  var $win = $(window);
+
+  $.formUtils = $.extend($.formUtils || {}, {
+
+    $win: $win,
+
+    /**
+     * Default config for $(...).isValid();
+     */
+    defaultConfig: function () {
+      return {
+        ignore: [], // Names of inputs not to be validated even though `validationRuleAttribute` containing the validation rules tells us to
+        errorElementClass: &#039;error&#039;, // Class that will be put on elements which value is invalid
+        borderColorOnError: &#039;#b94a48&#039;, // Border color of elements which value is invalid, empty string to not change border color
+        errorMessageClass: &#039;form-error&#039;, // class name of div containing error messages when validation fails
+        validationRuleAttribute: &#039;data-validation&#039;, // name of the attribute holding the validation rules
+        validationErrorMsgAttribute: &#039;data-validation-error-msg&#039;, // define custom err msg inline with element
+        errorMessagePosition: &#039;element&#039;, // Can be either &quot;top&quot; or &quot;element&quot; or &quot;custom&quot;
+        errorMessageTemplate: {
+          container: &#039;&lt;div class=&quot;{errorMessageClass} alert alert-danger&quot;&gt;{messages}&lt;/div&gt;&#039;,
+          messages: &#039;&lt;strong&gt;{errorTitle}&lt;/strong&gt;&lt;ul&gt;{fields}&lt;/ul&gt;&#039;,
+          field: &#039;&lt;li&gt;{msg}&lt;/li&gt;&#039;
+        },
+        scrollToTopOnError: true,
+        dateFormat: &#039;yyyy-mm-dd&#039;,
+        addValidClassOnAll: false, // whether or not to apply class=&quot;valid&quot; even if the input wasn&#039;t validated
+        decimalSeparator: &#039;.&#039;,
+        inputParentClassOnError: &#039;has-error&#039;, // twitter-bootstrap default class name
+        inputParentClassOnSuccess: &#039;has-success&#039;, // twitter-bootstrap default class name
+        validateHiddenInputs: false, // whether or not hidden inputs should be validated
+        inlineErrorMessageCallback: false,
+        submitErrorMessageCallback: false
+      };
+    },
+
+    /**
+     * Available validators
+     */
+    validators: {},
+
+    /**
+     * Events triggered by form validator
+     */
+    _events: {load: [], valid: [], invalid: []},
+
+    /**
+     * Setting this property to true during validation will
+     * stop further validation from taking place and form will
+     * not be sent
+     */
+    haltValidation: false,
+
+    /**
+     * This variable will be true $.fn.isValid() is called
+     * and false when $.fn.validateOnBlur is called
+     */
+    isValidatingEntireForm: false,
+
+    /**
+     * Function for adding a validator
+     * @param {Object} validator
+     */
+    addValidator: function (validator) {
+      // prefix with &quot;validate_&quot; for backward compatibility reasons
+      var name = validator.name.indexOf(&#039;validate_&#039;) === 0 ? validator.name : &#039;validate_&#039; + validator.name;
+      if (validator.validateOnKeyUp === undefined) {
+        validator.validateOnKeyUp = true;
+      }
+      this.validators[name] = validator;
+    },
+
+    /**
+     * Warn user via the console if available
+     */
+    warn: function(msg) {
+      if( &#039;console&#039; in window ) {
+        if( typeof window.console.warn === &#039;function&#039; ) {
+          window.console.warn(msg);
+        } else if( typeof window.console.log === &#039;function&#039; ) {
+          window.console.log(msg);
+        }
+      } else {
+        alert(msg);
+      }
+    },
+
+    /**
+     * Same as input $.fn.val() but also supporting input of typ radio or checkbox
+     * @example
+     *
+     *  $.formUtils.getValue(&#039;.myRadioButtons&#039;, $(&#039;#some-form&#039;));
+     *  $.formUtils.getValue($(&#039;#some-form&#039;).find(&#039;.check-boxes&#039;));
+     *
+     * @param query
+     * @param $parent
+     * @returns {String|Boolean}
+     */
+    getValue: function(query, $parent) {
+      var $inputs = $parent ? $parent.find(query) : query;
+      if ($inputs.length &gt; 0 ) {
+        var type = $inputs.eq(0).attr(&#039;type&#039;);
+        if (type === &#039;radio&#039; || type === &#039;checkbox&#039;) {
+          return $inputs.filter(&#039;:checked&#039;).val();
+        } else {
+          return $inputs.val();
+        }
+      }
+      return false;
+    },
+
+    /**
+     * Validate the value of given element according to the validation rules
+     * found in the attribute data-validation. Will return an object representing
+     * a validation result, having the props shouldChangeDisplay, isValid and errorMsg
+     * @param {jQuery} $elem
+     * @param {Object} language ($.formUtils.LANG)
+     * @param {Object} conf
+     * @param {jQuery} $form
+     * @param {String} [eventContext]
+     * @return {Object}
+     */
+    validateInput: function ($elem, language, conf, $form, eventContext) {
+
+      conf = conf || $.formUtils.defaultConfig();
+      language = language || $.formUtils.LANG;
+
+      var value = this.getValue($elem);
+
+      $elem
+        .valAttr(&#039;skipped&#039;, false)
+        .one(&#039;beforeValidation&#039;, function() {
+          // Skip input because its hidden or disabled
+          // Doing this in a callback makes it possible for others to prevent the default
+          // behaviour by binding to the same event and call evt.stopImmediatePropagation()
+          if ($elem.attr(&#039;disabled&#039;) || (!$elem.is(&#039;:visible&#039;) &amp;&amp; !conf.validateHiddenInputs)) {
+            $elem.valAttr(&#039;skipped&#039;, 1);
+          }
+        })
+        .trigger(&#039;beforeValidation&#039;, [value, conf, language]);
+
+      var inputIsOptional = $elem.valAttr(&#039;optional&#039;) === &#039;true&#039;,
+          skipBecauseItsEmpty = !value &amp;&amp; inputIsOptional,
+          validationRules = $elem.attr(conf.validationRuleAttribute),
+          isValid = true,
+          errorMsg = &#039;&#039;,
+          result = {isValid: true, shouldChangeDisplay:true, errorMsg:&#039;&#039;};
+
+      // For input type=&quot;number&quot;, browsers attempt to parse the entered value into a number.
+      // If the input is not numeric, browsers handle the situation differently:
+      // Chrome 48 simply disallows non-numeric input; FF 44 clears out the input box on blur;
+      // Safari 5 parses the entered string to find a leading number.
+      // If the input fails browser validation, the browser sets the input value equal to an empty string.
+      // Therefore, we cannot distinguish (apart from hacks) between an empty input type=&quot;text&quot; and one with a
+      // value that can&#039;t be parsed by the browser.
+
+      if (!validationRules || skipBecauseItsEmpty || $elem.valAttr(&#039;skipped&#039;)) {
+        result.shouldChangeDisplay = conf.addValidClassOnAll;
+        return result;
+      }
+
+      // Filter out specified characters
+      var ignore = $elem.valAttr(&#039;ignore&#039;);
+      if (ignore) {
+        $.each(ignore.split(&#039;&#039;), function(i, char) {
+          value = value.replace(new RegExp(&#039;\\&#039;+char), &#039;&#039;);
+        });
+      }
+
+      $.split(validationRules, function (rule) {
+
+        if (rule.indexOf(&#039;validate_&#039;) !== 0) {
+          rule = &#039;validate_&#039; + rule;
+        }
+
+        var validator = $.formUtils.validators[rule];
+
+        if (validator) {
+
+          // special change of element for checkbox_group rule
+          if (rule === &#039;validate_checkbox_group&#039;) {
+            // set element to first in group, so error msg attr doesn&#039;t need to be set on all elements in group
+            $elem = $form.find(&#039;[name=&quot;&#039; + $elem.attr(&#039;name&#039;) + &#039;&quot;]:eq(0)&#039;);
+          }
+
+          if (eventContext !== &#039;keyup&#039; || validator.validateOnKeyUp) {
+            // A validator can prevent itself from getting triggered on keyup
+            isValid = validator.validatorFunction(value, $elem, conf, language, $form);
+          }
+
+          if (!isValid) {
+            errorMsg = $.formUtils.dialogs.resolveErrorMessage($elem, validator, rule, conf, language);
+            return false; // break iteration
+          }
+
+        } else {
+
+          // todo: Add some validator lookup function and tell immediately which module is missing
+          throw new Error(&#039;Using undefined validator &quot;&#039; + rule +
+            &#039;&quot;. Maybe you have forgotten to load the module that &quot;&#039; + rule +&#039;&quot; belongs to?&#039;);
+
+        }
+
+      }, &#039; &#039;);
+
+
+      if (isValid === false) {
+        $elem.trigger(&#039;validation&#039;, false);
+        result.errorMsg = errorMsg;
+        result.isValid = false;
+        result.shouldChangeDisplay = true;
+      } else if (isValid === null) {
+        // A validatorFunction returning null means that it&#039;s not able to validate
+        // the input at this time. Most probably some async stuff need to gets finished
+        // first and then the validator will re-trigger the validation.
+        result.shouldChangeDisplay = false;
+      } else {
+        $elem.trigger(&#039;validation&#039;, true);
+        result.shouldChangeDisplay = true;
+      }
+
+      // Run element validation callback
+      if (typeof conf.onElementValidate === &#039;function&#039; &amp;&amp; errorMsg !== null) {
+        conf.onElementValidate(result.isValid, $elem, $form, errorMsg);
+      }
+
+      $elem.trigger(&#039;afterValidation&#039;, [result, eventContext]);
+
+      return result;
+    },
+
+    /**
+     * Is it a correct date according to given dateFormat. Will return false if not, otherwise
+     * an array 0=&gt;year 1=&gt;month 2=&gt;day
+     *
+     * @param {String} val
+     * @param {String} dateFormat
+     * @param {Boolean} [addMissingLeadingZeros]
+     * @return {Array}|{Boolean}
+     */
+    parseDate: function (val, dateFormat, addMissingLeadingZeros) {
+      var divider = dateFormat.replace(/[a-zA-Z]/gi, &#039;&#039;).substring(0, 1),
+        regexp = &#039;^&#039;,
+        formatParts = dateFormat.split(divider || null),
+        matches, day, month, year;
+
+      $.each(formatParts, function (i, part) {
+        regexp += (i &gt; 0 ? &#039;\\&#039; + divider : &#039;&#039;) + &#039;(\\d{&#039; + part.length + &#039;})&#039;;
+      });
+
+      regexp += &#039;$&#039;;
+
+      if (addMissingLeadingZeros) {
+        var newValueParts = [];
+        $.each(val.split(divider), function(i, part) {
+          if(part.length === 1) {
+            part = &#039;0&#039;+part;
+          }
+          newValueParts.push(part);
+        });
+        val = newValueParts.join(divider);
+      }
+
+      matches = val.match(new RegExp(regexp));
+      if (matches === null) {
+        return false;
+      }
+
+      var findDateUnit = function (unit, formatParts, matches) {
+        for (var i = 0; i &lt; formatParts.length; i++) {
+          if (formatParts[i].substring(0, 1) === unit) {
+            return $.formUtils.parseDateInt(matches[i + 1]);
+          }
+        }
+        return -1;
+      };
+
+      month = findDateUnit(&#039;m&#039;, formatParts, matches);
+      day = findDateUnit(&#039;d&#039;, formatParts, matches);
+      year = findDateUnit(&#039;y&#039;, formatParts, matches);
+
+      if ((month === 2 &amp;&amp; day &gt; 28 &amp;&amp; (year % 4 !== 0 || year % 100 === 0 &amp;&amp; year % 400 !== 0)) ||
+        (month === 2 &amp;&amp; day &gt; 29 &amp;&amp; (year % 4 === 0 || year % 100 !== 0 &amp;&amp; year % 400 === 0)) ||
+        month &gt; 12 || month === 0) {
+        return false;
+      }
+      if ((this.isShortMonth(month) &amp;&amp; day &gt; 30) || (!this.isShortMonth(month) &amp;&amp; day &gt; 31) || day === 0) {
+        return false;
+      }
+
+      return [year, month, day];
+    },
+
+    /**
+     * skum fix. är talet 05 eller lägre ger parseInt rätt int annars får man 0 när man kör parseInt?
+     *
+     * @param {String} val
+     * @return {Number}
+     */
+    parseDateInt: function (val) {
+      if (val.indexOf(&#039;0&#039;) === 0) {
+        val = val.replace(&#039;0&#039;, &#039;&#039;);
+      }
+      return parseInt(val, 10);
+    },
+
+    /**
+     * Has month only 30 days?
+     *
+     * @param {Number} m
+     * @return {Boolean}
+     */
+    isShortMonth: function (m) {
+      return (m % 2 === 0 &amp;&amp; m &lt; 7) || (m % 2 !== 0 &amp;&amp; m &gt; 7);
+    },
+
+    /**
+     * Restrict input length
+     *
+     * @param {jQuery} $inputElement Jquery Html object
+     * @param {jQuery} $maxLengthElement jQuery Html Object
+     * @return void
+     */
+    lengthRestriction: function ($inputElement, $maxLengthElement) {
+      // read maxChars from counter display initial text value
+      var maxChars = parseInt($maxLengthElement.text(), 10),
+        charsLeft = 0,
+
+      // internal function does the counting and sets display value
+        countCharacters = function () {
+          var numChars = $inputElement.val().length;
+          if (numChars &gt; maxChars) {
+            // get current scroll bar position
+            var currScrollTopPos = $inputElement.scrollTop();
+            // trim value to max length
+            $inputElement.val($inputElement.val().substring(0, maxChars));
+            $inputElement.scrollTop(currScrollTopPos);
+          }
+          charsLeft = maxChars - numChars;
+          if (charsLeft &lt; 0) {
+            charsLeft = 0;
+          }
+
+          // set counter text
+          $maxLengthElement.text(charsLeft);
+        };
+
+      // bind events to this element
+      // setTimeout is needed, cut or paste fires before val is available
+      $($inputElement).bind(&#039;keydown keyup keypress focus blur&#039;, countCharacters)
+        .bind(&#039;cut paste&#039;, function () {
+          setTimeout(countCharacters, 100);
+        });
+
+      // count chars on pageload, if there are prefilled input-values
+      $(document).bind(&#039;ready&#039;, countCharacters);
+    },
+
+    /**
+     * Test numeric against allowed range
+     *
+     * @param $value int
+     * @param $rangeAllowed str; (1-2, min1, max2, 10)
+     * @return array
+     */
+    numericRangeCheck: function (value, rangeAllowed) {
+      // split by dash
+      var range = $.split(rangeAllowed),
+      // min or max
+        minmax = parseInt(rangeAllowed.substr(3), 10);
+
+      if( range.length === 1 &amp;&amp; rangeAllowed.indexOf(&#039;min&#039;) === -1 &amp;&amp; rangeAllowed.indexOf(&#039;max&#039;) === -1 ) {
+        range = [rangeAllowed, rangeAllowed]; // only a number, checking agains an exact number of characters
+      }
+
+      // range ?
+      if (range.length === 2 &amp;&amp; (value &lt; parseInt(range[0], 10) || value &gt; parseInt(range[1], 10) )) {
+        return [ &#039;out&#039;, range[0], range[1] ];
+      } // value is out of range
+      else if (rangeAllowed.indexOf(&#039;min&#039;) === 0 &amp;&amp; (value &lt; minmax )) // min
+      {
+        return [&#039;min&#039;, minmax];
+      } // value is below min
+      else if (rangeAllowed.indexOf(&#039;max&#039;) === 0 &amp;&amp; (value &gt; minmax )) // max
+      {
+        return [&#039;max&#039;, minmax];
+      } // value is above max
+      // since no other returns executed, value is in allowed range
+      return [ &#039;ok&#039; ];
+    },
+
+
+    _numSuggestionElements: 0,
+    _selectedSuggestion: null,
+    _previousTypedVal: null,
+
+    /**
+     * Utility function that can be used to create plugins that gives
+     * suggestions when inputs is typed into
+     * @param {jQuery} $elem
+     * @param {Array} suggestions
+     * @param {Object} settings - Optional
+     * @return {jQuery}
+     */
+    suggest: function ($elem, suggestions, settings) {
+      var conf = {
+          css: {
+            maxHeight: &#039;150px&#039;,
+            background: &#039;#FFF&#039;,
+            lineHeight: &#039;150%&#039;,
+            textDecoration: &#039;underline&#039;,
+            overflowX: &#039;hidden&#039;,
+            overflowY: &#039;auto&#039;,
+            border: &#039;#CCC solid 1px&#039;,
+            borderTop: &#039;none&#039;,
+            cursor: &#039;pointer&#039;
+          },
+          activeSuggestionCSS: {
+            background: &#039;#E9E9E9&#039;
+          }
+        },
+        setSuggsetionPosition = function ($suggestionContainer, $input) {
+          var offset = $input.offset();
+          $suggestionContainer.css({
+            width: $input.outerWidth(),
+            left: offset.left + &#039;px&#039;,
+            top: (offset.top + $input.outerHeight()) + &#039;px&#039;
+          });
+        };
+
+      if (settings) {
+        $.extend(conf, settings);
+      }
+
+      conf.css.position = &#039;absolute&#039;;
+      conf.css[&#039;z-index&#039;] = 9999;
+      $elem.attr(&#039;autocomplete&#039;, &#039;off&#039;);
+
+      if (this._numSuggestionElements === 0) {
+        // Re-position suggestion container if window size changes
+        $win.bind(&#039;resize&#039;, function () {
+          $(&#039;.jquery-form-suggestions&#039;).each(function () {
+            var $container = $(this),
+              suggestID = $container.attr(&#039;data-suggest-container&#039;);
+            setSuggsetionPosition($container, $(&#039;.suggestions-&#039; + suggestID).eq(0));
+          });
+        });
+      }
+
+      this._numSuggestionElements++;
+
+      var onSelectSuggestion = function ($el) {
+        var suggestionId = $el.valAttr(&#039;suggestion-nr&#039;);
+        $.formUtils._selectedSuggestion = null;
+        $.formUtils._previousTypedVal = null;
+        $(&#039;.jquery-form-suggestion-&#039; + suggestionId).fadeOut(&#039;fast&#039;);
+      };
+
+      $elem
+        .data(&#039;suggestions&#039;, suggestions)
+        .valAttr(&#039;suggestion-nr&#039;, this._numSuggestionElements)
+        .unbind(&#039;focus.suggest&#039;)
+        .bind(&#039;focus.suggest&#039;, function () {
+          $(this).trigger(&#039;keyup&#039;);
+          $.formUtils._selectedSuggestion = null;
+        })
+        .unbind(&#039;keyup.suggest&#039;)
+        .bind(&#039;keyup.suggest&#039;, function () {
+          var $input = $(this),
+            foundSuggestions = [],
+            val = $.trim($input.val()).toLocaleLowerCase();
+
+          if (val === $.formUtils._previousTypedVal) {
+            return;
+          }
+          else {
+            $.formUtils._previousTypedVal = val;
+          }
+
+          var hasTypedSuggestion = false,
+            suggestionId = $input.valAttr(&#039;suggestion-nr&#039;),
+            $suggestionContainer = $(&#039;.jquery-form-suggestion-&#039; + suggestionId);
+
+          $suggestionContainer.scrollTop(0);
+
+          // Find the right suggestions
+          if (val !== &#039;&#039;) {
+            var findPartial = val.length &gt; 2;
+            $.each($input.data(&#039;suggestions&#039;), function (i, suggestion) {
+              var lowerCaseVal = suggestion.toLocaleLowerCase();
+              if (lowerCaseVal === val) {
+                foundSuggestions.push(&#039;&lt;strong&gt;&#039; + suggestion + &#039;&lt;/strong&gt;&#039;);
+                hasTypedSuggestion = true;
+                return false;
+              } else if (lowerCaseVal.indexOf(val) === 0 || (findPartial &amp;&amp; lowerCaseVal.indexOf(val) &gt; -1)) {
+                foundSuggestions.push(suggestion.replace(new RegExp(val, &#039;gi&#039;), &#039;&lt;strong&gt;$&amp;&lt;/strong&gt;&#039;));
+              }
+            });
+          }
+
+          // Hide suggestion container
+          if (hasTypedSuggestion || (foundSuggestions.length === 0 &amp;&amp; $suggestionContainer.length &gt; 0)) {
+            $suggestionContainer.hide();
+          }
+
+          // Create suggestion container if not already exists
+          else if (foundSuggestions.length &gt; 0 &amp;&amp; $suggestionContainer.length === 0) {
+            $suggestionContainer = $(&#039;&lt;div&gt;&lt;/div&gt;&#039;).css(conf.css).appendTo(&#039;body&#039;);
+            $elem.addClass(&#039;suggestions-&#039; + suggestionId);
+            $suggestionContainer
+              .attr(&#039;data-suggest-container&#039;, suggestionId)
+              .addClass(&#039;jquery-form-suggestions&#039;)
+              .addClass(&#039;jquery-form-suggestion-&#039; + suggestionId);
+          }
+
+          // Show hidden container
+          else if (foundSuggestions.length &gt; 0 &amp;&amp; !$suggestionContainer.is(&#039;:visible&#039;)) {
+            $suggestionContainer.show();
+          }
+
+          // add suggestions
+          if (foundSuggestions.length &gt; 0 &amp;&amp; val.length !== foundSuggestions[0].length) {
+
+            // put container in place every time, just in case
+            setSuggsetionPosition($suggestionContainer, $input);
+
+            // Add suggestions HTML to container
+            $suggestionContainer.html(&#039;&#039;);
+            $.each(foundSuggestions, function (i, text) {
+              $(&#039;&lt;div&gt;&lt;/div&gt;&#039;)
+                .append(text)
+                .css({
+                  overflow: &#039;hidden&#039;,
+                  textOverflow: &#039;ellipsis&#039;,
+                  whiteSpace: &#039;nowrap&#039;,
+                  padding: &#039;5px&#039;
+                })
+                .addClass(&#039;form-suggest-element&#039;)
+                .appendTo($suggestionContainer)
+                .click(function () {
+                  $input.focus();
+                  $input.val($(this).text());
+                  $input.trigger(&#039;change&#039;);
+                  onSelectSuggestion($input);
+                });
+            });
+          }
+        })
+        .unbind(&#039;keydown.validation&#039;)
+        .bind(&#039;keydown.validation&#039;, function (e) {
+          var code = (e.keyCode ? e.keyCode : e.which),
+            suggestionId,
+            $suggestionContainer,
+            $input = $(this);
+
+          if (code === 13 &amp;&amp; $.formUtils._selectedSuggestion !== null) {
+            suggestionId = $input.valAttr(&#039;suggestion-nr&#039;);
+            $suggestionContainer = $(&#039;.jquery-form-suggestion-&#039; + suggestionId);
+            if ($suggestionContainer.length &gt; 0) {
+              var newText = $suggestionContainer.find(&#039;div&#039;).eq($.formUtils._selectedSuggestion).text();
+              $input.val(newText);
+              $input.trigger(&#039;change&#039;);
+              onSelectSuggestion($input);
+              e.preventDefault();
+            }
+          }
+          else {
+            suggestionId = $input.valAttr(&#039;suggestion-nr&#039;);
+            $suggestionContainer = $(&#039;.jquery-form-suggestion-&#039; + suggestionId);
+            var $suggestions = $suggestionContainer.children();
+            if ($suggestions.length &gt; 0 &amp;&amp; $.inArray(code, [38, 40]) &gt; -1) {
+              if (code === 38) { // key up
+                if ($.formUtils._selectedSuggestion === null) {
+                  $.formUtils._selectedSuggestion = $suggestions.length - 1;
+                }
+                else{
+                  $.formUtils._selectedSuggestion--;
+                }
+                if ($.formUtils._selectedSuggestion &lt; 0) {
+                  $.formUtils._selectedSuggestion = $suggestions.length - 1;
+                }
+              }
+              else if (code === 40) { // key down
+                if ($.formUtils._selectedSuggestion === null) {
+                  $.formUtils._selectedSuggestion = 0;
+                }
+                else {
+                  $.formUtils._selectedSuggestion++;
+                }
+                if ($.formUtils._selectedSuggestion &gt; ($suggestions.length - 1)) {
+                  $.formUtils._selectedSuggestion = 0;
+                }
+              }
+
+              // Scroll in suggestion window
+              var containerInnerHeight = $suggestionContainer.innerHeight(),
+                containerScrollTop = $suggestionContainer.scrollTop(),
+                suggestionHeight = $suggestionContainer.children().eq(0).outerHeight(),
+                activeSuggestionPosY = suggestionHeight * ($.formUtils._selectedSuggestion);
+
+              if (activeSuggestionPosY &lt; containerScrollTop || activeSuggestionPosY &gt; (containerScrollTop + containerInnerHeight)) {
+                $suggestionContainer.scrollTop(activeSuggestionPosY);
+              }
+
+              $suggestions
+                .removeClass(&#039;active-suggestion&#039;)
+                .css(&#039;background&#039;, &#039;none&#039;)
+                .eq($.formUtils._selectedSuggestion)
+                .addClass(&#039;active-suggestion&#039;)
+                .css(conf.activeSuggestionCSS);
+
+              e.preventDefault();
+              return false;
+            }
+          }
+        })
+        .unbind(&#039;blur.suggest&#039;)
+        .bind(&#039;blur.suggest&#039;, function () {
+          onSelectSuggestion($(this));
+        });
+
+      return $elem;
+    },
+
+    /**
+     * Error dialogs
+     *
+     * @var {Object}
+     */
+    LANG: {
+      errorTitle: &#039;Form submission failed!&#039;,
+      requiredField: &#039;This is a required field&#039;,
+      requiredFields: &#039;You have not answered all required fields&#039;,
+      badTime: &#039;You have not given a correct time&#039;,
+      badEmail: &#039;Please check your email address (It must be an SAE valid email)&#039;,
+      badTelephone: &#039;You have not given a correct phone number&#039;,
+      badSecurityAnswer: &#039;You have not given a correct answer to the security question&#039;,
+      badDate: &#039;You have not given a correct date&#039;,
+      lengthBadStart: &#039;The input value must be between &#039;,
+      lengthBadEnd: &#039; characters&#039;,
+      lengthTooLongStart: &#039;The input value is longer than &#039;,
+      lengthTooShortStart: &#039;The input value is shorter than &#039;,
+      notConfirmed: &#039;Input values could not be confirmed&#039;,
+      badDomain: &#039;Incorrect domain value&#039;,
+      badUrl: &#039;The input value is not a correct URL&#039;,
+      badCustomVal: &#039;The input value is incorrect&#039;,
+      andSpaces: &#039; and spaces &#039;,
+      badInt: &#039;The input value was not a correct number&#039;,
+      badSecurityNumber: &#039;Your social security number was incorrect&#039;,
+      badUKVatAnswer: &#039;Incorrect UK VAT Number&#039;,
+      badUKNin: &#039;Incorrect UK NIN&#039;,
+      badUKUtr: &#039;Incorrect UK UTR Number&#039;,
+      badStrength: &#039;The password isn\&#039;t strong enough&#039;,
+      badNumberOfSelectedOptionsStart: &#039;You have to choose at least &#039;,
+      badNumberOfSelectedOptionsEnd: &#039; answers&#039;,
+      badAlphaNumeric: &#039;The input value can only contain alphanumeric characters &#039;,
+      badAlphaNumericExtra: &#039; and &#039;,
+      wrongFileSize: &#039;The file you are trying to upload is too large (max %s)&#039;,
+      wrongFileType: &#039;Only files of type %s is allowed&#039;,
+      groupCheckedRangeStart: &#039;Please choose between &#039;,
+      groupCheckedTooFewStart: &#039;Please choose at least &#039;,
+      groupCheckedTooManyStart: &#039;Please choose a maximum of &#039;,
+      groupCheckedEnd: &#039; item(s)&#039;,
+      badCreditCard: &#039;The credit card number is not correct&#039;,
+      badCVV: &#039;The CVV number was not correct&#039;,
+      wrongFileDim : &#039;Incorrect image dimensions,&#039;,
+      imageTooTall : &#039;the image can not be taller than&#039;,
+      imageTooWide : &#039;the image can not be wider than&#039;,
+      imageTooSmall : &#039;the image was too small&#039;,
+      min : &#039;min&#039;,
+      max : &#039;max&#039;,
+      imageRatioNotAccepted : &#039;Image ratio is not be accepted&#039;,
+      badBrazilTelephoneAnswer: &#039;The phone number entered is invalid&#039;,
+      badBrazilCEPAnswer: &#039;The CEP entered is invalid&#039;,
+      badBrazilCPFAnswer: &#039;The CPF entered is invalid&#039;,
+      badPlPesel: &#039;The PESEL entered is invalid&#039;,
+      badPlNip: &#039;The NIP entered is invalid&#039;,
+      badPlRegon: &#039;The REGON entered is invalid&#039;,
+      badreCaptcha: &#039;Please confirm that you are not a bot&#039;
+    }
+  });
+
+})(jQuery, window);
+
+/**
+ * File declaring all default validators.
+ */
+(function($) {
+
+  /*
+   * Validate email
+   */
+  $.formUtils.addValidator({
+    name: &#039;email&#039;,
+    validatorFunction: function (email) {
+
+      var emailParts = email.toLowerCase().split(&#039;@&#039;),
+        localPart = emailParts[0],
+        domain = emailParts[1];
+        var email_student = &quot;student.sae.edu&quot;;
+        var email_staff = &quot;sae.edu&quot;;
+
+      if (localPart &amp;&amp; domain &amp;&amp; domain == email_student || localPart &amp;&amp; domain &amp;&amp; domain == email_staff) {
+
+        if( localPart.indexOf(&#039;&quot;&#039;) === 0 ) {
+          var len = localPart.length;
+          localPart = localPart.replace(/\&quot;/g, &#039;&#039;);
+          if( localPart.length !== (len-2) ) {
+            return false; // It was not allowed to have more than two apostrophes
+          }
+        }
+
+        return $.formUtils.validators.validate_domain.validatorFunction(emailParts[1]) &amp;&amp;
+          localPart.indexOf(&#039;.&#039;) !== 0 &amp;&amp;
+          localPart.substring(localPart.length-1, localPart.length) !== &#039;.&#039; &amp;&amp;
+          localPart.indexOf(&#039;..&#039;) === -1 &amp;&amp;
+          !(/[^\w\+\.\-\#\-\_\~\!\$\&amp;\&#039;\(\)\*\+\,\;\=\:]/.test(localPart));
+      }
+
+      return false;
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;badEmail&#039;
+  });
+
+  /*
+   * Validate domain name
+   */
+  $.formUtils.addValidator({
+    name: &#039;domain&#039;,
+    validatorFunction: function (val) {
+      return val.length &gt; 0 &amp;&amp;
+        val.length &lt;= 253 &amp;&amp; // Including sub domains
+        !(/[^a-zA-Z0-9]/.test(val.slice(-2))) &amp;&amp; !(/[^a-zA-Z0-9]/.test(val.substr(0, 1))) &amp;&amp; !(/[^a-zA-Z0-9\.\-]/.test(val)) &amp;&amp;
+        val.split(&#039;..&#039;).length === 1 &amp;&amp;
+        val.split(&#039;.&#039;).length &gt; 1;
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;badDomain&#039;
+  });
+
+  /*
+   * Validate required
+   */
+  $.formUtils.addValidator({
+    name: &#039;required&#039;,
+    validatorFunction: function (val, $el, config, language, $form) {
+      switch ($el.attr(&#039;type&#039;)) {
+        case &#039;checkbox&#039;:
+          return $el.is(&#039;:checked&#039;);
+        case &#039;radio&#039;:
+          return $form.find(&#039;input[name=&quot;&#039; + $el.attr(&#039;name&#039;) + &#039;&quot;]&#039;).filter(&#039;:checked&#039;).length &gt; 0;
+        default:
+          return $.trim(val) !== &#039;&#039;;
+      }
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: function(config) {
+      if (config.errorMessagePosition === &#039;top&#039; || typeof config.errorMessagePosition === &#039;function&#039;) {
+        return &#039;requiredFields&#039;;
+      }
+      else {
+        return &#039;requiredField&#039;;
+      }
+    }
+  });
+
+  /*
+   * Validate length range
+   */
+  $.formUtils.addValidator({
+    name: &#039;length&#039;,
+    validatorFunction: function (val, $el, conf, lang) {
+      var lengthAllowed = $el.valAttr(&#039;length&#039;),
+        type = $el.attr(&#039;type&#039;);
+
+      if (lengthAllowed === undefined) {
+        alert(&#039;Please add attribute &quot;data-validation-length&quot; to &#039; + $el[0].nodeName + &#039; named &#039; + $el.attr(&#039;name&#039;));
+        return true;
+      }
+
+      // check if length is above min, below max or within range.
+      var len = type === &#039;file&#039; &amp;&amp; $el.get(0).files !== undefined ? $el.get(0).files.length : val.length,
+        lengthCheckResults = $.formUtils.numericRangeCheck(len, lengthAllowed),
+        checkResult;
+
+      switch (lengthCheckResults[0]) {   // outside of allowed range
+        case &#039;out&#039;:
+          this.errorMessage = lang.lengthBadStart + lengthAllowed + lang.lengthBadEnd;
+          checkResult = false;
+          break;
+        // too short
+        case &#039;min&#039;:
+          this.errorMessage = lang.lengthTooShortStart + lengthCheckResults[1] + lang.lengthBadEnd;
+          checkResult = false;
+          break;
+        // too long
+        case &#039;max&#039;:
+          this.errorMessage = lang.lengthTooLongStart + lengthCheckResults[1] + lang.lengthBadEnd;
+          checkResult = false;
+          break;
+        // ok
+        default:
+          checkResult = true;
+      }
+
+      return checkResult;
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;&#039;
+  });
+
+  /*
+   * Validate url
+   */
+  $.formUtils.addValidator({
+    name: &#039;url&#039;,
+    validatorFunction: function (url) {
+      // written by Scott Gonzalez: http://projects.scottsplayground.com/iri/
+      // - Victor Jonsson added support for arrays in the url ?arg[]=sdfsdf
+      // - General improvements made by Stéphane Moureau &lt;https://github.com/TraderStf&gt;
+
+      var urlFilter = /^(https?|ftp):\/\/((((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#039;\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])(\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])(\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/(((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#039;\(\)\*\+,;=]|:|@)+(\/((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#039;\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|\[|\]|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#039;\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#(((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#039;\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;
+      if (urlFilter.test(url)) {
+        var domain = url.split(&#039;://&#039;)[1],
+          domainSlashPos = domain.indexOf(&#039;/&#039;);
+
+        if (domainSlashPos &gt; -1) {
+          domain = domain.substr(0, domainSlashPos);
+        }
+
+        return $.formUtils.validators.validate_domain.validatorFunction(domain); // todo: add support for IP-addresses
+      }
+      return false;
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;badUrl&#039;
+  });
+
+  /*
+   * Validate youtube
+   */
+  $.formUtils.addValidator({
+    name: &#039;youtube&#039;,
+    validatorFunction: function (url) {
+
+      var youtubeFilter = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+      var vimeoFilter = /https?:\/\/(?:www\.|player\.)?vimeo.com\/(.*)$/;
+
+      if (youtubeFilter.test(url)) {
+        console.log(&#039;youtube validate worked&#039;);
+        return true;
+
+      } if (vimeoFilter.test(url)) {
+        console.log(&#039;vimeo validate worked&#039;);
+        return true;
+      }
+
+      console.log(&#039;video validation did not work&#039;);
+      return false;
+    },
+    errorMessage: &#039;incorrect link&#039;,
+    errorMessageKey: &#039;badUrl&#039;
+  });
+
+  /*
+   * Validate number (floating or integer)
+   */
+  $.formUtils.addValidator({
+    name: &#039;number&#039;,
+    validatorFunction: function (val, $el, conf) {
+      if (val !== &#039;&#039;) {
+        var allowing = $el.valAttr(&#039;allowing&#039;) || &#039;&#039;,
+          decimalSeparator = $el.valAttr(&#039;decimal-separator&#039;) || conf.decimalSeparator,
+          allowsRange = false,
+          begin, end,
+          steps = $el.valAttr(&#039;step&#039;) || &#039;&#039;,
+          allowsSteps = false,
+          sanitize = $el.attr(&#039;data-sanitize&#039;) || &#039;&#039;,
+          isFormattedWithNumeral = sanitize.match(/(^|[\s])numberFormat([\s]|$)/i);
+
+        if (isFormattedWithNumeral) {
+          if (!window.numeral) {
+            throw new ReferenceError(&#039;The data-sanitize value numberFormat cannot be used without the numeral&#039; +
+              &#039; library. Please see Data Validation in http://www.formvalidator.net for more information.&#039;);
+          }
+          //Unformat input first, then convert back to String
+          if (val.length) {
+            val = String(numeral().unformat(val));
+          }
+        }
+
+        if (allowing.indexOf(&#039;number&#039;) === -1) {
+          allowing += &#039;,number&#039;;
+        }
+
+        if (allowing.indexOf(&#039;negative&#039;) === -1 &amp;&amp; val.indexOf(&#039;-&#039;) === 0) {
+          return false;
+        }
+
+        if (allowing.indexOf(&#039;range&#039;) &gt; -1) {
+          begin = parseFloat(allowing.substring(allowing.indexOf(&#039;[&#039;) + 1, allowing.indexOf(&#039;;&#039;)));
+          end = parseFloat(allowing.substring(allowing.indexOf(&#039;;&#039;) + 1, allowing.indexOf(&#039;]&#039;)));
+          allowsRange = true;
+        }
+
+        if (steps !== &#039;&#039;) {
+          allowsSteps = true;
+        }
+
+        if (decimalSeparator === &#039;,&#039;) {
+          if (val.indexOf(&#039;.&#039;) &gt; -1) {
+            return false;
+          }
+          // Fix for checking range with floats using ,
+          val = val.replace(&#039;,&#039;, &#039;.&#039;);
+        }
+        if (val.replace(/[0-9-]/g, &#039;&#039;) === &#039;&#039; &amp;&amp; (!allowsRange || (val &gt;= begin &amp;&amp; val &lt;= end)) &amp;&amp; (!allowsSteps || (val % steps === 0))) {
+          return true;
+        }
+
+        if (allowing.indexOf(&#039;float&#039;) &gt; -1 &amp;&amp; val.match(new RegExp(&#039;^([0-9-]+)\\.([0-9]+)$&#039;)) !== null &amp;&amp; (!allowsRange || (val &gt;= begin &amp;&amp; val &lt;= end)) &amp;&amp; (!allowsSteps || (val % steps === 0))) {
+          return true;
+        }
+      }
+      return false;
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;badInt&#039;
+  });
+
+  /*
+   * Validate alpha numeric
+   */
+  $.formUtils.addValidator({
+    name: &#039;alphanumeric&#039;,
+    validatorFunction: function (val, $el, conf, language) {
+      var patternStart = &#039;^([a-zA-Z0-9&#039;,
+        patternEnd = &#039;]+)$&#039;,
+        additionalChars = $el.valAttr(&#039;allowing&#039;),
+        pattern = &#039;&#039;;
+
+      if (additionalChars) {
+        pattern = patternStart + additionalChars + patternEnd;
+        var extra = additionalChars.replace(/\\/g, &#039;&#039;);
+        if (extra.indexOf(&#039; &#039;) &gt; -1) {
+          extra = extra.replace(&#039; &#039;, &#039;&#039;);
+          extra += language.andSpaces || $.formUtils.LANG.andSpaces;
+        }
+        this.errorMessage = language.badAlphaNumeric + language.badAlphaNumericExtra + extra;
+      } else {
+        pattern = patternStart + patternEnd;
+        this.errorMessage = language.badAlphaNumeric;
+      }
+
+      return new RegExp(pattern).test(val);
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;&#039;
+  });
+
+  /*
+   * Validate against regexp
+   */
+  $.formUtils.addValidator({
+    name: &#039;custom&#039;,
+    validatorFunction: function (val, $el) {
+      var regexp = new RegExp($el.valAttr(&#039;regexp&#039;));
+      return regexp.test(val);
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;badCustomVal&#039;
+  });
+
+  /*
+   * Validate date
+   */
+  $.formUtils.addValidator({
+    name: &#039;date&#039;,
+    validatorFunction: function (date, $el, conf) {
+      var dateFormat = $el.valAttr(&#039;format&#039;) || conf.dateFormat || &#039;yyyy-mm-dd&#039;,
+        addMissingLeadingZeros = $el.valAttr(&#039;require-leading-zero&#039;) === &#039;false&#039;;
+      return $.formUtils.parseDate(date, dateFormat, addMissingLeadingZeros) !== false;
+    },
+    errorMessage: &#039;&#039;,
+    errorMessageKey: &#039;badDate&#039;
+  });
+
+
+  /*
+   * Validate group of checkboxes, validate qty required is checked
+   * written by Steve Wasiura : http://stevewasiura.waztech.com
+   * element attrs
+   *    data-validation=&quot;checkbox_group&quot;
+   *    data-validation-qty=&quot;1-2&quot;  // min 1 max 2
+   *    data-validation-error-msg=&quot;chose min 1, max of 2 checkboxes&quot;
+   */
+  $.formUtils.addValidator({
+    name: &#039;checkbox_group&#039;,
+    validatorFunction: function (val, $el, conf, lang, $form) {
+      // preset return var
+      var isValid = true,
+      // get name of element. since it is a checkbox group, all checkboxes will have same name
+        elname = $el.attr(&#039;name&#039;),
+      // get checkboxes and count the checked ones
+        $checkBoxes = $(&#039;input[type=checkbox][name^=&quot;&#039; + elname + &#039;&quot;]&#039;, $form),
+        checkedCount = $checkBoxes.filter(&#039;:checked&#039;).length,
+      // get el attr that specs qty required / allowed
+        qtyAllowed = $el.valAttr(&#039;qty&#039;);
+
+      if (qtyAllowed === undefined) {
+        var elementType = $el.get(0).nodeName;
+        alert(&#039;Attribute &quot;data-validation-qty&quot; is missing from &#039; + elementType + &#039; named &#039; + $el.attr(&#039;name&#039;));
+      }
+
+      // call Utility function to check if count is above min, below max, within range etc.
+      var qtyCheckResults = $.formUtils.numericRangeCheck(checkedCount, qtyAllowed);
+
+      // results will be array, [0]=result str, [1]=qty int
+      switch (qtyCheckResults[0]) {
+        // outside allowed range
+        case &#039;out&#039;:
+          this.errorMessage = lang.groupCheckedRangeStart + qtyAllowed + lang.groupCheckedEnd;
+          isValid = false;
+          break;
+        // below min qty
+        case &#039;min&#039;:
+          this.errorMessage = lang.groupCheckedTooFewStart + qtyCheckResults[1] + lang.groupCheckedEnd;
+          isValid = false;
+          break;
+        // above max qty
+        case &#039;max&#039;:
+          this.errorMessage = lang.groupCheckedTooManyStart + qtyCheckResults[1] + lang.groupCheckedEnd;
+          isValid = false;
+          break;
+        // ok
+        default:
+          isValid = true;
+      }
+
+      if( !isValid ) {
+        var _triggerOnBlur = function() {
+          $checkBoxes.unbind(&#039;click&#039;, _triggerOnBlur);
+          $checkBoxes.filter(&#039;*[data-validation]&#039;).validateInputOnBlur(lang, conf, false, &#039;blur&#039;);
+        };
+        $checkBoxes.bind(&#039;click&#039;, _triggerOnBlur);
+      }
+
+      return isValid;
+    }
+    //   errorMessage : &#039;&#039;, // set above in switch statement
+    //   errorMessageKey: &#039;&#039; // not used
+  });
+
+})(jQuery);
+
+
+}));
+</pre>
+
+		<p class="file_page_meta no_print" style="line-height: 1.5rem;">
+			<label class="checkbox normal mini float_right no_top_padding no_min_width">
+				<input type="checkbox" id="file_preview_wrap_cb"> wrap long lines
+			</label>
+		</p>
+
+	</div>
+
+	<div id="comments_holder" class="clearfix clear_both">
+	<div class="col span_1_of_6"></div>
+	<div class="col span_4_of_6 no_right_padding">
+		<div id="file_page_comments">
+					</div>	
+		<form action="https://saebneweb.slack.com/files/tatiana/F0ZFS5Y5V/jquery.form-validator.js"
+		id="file_comment_form"
+					class="comment_form"
+				method="post">
+			<a href="/team/matthew_neal" class="member_preview_link" data-member-id="U0MRF6CA0" >
+			<span class="member_image thumb_36" style="background-image: url('https://avatars.slack-edge.com/2016-02-18/21872958295_24ee33803810f0cd11b7_72.jpg')" data-thumb-size="36" data-member-id="U0MRF6CA0"></span>
+		</a>
+		<input type="hidden" name="addcomment" value="1" />
+	<input type="hidden" name="crumb" value="s-1460341060-c293d89467-☃" />
+
+	<textarea id="file_comment" data-el-id-to-keep-in-view="file_comment_submit_btn" class="small comment_input small_bottom_margin autogrow-short" name="comment" wrap="virtual" ></textarea>
+	<span class="input_note float_left cloud_silver file_comment_tip">shift+enter to add a new line</span>	<button id="file_comment_submit_btn" type="submit" class="btn float_right  ladda-button" data-style="expand-right"><span class="ladda-label">Add Comment</span></button>
 </form>
-      </div>
-    </div>
-  </li>
-</ul>
 
-
-    
-  </div>
+<form
+		id="file_edit_comment_form"
+					class="edit_comment_form hidden"
+				method="post">
+		<textarea id="file_edit_comment" class="small comment_input small_bottom_margin" name="comment" wrap="virtual"></textarea><br>
+	<span class="input_note float_left cloud_silver file_comment_tip">shift+enter to add a new line</span>	<input type="submit" class="save btn float_right " value="Save" />
+	<button class="cancel btn btn_outline float_right small_right_margin ">Cancel</button>
+</form>	
+	</div>
+	<div class="col span_1_of_6"></div>
 </div>
-
-
-      
-
-
-    <div id="start-of-content" class="accessibility-aid"></div>
-
-      <div id="js-flash-container">
-</div>
-
-
-    <div role="main" class="main-content">
-        <div itemscope itemtype="http://schema.org/SoftwareSourceCode">
-    <div id="js-repo-pjax-container" data-pjax-container>
-      
-<div class="pagehead repohead instapaper_ignore readability-menu experiment-repo-nav">
-  <div class="container repohead-details-container">
-
-    
-
-<ul class="pagehead-actions">
-
-  <li>
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/notifications/subscribe" class="js-social-container" data-autosubmit="true" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="H3DnUkfuNPTuD9/rGXHmWMQwRGcpQpmcb9Nrb9SABN3o561kX+v/5L+Nd7L246NVC7oTATAfR9K7AJn9VHec7g==" /></div>      <input class="form-control" id="repository_id" name="repository_id" type="hidden" value="54433966" />
-
-        <div class="select-menu js-menu-container js-select-menu">
-          <a href="/1002915/filmCMS/subscription"
-            class="btn btn-sm btn-with-count select-menu-button js-menu-target" role="button" tabindex="0" aria-haspopup="true"
-            data-ga-click="Repository, click Watch settings, action:blob#show">
-            <span class="js-select-button">
-              <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6c4.94 0 7.94-6 7.94-6S13 2 8.06 2z m-0.06 10c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4z m2-4c0 1.11-0.89 2-2 2s-2-0.89-2-2 0.89-2 2-2 2 0.89 2 2z"></path></svg>
-              Unwatch
-            </span>
-          </a>
-          <a class="social-count js-social-count" href="/1002915/filmCMS/watchers">
-            4
-          </a>
-
-        <div class="select-menu-modal-holder">
-          <div class="select-menu-modal subscription-menu-modal js-menu-content" aria-hidden="true">
-            <div class="select-menu-header js-navigation-enable" tabindex="-1">
-              <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
-              <span class="select-menu-title">Notifications</span>
-            </div>
-
-              <div class="select-menu-list js-navigation-container" role="menu">
-
-                <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
-                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-                  <div class="select-menu-item-text">
-                    <input id="do_included" name="do" type="radio" value="included" />
-                    <span class="select-menu-item-heading">Not watching</span>
-                    <span class="description">Be notified when participating or @mentioned.</span>
-                    <span class="js-select-button-text hidden-select-button-text">
-                      <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6c4.94 0 7.94-6 7.94-6S13 2 8.06 2z m-0.06 10c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4z m2-4c0 1.11-0.89 2-2 2s-2-0.89-2-2 0.89-2 2-2 2 0.89 2 2z"></path></svg>
-                      Watch
-                    </span>
-                  </div>
-                </div>
-
-                <div class="select-menu-item js-navigation-item selected" role="menuitem" tabindex="0">
-                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-                  <div class="select-menu-item-text">
-                    <input checked="checked" id="do_subscribed" name="do" type="radio" value="subscribed" />
-                    <span class="select-menu-item-heading">Watching</span>
-                    <span class="description">Be notified of all conversations.</span>
-                    <span class="js-select-button-text hidden-select-button-text">
-                      <svg aria-hidden="true" class="octicon octicon-eye" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8.06 2C3 2 0 8 0 8s3 6 8.06 6c4.94 0 7.94-6 7.94-6S13 2 8.06 2z m-0.06 10c-2.2 0-4-1.78-4-4 0-2.2 1.8-4 4-4 2.22 0 4 1.8 4 4 0 2.22-1.78 4-4 4z m2-4c0 1.11-0.89 2-2 2s-2-0.89-2-2 0.89-2 2-2 2 0.89 2 2z"></path></svg>
-                      Unwatch
-                    </span>
-                  </div>
-                </div>
-
-                <div class="select-menu-item js-navigation-item " role="menuitem" tabindex="0">
-                  <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-                  <div class="select-menu-item-text">
-                    <input id="do_ignore" name="do" type="radio" value="ignore" />
-                    <span class="select-menu-item-heading">Ignoring</span>
-                    <span class="description">Never be notified.</span>
-                    <span class="js-select-button-text hidden-select-button-text">
-                      <svg aria-hidden="true" class="octicon octicon-mute" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M8 2.81v10.38c0 0.67-0.81 1-1.28 0.53L3 10H1c-0.55 0-1-0.45-1-1V7c0-0.55 0.45-1 1-1h2l3.72-3.72c0.47-0.47 1.28-0.14 1.28 0.53z m7.53 3.22l-1.06-1.06-1.97 1.97-1.97-1.97-1.06 1.06 1.97 1.97-1.97 1.97 1.06 1.06 1.97-1.97 1.97 1.97 1.06-1.06-1.97-1.97 1.97-1.97z"></path></svg>
-                      Stop ignoring
-                    </span>
-                  </div>
-                </div>
-
-              </div>
-
-            </div>
-          </div>
-        </div>
-</form>
-  </li>
-
-  <li>
-    
-  <div class="js-toggler-container js-social-container starring-container ">
-
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/1002915/filmCMS/unstar" class="js-toggler-form starred" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="mCfb0LNQk+TCqxH9AILJZmMAl2iIf6yqoDovuxzk0P4G96uzQBARfXywQinNitChTTILCvcHgIb/9JS0cuiFCA==" /></div>
-      <button
-        class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Unstar this repository" title="Unstar 1002915/filmCMS"
-        data-ga-click="Repository, click unstar button, action:blob#show; text:Unstar">
-        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-0.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14l4.33-2.33 4.33 2.33L10.4 9.26 14 6z"></path></svg>
-        Unstar
-      </button>
-        <a class="social-count js-social-count" href="/1002915/filmCMS/stargazers">
-          0
-        </a>
-</form>
-    <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/1002915/filmCMS/star" class="js-toggler-form unstarred" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" data-remote="true" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="ToIlxd4grrlsvL28w+PVNfHwb3uyL/vh8vEm/6zMj2DKso4TRjeb3efxXzozZd533ybRIP+gM9UwZMMnec62fw==" /></div>
-      <button
-        class="btn btn-sm btn-with-count js-toggler-target"
-        aria-label="Star this repository" title="Star 1002915/filmCMS"
-        data-ga-click="Repository, click star button, action:blob#show; text:Star">
-        <svg aria-hidden="true" class="octicon octicon-star" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 6l-4.9-0.64L7 1 4.9 5.36 0 6l3.6 3.26L2.67 14l4.33-2.33 4.33 2.33L10.4 9.26 14 6z"></path></svg>
-        Star
-      </button>
-        <a class="social-count js-social-count" href="/1002915/filmCMS/stargazers">
-          0
-        </a>
-</form>  </div>
-
-  </li>
-
-  <li>
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/1002915/filmCMS/fork" class="btn-with-count" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="3qO0Q5BNvkDst3I/3ApK6R5GjiGj0zq4O3WwKkxzz2mUdsV2gT0LZmREhcA/jsqqQYxnshUH9kEr2lGw9Er3uw==" /></div>
-            <button
-                type="submit"
-                class="btn btn-sm btn-with-count"
-                data-ga-click="Repository, show fork modal, action:blob#show; text:Fork"
-                title="Fork your own copy of 1002915/filmCMS to your account"
-                aria-label="Fork your own copy of 1002915/filmCMS to your account">
-              <svg aria-hidden="true" class="octicon octicon-repo-forked" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M8 1c-1.11 0-2 0.89-2 2 0 0.73 0.41 1.38 1 1.72v1.28L5 8 3 6v-1.28c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72v1.78l3 3v1.78c-0.59 0.34-1 0.98-1 1.72 0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.73-0.41-1.38-1-1.72V9.5l3-3V4.72c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2zM2 4.2c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m3 10c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m3-10c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
-              Fork
-            </button>
-</form>
-    <a href="/1002915/filmCMS/network" class="social-count">
-      0
-    </a>
-  </li>
-</ul>
-
-    <h1 class="entry-title public ">
-  <svg aria-hidden="true" class="octicon octicon-repo" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M4 9h-1v-1h1v1z m0-3h-1v1h1v-1z m0-2h-1v1h1v-1z m0-2h-1v1h1v-1z m8-1v12c0 0.55-0.45 1-1 1H6v2l-1.5-1.5-1.5 1.5V14H1c-0.55 0-1-0.45-1-1V1C0 0.45 0.45 0 1 0h10c0.55 0 1 0.45 1 1z m-1 10H1v2h2v-1h3v1h5V11z m0-10H2v9h9V1z"></path></svg>
-  <span class="author" itemprop="author"><a href="/1002915" class="url fn" rel="author">1002915</a></span><!--
---><span class="path-divider">/</span><!--
---><strong itemprop="name"><a href="/1002915/filmCMS" data-pjax="#js-repo-pjax-container">filmCMS</a></strong>
-
-</h1>
-
-  </div>
-  <div class="container">
-    
-<nav class="reponav js-repo-nav js-sidenav-container-pjax"
-     itemscope
-     itemtype="http://schema.org/BreadcrumbList"
-     role="navigation"
-     data-pjax="#js-repo-pjax-container">
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/1002915/filmCMS" aria-selected="true" class="js-selected-navigation-item selected reponav-item" data-hotkey="g c" data-selected-links="repo_source repo_downloads repo_commits repo_releases repo_tags repo_branches /1002915/filmCMS" itemprop="url">
-      <svg aria-hidden="true" class="octicon octicon-code" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M9.5 3l-1.5 1.5 3.5 3.5L8 11.5l1.5 1.5 4.5-5L9.5 3zM4.5 3L0 8l4.5 5 1.5-1.5L2.5 8l3.5-3.5L4.5 3z"></path></svg>
-      <span itemprop="name">Code</span>
-      <meta itemprop="position" content="1">
-</a>  </span>
-
-    <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-      <a href="/1002915/filmCMS/issues" class="js-selected-navigation-item reponav-item" data-hotkey="g i" data-selected-links="repo_issues repo_labels repo_milestones /1002915/filmCMS/issues" itemprop="url">
-        <svg aria-hidden="true" class="octicon octicon-issue-opened" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M7 2.3c3.14 0 5.7 2.56 5.7 5.7S10.14 13.7 7 13.7 1.3 11.14 1.3 8s2.56-5.7 5.7-5.7m0-1.3C3.14 1 0 4.14 0 8s3.14 7 7 7 7-3.14 7-7S10.86 1 7 1z m1 3H6v5h2V4z m0 6H6v2h2V10z"></path></svg>
-        <span itemprop="name">Issues</span>
-        <span class="counter">0</span>
-        <meta itemprop="position" content="2">
-</a>    </span>
-
-  <span itemscope itemtype="http://schema.org/ListItem" itemprop="itemListElement">
-    <a href="/1002915/filmCMS/pulls" class="js-selected-navigation-item reponav-item" data-hotkey="g p" data-selected-links="repo_pulls /1002915/filmCMS/pulls" itemprop="url">
-      <svg aria-hidden="true" class="octicon octicon-git-pull-request" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M11 11.28c0-1.73 0-6.28 0-6.28-0.03-0.78-0.34-1.47-0.94-2.06s-1.28-0.91-2.06-0.94c0 0-1.02 0-1 0V0L4 3l3 3V4h1c0.27 0.02 0.48 0.11 0.69 0.31s0.3 0.42 0.31 0.69v6.28c-0.59 0.34-1 0.98-1 1.72 0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.73-0.41-1.38-1-1.72z m-1 2.92c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2zM4 3c0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72 0 1.55 0 5.56 0 6.56-0.59 0.34-1 0.98-1 1.72 0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.73-0.41-1.38-1-1.72V4.72c0.59-0.34 1-0.98 1-1.72z m-0.8 10c0 0.66-0.55 1.2-1.2 1.2s-1.2-0.55-1.2-1.2 0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2z m-1.2-8.8c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
-      <span itemprop="name">Pull requests</span>
-      <span class="counter">0</span>
-      <meta itemprop="position" content="3">
-</a>  </span>
-
-    <a href="/1002915/filmCMS/wiki" class="js-selected-navigation-item reponav-item" data-hotkey="g w" data-selected-links="repo_wiki /1002915/filmCMS/wiki">
-      <svg aria-hidden="true" class="octicon octicon-book" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M2 5h4v1H2v-1z m0 3h4v-1H2v1z m0 2h4v-1H2v1z m11-5H9v1h4v-1z m0 2H9v1h4v-1z m0 2H9v1h4v-1z m2-6v9c0 0.55-0.45 1-1 1H8.5l-1 1-1-1H1c-0.55 0-1-0.45-1-1V3c0-0.55 0.45-1 1-1h5.5l1 1 1-1h5.5c0.55 0 1 0.45 1 1z m-8 0.5l-0.5-0.5H1v9h6V3.5z m7-0.5H8.5l-0.5 0.5v8.5h6V3z"></path></svg>
-      Wiki
-</a>
-  <a href="/1002915/filmCMS/pulse" class="js-selected-navigation-item reponav-item" data-selected-links="pulse /1002915/filmCMS/pulse">
-    <svg aria-hidden="true" class="octicon octicon-pulse" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M11.5 8L8.8 5.4 6.6 8.5 5.5 1.6 2.38 8H0V10h3.6L4.5 8.2l0.9 5.4L9 8.5l1.6 1.5H14V8H11.5z"></path></svg>
-    Pulse
-</a>
-  <a href="/1002915/filmCMS/graphs" class="js-selected-navigation-item reponav-item" data-selected-links="repo_graphs repo_contributors /1002915/filmCMS/graphs">
-    <svg aria-hidden="true" class="octicon octicon-graph" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M16 14v1H0V0h1v14h15z m-11-1H3V8h2v5z m4 0H7V3h2v10z m4 0H11V6h2v7z"></path></svg>
-    Graphs
-</a>
-    <a href="/1002915/filmCMS/settings" class="js-selected-navigation-item reponav-item" data-selected-links="repo_settings repo_branch_settings hooks /1002915/filmCMS/settings">
-      <svg aria-hidden="true" class="octicon octicon-gear" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M14 8.77V7.17l-1.94-0.64-0.45-1.09 0.88-1.84-1.13-1.13-1.81 0.91-1.09-0.45-0.69-1.92H6.17l-0.63 1.94-1.11 0.45-1.84-0.88-1.13 1.13 0.91 1.81-0.45 1.09L0 7.23v1.59l1.94 0.64 0.45 1.09-0.88 1.84 1.13 1.13 1.81-0.91 1.09 0.45 0.69 1.92h1.59l0.63-1.94 1.11-0.45 1.84 0.88 1.13-1.13-0.92-1.81 0.47-1.09 1.92-0.69zM7 11c-1.66 0-3-1.34-3-3s1.34-3 3-3 3 1.34 3 3-1.34 3-3 3z"></path></svg>
-      Settings
-</a>
-</nav>
-
-  </div>
-</div>
-
-<div class="container new-discussion-timeline experiment-repo-nav">
-  <div class="repository-content">
-
-    
-
-<a href="/1002915/filmCMS/blob/75c792273bf499b97398295f1d8d032fa77ab80f/js/form-validator/jquery.form-validator.js" class="hidden js-permalink-shortcut" data-hotkey="y">Permalink</a>
-
-<!-- blob contrib key: blob_contributors:v21:c23e7b66deeaf59ae6b442edb493d5d4 -->
-
-<div class="file-navigation js-zeroclipboard-container">
-  
-<div class="select-menu js-menu-container js-select-menu left">
-  <button class="btn btn-sm select-menu-button js-menu-target css-truncate" data-hotkey="w"
-    title="master"
-    type="button" aria-label="Switch branches or tags" tabindex="0" aria-haspopup="true">
-    <i>Branch:</i>
-    <span class="js-select-button css-truncate-target">master</span>
-  </button>
-
-  <div class="select-menu-modal-holder js-menu-content js-navigation-container" data-pjax aria-hidden="true">
-
-    <div class="select-menu-modal">
-      <div class="select-menu-header">
-        <svg aria-label="Close" class="octicon octicon-x js-menu-close" height="16" role="img" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
-        <span class="select-menu-title">Switch branches/tags</span>
-      </div>
-
-      <div class="select-menu-filters">
-        <div class="select-menu-text-filter">
-          <input type="text" aria-label="Find or create a branch…" id="context-commitish-filter-field" class="form-control js-filterable-field js-navigation-enable" placeholder="Find or create a branch…">
-        </div>
-        <div class="select-menu-tabs">
-          <ul>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="branches" data-filter-placeholder="Find or create a branch…" class="js-select-menu-tab" role="tab">Branches</a>
-            </li>
-            <li class="select-menu-tab">
-              <a href="#" data-tab-filter="tags" data-filter-placeholder="Find a tag…" class="js-select-menu-tab" role="tab">Tags</a>
-            </li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="branches" role="menu">
-
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/Overlord/js/form-validator/jquery.form-validator.js"
-               data-name="Overlord"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="Overlord">
-                Overlord
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/Sanitising/js/form-validator/jquery.form-validator.js"
-               data-name="Sanitising"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="Sanitising">
-                Sanitising
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/add_new_medium/js/form-validator/jquery.form-validator.js"
-               data-name="add_new_medium"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="add_new_medium">
-                add_new_medium
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/editfilm/js/form-validator/jquery.form-validator.js"
-               data-name="editfilm"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="editfilm">
-                editfilm
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/fucked-up/js/form-validator/jquery.form-validator.js"
-               data-name="fucked-up"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="fucked-up">
-                fucked-up
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/homepage/js/form-validator/jquery.form-validator.js"
-               data-name="homepage"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="homepage">
-                homepage
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/login/js/form-validator/jquery.form-validator.js"
-               data-name="login"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="login">
-                login
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open selected"
-               href="/1002915/filmCMS/blob/master/js/form-validator/jquery.form-validator.js"
-               data-name="master"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="master">
-                master
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/newchanges_matt/js/form-validator/jquery.form-validator.js"
-               data-name="newchanges_matt"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="newchanges_matt">
-                newchanges_matt
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/search-bar/js/form-validator/jquery.form-validator.js"
-               data-name="search-bar"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="search-bar">
-                search-bar
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/search_bar-2/js/form-validator/jquery.form-validator.js"
-               data-name="search_bar-2"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="search_bar-2">
-                search_bar-2
-              </span>
-            </a>
-            <a class="select-menu-item js-navigation-item js-navigation-open "
-               href="/1002915/filmCMS/blob/updating_login_stuff/js/form-validator/jquery.form-validator.js"
-               data-name="updating_login_stuff"
-               data-skip-pjax="true"
-               rel="nofollow">
-              <svg aria-hidden="true" class="octicon octicon-check select-menu-item-icon" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M12 5L4 13 0 9l1.5-1.5 2.5 2.5 6.5-6.5 1.5 1.5z"></path></svg>
-              <span class="select-menu-item-text css-truncate-target js-select-menu-filter-text" title="updating_login_stuff">
-                updating_login_stuff
-              </span>
-            </a>
-        </div>
-
-          <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/1002915/filmCMS/branches" class="js-create-branch select-menu-item select-menu-new-item-form js-navigation-item js-new-item-form" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="QwGmF6/HrnkmIAza05OKVnBVRKdSpgh7dL2L3djRul41xt+uvQoimrq37Rfn5ppFMew6PlBbZBjcaDWGKZd0uA==" /></div>
-          <svg aria-hidden="true" class="octicon octicon-git-branch select-menu-item-icon" height="16" version="1.1" viewBox="0 0 10 16" width="10"><path d="M10 5c0-1.11-0.89-2-2-2s-2 0.89-2 2c0 0.73 0.41 1.38 1 1.72v0.3c-0.02 0.52-0.23 0.98-0.63 1.38s-0.86 0.61-1.38 0.63c-0.83 0.02-1.48 0.16-2 0.45V4.72c0.59-0.34 1-0.98 1-1.72 0-1.11-0.89-2-2-2S0 1.89 0 3c0 0.73 0.41 1.38 1 1.72v6.56C0.41 11.63 0 12.27 0 13c0 1.11 0.89 2 2 2s2-0.89 2-2c0-0.53-0.2-1-0.53-1.36 0.09-0.06 0.48-0.41 0.59-0.47 0.25-0.11 0.56-0.17 0.94-0.17 1.05-0.05 1.95-0.45 2.75-1.25s1.2-1.98 1.25-3.02h-0.02c0.61-0.36 1.02-1 1.02-1.73zM2 1.8c0.66 0 1.2 0.55 1.2 1.2s-0.55 1.2-1.2 1.2-1.2-0.55-1.2-1.2 0.55-1.2 1.2-1.2z m0 12.41c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z m6-8c-0.66 0-1.2-0.55-1.2-1.2s0.55-1.2 1.2-1.2 1.2 0.55 1.2 1.2-0.55 1.2-1.2 1.2z"></path></svg>
-            <div class="select-menu-item-text">
-              <span class="select-menu-item-heading">Create branch: <span class="js-new-item-name"></span></span>
-              <span class="description">from ‘master’</span>
-            </div>
-            <input type="hidden" name="name" id="name" class="js-new-item-value">
-            <input type="hidden" name="branch" id="branch" value="master">
-            <input type="hidden" name="path" id="path" value="js/form-validator/jquery.form-validator.js">
-</form>
-      </div>
-
-      <div class="select-menu-list select-menu-tab-bucket js-select-menu-tab-bucket" data-tab-filter="tags">
-        <div data-filterable-for="context-commitish-filter-field" data-filterable-type="substring">
-
-
-        </div>
-
-        <div class="select-menu-no-results">Nothing to show</div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-  <div class="btn-group right">
-    <a href="/1002915/filmCMS/find/master"
-          class="js-pjax-capture-input btn btn-sm"
-          data-pjax
-          data-hotkey="t">
-      Find file
-    </a>
-    <button aria-label="Copy file path to clipboard" class="js-zeroclipboard btn btn-sm zeroclipboard-button tooltipped tooltipped-s" data-copied-hint="Copied!" type="button">Copy path</button>
-  </div>
-  <div class="breadcrumb js-zeroclipboard-target">
-    <span class="repo-root js-repo-root"><span class="js-path-segment"><a href="/1002915/filmCMS"><span>filmCMS</span></a></span></span><span class="separator">/</span><span class="js-path-segment"><a href="/1002915/filmCMS/tree/master/js"><span>js</span></a></span><span class="separator">/</span><span class="js-path-segment"><a href="/1002915/filmCMS/tree/master/js/form-validator"><span>form-validator</span></a></span><span class="separator">/</span><strong class="final-path">jquery.form-validator.js</strong>
-  </div>
-</div>
-
-
-  <div class="commit-tease">
-      <span class="right">
-        <a class="commit-tease-sha" href="/1002915/filmCMS/commit/40fbd30d178f599aec12cc74dcae1997c642a24c" data-pjax>
-          40fbd30
-        </a>
-        <time datetime="2016-04-06T23:33:16Z" is="relative-time">Apr 7, 2016</time>
-      </span>
-      <div>
-        <img alt="" class="avatar" height="20" src="https://1.gravatar.com/avatar/4fca794da0cf08804f99048d3c8b39c1?d=https%3A%2F%2Fassets-cdn.github.com%2Fimages%2Fgravatars%2Fgravatar-user-420.png&amp;r=x&amp;s=140" width="20" />
-        <span class="user-mention">Tatiana Roga</span>
-          <a href="/1002915/filmCMS/commit/40fbd30d178f599aec12cc74dcae1997c642a24c" class="message" data-pjax="true" title="campus filter on search
-
-fae fixed everything">campus filter on search</a>
-      </div>
-
-    <div class="commit-tease-contributors">
-      <button type="button" class="btn-link muted-link contributors-toggle" data-facebox="#blob_contributors_box">
-        <strong>3</strong>
-         contributors
-      </button>
-          <a class="avatar-link tooltipped tooltipped-s" aria-label="invalid-email-address" href="/1002915/filmCMS/commits/master/js/form-validator/jquery.form-validator.js?author=invalid-email-address"><img alt="@invalid-email-address" class="avatar" height="20" src="https://avatars1.githubusercontent.com/u/148100?v=3&amp;s=40" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="Amurphy28" href="/1002915/filmCMS/commits/master/js/form-validator/jquery.form-validator.js?author=Amurphy28"><img alt="@Amurphy28" class="avatar" height="20" src="https://avatars3.githubusercontent.com/u/17582158?v=3&amp;s=40" width="20" /> </a>
-    <a class="avatar-link tooltipped tooltipped-s" aria-label="1002915" href="/1002915/filmCMS/commits/master/js/form-validator/jquery.form-validator.js?author=1002915"><img alt="@1002915" class="avatar" height="20" src="https://avatars2.githubusercontent.com/u/13760617?v=3&amp;s=40" width="20" /> </a>
-
-
-    </div>
-
-    <div id="blob_contributors_box" style="display:none">
-      <h2 class="facebox-header" data-facebox-id="facebox-header">Users who have contributed to this file</h2>
-      <ul class="facebox-user-list" data-facebox-id="facebox-description">
-          <li class="facebox-user-list-item">
-            <img alt="@invalid-email-address" height="24" src="https://avatars3.githubusercontent.com/u/148100?v=3&amp;s=48" width="24" />
-            <a href="/invalid-email-address">invalid-email-address</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@Amurphy28" height="24" src="https://avatars1.githubusercontent.com/u/17582158?v=3&amp;s=48" width="24" />
-            <a href="/Amurphy28">Amurphy28</a>
-          </li>
-          <li class="facebox-user-list-item">
-            <img alt="@1002915" height="24" src="https://avatars0.githubusercontent.com/u/13760617?v=3&amp;s=48" width="24" />
-            <a href="/1002915">1002915</a>
-          </li>
-      </ul>
-    </div>
-  </div>
-
-<div class="file">
-  <div class="file-header">
-  <div class="file-actions">
-
-    <div class="btn-group">
-      <a href="/1002915/filmCMS/raw/master/js/form-validator/jquery.form-validator.js" class="btn btn-sm " id="raw-url">Raw</a>
-        <a href="/1002915/filmCMS/blame/master/js/form-validator/jquery.form-validator.js" class="btn btn-sm js-update-url-with-hash">Blame</a>
-      <a href="/1002915/filmCMS/commits/master/js/form-validator/jquery.form-validator.js" class="btn btn-sm " rel="nofollow">History</a>
-    </div>
-
-        <a class="btn-octicon tooltipped tooltipped-nw"
-           href="github-mac://openRepo/https://github.com/1002915/filmCMS?branch=master&amp;filepath=js%2Fform-validator%2Fjquery.form-validator.js"
-           aria-label="Open this file in GitHub Desktop"
-           data-ga-click="Repository, open with desktop, type:mac">
-            <svg aria-hidden="true" class="octicon octicon-device-desktop" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15 2H1c-0.55 0-1 0.45-1 1v9c0 0.55 0.45 1 1 1h5.34c-0.25 0.61-0.86 1.39-2.34 2h8c-1.48-0.61-2.09-1.39-2.34-2h5.34c0.55 0 1-0.45 1-1V3c0-0.55-0.45-1-1-1z m0 9H1V3h14v8z"></path></svg>
-        </a>
-
-        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/1002915/filmCMS/edit/master/js/form-validator/jquery.form-validator.js" class="inline-form js-update-url-with-hash" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="V1lGvgDw+UjAi+l2EV+Ssl1oIJUWzZ/g7pO+A314QP/0TFkzy+k+f++ybEEnVzblix4N/ri4l1Y+pWtq0S3eFQ==" /></div>
-          <button class="btn-octicon tooltipped tooltipped-nw" type="submit"
-            aria-label="Edit this file" data-hotkey="e" data-disable-with>
-            <svg aria-hidden="true" class="octicon octicon-pencil" height="16" version="1.1" viewBox="0 0 14 16" width="14"><path d="M0 12v3h3l8-8-3-3L0 12z m3 2H1V12h1v1h1v1z m10.3-9.3l-1.3 1.3-3-3 1.3-1.3c0.39-0.39 1.02-0.39 1.41 0l1.59 1.59c0.39 0.39 0.39 1.02 0 1.41z"></path></svg>
-          </button>
-</form>        <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="/1002915/filmCMS/delete/master/js/form-validator/jquery.form-validator.js" class="inline-form" data-form-nonce="8af27aa71f19c5dd7f64f5bb72d06ee6cd5f6adb" method="post"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /><input name="authenticity_token" type="hidden" value="XiJv2aKxELn2Z7JGEjoawGZHy8nTIj401icsN4gHe5r3+xa91XsnN5sNccY7fVHUGekChKqFn8qecJO6Tau/1A==" /></div>
-          <button class="btn-octicon btn-octicon-danger tooltipped tooltipped-nw" type="submit"
-            aria-label="Delete this file" data-disable-with>
-            <svg aria-hidden="true" class="octicon octicon-trashcan" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M10 2H8c0-0.55-0.45-1-1-1H4c-0.55 0-1 0.45-1 1H1c-0.55 0-1 0.45-1 1v1c0 0.55 0.45 1 1 1v9c0 0.55 0.45 1 1 1h7c0.55 0 1-0.45 1-1V5c0.55 0 1-0.45 1-1v-1c0-0.55-0.45-1-1-1z m-1 12H2V5h1v8h1V5h1v8h1V5h1v8h1V5h1v9z m1-10H1v-1h9v1z"></path></svg>
-          </button>
-</form>  </div>
-
-  <div class="file-info">
-      <span class="file-mode" title="File mode">executable file</span>
-      <span class="file-info-divider"></span>
-      2115 lines (1842 sloc)
-      <span class="file-info-divider"></span>
-    68.8 KB
-  </div>
-</div>
-
-  
-
-  <div itemprop="text" class="blob-wrapper data type-javascript">
-      <table class="highlight tab-size js-file-line-container" data-tab-size="8">
-      <tr>
-        <td id="L1" class="blob-num js-line-number" data-line-number="1"></td>
-        <td id="LC1" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span> (<span class="pl-smi">root</span>, <span class="pl-smi">factory</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L2" class="blob-num js-line-number" data-line-number="2"></td>
-        <td id="LC2" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">if</span> (<span class="pl-k">typeof</span> define <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">define</span>.<span class="pl-smi">amd</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L3" class="blob-num js-line-number" data-line-number="3"></td>
-        <td id="LC3" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// AMD. Register as an anonymous module unless amdModuleId is set</span></td>
-      </tr>
-      <tr>
-        <td id="L4" class="blob-num js-line-number" data-line-number="4"></td>
-        <td id="LC4" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">define</span>([<span class="pl-s"><span class="pl-pds">&quot;</span>jquery<span class="pl-pds">&quot;</span></span>], <span class="pl-k">function</span> (<span class="pl-smi">a0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L5" class="blob-num js-line-number" data-line-number="5"></td>
-        <td id="LC5" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> (<span class="pl-en">factory</span>(a0));</td>
-      </tr>
-      <tr>
-        <td id="L6" class="blob-num js-line-number" data-line-number="6"></td>
-        <td id="LC6" class="blob-code blob-code-inner js-file-line">    });</td>
-      </tr>
-      <tr>
-        <td id="L7" class="blob-num js-line-number" data-line-number="7"></td>
-        <td id="LC7" class="blob-code blob-code-inner js-file-line">  } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-c1">exports</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>object<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L8" class="blob-num js-line-number" data-line-number="8"></td>
-        <td id="LC8" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Node. Does not work with strict CommonJS, but</span></td>
-      </tr>
-      <tr>
-        <td id="L9" class="blob-num js-line-number" data-line-number="9"></td>
-        <td id="LC9" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// only CommonJS-like environments that support module.exports,</span></td>
-      </tr>
-      <tr>
-        <td id="L10" class="blob-num js-line-number" data-line-number="10"></td>
-        <td id="LC10" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// like Node.</span></td>
-      </tr>
-      <tr>
-        <td id="L11" class="blob-num js-line-number" data-line-number="11"></td>
-        <td id="LC11" class="blob-code blob-code-inner js-file-line">    <span class="pl-c1">module</span>.<span class="pl-smi">exports</span> <span class="pl-k">=</span> <span class="pl-en">factory</span>(<span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">&quot;</span>jquery<span class="pl-pds">&quot;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L12" class="blob-num js-line-number" data-line-number="12"></td>
-        <td id="LC12" class="blob-code blob-code-inner js-file-line">  } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L13" class="blob-num js-line-number" data-line-number="13"></td>
-        <td id="LC13" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">factory</span>(jQuery);</td>
-      </tr>
-      <tr>
-        <td id="L14" class="blob-num js-line-number" data-line-number="14"></td>
-        <td id="LC14" class="blob-code blob-code-inner js-file-line">  }</td>
-      </tr>
-      <tr>
-        <td id="L15" class="blob-num js-line-number" data-line-number="15"></td>
-        <td id="LC15" class="blob-code blob-code-inner js-file-line">}(<span class="pl-v">this</span>, <span class="pl-k">function</span> (<span class="pl-smi">jQuery</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L16" class="blob-num js-line-number" data-line-number="16"></td>
-        <td id="LC16" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L17" class="blob-num js-line-number" data-line-number="17"></td>
-        <td id="LC17" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/** File generated by Grunt -- do not modify</span></td>
-      </tr>
-      <tr>
-        <td id="L18" class="blob-num js-line-number" data-line-number="18"></td>
-        <td id="LC18" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *  JQUERY-FORM-VALIDATOR</span></td>
-      </tr>
-      <tr>
-        <td id="L19" class="blob-num js-line-number" data-line-number="19"></td>
-        <td id="LC19" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *</span></td>
-      </tr>
-      <tr>
-        <td id="L20" class="blob-num js-line-number" data-line-number="20"></td>
-        <td id="LC20" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *  <span class="pl-k">@version</span> 2.2.201</span></td>
-      </tr>
-      <tr>
-        <td id="L21" class="blob-num js-line-number" data-line-number="21"></td>
-        <td id="LC21" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *  @website http://formvalidator.net/</span></td>
-      </tr>
-      <tr>
-        <td id="L22" class="blob-num js-line-number" data-line-number="22"></td>
-        <td id="LC22" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *  <span class="pl-k">@author</span> Victor Jonsson, http://victorjonsson.se</span></td>
-      </tr>
-      <tr>
-        <td id="L23" class="blob-num js-line-number" data-line-number="23"></td>
-        <td id="LC23" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> *  <span class="pl-k">@license</span> MIT</span></td>
-      </tr>
-      <tr>
-        <td id="L24" class="blob-num js-line-number" data-line-number="24"></td>
-        <td id="LC24" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L25" class="blob-num js-line-number" data-line-number="25"></td>
-        <td id="LC25" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L26" class="blob-num js-line-number" data-line-number="26"></td>
-        <td id="LC26" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Deprecated functions and attributes</span></td>
-      </tr>
-      <tr>
-        <td id="L27" class="blob-num js-line-number" data-line-number="27"></td>
-        <td id="LC27" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * <span class="pl-k">@todo</span>: Remove in release of 3.0</span></td>
-      </tr>
-      <tr>
-        <td id="L28" class="blob-num js-line-number" data-line-number="28"></td>
-        <td id="LC28" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L29" class="blob-num js-line-number" data-line-number="29"></td>
-        <td id="LC29" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span> (<span class="pl-smi">$</span>, <span class="pl-c1">undefined</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L30" class="blob-num js-line-number" data-line-number="30"></td>
-        <td id="LC30" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L31" class="blob-num js-line-number" data-line-number="31"></td>
-        <td id="LC31" class="blob-code blob-code-inner js-file-line">  <span class="pl-s"><span class="pl-pds">&#39;</span>use strict<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L32" class="blob-num js-line-number" data-line-number="32"></td>
-        <td id="LC32" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L33" class="blob-num js-line-number" data-line-number="33"></td>
-        <td id="LC33" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L34" class="blob-num js-line-number" data-line-number="34"></td>
-        <td id="LC34" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@deprecated</span></span></td>
-      </tr>
-      <tr>
-        <td id="L35" class="blob-num js-line-number" data-line-number="35"></td>
-        <td id="LC35" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> language</span></td>
-      </tr>
-      <tr>
-        <td id="L36" class="blob-num js-line-number" data-line-number="36"></td>
-        <td id="LC36" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> conf</span></td>
-      </tr>
-      <tr>
-        <td id="L37" class="blob-num js-line-number" data-line-number="37"></td>
-        <td id="LC37" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L38" class="blob-num js-line-number" data-line-number="38"></td>
-        <td id="LC38" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">validateForm</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">language</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L39" class="blob-num js-line-number" data-line-number="39"></td>
-        <td id="LC39" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">warn</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Use of deprecated function $.validateForm, use $.isValid instead<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L40" class="blob-num js-line-number" data-line-number="40"></td>
-        <td id="LC40" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-en">isValid</span>(language, conf, <span class="pl-c1">true</span>);</td>
-      </tr>
-      <tr>
-        <td id="L41" class="blob-num js-line-number" data-line-number="41"></td>
-        <td id="LC41" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L42" class="blob-num js-line-number" data-line-number="42"></td>
-        <td id="LC42" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L43" class="blob-num js-line-number" data-line-number="43"></td>
-        <td id="LC43" class="blob-code blob-code-inner js-file-line">  <span class="pl-en">$</span>(<span class="pl-c1">window</span>).<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validatorsLoaded formValidationSetup<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">evt</span>, <span class="pl-smi">$form</span>, <span class="pl-smi">config</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L44" class="blob-num js-line-number" data-line-number="44"></td>
-        <td id="LC44" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>( <span class="pl-k">!</span>$form ) {</td>
-      </tr>
-      <tr>
-        <td id="L45" class="blob-num js-line-number" data-line-number="45"></td>
-        <td id="LC45" class="blob-code blob-code-inner js-file-line">      $form <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>form<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L46" class="blob-num js-line-number" data-line-number="46"></td>
-        <td id="LC46" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L47" class="blob-num js-line-number" data-line-number="47"></td>
-        <td id="LC47" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L48" class="blob-num js-line-number" data-line-number="48"></td>
-        <td id="LC48" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">addSupportForCustomErrorMessageCallback</span>(config);</td>
-      </tr>
-      <tr>
-        <td id="L49" class="blob-num js-line-number" data-line-number="49"></td>
-        <td id="LC49" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">addSupportForElementReferenceInPositionParam</span>(config);</td>
-      </tr>
-      <tr>
-        <td id="L50" class="blob-num js-line-number" data-line-number="50"></td>
-        <td id="LC50" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">addSupportForValidationDependingOnCheckedInput</span>($form);</td>
-      </tr>
-      <tr>
-        <td id="L51" class="blob-num js-line-number" data-line-number="51"></td>
-        <td id="LC51" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L52" class="blob-num js-line-number" data-line-number="52"></td>
-        <td id="LC52" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L53" class="blob-num js-line-number" data-line-number="53"></td>
-        <td id="LC53" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L54" class="blob-num js-line-number" data-line-number="54"></td>
-        <td id="LC54" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">function</span> <span class="pl-en">addSupportForCustomErrorMessageCallback</span>(<span class="pl-smi">config</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L55" class="blob-num js-line-number" data-line-number="55"></td>
-        <td id="LC55" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (config <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L56" class="blob-num js-line-number" data-line-number="56"></td>
-        <td id="LC56" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">config</span>.<span class="pl-smi">errorMessagePosition</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>custom<span class="pl-pds">&#39;</span></span> <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L57" class="blob-num js-line-number" data-line-number="57"></td>
-        <td id="LC57" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">typeof</span> <span class="pl-smi">config</span>.<span class="pl-smi">errorMessageCustom</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L58" class="blob-num js-line-number" data-line-number="58"></td>
-        <td id="LC58" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L59" class="blob-num js-line-number" data-line-number="59"></td>
-        <td id="LC59" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">warn</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Use of deprecated function errorMessageCustom, use config.submitErrorMessageCallback instead<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L60" class="blob-num js-line-number" data-line-number="60"></td>
-        <td id="LC60" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L61" class="blob-num js-line-number" data-line-number="61"></td>
-        <td id="LC61" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">config</span>.<span class="pl-en">submitErrorMessageCallback</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">$form</span>, <span class="pl-smi">errorMessages</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L62" class="blob-num js-line-number" data-line-number="62"></td>
-        <td id="LC62" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">config</span>.<span class="pl-en">errorMessageCustom</span>(</td>
-      </tr>
-      <tr>
-        <td id="L63" class="blob-num js-line-number" data-line-number="63"></td>
-        <td id="LC63" class="blob-code blob-code-inner js-file-line">            $form,</td>
-      </tr>
-      <tr>
-        <td id="L64" class="blob-num js-line-number" data-line-number="64"></td>
-        <td id="LC64" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">config</span>.<span class="pl-c1">language</span>.<span class="pl-smi">errorTitle</span>,</td>
-      </tr>
-      <tr>
-        <td id="L65" class="blob-num js-line-number" data-line-number="65"></td>
-        <td id="LC65" class="blob-code blob-code-inner js-file-line">            errorMessages,</td>
-      </tr>
-      <tr>
-        <td id="L66" class="blob-num js-line-number" data-line-number="66"></td>
-        <td id="LC66" class="blob-code blob-code-inner js-file-line">            config</td>
-      </tr>
-      <tr>
-        <td id="L67" class="blob-num js-line-number" data-line-number="67"></td>
-        <td id="LC67" class="blob-code blob-code-inner js-file-line">        );</td>
-      </tr>
-      <tr>
-        <td id="L68" class="blob-num js-line-number" data-line-number="68"></td>
-        <td id="LC68" class="blob-code blob-code-inner js-file-line">      };</td>
-      </tr>
-      <tr>
-        <td id="L69" class="blob-num js-line-number" data-line-number="69"></td>
-        <td id="LC69" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L70" class="blob-num js-line-number" data-line-number="70"></td>
-        <td id="LC70" class="blob-code blob-code-inner js-file-line">  }</td>
-      </tr>
-      <tr>
-        <td id="L71" class="blob-num js-line-number" data-line-number="71"></td>
-        <td id="LC71" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L72" class="blob-num js-line-number" data-line-number="72"></td>
-        <td id="LC72" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">function</span> <span class="pl-en">addSupportForElementReferenceInPositionParam</span>(<span class="pl-smi">config</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L73" class="blob-num js-line-number" data-line-number="73"></td>
-        <td id="LC73" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-smi">config</span>.<span class="pl-smi">errorMessagePosition</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">typeof</span> <span class="pl-smi">config</span>.<span class="pl-smi">errorMessagePosition</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>object<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L74" class="blob-num js-line-number" data-line-number="74"></td>
-        <td id="LC74" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">warn</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Deprecated use of config parameter errorMessagePosition, use config.submitErrorMessageCallback instead<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L75" class="blob-num js-line-number" data-line-number="75"></td>
-        <td id="LC75" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $errorMessageContainer <span class="pl-k">=</span> <span class="pl-smi">config</span>.<span class="pl-smi">errorMessagePosition</span>;</td>
-      </tr>
-      <tr>
-        <td id="L76" class="blob-num js-line-number" data-line-number="76"></td>
-        <td id="LC76" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">config</span>.<span class="pl-smi">errorMessagePosition</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>top<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L77" class="blob-num js-line-number" data-line-number="77"></td>
-        <td id="LC77" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">config</span>.<span class="pl-en">submitErrorMessageCallback</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L78" class="blob-num js-line-number" data-line-number="78"></td>
-        <td id="LC78" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> $errorMessageContainer;</td>
-      </tr>
-      <tr>
-        <td id="L79" class="blob-num js-line-number" data-line-number="79"></td>
-        <td id="LC79" class="blob-code blob-code-inner js-file-line">      };</td>
-      </tr>
-      <tr>
-        <td id="L80" class="blob-num js-line-number" data-line-number="80"></td>
-        <td id="LC80" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L81" class="blob-num js-line-number" data-line-number="81"></td>
-        <td id="LC81" class="blob-code blob-code-inner js-file-line">  }</td>
-      </tr>
-      <tr>
-        <td id="L82" class="blob-num js-line-number" data-line-number="82"></td>
-        <td id="LC82" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L83" class="blob-num js-line-number" data-line-number="83"></td>
-        <td id="LC83" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">function</span> <span class="pl-en">addSupportForValidationDependingOnCheckedInput</span>(<span class="pl-smi">$form</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L84" class="blob-num js-line-number" data-line-number="84"></td>
-        <td id="LC84" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> $inputsDependingOnCheckedInputs <span class="pl-k">=</span> <span class="pl-smi">$form</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>[data-validation-if-checked]<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L85" class="blob-num js-line-number" data-line-number="85"></td>
-        <td id="LC85" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-smi">$inputsDependingOnCheckedInputs</span>.<span class="pl-c1">length</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L86" class="blob-num js-line-number" data-line-number="86"></td>
-        <td id="LC86" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">warn</span>(</td>
-      </tr>
-      <tr>
-        <td id="L87" class="blob-num js-line-number" data-line-number="87"></td>
-        <td id="LC87" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&#39;</span>Detected use of attribute &quot;data-validation-if-checked&quot; which is <span class="pl-pds">&#39;</span></span><span class="pl-k">+</span></td>
-      </tr>
-      <tr>
-        <td id="L88" class="blob-num js-line-number" data-line-number="88"></td>
-        <td id="LC88" class="blob-code blob-code-inner js-file-line">        <span class="pl-s"><span class="pl-pds">&#39;</span>deprecated. Use &quot;data-validation-depends-on&quot; provided by module &quot;logic&quot;<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L89" class="blob-num js-line-number" data-line-number="89"></td>
-        <td id="LC89" class="blob-code blob-code-inner js-file-line">      );</td>
-      </tr>
-      <tr>
-        <td id="L90" class="blob-num js-line-number" data-line-number="90"></td>
-        <td id="LC90" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L91" class="blob-num js-line-number" data-line-number="91"></td>
-        <td id="LC91" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L92" class="blob-num js-line-number" data-line-number="92"></td>
-        <td id="LC92" class="blob-code blob-code-inner js-file-line">    $inputsDependingOnCheckedInputs</td>
-      </tr>
-      <tr>
-        <td id="L93" class="blob-num js-line-number" data-line-number="93"></td>
-        <td id="LC93" class="blob-code blob-code-inner js-file-line">      .<span class="pl-en">on</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>beforeValidation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L94" class="blob-num js-line-number" data-line-number="94"></td>
-        <td id="LC94" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L95" class="blob-num js-line-number" data-line-number="95"></td>
-        <td id="LC95" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $elem <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</td>
-      </tr>
-      <tr>
-        <td id="L96" class="blob-num js-line-number" data-line-number="96"></td>
-        <td id="LC96" class="blob-code blob-code-inner js-file-line">          nameOfDependingInput <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>if-checked<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L97" class="blob-num js-line-number" data-line-number="97"></td>
-        <td id="LC97" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L98" class="blob-num js-line-number" data-line-number="98"></td>
-        <td id="LC98" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// Set the boolean telling us that the validation depends</span></td>
-      </tr>
-      <tr>
-        <td id="L99" class="blob-num js-line-number" data-line-number="99"></td>
-        <td id="LC99" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// on another input being checked</span></td>
-      </tr>
-      <tr>
-        <td id="L100" class="blob-num js-line-number" data-line-number="100"></td>
-        <td id="LC100" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $dependingInput <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>input[name=&quot;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> nameOfDependingInput <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&quot;]<span class="pl-pds">&#39;</span></span>, $form),</td>
-      </tr>
-      <tr>
-        <td id="L101" class="blob-num js-line-number" data-line-number="101"></td>
-        <td id="LC101" class="blob-code blob-code-inner js-file-line">          dependingInputIsChecked <span class="pl-k">=</span> <span class="pl-smi">$dependingInput</span>.<span class="pl-en">is</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:checked<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L102" class="blob-num js-line-number" data-line-number="102"></td>
-        <td id="LC102" class="blob-code blob-code-inner js-file-line">          valueOfDependingInput <span class="pl-k">=</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">getValue</span>($dependingInput) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>).<span class="pl-c1">toString</span>(),</td>
-      </tr>
-      <tr>
-        <td id="L103" class="blob-num js-line-number" data-line-number="103"></td>
-        <td id="LC103" class="blob-code blob-code-inner js-file-line">          requiredValueOfDependingInput <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>if-checked-value<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L104" class="blob-num js-line-number" data-line-number="104"></td>
-        <td id="LC104" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L105" class="blob-num js-line-number" data-line-number="105"></td>
-        <td id="LC105" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-k">!</span>dependingInputIsChecked <span class="pl-k">||</span> <span class="pl-k">!</span>(</td>
-      </tr>
-      <tr>
-        <td id="L106" class="blob-num js-line-number" data-line-number="106"></td>
-        <td id="LC106" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">!</span>requiredValueOfDependingInput <span class="pl-k">||</span></td>
-      </tr>
-      <tr>
-        <td id="L107" class="blob-num js-line-number" data-line-number="107"></td>
-        <td id="LC107" class="blob-code blob-code-inner js-file-line">              requiredValueOfDependingInput <span class="pl-k">===</span> valueOfDependingInput</td>
-      </tr>
-      <tr>
-        <td id="L108" class="blob-num js-line-number" data-line-number="108"></td>
-        <td id="LC108" class="blob-code blob-code-inner js-file-line">          )) {</td>
-      </tr>
-      <tr>
-        <td id="L109" class="blob-num js-line-number" data-line-number="109"></td>
-        <td id="LC109" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>skipped<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">true</span>);</td>
-      </tr>
-      <tr>
-        <td id="L110" class="blob-num js-line-number" data-line-number="110"></td>
-        <td id="LC110" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L111" class="blob-num js-line-number" data-line-number="111"></td>
-        <td id="LC111" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L112" class="blob-num js-line-number" data-line-number="112"></td>
-        <td id="LC112" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L113" class="blob-num js-line-number" data-line-number="113"></td>
-        <td id="LC113" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L114" class="blob-num js-line-number" data-line-number="114"></td>
-        <td id="LC114" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L115" class="blob-num js-line-number" data-line-number="115"></td>
-        <td id="LC115" class="blob-code blob-code-inner js-file-line">})(jQuery);</td>
-      </tr>
-      <tr>
-        <td id="L116" class="blob-num js-line-number" data-line-number="116"></td>
-        <td id="LC116" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L117" class="blob-num js-line-number" data-line-number="117"></td>
-        <td id="LC117" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L118" class="blob-num js-line-number" data-line-number="118"></td>
-        <td id="LC118" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Utility methods used for displaying error messages (attached to $.formUtils)</span></td>
-      </tr>
-      <tr>
-        <td id="L119" class="blob-num js-line-number" data-line-number="119"></td>
-        <td id="LC119" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L120" class="blob-num js-line-number" data-line-number="120"></td>
-        <td id="LC120" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span> (<span class="pl-smi">$</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L121" class="blob-num js-line-number" data-line-number="121"></td>
-        <td id="LC121" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L122" class="blob-num js-line-number" data-line-number="122"></td>
-        <td id="LC122" class="blob-code blob-code-inner js-file-line">  <span class="pl-s"><span class="pl-pds">&#39;</span>use strict<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L123" class="blob-num js-line-number" data-line-number="123"></td>
-        <td id="LC123" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L124" class="blob-num js-line-number" data-line-number="124"></td>
-        <td id="LC124" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> dialogs <span class="pl-k">=</span> {</td>
-      </tr>
-      <tr>
-        <td id="L125" class="blob-num js-line-number" data-line-number="125"></td>
-        <td id="LC125" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L126" class="blob-num js-line-number" data-line-number="126"></td>
-        <td id="LC126" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">resolveErrorMessage</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">$elem</span>, <span class="pl-smi">validator</span>, <span class="pl-smi">validatorName</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">language</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L127" class="blob-num js-line-number" data-line-number="127"></td>
-        <td id="LC127" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> errorMsgAttr <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-smi">validationErrorMsgAttribute</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">validatorName</span>.<span class="pl-c1">replace</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validate_<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L128" class="blob-num js-line-number" data-line-number="128"></td>
-        <td id="LC128" class="blob-code blob-code-inner js-file-line">        validationErrorMsg <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(errorMsgAttr);</td>
-      </tr>
-      <tr>
-        <td id="L129" class="blob-num js-line-number" data-line-number="129"></td>
-        <td id="LC129" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L130" class="blob-num js-line-number" data-line-number="130"></td>
-        <td id="LC130" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">!</span>validationErrorMsg) {</td>
-      </tr>
-      <tr>
-        <td id="L131" class="blob-num js-line-number" data-line-number="131"></td>
-        <td id="LC131" class="blob-code blob-code-inner js-file-line">        validationErrorMsg <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">validationErrorMsgAttribute</span>);</td>
-      </tr>
-      <tr>
-        <td id="L132" class="blob-num js-line-number" data-line-number="132"></td>
-        <td id="LC132" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-k">!</span>validationErrorMsg) {</td>
-      </tr>
-      <tr>
-        <td id="L133" class="blob-num js-line-number" data-line-number="133"></td>
-        <td id="LC133" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">validator</span>.<span class="pl-smi">errorMessageKey</span> <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L134" class="blob-num js-line-number" data-line-number="134"></td>
-        <td id="LC134" class="blob-code blob-code-inner js-file-line">            validationErrorMsg <span class="pl-k">=</span> language[<span class="pl-smi">validator</span>.<span class="pl-smi">errorMessageKey</span>];</td>
-      </tr>
-      <tr>
-        <td id="L135" class="blob-num js-line-number" data-line-number="135"></td>
-        <td id="LC135" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L136" class="blob-num js-line-number" data-line-number="136"></td>
-        <td id="LC136" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L137" class="blob-num js-line-number" data-line-number="137"></td>
-        <td id="LC137" class="blob-code blob-code-inner js-file-line">            validationErrorMsg <span class="pl-k">=</span> language[<span class="pl-smi">validator</span>.<span class="pl-en">errorMessageKey</span>(conf)];</td>
-      </tr>
-      <tr>
-        <td id="L138" class="blob-num js-line-number" data-line-number="138"></td>
-        <td id="LC138" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L139" class="blob-num js-line-number" data-line-number="139"></td>
-        <td id="LC139" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-k">!</span>validationErrorMsg) {</td>
-      </tr>
-      <tr>
-        <td id="L140" class="blob-num js-line-number" data-line-number="140"></td>
-        <td id="LC140" class="blob-code blob-code-inner js-file-line">            validationErrorMsg <span class="pl-k">=</span> <span class="pl-smi">validator</span>.<span class="pl-smi">errorMessage</span>;</td>
-      </tr>
-      <tr>
-        <td id="L141" class="blob-num js-line-number" data-line-number="141"></td>
-        <td id="LC141" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L142" class="blob-num js-line-number" data-line-number="142"></td>
-        <td id="LC142" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L143" class="blob-num js-line-number" data-line-number="143"></td>
-        <td id="LC143" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L144" class="blob-num js-line-number" data-line-number="144"></td>
-        <td id="LC144" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> validationErrorMsg;</td>
-      </tr>
-      <tr>
-        <td id="L145" class="blob-num js-line-number" data-line-number="145"></td>
-        <td id="LC145" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L146" class="blob-num js-line-number" data-line-number="146"></td>
-        <td id="LC146" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">getParentContainer</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">$elem</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L147" class="blob-num js-line-number" data-line-number="147"></td>
-        <td id="LC147" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>error-msg-container<span class="pl-pds">&#39;</span></span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L148" class="blob-num js-line-number" data-line-number="148"></td>
-        <td id="LC148" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-en">$</span>(<span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>error-msg-container<span class="pl-pds">&#39;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L149" class="blob-num js-line-number" data-line-number="149"></td>
-        <td id="LC149" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L150" class="blob-num js-line-number" data-line-number="150"></td>
-        <td id="LC150" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $parent <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-c1">parent</span>();</td>
-      </tr>
-      <tr>
-        <td id="L151" class="blob-num js-line-number" data-line-number="151"></td>
-        <td id="LC151" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">$parent</span>.<span class="pl-en">hasClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>form-group<span class="pl-pds">&#39;</span></span>) <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-smi">$parent</span>.<span class="pl-en">closest</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>form<span class="pl-pds">&#39;</span></span>).<span class="pl-en">hasClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>form-horizontal<span class="pl-pds">&#39;</span></span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L152" class="blob-num js-line-number" data-line-number="152"></td>
-        <td id="LC152" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> $formGroup <span class="pl-k">=</span> <span class="pl-smi">$parent</span>.<span class="pl-en">closest</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.form-group<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L153" class="blob-num js-line-number" data-line-number="153"></td>
-        <td id="LC153" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-smi">$formGroup</span>.<span class="pl-c1">length</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L154" class="blob-num js-line-number" data-line-number="154"></td>
-        <td id="LC154" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-smi">$formGroup</span>.<span class="pl-en">eq</span>(<span class="pl-c1">0</span>);</td>
-      </tr>
-      <tr>
-        <td id="L155" class="blob-num js-line-number" data-line-number="155"></td>
-        <td id="LC155" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L156" class="blob-num js-line-number" data-line-number="156"></td>
-        <td id="LC156" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L157" class="blob-num js-line-number" data-line-number="157"></td>
-        <td id="LC157" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> $parent;</td>
-      </tr>
-      <tr>
-        <td id="L158" class="blob-num js-line-number" data-line-number="158"></td>
-        <td id="LC158" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L159" class="blob-num js-line-number" data-line-number="159"></td>
-        <td id="LC159" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L160" class="blob-num js-line-number" data-line-number="160"></td>
-        <td id="LC160" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">applyInputErrorStyling</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">$input</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L161" class="blob-num js-line-number" data-line-number="161"></td>
-        <td id="LC161" class="blob-code blob-code-inner js-file-line">      $input</td>
-      </tr>
-      <tr>
-        <td id="L162" class="blob-num js-line-number" data-line-number="162"></td>
-        <td id="LC162" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">addClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">errorElementClass</span>)</td>
-      </tr>
-      <tr>
-        <td id="L163" class="blob-num js-line-number" data-line-number="163"></td>
-        <td id="LC163" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">removeClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>valid<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L164" class="blob-num js-line-number" data-line-number="164"></td>
-        <td id="LC164" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L165" class="blob-num js-line-number" data-line-number="165"></td>
-        <td id="LC165" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-en">getParentContainer</span>($input)</td>
-      </tr>
-      <tr>
-        <td id="L166" class="blob-num js-line-number" data-line-number="166"></td>
-        <td id="LC166" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">addClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">inputParentClassOnError</span>)</td>
-      </tr>
-      <tr>
-        <td id="L167" class="blob-num js-line-number" data-line-number="167"></td>
-        <td id="LC167" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">removeClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">inputParentClassOnSuccess</span>);</td>
-      </tr>
-      <tr>
-        <td id="L168" class="blob-num js-line-number" data-line-number="168"></td>
-        <td id="LC168" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L169" class="blob-num js-line-number" data-line-number="169"></td>
-        <td id="LC169" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">borderColorOnError</span> <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L170" class="blob-num js-line-number" data-line-number="170"></td>
-        <td id="LC170" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$input</span>.<span class="pl-en">css</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>border-color<span class="pl-pds">&#39;</span></span>, <span class="pl-smi">conf</span>.<span class="pl-smi">borderColorOnError</span>);</td>
-      </tr>
-      <tr>
-        <td id="L171" class="blob-num js-line-number" data-line-number="171"></td>
-        <td id="LC171" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L172" class="blob-num js-line-number" data-line-number="172"></td>
-        <td id="LC172" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L173" class="blob-num js-line-number" data-line-number="173"></td>
-        <td id="LC173" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">applyInputSuccessStyling</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">$input</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L174" class="blob-num js-line-number" data-line-number="174"></td>
-        <td id="LC174" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$input</span>.<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>valid<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L175" class="blob-num js-line-number" data-line-number="175"></td>
-        <td id="LC175" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-en">getParentContainer</span>($input)</td>
-      </tr>
-      <tr>
-        <td id="L176" class="blob-num js-line-number" data-line-number="176"></td>
-        <td id="LC176" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">addClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">inputParentClassOnSuccess</span>);</td>
-      </tr>
-      <tr>
-        <td id="L177" class="blob-num js-line-number" data-line-number="177"></td>
-        <td id="LC177" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L178" class="blob-num js-line-number" data-line-number="178"></td>
-        <td id="LC178" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">removeInputStylingAndMessage</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">$input</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L179" class="blob-num js-line-number" data-line-number="179"></td>
-        <td id="LC179" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L180" class="blob-num js-line-number" data-line-number="180"></td>
-        <td id="LC180" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Reset input css</span></td>
-      </tr>
-      <tr>
-        <td id="L181" class="blob-num js-line-number" data-line-number="181"></td>
-        <td id="LC181" class="blob-code blob-code-inner js-file-line">      $input</td>
-      </tr>
-      <tr>
-        <td id="L182" class="blob-num js-line-number" data-line-number="182"></td>
-        <td id="LC182" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">removeClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>valid<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L183" class="blob-num js-line-number" data-line-number="183"></td>
-        <td id="LC183" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">removeClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">errorElementClass</span>)</td>
-      </tr>
-      <tr>
-        <td id="L184" class="blob-num js-line-number" data-line-number="184"></td>
-        <td id="LC184" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">css</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>border-color<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L185" class="blob-num js-line-number" data-line-number="185"></td>
-        <td id="LC185" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L186" class="blob-num js-line-number" data-line-number="186"></td>
-        <td id="LC186" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $parentContainer <span class="pl-k">=</span> <span class="pl-smi">dialogs</span>.<span class="pl-en">getParentContainer</span>($input);</td>
-      </tr>
-      <tr>
-        <td id="L187" class="blob-num js-line-number" data-line-number="187"></td>
-        <td id="LC187" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L188" class="blob-num js-line-number" data-line-number="188"></td>
-        <td id="LC188" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Reset parent css</span></td>
-      </tr>
-      <tr>
-        <td id="L189" class="blob-num js-line-number" data-line-number="189"></td>
-        <td id="LC189" class="blob-code blob-code-inner js-file-line">      $parentContainer</td>
-      </tr>
-      <tr>
-        <td id="L190" class="blob-num js-line-number" data-line-number="190"></td>
-        <td id="LC190" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">removeClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">inputParentClassOnError</span>)</td>
-      </tr>
-      <tr>
-        <td id="L191" class="blob-num js-line-number" data-line-number="191"></td>
-        <td id="LC191" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">removeClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">inputParentClassOnSuccess</span>);</td>
-      </tr>
-      <tr>
-        <td id="L192" class="blob-num js-line-number" data-line-number="192"></td>
-        <td id="LC192" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L193" class="blob-num js-line-number" data-line-number="193"></td>
-        <td id="LC193" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Remove possible error message</span></td>
-      </tr>
-      <tr>
-        <td id="L194" class="blob-num js-line-number" data-line-number="194"></td>
-        <td id="LC194" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">inlineErrorMessageCallback</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L195" class="blob-num js-line-number" data-line-number="195"></td>
-        <td id="LC195" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $errorMessage <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-en">inlineErrorMessageCallback</span>($input, conf);</td>
-      </tr>
-      <tr>
-        <td id="L196" class="blob-num js-line-number" data-line-number="196"></td>
-        <td id="LC196" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> ($errorMessage) {</td>
-      </tr>
-      <tr>
-        <td id="L197" class="blob-num js-line-number" data-line-number="197"></td>
-        <td id="LC197" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$errorMessage</span>.<span class="pl-en">html</span>(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L198" class="blob-num js-line-number" data-line-number="198"></td>
-        <td id="LC198" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L199" class="blob-num js-line-number" data-line-number="199"></td>
-        <td id="LC199" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L200" class="blob-num js-line-number" data-line-number="200"></td>
-        <td id="LC200" class="blob-code blob-code-inner js-file-line">        $parentContainer</td>
-      </tr>
-      <tr>
-        <td id="L201" class="blob-num js-line-number" data-line-number="201"></td>
-        <td id="LC201" class="blob-code blob-code-inner js-file-line">          .<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">conf</span>.<span class="pl-smi">errorMessageClass</span>)</td>
-      </tr>
-      <tr>
-        <td id="L202" class="blob-num js-line-number" data-line-number="202"></td>
-        <td id="LC202" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">remove</span>();</td>
-      </tr>
-      <tr>
-        <td id="L203" class="blob-num js-line-number" data-line-number="203"></td>
-        <td id="LC203" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L204" class="blob-num js-line-number" data-line-number="204"></td>
-        <td id="LC204" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L205" class="blob-num js-line-number" data-line-number="205"></td>
-        <td id="LC205" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L206" class="blob-num js-line-number" data-line-number="206"></td>
-        <td id="LC206" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">removeAllMessagesAndStyling</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">$form</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L207" class="blob-num js-line-number" data-line-number="207"></td>
-        <td id="LC207" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L208" class="blob-num js-line-number" data-line-number="208"></td>
-        <td id="LC208" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Remove error messages in top of form</span></td>
-      </tr>
-      <tr>
-        <td id="L209" class="blob-num js-line-number" data-line-number="209"></td>
-        <td id="LC209" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">submitErrorMessageCallback</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L210" class="blob-num js-line-number" data-line-number="210"></td>
-        <td id="LC210" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $errorMessagesInTopOfForm <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-en">submitErrorMessageCallback</span>($form, conf);</td>
-      </tr>
-      <tr>
-        <td id="L211" class="blob-num js-line-number" data-line-number="211"></td>
-        <td id="LC211" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> ($errorMessagesInTopOfForm) {</td>
-      </tr>
-      <tr>
-        <td id="L212" class="blob-num js-line-number" data-line-number="212"></td>
-        <td id="LC212" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$errorMessagesInTopOfForm</span>.<span class="pl-en">html</span>(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L213" class="blob-num js-line-number" data-line-number="213"></td>
-        <td id="LC213" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L214" class="blob-num js-line-number" data-line-number="214"></td>
-        <td id="LC214" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L215" class="blob-num js-line-number" data-line-number="215"></td>
-        <td id="LC215" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$form</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">conf</span>.<span class="pl-smi">errorMessageClass</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.alert<span class="pl-pds">&#39;</span></span>).<span class="pl-en">remove</span>();</td>
-      </tr>
-      <tr>
-        <td id="L216" class="blob-num js-line-number" data-line-number="216"></td>
-        <td id="LC216" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L217" class="blob-num js-line-number" data-line-number="217"></td>
-        <td id="LC217" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L218" class="blob-num js-line-number" data-line-number="218"></td>
-        <td id="LC218" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Remove input css/messages</span></td>
-      </tr>
-      <tr>
-        <td id="L219" class="blob-num js-line-number" data-line-number="219"></td>
-        <td id="LC219" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$form</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">conf</span>.<span class="pl-smi">errorElementClass</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>,.valid<span class="pl-pds">&#39;</span></span>).<span class="pl-en">each</span>(<span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L220" class="blob-num js-line-number" data-line-number="220"></td>
-        <td id="LC220" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">dialogs</span>.<span class="pl-en">removeInputStylingAndMessage</span>(<span class="pl-en">$</span>(<span class="pl-v">this</span>), conf);</td>
-      </tr>
-      <tr>
-        <td id="L221" class="blob-num js-line-number" data-line-number="221"></td>
-        <td id="LC221" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L222" class="blob-num js-line-number" data-line-number="222"></td>
-        <td id="LC222" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L223" class="blob-num js-line-number" data-line-number="223"></td>
-        <td id="LC223" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">setInlineMessage</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">$input</span>, <span class="pl-smi">errorMsg</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L224" class="blob-num js-line-number" data-line-number="224"></td>
-        <td id="LC224" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L225" class="blob-num js-line-number" data-line-number="225"></td>
-        <td id="LC225" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-en">applyInputErrorStyling</span>($input, conf);</td>
-      </tr>
-      <tr>
-        <td id="L226" class="blob-num js-line-number" data-line-number="226"></td>
-        <td id="LC226" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L227" class="blob-num js-line-number" data-line-number="227"></td>
-        <td id="LC227" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> custom <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementById</span>(<span class="pl-smi">$input</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>name<span class="pl-pds">&#39;</span></span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>_err_msg<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L228" class="blob-num js-line-number" data-line-number="228"></td>
-        <td id="LC228" class="blob-code blob-code-inner js-file-line">        $messageContainer <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L229" class="blob-num js-line-number" data-line-number="229"></td>
-        <td id="LC229" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">setErrorMessage</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">$elem</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L230" class="blob-num js-line-number" data-line-number="230"></td>
-        <td id="LC230" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">$win</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validationErrorDisplay<span class="pl-pds">&#39;</span></span>, [$input, $elem]);</td>
-      </tr>
-      <tr>
-        <td id="L231" class="blob-num js-line-number" data-line-number="231"></td>
-        <td id="LC231" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$elem</span>.<span class="pl-en">html</span>(errorMsg);</td>
-      </tr>
-      <tr>
-        <td id="L232" class="blob-num js-line-number" data-line-number="232"></td>
-        <td id="LC232" class="blob-code blob-code-inner js-file-line">        },</td>
-      </tr>
-      <tr>
-        <td id="L233" class="blob-num js-line-number" data-line-number="233"></td>
-        <td id="LC233" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">addErrorToMessageContainer</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L234" class="blob-num js-line-number" data-line-number="234"></td>
-        <td id="LC234" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> $found <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L235" class="blob-num js-line-number" data-line-number="235"></td>
-        <td id="LC235" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$messageContainer</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">conf</span>.<span class="pl-smi">errorMessageClass</span>).<span class="pl-en">each</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L236" class="blob-num js-line-number" data-line-number="236"></td>
-        <td id="LC236" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (<span class="pl-v">this</span>.<span class="pl-smi">inputReferer</span> <span class="pl-k">===</span> $input[<span class="pl-c1">0</span>]) {</td>
-      </tr>
-      <tr>
-        <td id="L237" class="blob-num js-line-number" data-line-number="237"></td>
-        <td id="LC237" class="blob-code blob-code-inner js-file-line">              $found <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>);</td>
-      </tr>
-      <tr>
-        <td id="L238" class="blob-num js-line-number" data-line-number="238"></td>
-        <td id="LC238" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L239" class="blob-num js-line-number" data-line-number="239"></td>
-        <td id="LC239" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L240" class="blob-num js-line-number" data-line-number="240"></td>
-        <td id="LC240" class="blob-code blob-code-inner js-file-line">          });</td>
-      </tr>
-      <tr>
-        <td id="L241" class="blob-num js-line-number" data-line-number="241"></td>
-        <td id="LC241" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">console</span>.<span class="pl-c1">log</span>($found);</td>
-      </tr>
-      <tr>
-        <td id="L242" class="blob-num js-line-number" data-line-number="242"></td>
-        <td id="LC242" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> ($found) {</td>
-      </tr>
-      <tr>
-        <td id="L243" class="blob-num js-line-number" data-line-number="243"></td>
-        <td id="LC243" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (<span class="pl-k">!</span>errorMsg) {</td>
-      </tr>
-      <tr>
-        <td id="L244" class="blob-num js-line-number" data-line-number="244"></td>
-        <td id="LC244" class="blob-code blob-code-inner js-file-line">              <span class="pl-smi">$found</span>.<span class="pl-en">remove</span>();</td>
-      </tr>
-      <tr>
-        <td id="L245" class="blob-num js-line-number" data-line-number="245"></td>
-        <td id="LC245" class="blob-code blob-code-inner js-file-line">            } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L246" class="blob-num js-line-number" data-line-number="246"></td>
-        <td id="LC246" class="blob-code blob-code-inner js-file-line">              <span class="pl-en">setErrorMessage</span>($found);</td>
-      </tr>
-      <tr>
-        <td id="L247" class="blob-num js-line-number" data-line-number="247"></td>
-        <td id="LC247" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L248" class="blob-num js-line-number" data-line-number="248"></td>
-        <td id="LC248" class="blob-code blob-code-inner js-file-line">          } <span class="pl-k">else</span> <span class="pl-k">if</span>(errorMsg <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L249" class="blob-num js-line-number" data-line-number="249"></td>
-        <td id="LC249" class="blob-code blob-code-inner js-file-line">            $message <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>&lt;div class=&quot;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">conf</span>.<span class="pl-smi">errorMessageClass</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span> alert&quot;&gt;&lt;/div&gt;<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L250" class="blob-num js-line-number" data-line-number="250"></td>
-        <td id="LC250" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">setErrorMessage</span>($message);</td>
-      </tr>
-      <tr>
-        <td id="L251" class="blob-num js-line-number" data-line-number="251"></td>
-        <td id="LC251" class="blob-code blob-code-inner js-file-line">            $message[<span class="pl-c1">0</span>].<span class="pl-smi">inputReferer</span> <span class="pl-k">=</span> $input[<span class="pl-c1">0</span>];</td>
-      </tr>
-      <tr>
-        <td id="L252" class="blob-num js-line-number" data-line-number="252"></td>
-        <td id="LC252" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$messageContainer</span>.<span class="pl-en">prepend</span>($message);</td>
-      </tr>
-      <tr>
-        <td id="L253" class="blob-num js-line-number" data-line-number="253"></td>
-        <td id="LC253" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L254" class="blob-num js-line-number" data-line-number="254"></td>
-        <td id="LC254" class="blob-code blob-code-inner js-file-line">        },</td>
-      </tr>
-      <tr>
-        <td id="L255" class="blob-num js-line-number" data-line-number="255"></td>
-        <td id="LC255" class="blob-code blob-code-inner js-file-line">        $message;</td>
-      </tr>
-      <tr>
-        <td id="L256" class="blob-num js-line-number" data-line-number="256"></td>
-        <td id="LC256" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L257" class="blob-num js-line-number" data-line-number="257"></td>
-        <td id="LC257" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (custom) {</td>
-      </tr>
-      <tr>
-        <td id="L258" class="blob-num js-line-number" data-line-number="258"></td>
-        <td id="LC258" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// Todo: remove in 3.0</span></td>
-      </tr>
-      <tr>
-        <td id="L259" class="blob-num js-line-number" data-line-number="259"></td>
-        <td id="LC259" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">warn</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Using deprecated element reference <span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">custom</span>.<span class="pl-c1">id</span>);</td>
-      </tr>
-      <tr>
-        <td id="L260" class="blob-num js-line-number" data-line-number="260"></td>
-        <td id="LC260" class="blob-code blob-code-inner js-file-line">        $messageContainer <span class="pl-k">=</span> <span class="pl-en">$</span>(custom);</td>
-      </tr>
-      <tr>
-        <td id="L261" class="blob-num js-line-number" data-line-number="261"></td>
-        <td id="LC261" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">addErrorToMessageContainer</span>();</td>
-      </tr>
-      <tr>
-        <td id="L262" class="blob-num js-line-number" data-line-number="262"></td>
-        <td id="LC262" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">inlineErrorMessageCallback</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L263" class="blob-num js-line-number" data-line-number="263"></td>
-        <td id="LC263" class="blob-code blob-code-inner js-file-line">        $messageContainer <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-en">inlineErrorMessageCallback</span>($input, conf);</td>
-      </tr>
-      <tr>
-        <td id="L264" class="blob-num js-line-number" data-line-number="264"></td>
-        <td id="LC264" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-k">!</span>$messageContainer) {</td>
-      </tr>
-      <tr>
-        <td id="L265" class="blob-num js-line-number" data-line-number="265"></td>
-        <td id="LC265" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Error display taken care of by inlineErrorMessageCallback</span></td>
-      </tr>
-      <tr>
-        <td id="L266" class="blob-num js-line-number" data-line-number="266"></td>
-        <td id="LC266" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span>;</td>
-      </tr>
-      <tr>
-        <td id="L267" class="blob-num js-line-number" data-line-number="267"></td>
-        <td id="LC267" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L268" class="blob-num js-line-number" data-line-number="268"></td>
-        <td id="LC268" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">addErrorToMessageContainer</span>();</td>
-      </tr>
-      <tr>
-        <td id="L269" class="blob-num js-line-number" data-line-number="269"></td>
-        <td id="LC269" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L270" class="blob-num js-line-number" data-line-number="270"></td>
-        <td id="LC270" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $parent <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">getParentContainer</span>($input);</td>
-      </tr>
-      <tr>
-        <td id="L271" class="blob-num js-line-number" data-line-number="271"></td>
-        <td id="LC271" class="blob-code blob-code-inner js-file-line">        $message <span class="pl-k">=</span> <span class="pl-smi">$parent</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">conf</span>.<span class="pl-smi">errorMessageClass</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.help-block<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L272" class="blob-num js-line-number" data-line-number="272"></td>
-        <td id="LC272" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">$message</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L273" class="blob-num js-line-number" data-line-number="273"></td>
-        <td id="LC273" class="blob-code blob-code-inner js-file-line">          $message <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>&lt;span&gt;&lt;/span&gt;<span class="pl-pds">&#39;</span></span>).<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>help-block<span class="pl-pds">&#39;</span></span>).<span class="pl-en">addClass</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">errorMessageClass</span>);</td>
-      </tr>
-      <tr>
-        <td id="L274" class="blob-num js-line-number" data-line-number="274"></td>
-        <td id="LC274" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$message</span>.<span class="pl-en">appendTo</span>($parent);</td>
-      </tr>
-      <tr>
-        <td id="L275" class="blob-num js-line-number" data-line-number="275"></td>
-        <td id="LC275" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L276" class="blob-num js-line-number" data-line-number="276"></td>
-        <td id="LC276" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">setErrorMessage</span>($message);</td>
-      </tr>
-      <tr>
-        <td id="L277" class="blob-num js-line-number" data-line-number="277"></td>
-        <td id="LC277" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L278" class="blob-num js-line-number" data-line-number="278"></td>
-        <td id="LC278" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L279" class="blob-num js-line-number" data-line-number="279"></td>
-        <td id="LC279" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">setMessageInTopOfForm</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">$form</span>, <span class="pl-smi">errorMessages</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">lang</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L280" class="blob-num js-line-number" data-line-number="280"></td>
-        <td id="LC280" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> view <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;div class=&quot;{errorMessageClass} alert alert-danger&quot;&gt;<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span></td>
-      </tr>
-      <tr>
-        <td id="L281" class="blob-num js-line-number" data-line-number="281"></td>
-        <td id="LC281" class="blob-code blob-code-inner js-file-line">                    <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;strong&gt;{errorTitle}&lt;/strong&gt;<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span></td>
-      </tr>
-      <tr>
-        <td id="L282" class="blob-num js-line-number" data-line-number="282"></td>
-        <td id="LC282" class="blob-code blob-code-inner js-file-line">                    <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;ul&gt;{fields}&lt;/ul&gt;<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span></td>
-      </tr>
-      <tr>
-        <td id="L283" class="blob-num js-line-number" data-line-number="283"></td>
-        <td id="LC283" class="blob-code blob-code-inner js-file-line">                <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;/div&gt;<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L284" class="blob-num js-line-number" data-line-number="284"></td>
-        <td id="LC284" class="blob-code blob-code-inner js-file-line">          $container <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L285" class="blob-num js-line-number" data-line-number="285"></td>
-        <td id="LC285" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L286" class="blob-num js-line-number" data-line-number="286"></td>
-        <td id="LC286" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">submitErrorMessageCallback</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L287" class="blob-num js-line-number" data-line-number="287"></td>
-        <td id="LC287" class="blob-code blob-code-inner js-file-line">        $container <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-en">submitErrorMessageCallback</span>($form, errorMessages, conf);</td>
-      </tr>
-      <tr>
-        <td id="L288" class="blob-num js-line-number" data-line-number="288"></td>
-        <td id="LC288" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">console</span>.<span class="pl-c1">log</span>($container);</td>
-      </tr>
-      <tr>
-        <td id="L289" class="blob-num js-line-number" data-line-number="289"></td>
-        <td id="LC289" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-k">!</span>$container) {</td>
-      </tr>
-      <tr>
-        <td id="L290" class="blob-num js-line-number" data-line-number="290"></td>
-        <td id="LC290" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// message display taken care of by callback</span></td>
-      </tr>
-      <tr>
-        <td id="L291" class="blob-num js-line-number" data-line-number="291"></td>
-        <td id="LC291" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span>;</td>
-      </tr>
-      <tr>
-        <td id="L292" class="blob-num js-line-number" data-line-number="292"></td>
-        <td id="LC292" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L293" class="blob-num js-line-number" data-line-number="293"></td>
-        <td id="LC293" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L294" class="blob-num js-line-number" data-line-number="294"></td>
-        <td id="LC294" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L295" class="blob-num js-line-number" data-line-number="295"></td>
-        <td id="LC295" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> viewParams <span class="pl-k">=</span> {</td>
-      </tr>
-      <tr>
-        <td id="L296" class="blob-num js-line-number" data-line-number="296"></td>
-        <td id="LC296" class="blob-code blob-code-inner js-file-line">            errorTitle<span class="pl-k">:</span> <span class="pl-smi">lang</span>.<span class="pl-smi">errorTitle</span>,</td>
-      </tr>
-      <tr>
-        <td id="L297" class="blob-num js-line-number" data-line-number="297"></td>
-        <td id="LC297" class="blob-code blob-code-inner js-file-line">            fields<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L298" class="blob-num js-line-number" data-line-number="298"></td>
-        <td id="LC298" class="blob-code blob-code-inner js-file-line">            errorMessageClass<span class="pl-k">:</span> <span class="pl-smi">conf</span>.<span class="pl-smi">errorMessageClass</span></td>
-      </tr>
-      <tr>
-        <td id="L299" class="blob-num js-line-number" data-line-number="299"></td>
-        <td id="LC299" class="blob-code blob-code-inner js-file-line">          };</td>
-      </tr>
-      <tr>
-        <td id="L300" class="blob-num js-line-number" data-line-number="300"></td>
-        <td id="LC300" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L301" class="blob-num js-line-number" data-line-number="301"></td>
-        <td id="LC301" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-en">each</span>(errorMessages, <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">msg</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L302" class="blob-num js-line-number" data-line-number="302"></td>
-        <td id="LC302" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">viewParams</span>.<span class="pl-smi">fields</span> <span class="pl-k">+=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;li&gt;<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span>msg<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&#39;</span>&lt;/li&gt;<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L303" class="blob-num js-line-number" data-line-number="303"></td>
-        <td id="LC303" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L304" class="blob-num js-line-number" data-line-number="304"></td>
-        <td id="LC304" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L305" class="blob-num js-line-number" data-line-number="305"></td>
-        <td id="LC305" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-en">each</span>(viewParams, <span class="pl-k">function</span>(<span class="pl-smi">param</span>, <span class="pl-smi">value</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L306" class="blob-num js-line-number" data-line-number="306"></td>
-        <td id="LC306" class="blob-code blob-code-inner js-file-line">        view <span class="pl-k">=</span> <span class="pl-smi">view</span>.<span class="pl-c1">replace</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>{<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span>param<span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&#39;</span>}<span class="pl-pds">&#39;</span></span>, value);</td>
-      </tr>
-      <tr>
-        <td id="L307" class="blob-num js-line-number" data-line-number="307"></td>
-        <td id="LC307" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L308" class="blob-num js-line-number" data-line-number="308"></td>
-        <td id="LC308" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L309" class="blob-num js-line-number" data-line-number="309"></td>
-        <td id="LC309" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> ($container) {</td>
-      </tr>
-      <tr>
-        <td id="L310" class="blob-num js-line-number" data-line-number="310"></td>
-        <td id="LC310" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$container</span>.<span class="pl-en">html</span>(view);</td>
-      </tr>
-      <tr>
-        <td id="L311" class="blob-num js-line-number" data-line-number="311"></td>
-        <td id="LC311" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L312" class="blob-num js-line-number" data-line-number="312"></td>
-        <td id="LC312" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$form</span>.<span class="pl-en">children</span>().<span class="pl-en">eq</span>(<span class="pl-c1">0</span>).<span class="pl-en">before</span>(<span class="pl-en">$</span>(view));</td>
-      </tr>
-      <tr>
-        <td id="L313" class="blob-num js-line-number" data-line-number="313"></td>
-        <td id="LC313" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L314" class="blob-num js-line-number" data-line-number="314"></td>
-        <td id="LC314" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L315" class="blob-num js-line-number" data-line-number="315"></td>
-        <td id="LC315" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L316" class="blob-num js-line-number" data-line-number="316"></td>
-        <td id="LC316" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L317" class="blob-num js-line-number" data-line-number="317"></td>
-        <td id="LC317" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span> <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>(<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span> <span class="pl-k">||</span> {}, {</td>
-      </tr>
-      <tr>
-        <td id="L318" class="blob-num js-line-number" data-line-number="318"></td>
-        <td id="LC318" class="blob-code blob-code-inner js-file-line">    dialogs<span class="pl-k">:</span> dialogs</td>
-      </tr>
-      <tr>
-        <td id="L319" class="blob-num js-line-number" data-line-number="319"></td>
-        <td id="LC319" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L320" class="blob-num js-line-number" data-line-number="320"></td>
-        <td id="LC320" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L321" class="blob-num js-line-number" data-line-number="321"></td>
-        <td id="LC321" class="blob-code blob-code-inner js-file-line">})(jQuery);</td>
-      </tr>
-      <tr>
-        <td id="L322" class="blob-num js-line-number" data-line-number="322"></td>
-        <td id="LC322" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L323" class="blob-num js-line-number" data-line-number="323"></td>
-        <td id="LC323" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L324" class="blob-num js-line-number" data-line-number="324"></td>
-        <td id="LC324" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * File declaring all methods if this plugin which is applied to $.fn.</span></td>
-      </tr>
-      <tr>
-        <td id="L325" class="blob-num js-line-number" data-line-number="325"></td>
-        <td id="LC325" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L326" class="blob-num js-line-number" data-line-number="326"></td>
-        <td id="LC326" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span>(<span class="pl-smi">$</span>, <span class="pl-c1">window</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L327" class="blob-num js-line-number" data-line-number="327"></td>
-        <td id="LC327" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L328" class="blob-num js-line-number" data-line-number="328"></td>
-        <td id="LC328" class="blob-code blob-code-inner js-file-line">  <span class="pl-s"><span class="pl-pds">&#39;</span>use strict<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L329" class="blob-num js-line-number" data-line-number="329"></td>
-        <td id="LC329" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L330" class="blob-num js-line-number" data-line-number="330"></td>
-        <td id="LC330" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> _helpers <span class="pl-k">=</span> <span class="pl-c1">0</span>;</td>
-      </tr>
-      <tr>
-        <td id="L331" class="blob-num js-line-number" data-line-number="331"></td>
-        <td id="LC331" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L332" class="blob-num js-line-number" data-line-number="332"></td>
-        <td id="LC332" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L333" class="blob-num js-line-number" data-line-number="333"></td>
-        <td id="LC333" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L334" class="blob-num js-line-number" data-line-number="334"></td>
-        <td id="LC334" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Assigns validateInputOnBlur function to elements blur event</span></td>
-      </tr>
-      <tr>
-        <td id="L335" class="blob-num js-line-number" data-line-number="335"></td>
-        <td id="LC335" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *</span></td>
-      </tr>
-      <tr>
-        <td id="L336" class="blob-num js-line-number" data-line-number="336"></td>
-        <td id="LC336" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">language</span> Optional, will override $.formUtils.LANG</span></td>
-      </tr>
-      <tr>
-        <td id="L337" class="blob-num js-line-number" data-line-number="337"></td>
-        <td id="LC337" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">conf</span> Optional, will override the default settings</span></td>
-      </tr>
-      <tr>
-        <td id="L338" class="blob-num js-line-number" data-line-number="338"></td>
-        <td id="LC338" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@return</span> {jQuery}</span></td>
-      </tr>
-      <tr>
-        <td id="L339" class="blob-num js-line-number" data-line-number="339"></td>
-        <td id="LC339" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L340" class="blob-num js-line-number" data-line-number="340"></td>
-        <td id="LC340" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">validateOnBlur</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">language</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L341" class="blob-num js-line-number" data-line-number="341"></td>
-        <td id="LC341" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>*[data-validation]<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L342" class="blob-num js-line-number" data-line-number="342"></td>
-        <td id="LC342" class="blob-code blob-code-inner js-file-line">      .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>blur.validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L343" class="blob-num js-line-number" data-line-number="343"></td>
-        <td id="LC343" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">validateInputOnBlur</span>(language, conf, <span class="pl-c1">true</span>, <span class="pl-s"><span class="pl-pds">&#39;</span>blur<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L344" class="blob-num js-line-number" data-line-number="344"></td>
-        <td id="LC344" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L345" class="blob-num js-line-number" data-line-number="345"></td>
-        <td id="LC345" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">validateCheckboxRadioOnClick</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L346" class="blob-num js-line-number" data-line-number="346"></td>
-        <td id="LC346" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// bind click event to validate on click for radio &amp; checkboxes for nice UX</span></td>
-      </tr>
-      <tr>
-        <td id="L347" class="blob-num js-line-number" data-line-number="347"></td>
-        <td id="LC347" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>input[type=checkbox][data-validation],input[type=radio][data-validation]<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L348" class="blob-num js-line-number" data-line-number="348"></td>
-        <td id="LC348" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>click.validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L349" class="blob-num js-line-number" data-line-number="349"></td>
-        <td id="LC349" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">validateInputOnBlur</span>(language, conf, <span class="pl-c1">true</span>, <span class="pl-s"><span class="pl-pds">&#39;</span>click<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L350" class="blob-num js-line-number" data-line-number="350"></td>
-        <td id="LC350" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L351" class="blob-num js-line-number" data-line-number="351"></td>
-        <td id="LC351" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L352" class="blob-num js-line-number" data-line-number="352"></td>
-        <td id="LC352" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L353" class="blob-num js-line-number" data-line-number="353"></td>
-        <td id="LC353" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L354" class="blob-num js-line-number" data-line-number="354"></td>
-        <td id="LC354" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L355" class="blob-num js-line-number" data-line-number="355"></td>
-        <td id="LC355" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L356" class="blob-num js-line-number" data-line-number="356"></td>
-        <td id="LC356" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L357" class="blob-num js-line-number" data-line-number="357"></td>
-        <td id="LC357" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Assigns validateInputOnBlur function to elements custom event</span></td>
-      </tr>
-      <tr>
-        <td id="L358" class="blob-num js-line-number" data-line-number="358"></td>
-        <td id="LC358" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * @param {Object} language Optional, will override $.formUtils.LANG</span></td>
-      </tr>
-      <tr>
-        <td id="L359" class="blob-num js-line-number" data-line-number="359"></td>
-        <td id="LC359" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * @param {Object} settings Optional, will override the default settings</span></td>
-      </tr>
-      <tr>
-        <td id="L360" class="blob-num js-line-number" data-line-number="360"></td>
-        <td id="LC360" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * * @return {jQuery}</span></td>
-      </tr>
-      <tr>
-        <td id="L361" class="blob-num js-line-number" data-line-number="361"></td>
-        <td id="LC361" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L362" class="blob-num js-line-number" data-line-number="362"></td>
-        <td id="LC362" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">validateOnEvent</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">language</span>, <span class="pl-smi">config</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L363" class="blob-num js-line-number" data-line-number="363"></td>
-        <td id="LC363" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> $elements <span class="pl-k">=</span> <span class="pl-v">this</span>[<span class="pl-c1">0</span>].<span class="pl-c1">nodeName</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>FORM<span class="pl-pds">&#39;</span></span> <span class="pl-k">?</span> <span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>*[data-validation-event]<span class="pl-pds">&#39;</span></span>) <span class="pl-k">:</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L364" class="blob-num js-line-number" data-line-number="364"></td>
-        <td id="LC364" class="blob-code blob-code-inner js-file-line">    $elements</td>
-      </tr>
-      <tr>
-        <td id="L365" class="blob-num js-line-number" data-line-number="365"></td>
-        <td id="LC365" class="blob-code blob-code-inner js-file-line">      .<span class="pl-en">each</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L366" class="blob-num js-line-number" data-line-number="366"></td>
-        <td id="LC366" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $el <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</td>
-      </tr>
-      <tr>
-        <td id="L367" class="blob-num js-line-number" data-line-number="367"></td>
-        <td id="LC367" class="blob-code blob-code-inner js-file-line">          etype <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>event<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L368" class="blob-num js-line-number" data-line-number="368"></td>
-        <td id="LC368" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (etype) {</td>
-      </tr>
-      <tr>
-        <td id="L369" class="blob-num js-line-number" data-line-number="369"></td>
-        <td id="LC369" class="blob-code blob-code-inner js-file-line">          $el</td>
-      </tr>
-      <tr>
-        <td id="L370" class="blob-num js-line-number" data-line-number="370"></td>
-        <td id="LC370" class="blob-code blob-code-inner js-file-line">            .<span class="pl-en">unbind</span>(etype <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.validation<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L371" class="blob-num js-line-number" data-line-number="371"></td>
-        <td id="LC371" class="blob-code blob-code-inner js-file-line">            .<span class="pl-en">bind</span>(etype <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">evt</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L372" class="blob-num js-line-number" data-line-number="372"></td>
-        <td id="LC372" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">if</span>( (evt <span class="pl-k">||</span> {}).<span class="pl-smi">keyCode</span> <span class="pl-k">!==</span> <span class="pl-c1">9</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L373" class="blob-num js-line-number" data-line-number="373"></td>
-        <td id="LC373" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">validateInputOnBlur</span>(language, config, <span class="pl-c1">true</span>, etype);</td>
-      </tr>
-      <tr>
-        <td id="L374" class="blob-num js-line-number" data-line-number="374"></td>
-        <td id="LC374" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L375" class="blob-num js-line-number" data-line-number="375"></td>
-        <td id="LC375" class="blob-code blob-code-inner js-file-line">            });</td>
-      </tr>
-      <tr>
-        <td id="L376" class="blob-num js-line-number" data-line-number="376"></td>
-        <td id="LC376" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L377" class="blob-num js-line-number" data-line-number="377"></td>
-        <td id="LC377" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L378" class="blob-num js-line-number" data-line-number="378"></td>
-        <td id="LC378" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L379" class="blob-num js-line-number" data-line-number="379"></td>
-        <td id="LC379" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L380" class="blob-num js-line-number" data-line-number="380"></td>
-        <td id="LC380" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L381" class="blob-num js-line-number" data-line-number="381"></td>
-        <td id="LC381" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L382" class="blob-num js-line-number" data-line-number="382"></td>
-        <td id="LC382" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * fade in help message when input gains focus</span></td>
-      </tr>
-      <tr>
-        <td id="L383" class="blob-num js-line-number" data-line-number="383"></td>
-        <td id="LC383" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * fade out when input loses focus</span></td>
-      </tr>
-      <tr>
-        <td id="L384" class="blob-num js-line-number" data-line-number="384"></td>
-        <td id="LC384" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * &lt;input data-help=&quot;The info that I want to display for the user when input is focused&quot; ... /&gt;</span></td>
-      </tr>
-      <tr>
-        <td id="L385" class="blob-num js-line-number" data-line-number="385"></td>
-        <td id="LC385" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *</span></td>
-      </tr>
-      <tr>
-        <td id="L386" class="blob-num js-line-number" data-line-number="386"></td>
-        <td id="LC386" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">attrName</span> - Optional, default is data-help</span></td>
-      </tr>
-      <tr>
-        <td id="L387" class="blob-num js-line-number" data-line-number="387"></td>
-        <td id="LC387" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@return</span> {jQuery}</span></td>
-      </tr>
-      <tr>
-        <td id="L388" class="blob-num js-line-number" data-line-number="388"></td>
-        <td id="LC388" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L389" class="blob-num js-line-number" data-line-number="389"></td>
-        <td id="LC389" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">showHelpOnFocus</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">attrName</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L390" class="blob-num js-line-number" data-line-number="390"></td>
-        <td id="LC390" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">!</span>attrName) {</td>
-      </tr>
-      <tr>
-        <td id="L391" class="blob-num js-line-number" data-line-number="391"></td>
-        <td id="LC391" class="blob-code blob-code-inner js-file-line">      attrName <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>data-validation-help<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L392" class="blob-num js-line-number" data-line-number="392"></td>
-        <td id="LC392" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L393" class="blob-num js-line-number" data-line-number="393"></td>
-        <td id="LC393" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L394" class="blob-num js-line-number" data-line-number="394"></td>
-        <td id="LC394" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Remove previously added event listeners</span></td>
-      </tr>
-      <tr>
-        <td id="L395" class="blob-num js-line-number" data-line-number="395"></td>
-        <td id="LC395" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.has-help-txt<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L396" class="blob-num js-line-number" data-line-number="396"></td>
-        <td id="LC396" class="blob-code blob-code-inner js-file-line">      .<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>has-keyup-event<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">false</span>)</td>
-      </tr>
-      <tr>
-        <td id="L397" class="blob-num js-line-number" data-line-number="397"></td>
-        <td id="LC397" class="blob-code blob-code-inner js-file-line">      .<span class="pl-en">removeClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>has-help-txt<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L398" class="blob-num js-line-number" data-line-number="398"></td>
-        <td id="LC398" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L399" class="blob-num js-line-number" data-line-number="399"></td>
-        <td id="LC399" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Add help text listeners</span></td>
-      </tr>
-      <tr>
-        <td id="L400" class="blob-num js-line-number" data-line-number="400"></td>
-        <td id="LC400" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>textarea,input<span class="pl-pds">&#39;</span></span>).<span class="pl-en">each</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L401" class="blob-num js-line-number" data-line-number="401"></td>
-        <td id="LC401" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $elem <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</td>
-      </tr>
-      <tr>
-        <td id="L402" class="blob-num js-line-number" data-line-number="402"></td>
-        <td id="LC402" class="blob-code blob-code-inner js-file-line">        className <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>jquery_form_help_<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> (<span class="pl-k">++</span>_helpers),</td>
-      </tr>
-      <tr>
-        <td id="L403" class="blob-num js-line-number" data-line-number="403"></td>
-        <td id="LC403" class="blob-code blob-code-inner js-file-line">        help <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(attrName);</td>
-      </tr>
-      <tr>
-        <td id="L404" class="blob-num js-line-number" data-line-number="404"></td>
-        <td id="LC404" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L405" class="blob-num js-line-number" data-line-number="405"></td>
-        <td id="LC405" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (help) {</td>
-      </tr>
-      <tr>
-        <td id="L406" class="blob-num js-line-number" data-line-number="406"></td>
-        <td id="LC406" class="blob-code blob-code-inner js-file-line">        $elem</td>
-      </tr>
-      <tr>
-        <td id="L407" class="blob-num js-line-number" data-line-number="407"></td>
-        <td id="LC407" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>has-help-txt<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L408" class="blob-num js-line-number" data-line-number="408"></td>
-        <td id="LC408" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>focus.help<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L409" class="blob-num js-line-number" data-line-number="409"></td>
-        <td id="LC409" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>focus.help<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L410" class="blob-num js-line-number" data-line-number="410"></td>
-        <td id="LC410" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> $help <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-c1">parent</span>().<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> className);</td>
-      </tr>
-      <tr>
-        <td id="L411" class="blob-num js-line-number" data-line-number="411"></td>
-        <td id="LC411" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (<span class="pl-smi">$help</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L412" class="blob-num js-line-number" data-line-number="412"></td>
-        <td id="LC412" class="blob-code blob-code-inner js-file-line">              $help <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>&lt;span /&gt;<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L413" class="blob-num js-line-number" data-line-number="413"></td>
-        <td id="LC413" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">addClass</span>(className)</td>
-      </tr>
-      <tr>
-        <td id="L414" class="blob-num js-line-number" data-line-number="414"></td>
-        <td id="LC414" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>help<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L415" class="blob-num js-line-number" data-line-number="415"></td>
-        <td id="LC415" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>help-block<span class="pl-pds">&#39;</span></span>) <span class="pl-c">// twitter bs</span></td>
-      </tr>
-      <tr>
-        <td id="L416" class="blob-num js-line-number" data-line-number="416"></td>
-        <td id="LC416" class="blob-code blob-code-inner js-file-line">                .<span class="pl-c1">text</span>(help)</td>
-      </tr>
-      <tr>
-        <td id="L417" class="blob-num js-line-number" data-line-number="417"></td>
-        <td id="LC417" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">hide</span>();</td>
-      </tr>
-      <tr>
-        <td id="L418" class="blob-num js-line-number" data-line-number="418"></td>
-        <td id="LC418" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L419" class="blob-num js-line-number" data-line-number="419"></td>
-        <td id="LC419" class="blob-code blob-code-inner js-file-line">              <span class="pl-smi">$elem</span>.<span class="pl-en">after</span>($help);</td>
-      </tr>
-      <tr>
-        <td id="L420" class="blob-num js-line-number" data-line-number="420"></td>
-        <td id="LC420" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L421" class="blob-num js-line-number" data-line-number="421"></td>
-        <td id="LC421" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$help</span>.<span class="pl-en">fadeIn</span>();</td>
-      </tr>
-      <tr>
-        <td id="L422" class="blob-num js-line-number" data-line-number="422"></td>
-        <td id="LC422" class="blob-code blob-code-inner js-file-line">          })</td>
-      </tr>
-      <tr>
-        <td id="L423" class="blob-num js-line-number" data-line-number="423"></td>
-        <td id="LC423" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>blur.help<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L424" class="blob-num js-line-number" data-line-number="424"></td>
-        <td id="LC424" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>blur.help<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L425" class="blob-num js-line-number" data-line-number="425"></td>
-        <td id="LC425" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">$</span>(<span class="pl-v">this</span>)</td>
-      </tr>
-      <tr>
-        <td id="L426" class="blob-num js-line-number" data-line-number="426"></td>
-        <td id="LC426" class="blob-code blob-code-inner js-file-line">              .<span class="pl-c1">parent</span>()</td>
-      </tr>
-      <tr>
-        <td id="L427" class="blob-num js-line-number" data-line-number="427"></td>
-        <td id="LC427" class="blob-code blob-code-inner js-file-line">              .<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> className)</td>
-      </tr>
-      <tr>
-        <td id="L428" class="blob-num js-line-number" data-line-number="428"></td>
-        <td id="LC428" class="blob-code blob-code-inner js-file-line">              .<span class="pl-en">fadeOut</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>slow<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L429" class="blob-num js-line-number" data-line-number="429"></td>
-        <td id="LC429" class="blob-code blob-code-inner js-file-line">          });</td>
-      </tr>
-      <tr>
-        <td id="L430" class="blob-num js-line-number" data-line-number="430"></td>
-        <td id="LC430" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L431" class="blob-num js-line-number" data-line-number="431"></td>
-        <td id="LC431" class="blob-code blob-code-inner js-file-line">    });</td>
-      </tr>
-      <tr>
-        <td id="L432" class="blob-num js-line-number" data-line-number="432"></td>
-        <td id="LC432" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L433" class="blob-num js-line-number" data-line-number="433"></td>
-        <td id="LC433" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L434" class="blob-num js-line-number" data-line-number="434"></td>
-        <td id="LC434" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L435" class="blob-num js-line-number" data-line-number="435"></td>
-        <td id="LC435" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L436" class="blob-num js-line-number" data-line-number="436"></td>
-        <td id="LC436" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L437" class="blob-num js-line-number" data-line-number="437"></td>
-        <td id="LC437" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{Function}</span> <span class="pl-smi">cb</span></span></td>
-      </tr>
-      <tr>
-        <td id="L438" class="blob-num js-line-number" data-line-number="438"></td>
-        <td id="LC438" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Object} [conf]</span></td>
-      </tr>
-      <tr>
-        <td id="L439" class="blob-num js-line-number" data-line-number="439"></td>
-        <td id="LC439" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Object} [lang]</span></td>
-      </tr>
-      <tr>
-        <td id="L440" class="blob-num js-line-number" data-line-number="440"></td>
-        <td id="LC440" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L441" class="blob-num js-line-number" data-line-number="441"></td>
-        <td id="LC441" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">validate</span> <span class="pl-k">=</span> <span class="pl-k">function</span>(<span class="pl-smi">cb</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">lang</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L442" class="blob-num js-line-number" data-line-number="442"></td>
-        <td id="LC442" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> language <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>({}, <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-c1">LANG</span>, lang <span class="pl-k">||</span> {});</td>
-      </tr>
-      <tr>
-        <td id="L443" class="blob-num js-line-number" data-line-number="443"></td>
-        <td id="LC443" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-en">each</span>(<span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L444" class="blob-num js-line-number" data-line-number="444"></td>
-        <td id="LC444" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $elem <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</td>
-      </tr>
-      <tr>
-        <td id="L445" class="blob-num js-line-number" data-line-number="445"></td>
-        <td id="LC445" class="blob-code blob-code-inner js-file-line">        formDefaultConfig <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">closest</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>form<span class="pl-pds">&#39;</span></span>).<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">validationConfig</span> <span class="pl-k">||</span> {};</td>
-      </tr>
-      <tr>
-        <td id="L446" class="blob-num js-line-number" data-line-number="446"></td>
-        <td id="LC446" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L447" class="blob-num js-line-number" data-line-number="447"></td>
-        <td id="LC447" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$elem</span>.<span class="pl-en">one</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span>(<span class="pl-smi">evt</span>, <span class="pl-smi">isValid</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L448" class="blob-num js-line-number" data-line-number="448"></td>
-        <td id="LC448" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> ( <span class="pl-k">typeof</span> cb <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L449" class="blob-num js-line-number" data-line-number="449"></td>
-        <td id="LC449" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">cb</span>(isValid, <span class="pl-v">this</span>, evt);</td>
-      </tr>
-      <tr>
-        <td id="L450" class="blob-num js-line-number" data-line-number="450"></td>
-        <td id="LC450" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L451" class="blob-num js-line-number" data-line-number="451"></td>
-        <td id="LC451" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L452" class="blob-num js-line-number" data-line-number="452"></td>
-        <td id="LC452" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L453" class="blob-num js-line-number" data-line-number="453"></td>
-        <td id="LC453" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$elem</span>.<span class="pl-en">validateInputOnBlur</span>(</td>
-      </tr>
-      <tr>
-        <td id="L454" class="blob-num js-line-number" data-line-number="454"></td>
-        <td id="LC454" class="blob-code blob-code-inner js-file-line">        language,</td>
-      </tr>
-      <tr>
-        <td id="L455" class="blob-num js-line-number" data-line-number="455"></td>
-        <td id="LC455" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-en">extend</span>({}, formDefaultConfig, conf <span class="pl-k">||</span> {}),</td>
-      </tr>
-      <tr>
-        <td id="L456" class="blob-num js-line-number" data-line-number="456"></td>
-        <td id="LC456" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">true</span></td>
-      </tr>
-      <tr>
-        <td id="L457" class="blob-num js-line-number" data-line-number="457"></td>
-        <td id="LC457" class="blob-code blob-code-inner js-file-line">      );</td>
-      </tr>
-      <tr>
-        <td id="L458" class="blob-num js-line-number" data-line-number="458"></td>
-        <td id="LC458" class="blob-code blob-code-inner js-file-line">    });</td>
-      </tr>
-      <tr>
-        <td id="L459" class="blob-num js-line-number" data-line-number="459"></td>
-        <td id="LC459" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L460" class="blob-num js-line-number" data-line-number="460"></td>
-        <td id="LC460" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L461" class="blob-num js-line-number" data-line-number="461"></td>
-        <td id="LC461" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L462" class="blob-num js-line-number" data-line-number="462"></td>
-        <td id="LC462" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Tells whether or not validation of this input will have to postpone the form submit ()</span></td>
-      </tr>
-      <tr>
-        <td id="L463" class="blob-num js-line-number" data-line-number="463"></td>
-        <td id="LC463" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@returns</span> {Boolean}</span></td>
-      </tr>
-      <tr>
-        <td id="L464" class="blob-num js-line-number" data-line-number="464"></td>
-        <td id="LC464" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L465" class="blob-num js-line-number" data-line-number="465"></td>
-        <td id="LC465" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">willPostponeValidation</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L466" class="blob-num js-line-number" data-line-number="466"></td>
-        <td id="LC466" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> (<span class="pl-v">this</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestion-nr<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span></td>
-      </tr>
-      <tr>
-        <td id="L467" class="blob-num js-line-number" data-line-number="467"></td>
-        <td id="LC467" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>postpone<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span></td>
-      </tr>
-      <tr>
-        <td id="L468" class="blob-num js-line-number" data-line-number="468"></td>
-        <td id="LC468" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-en">hasClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>hasDatepicker<span class="pl-pds">&#39;</span></span>)) <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L469" class="blob-num js-line-number" data-line-number="469"></td>
-        <td id="LC469" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-smi">postponedValidation</span>;</td>
-      </tr>
-      <tr>
-        <td id="L470" class="blob-num js-line-number" data-line-number="470"></td>
-        <td id="LC470" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L471" class="blob-num js-line-number" data-line-number="471"></td>
-        <td id="LC471" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L472" class="blob-num js-line-number" data-line-number="472"></td>
-        <td id="LC472" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L473" class="blob-num js-line-number" data-line-number="473"></td>
-        <td id="LC473" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate single input when it loses focus</span></td>
-      </tr>
-      <tr>
-        <td id="L474" class="blob-num js-line-number" data-line-number="474"></td>
-        <td id="LC474" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * shows error message in a span element</span></td>
-      </tr>
-      <tr>
-        <td id="L475" class="blob-num js-line-number" data-line-number="475"></td>
-        <td id="LC475" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * that is appended to the parent element</span></td>
-      </tr>
-      <tr>
-        <td id="L476" class="blob-num js-line-number" data-line-number="476"></td>
-        <td id="LC476" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *</span></td>
-      </tr>
-      <tr>
-        <td id="L477" class="blob-num js-line-number" data-line-number="477"></td>
-        <td id="LC477" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Object} [language] Optional, will override $.formUtils.LANG</span></td>
-      </tr>
-      <tr>
-        <td id="L478" class="blob-num js-line-number" data-line-number="478"></td>
-        <td id="LC478" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Object} [conf] Optional, will override the default settings</span></td>
-      </tr>
-      <tr>
-        <td id="L479" class="blob-num js-line-number" data-line-number="479"></td>
-        <td id="LC479" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{Boolean}</span> <span class="pl-smi">attachKeyupEvent</span> Optional</span></td>
-      </tr>
-      <tr>
-        <td id="L480" class="blob-num js-line-number" data-line-number="480"></td>
-        <td id="LC480" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">eventType</span></span></td>
-      </tr>
-      <tr>
-        <td id="L481" class="blob-num js-line-number" data-line-number="481"></td>
-        <td id="LC481" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@return</span> {jQuery}</span></td>
-      </tr>
-      <tr>
-        <td id="L482" class="blob-num js-line-number" data-line-number="482"></td>
-        <td id="LC482" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L483" class="blob-num js-line-number" data-line-number="483"></td>
-        <td id="LC483" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">validateInputOnBlur</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">language</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">attachKeyupEvent</span>, <span class="pl-smi">eventType</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L484" class="blob-num js-line-number" data-line-number="484"></td>
-        <td id="LC484" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L485" class="blob-num js-line-number" data-line-number="485"></td>
-        <td id="LC485" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">eventType</span> <span class="pl-k">=</span> eventType;</td>
-      </tr>
-      <tr>
-        <td id="L486" class="blob-num js-line-number" data-line-number="486"></td>
-        <td id="LC486" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L487" class="blob-num js-line-number" data-line-number="487"></td>
-        <td id="LC487" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> ( <span class="pl-v">this</span>.<span class="pl-en">willPostponeValidation</span>() ) {</td>
-      </tr>
-      <tr>
-        <td id="L488" class="blob-num js-line-number" data-line-number="488"></td>
-        <td id="LC488" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// This validation has to be postponed</span></td>
-      </tr>
-      <tr>
-        <td id="L489" class="blob-num js-line-number" data-line-number="489"></td>
-        <td id="LC489" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> _self <span class="pl-k">=</span> <span class="pl-v">this</span>,</td>
-      </tr>
-      <tr>
-        <td id="L490" class="blob-num js-line-number" data-line-number="490"></td>
-        <td id="LC490" class="blob-code blob-code-inner js-file-line">        postponeTime <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>postpone<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span> <span class="pl-c1">200</span>;</td>
-      </tr>
-      <tr>
-        <td id="L491" class="blob-num js-line-number" data-line-number="491"></td>
-        <td id="LC491" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L492" class="blob-num js-line-number" data-line-number="492"></td>
-        <td id="LC492" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">window</span>.<span class="pl-en">postponedValidation</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L493" class="blob-num js-line-number" data-line-number="493"></td>
-        <td id="LC493" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">_self</span>.<span class="pl-en">validateInputOnBlur</span>(language, conf, attachKeyupEvent, eventType);</td>
-      </tr>
-      <tr>
-        <td id="L494" class="blob-num js-line-number" data-line-number="494"></td>
-        <td id="LC494" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">window</span>.<span class="pl-smi">postponedValidation</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L495" class="blob-num js-line-number" data-line-number="495"></td>
-        <td id="LC495" class="blob-code blob-code-inner js-file-line">      };</td>
-      </tr>
-      <tr>
-        <td id="L496" class="blob-num js-line-number" data-line-number="496"></td>
-        <td id="LC496" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L497" class="blob-num js-line-number" data-line-number="497"></td>
-        <td id="LC497" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L498" class="blob-num js-line-number" data-line-number="498"></td>
-        <td id="LC498" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-c1">window</span>.<span class="pl-smi">postponedValidation</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L499" class="blob-num js-line-number" data-line-number="499"></td>
-        <td id="LC499" class="blob-code blob-code-inner js-file-line">          <span class="pl-c1">window</span>.<span class="pl-en">postponedValidation</span>();</td>
-      </tr>
-      <tr>
-        <td id="L500" class="blob-num js-line-number" data-line-number="500"></td>
-        <td id="LC500" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L501" class="blob-num js-line-number" data-line-number="501"></td>
-        <td id="LC501" class="blob-code blob-code-inner js-file-line">      }, postponeTime);</td>
-      </tr>
-      <tr>
-        <td id="L502" class="blob-num js-line-number" data-line-number="502"></td>
-        <td id="LC502" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L503" class="blob-num js-line-number" data-line-number="503"></td>
-        <td id="LC503" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L504" class="blob-num js-line-number" data-line-number="504"></td>
-        <td id="LC504" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L505" class="blob-num js-line-number" data-line-number="505"></td>
-        <td id="LC505" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L506" class="blob-num js-line-number" data-line-number="506"></td>
-        <td id="LC506" class="blob-code blob-code-inner js-file-line">    language <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>({}, <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-c1">LANG</span>, language <span class="pl-k">||</span> {});</td>
-      </tr>
-      <tr>
-        <td id="L507" class="blob-num js-line-number" data-line-number="507"></td>
-        <td id="LC507" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">removeInputStylingAndMessage</span>(<span class="pl-v">this</span>, conf);</td>
-      </tr>
-      <tr>
-        <td id="L508" class="blob-num js-line-number" data-line-number="508"></td>
-        <td id="LC508" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L509" class="blob-num js-line-number" data-line-number="509"></td>
-        <td id="LC509" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> $elem <span class="pl-k">=</span> <span class="pl-v">this</span>,</td>
-      </tr>
-      <tr>
-        <td id="L510" class="blob-num js-line-number" data-line-number="510"></td>
-        <td id="LC510" class="blob-code blob-code-inner js-file-line">      $form <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">closest</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>form<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L511" class="blob-num js-line-number" data-line-number="511"></td>
-        <td id="LC511" class="blob-code blob-code-inner js-file-line">      result <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">validateInput</span>(</td>
-      </tr>
-      <tr>
-        <td id="L512" class="blob-num js-line-number" data-line-number="512"></td>
-        <td id="LC512" class="blob-code blob-code-inner js-file-line">        $elem,</td>
-      </tr>
-      <tr>
-        <td id="L513" class="blob-num js-line-number" data-line-number="513"></td>
-        <td id="LC513" class="blob-code blob-code-inner js-file-line">        language,</td>
-      </tr>
-      <tr>
-        <td id="L514" class="blob-num js-line-number" data-line-number="514"></td>
-        <td id="LC514" class="blob-code blob-code-inner js-file-line">        conf,</td>
-      </tr>
-      <tr>
-        <td id="L515" class="blob-num js-line-number" data-line-number="515"></td>
-        <td id="LC515" class="blob-code blob-code-inner js-file-line">        $form,</td>
-      </tr>
-      <tr>
-        <td id="L516" class="blob-num js-line-number" data-line-number="516"></td>
-        <td id="LC516" class="blob-code blob-code-inner js-file-line">        eventType</td>
-      </tr>
-      <tr>
-        <td id="L517" class="blob-num js-line-number" data-line-number="517"></td>
-        <td id="LC517" class="blob-code blob-code-inner js-file-line">      );</td>
-      </tr>
-      <tr>
-        <td id="L518" class="blob-num js-line-number" data-line-number="518"></td>
-        <td id="LC518" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L519" class="blob-num js-line-number" data-line-number="519"></td>
-        <td id="LC519" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (attachKeyupEvent) {</td>
-      </tr>
-      <tr>
-        <td id="L520" class="blob-num js-line-number" data-line-number="520"></td>
-        <td id="LC520" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$elem</span>.<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keyup.validation<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L521" class="blob-num js-line-number" data-line-number="521"></td>
-        <td id="LC521" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L522" class="blob-num js-line-number" data-line-number="522"></td>
-        <td id="LC522" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L523" class="blob-num js-line-number" data-line-number="523"></td>
-        <td id="LC523" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-smi">result</span>.<span class="pl-smi">shouldChangeDisplay</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L524" class="blob-num js-line-number" data-line-number="524"></td>
-        <td id="LC524" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">result</span>.<span class="pl-smi">isValid</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L525" class="blob-num js-line-number" data-line-number="525"></td>
-        <td id="LC525" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">applyInputSuccessStyling</span>($elem, conf);</td>
-      </tr>
-      <tr>
-        <td id="L526" class="blob-num js-line-number" data-line-number="526"></td>
-        <td id="LC526" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L527" class="blob-num js-line-number" data-line-number="527"></td>
-        <td id="LC527" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">setInlineMessage</span>($elem, <span class="pl-smi">result</span>.<span class="pl-smi">errorMsg</span>, conf);</td>
-      </tr>
-      <tr>
-        <td id="L528" class="blob-num js-line-number" data-line-number="528"></td>
-        <td id="LC528" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L529" class="blob-num js-line-number" data-line-number="529"></td>
-        <td id="LC529" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L530" class="blob-num js-line-number" data-line-number="530"></td>
-        <td id="LC530" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L531" class="blob-num js-line-number" data-line-number="531"></td>
-        <td id="LC531" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">result</span>.<span class="pl-smi">isValid</span> <span class="pl-k">&amp;&amp;</span> attachKeyupEvent) {</td>
-      </tr>
-      <tr>
-        <td id="L532" class="blob-num js-line-number" data-line-number="532"></td>
-        <td id="LC532" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$elem</span>.<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keyup.validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">evt</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L533" class="blob-num js-line-number" data-line-number="533"></td>
-        <td id="LC533" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span>( <span class="pl-smi">evt</span>.<span class="pl-smi">keyCode</span> <span class="pl-k">!==</span> <span class="pl-c1">9</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L534" class="blob-num js-line-number" data-line-number="534"></td>
-        <td id="LC534" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">validateInputOnBlur</span>(language, conf, <span class="pl-c1">false</span>, <span class="pl-s"><span class="pl-pds">&#39;</span>keyup<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L535" class="blob-num js-line-number" data-line-number="535"></td>
-        <td id="LC535" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L536" class="blob-num js-line-number" data-line-number="536"></td>
-        <td id="LC536" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L537" class="blob-num js-line-number" data-line-number="537"></td>
-        <td id="LC537" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L538" class="blob-num js-line-number" data-line-number="538"></td>
-        <td id="LC538" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L539" class="blob-num js-line-number" data-line-number="539"></td>
-        <td id="LC539" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L540" class="blob-num js-line-number" data-line-number="540"></td>
-        <td id="LC540" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L541" class="blob-num js-line-number" data-line-number="541"></td>
-        <td id="LC541" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L542" class="blob-num js-line-number" data-line-number="542"></td>
-        <td id="LC542" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L543" class="blob-num js-line-number" data-line-number="543"></td>
-        <td id="LC543" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Short hand for fetching/adding/removing element attributes</span></td>
-      </tr>
-      <tr>
-        <td id="L544" class="blob-num js-line-number" data-line-number="544"></td>
-        <td id="LC544" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * prefixed with &#39;data-validation-&#39;</span></td>
-      </tr>
-      <tr>
-        <td id="L545" class="blob-num js-line-number" data-line-number="545"></td>
-        <td id="LC545" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *</span></td>
-      </tr>
-      <tr>
-        <td id="L546" class="blob-num js-line-number" data-line-number="546"></td>
-        <td id="LC546" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">name</span></span></td>
-      </tr>
-      <tr>
-        <td id="L547" class="blob-num js-line-number" data-line-number="547"></td>
-        <td id="LC547" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {String|Boolean} [val]</span></td>
-      </tr>
-      <tr>
-        <td id="L548" class="blob-num js-line-number" data-line-number="548"></td>
-        <td id="LC548" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@return</span> {String|undefined|jQuery}</span></td>
-      </tr>
-      <tr>
-        <td id="L549" class="blob-num js-line-number" data-line-number="549"></td>
-        <td id="LC549" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@protected</span></span></td>
-      </tr>
-      <tr>
-        <td id="L550" class="blob-num js-line-number" data-line-number="550"></td>
-        <td id="LC550" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L551" class="blob-num js-line-number" data-line-number="551"></td>
-        <td id="LC551" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">valAttr</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">name</span>, <span class="pl-smi">val</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L552" class="blob-num js-line-number" data-line-number="552"></td>
-        <td id="LC552" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (val <span class="pl-k">===</span> <span class="pl-c1">undefined</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L553" class="blob-num js-line-number" data-line-number="553"></td>
-        <td id="LC553" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>data-validation-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> name);</td>
-      </tr>
-      <tr>
-        <td id="L554" class="blob-num js-line-number" data-line-number="554"></td>
-        <td id="LC554" class="blob-code blob-code-inner js-file-line">    } <span class="pl-k">else</span> <span class="pl-k">if</span> (val <span class="pl-k">===</span> <span class="pl-c1">false</span> <span class="pl-k">||</span> val <span class="pl-k">===</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L555" class="blob-num js-line-number" data-line-number="555"></td>
-        <td id="LC555" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-en">removeAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>data-validation-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> name);</td>
-      </tr>
-      <tr>
-        <td id="L556" class="blob-num js-line-number" data-line-number="556"></td>
-        <td id="LC556" class="blob-code blob-code-inner js-file-line">    } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L557" class="blob-num js-line-number" data-line-number="557"></td>
-        <td id="LC557" class="blob-code blob-code-inner js-file-line">      name <span class="pl-k">=</span> ((<span class="pl-smi">name</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">&#39;</span>-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> name <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L558" class="blob-num js-line-number" data-line-number="558"></td>
-        <td id="LC558" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-v">this</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>data-validation<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> name, val);</td>
-      </tr>
-      <tr>
-        <td id="L559" class="blob-num js-line-number" data-line-number="559"></td>
-        <td id="LC559" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L560" class="blob-num js-line-number" data-line-number="560"></td>
-        <td id="LC560" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L561" class="blob-num js-line-number" data-line-number="561"></td>
-        <td id="LC561" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L562" class="blob-num js-line-number" data-line-number="562"></td>
-        <td id="LC562" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L563" class="blob-num js-line-number" data-line-number="563"></td>
-        <td id="LC563" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Function that validates all inputs in active form</span></td>
-      </tr>
-      <tr>
-        <td id="L564" class="blob-num js-line-number" data-line-number="564"></td>
-        <td id="LC564" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *</span></td>
-      </tr>
-      <tr>
-        <td id="L565" class="blob-num js-line-number" data-line-number="565"></td>
-        <td id="LC565" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Object} [language]</span></td>
-      </tr>
-      <tr>
-        <td id="L566" class="blob-num js-line-number" data-line-number="566"></td>
-        <td id="LC566" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Object} [conf]</span></td>
-      </tr>
-      <tr>
-        <td id="L567" class="blob-num js-line-number" data-line-number="567"></td>
-        <td id="LC567" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Boolean} [displayError] Defaults to true</span></td>
-      </tr>
-      <tr>
-        <td id="L568" class="blob-num js-line-number" data-line-number="568"></td>
-        <td id="LC568" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L569" class="blob-num js-line-number" data-line-number="569"></td>
-        <td id="LC569" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">isValid</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">language</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">displayError</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L570" class="blob-num js-line-number" data-line-number="570"></td>
-        <td id="LC570" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L571" class="blob-num js-line-number" data-line-number="571"></td>
-        <td id="LC571" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">isLoadingModules</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L572" class="blob-num js-line-number" data-line-number="572"></td>
-        <td id="LC572" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $self <span class="pl-k">=</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L573" class="blob-num js-line-number" data-line-number="573"></td>
-        <td id="LC573" class="blob-code blob-code-inner js-file-line">      <span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L574" class="blob-num js-line-number" data-line-number="574"></td>
-        <td id="LC574" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$self</span>.<span class="pl-en">isValid</span>(language, conf, displayError);</td>
-      </tr>
-      <tr>
-        <td id="L575" class="blob-num js-line-number" data-line-number="575"></td>
-        <td id="LC575" class="blob-code blob-code-inner js-file-line">      }, <span class="pl-c1">200</span>);</td>
-      </tr>
-      <tr>
-        <td id="L576" class="blob-num js-line-number" data-line-number="576"></td>
-        <td id="LC576" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L577" class="blob-num js-line-number" data-line-number="577"></td>
-        <td id="LC577" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L578" class="blob-num js-line-number" data-line-number="578"></td>
-        <td id="LC578" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L579" class="blob-num js-line-number" data-line-number="579"></td>
-        <td id="LC579" class="blob-code blob-code-inner js-file-line">    conf <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>({}, <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">defaultConfig</span>(), conf <span class="pl-k">||</span> {});</td>
-      </tr>
-      <tr>
-        <td id="L580" class="blob-num js-line-number" data-line-number="580"></td>
-        <td id="LC580" class="blob-code blob-code-inner js-file-line">    language <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>({}, <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-c1">LANG</span>, language <span class="pl-k">||</span> {});</td>
-      </tr>
-      <tr>
-        <td id="L581" class="blob-num js-line-number" data-line-number="581"></td>
-        <td id="LC581" class="blob-code blob-code-inner js-file-line">    displayError <span class="pl-k">=</span> displayError <span class="pl-k">!==</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L582" class="blob-num js-line-number" data-line-number="582"></td>
-        <td id="LC582" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L583" class="blob-num js-line-number" data-line-number="583"></td>
-        <td id="LC583" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">errorDisplayPreventedWhenHalted</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L584" class="blob-num js-line-number" data-line-number="584"></td>
-        <td id="LC584" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// isValid() was called programmatically with argument displayError set</span></td>
-      </tr>
-      <tr>
-        <td id="L585" class="blob-num js-line-number" data-line-number="585"></td>
-        <td id="LC585" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// to false when the validation was halted by any of the validators</span></td>
-      </tr>
-      <tr>
-        <td id="L586" class="blob-num js-line-number" data-line-number="586"></td>
-        <td id="LC586" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">delete</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">errorDisplayPreventedWhenHalted</span>;</td>
-      </tr>
-      <tr>
-        <td id="L587" class="blob-num js-line-number" data-line-number="587"></td>
-        <td id="LC587" class="blob-code blob-code-inner js-file-line">      displayError <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L588" class="blob-num js-line-number" data-line-number="588"></td>
-        <td id="LC588" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L589" class="blob-num js-line-number" data-line-number="589"></td>
-        <td id="LC589" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L590" class="blob-num js-line-number" data-line-number="590"></td>
-        <td id="LC590" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">isValidatingEntireForm</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L591" class="blob-num js-line-number" data-line-number="591"></td>
-        <td id="LC591" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">haltValidation</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L592" class="blob-num js-line-number" data-line-number="592"></td>
-        <td id="LC592" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L593" class="blob-num js-line-number" data-line-number="593"></td>
-        <td id="LC593" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L594" class="blob-num js-line-number" data-line-number="594"></td>
-        <td id="LC594" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Adds message to error message stack if not already in the message stack</span></td>
-      </tr>
-      <tr>
-        <td id="L595" class="blob-num js-line-number" data-line-number="595"></td>
-        <td id="LC595" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L596" class="blob-num js-line-number" data-line-number="596"></td>
-        <td id="LC596" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">mess</span></span></td>
-      </tr>
-      <tr>
-        <td id="L597" class="blob-num js-line-number" data-line-number="597"></td>
-        <td id="LC597" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * @para {jQuery} $elem</span></td>
-      </tr>
-      <tr>
-        <td id="L598" class="blob-num js-line-number" data-line-number="598"></td>
-        <td id="LC598" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L599" class="blob-num js-line-number" data-line-number="599"></td>
-        <td id="LC599" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> <span class="pl-en">addErrorMessage</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">mess</span>, <span class="pl-smi">$elem</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L600" class="blob-num js-line-number" data-line-number="600"></td>
-        <td id="LC600" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-en">inArray</span>(mess, errorMessages) <span class="pl-k">&lt;</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L601" class="blob-num js-line-number" data-line-number="601"></td>
-        <td id="LC601" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">errorMessages</span>.<span class="pl-c1">push</span>(mess);</td>
-      </tr>
-      <tr>
-        <td id="L602" class="blob-num js-line-number" data-line-number="602"></td>
-        <td id="LC602" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L603" class="blob-num js-line-number" data-line-number="603"></td>
-        <td id="LC603" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">errorInputs</span>.<span class="pl-c1">push</span>($elem);</td>
-      </tr>
-      <tr>
-        <td id="L604" class="blob-num js-line-number" data-line-number="604"></td>
-        <td id="LC604" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>current-error<span class="pl-pds">&#39;</span></span>, mess);</td>
-      </tr>
-      <tr>
-        <td id="L605" class="blob-num js-line-number" data-line-number="605"></td>
-        <td id="LC605" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (displayError) {</td>
-      </tr>
-      <tr>
-        <td id="L606" class="blob-num js-line-number" data-line-number="606"></td>
-        <td id="LC606" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">applyInputErrorStyling</span>($elem, conf);</td>
-      </tr>
-      <tr>
-        <td id="L607" class="blob-num js-line-number" data-line-number="607"></td>
-        <td id="LC607" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L608" class="blob-num js-line-number" data-line-number="608"></td>
-        <td id="LC608" class="blob-code blob-code-inner js-file-line">      },</td>
-      </tr>
-      <tr>
-        <td id="L609" class="blob-num js-line-number" data-line-number="609"></td>
-        <td id="LC609" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L610" class="blob-num js-line-number" data-line-number="610"></td>
-        <td id="LC610" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">/** Holds inputs (of type checkox or radio) already validated, to prevent recheck of mulitple checkboxes &amp; radios */</span></td>
-      </tr>
-      <tr>
-        <td id="L611" class="blob-num js-line-number" data-line-number="611"></td>
-        <td id="LC611" class="blob-code blob-code-inner js-file-line">      checkedInputs <span class="pl-k">=</span> [],</td>
-      </tr>
-      <tr>
-        <td id="L612" class="blob-num js-line-number" data-line-number="612"></td>
-        <td id="LC612" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L613" class="blob-num js-line-number" data-line-number="613"></td>
-        <td id="LC613" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">/** Error messages for this validation */</span></td>
-      </tr>
-      <tr>
-        <td id="L614" class="blob-num js-line-number" data-line-number="614"></td>
-        <td id="LC614" class="blob-code blob-code-inner js-file-line">      errorMessages <span class="pl-k">=</span> [],</td>
-      </tr>
-      <tr>
-        <td id="L615" class="blob-num js-line-number" data-line-number="615"></td>
-        <td id="LC615" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L616" class="blob-num js-line-number" data-line-number="616"></td>
-        <td id="LC616" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">/** Input elements which value was not valid */</span></td>
-      </tr>
-      <tr>
-        <td id="L617" class="blob-num js-line-number" data-line-number="617"></td>
-        <td id="LC617" class="blob-code blob-code-inner js-file-line">      errorInputs <span class="pl-k">=</span> [],</td>
-      </tr>
-      <tr>
-        <td id="L618" class="blob-num js-line-number" data-line-number="618"></td>
-        <td id="LC618" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L619" class="blob-num js-line-number" data-line-number="619"></td>
-        <td id="LC619" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">/** Form instance */</span></td>
-      </tr>
-      <tr>
-        <td id="L620" class="blob-num js-line-number" data-line-number="620"></td>
-        <td id="LC620" class="blob-code blob-code-inner js-file-line">      $form <span class="pl-k">=</span> <span class="pl-v">this</span>,</td>
-      </tr>
-      <tr>
-        <td id="L621" class="blob-num js-line-number" data-line-number="621"></td>
-        <td id="LC621" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L622" class="blob-num js-line-number" data-line-number="622"></td>
-        <td id="LC622" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L623" class="blob-num js-line-number" data-line-number="623"></td>
-        <td id="LC623" class="blob-code blob-code-inner js-file-line"><span class="pl-c">       * Tells whether or not to validate element with this name and of this type</span></td>
-      </tr>
-      <tr>
-        <td id="L624" class="blob-num js-line-number" data-line-number="624"></td>
-        <td id="LC624" class="blob-code blob-code-inner js-file-line"><span class="pl-c">       *</span></td>
-      </tr>
-      <tr>
-        <td id="L625" class="blob-num js-line-number" data-line-number="625"></td>
-        <td id="LC625" class="blob-code blob-code-inner js-file-line"><span class="pl-c">       * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">name</span></span></td>
-      </tr>
-      <tr>
-        <td id="L626" class="blob-num js-line-number" data-line-number="626"></td>
-        <td id="LC626" class="blob-code blob-code-inner js-file-line"><span class="pl-c">       * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">type</span></span></td>
-      </tr>
-      <tr>
-        <td id="L627" class="blob-num js-line-number" data-line-number="627"></td>
-        <td id="LC627" class="blob-code blob-code-inner js-file-line"><span class="pl-c">       * <span class="pl-k">@return</span> {Boolean}</span></td>
-      </tr>
-      <tr>
-        <td id="L628" class="blob-num js-line-number" data-line-number="628"></td>
-        <td id="LC628" class="blob-code blob-code-inner js-file-line"><span class="pl-c">       */</span></td>
-      </tr>
-      <tr>
-        <td id="L629" class="blob-num js-line-number" data-line-number="629"></td>
-        <td id="LC629" class="blob-code blob-code-inner js-file-line">      <span class="pl-en">ignoreInput</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">name</span>, <span class="pl-smi">type</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L630" class="blob-num js-line-number" data-line-number="630"></td>
-        <td id="LC630" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (type <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>submit<span class="pl-pds">&#39;</span></span> <span class="pl-k">||</span> type <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>button<span class="pl-pds">&#39;</span></span> <span class="pl-k">||</span> type <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>reset<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L631" class="blob-num js-line-number" data-line-number="631"></td>
-        <td id="LC631" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L632" class="blob-num js-line-number" data-line-number="632"></td>
-        <td id="LC632" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L633" class="blob-num js-line-number" data-line-number="633"></td>
-        <td id="LC633" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-smi">$</span>.<span class="pl-en">inArray</span>(name, <span class="pl-smi">conf</span>.<span class="pl-smi">ignore</span> <span class="pl-k">||</span> []) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>;</td>
-      </tr>
-      <tr>
-        <td id="L634" class="blob-num js-line-number" data-line-number="634"></td>
-        <td id="LC634" class="blob-code blob-code-inner js-file-line">      };</td>
-      </tr>
-      <tr>
-        <td id="L635" class="blob-num js-line-number" data-line-number="635"></td>
-        <td id="LC635" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L636" class="blob-num js-line-number" data-line-number="636"></td>
-        <td id="LC636" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Reset style and remove error class</span></td>
-      </tr>
-      <tr>
-        <td id="L637" class="blob-num js-line-number" data-line-number="637"></td>
-        <td id="LC637" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (displayError) {</td>
-      </tr>
-      <tr>
-        <td id="L638" class="blob-num js-line-number" data-line-number="638"></td>
-        <td id="LC638" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">removeAllMessagesAndStyling</span>($form, conf);</td>
-      </tr>
-      <tr>
-        <td id="L639" class="blob-num js-line-number" data-line-number="639"></td>
-        <td id="LC639" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L640" class="blob-num js-line-number" data-line-number="640"></td>
-        <td id="LC640" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L641" class="blob-num js-line-number" data-line-number="641"></td>
-        <td id="LC641" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Validate element values</span></td>
-      </tr>
-      <tr>
-        <td id="L642" class="blob-num js-line-number" data-line-number="642"></td>
-        <td id="LC642" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">$form</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>input,textarea,select<span class="pl-pds">&#39;</span></span>).<span class="pl-en">filter</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:not([type=&quot;submit&quot;],[type=&quot;button&quot;])<span class="pl-pds">&#39;</span></span>).<span class="pl-en">each</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L643" class="blob-num js-line-number" data-line-number="643"></td>
-        <td id="LC643" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $elem <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</td>
-      </tr>
-      <tr>
-        <td id="L644" class="blob-num js-line-number" data-line-number="644"></td>
-        <td id="LC644" class="blob-code blob-code-inner js-file-line">        elementType <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>type<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L645" class="blob-num js-line-number" data-line-number="645"></td>
-        <td id="LC645" class="blob-code blob-code-inner js-file-line">        isCheckboxOrRadioBtn <span class="pl-k">=</span> elementType <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>radio<span class="pl-pds">&#39;</span></span> <span class="pl-k">||</span> elementType <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>checkbox<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L646" class="blob-num js-line-number" data-line-number="646"></td>
-        <td id="LC646" class="blob-code blob-code-inner js-file-line">        elementName <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>name<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L647" class="blob-num js-line-number" data-line-number="647"></td>
-        <td id="LC647" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L648" class="blob-num js-line-number" data-line-number="648"></td>
-        <td id="LC648" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-en">ignoreInput</span>(elementName, elementType) <span class="pl-k">&amp;&amp;</span> (<span class="pl-k">!</span>isCheckboxOrRadioBtn <span class="pl-k">||</span> <span class="pl-smi">$</span>.<span class="pl-en">inArray</span>(elementName, checkedInputs) <span class="pl-k">&lt;</span> <span class="pl-c1">0</span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L649" class="blob-num js-line-number" data-line-number="649"></td>
-        <td id="LC649" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L650" class="blob-num js-line-number" data-line-number="650"></td>
-        <td id="LC650" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (isCheckboxOrRadioBtn) {</td>
-      </tr>
-      <tr>
-        <td id="L651" class="blob-num js-line-number" data-line-number="651"></td>
-        <td id="LC651" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">checkedInputs</span>.<span class="pl-c1">push</span>(elementName);</td>
-      </tr>
-      <tr>
-        <td id="L652" class="blob-num js-line-number" data-line-number="652"></td>
-        <td id="LC652" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L653" class="blob-num js-line-number" data-line-number="653"></td>
-        <td id="LC653" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L654" class="blob-num js-line-number" data-line-number="654"></td>
-        <td id="LC654" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> result <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">validateInput</span>(</td>
-      </tr>
-      <tr>
-        <td id="L655" class="blob-num js-line-number" data-line-number="655"></td>
-        <td id="LC655" class="blob-code blob-code-inner js-file-line">          $elem,</td>
-      </tr>
-      <tr>
-        <td id="L656" class="blob-num js-line-number" data-line-number="656"></td>
-        <td id="LC656" class="blob-code blob-code-inner js-file-line">          language,</td>
-      </tr>
-      <tr>
-        <td id="L657" class="blob-num js-line-number" data-line-number="657"></td>
-        <td id="LC657" class="blob-code blob-code-inner js-file-line">          conf,</td>
-      </tr>
-      <tr>
-        <td id="L658" class="blob-num js-line-number" data-line-number="658"></td>
-        <td id="LC658" class="blob-code blob-code-inner js-file-line">          $form,</td>
-      </tr>
-      <tr>
-        <td id="L659" class="blob-num js-line-number" data-line-number="659"></td>
-        <td id="LC659" class="blob-code blob-code-inner js-file-line">          <span class="pl-s"><span class="pl-pds">&#39;</span>submit<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L660" class="blob-num js-line-number" data-line-number="660"></td>
-        <td id="LC660" class="blob-code blob-code-inner js-file-line">        );</td>
-      </tr>
-      <tr>
-        <td id="L661" class="blob-num js-line-number" data-line-number="661"></td>
-        <td id="LC661" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L662" class="blob-num js-line-number" data-line-number="662"></td>
-        <td id="LC662" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">result</span>.<span class="pl-smi">shouldChangeDisplay</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L663" class="blob-num js-line-number" data-line-number="663"></td>
-        <td id="LC663" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">result</span>.<span class="pl-smi">isValid</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L664" class="blob-num js-line-number" data-line-number="664"></td>
-        <td id="LC664" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">addErrorMessage</span>(<span class="pl-smi">result</span>.<span class="pl-smi">errorMsg</span>, $elem);</td>
-      </tr>
-      <tr>
-        <td id="L665" class="blob-num js-line-number" data-line-number="665"></td>
-        <td id="LC665" class="blob-code blob-code-inner js-file-line">          } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-smi">result</span>.<span class="pl-smi">isValid</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L666" class="blob-num js-line-number" data-line-number="666"></td>
-        <td id="LC666" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>current-error<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">false</span>);</td>
-      </tr>
-      <tr>
-        <td id="L667" class="blob-num js-line-number" data-line-number="667"></td>
-        <td id="LC667" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">applyInputSuccessStyling</span>($elem, conf);</td>
-      </tr>
-      <tr>
-        <td id="L668" class="blob-num js-line-number" data-line-number="668"></td>
-        <td id="LC668" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L669" class="blob-num js-line-number" data-line-number="669"></td>
-        <td id="LC669" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L670" class="blob-num js-line-number" data-line-number="670"></td>
-        <td id="LC670" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L671" class="blob-num js-line-number" data-line-number="671"></td>
-        <td id="LC671" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L672" class="blob-num js-line-number" data-line-number="672"></td>
-        <td id="LC672" class="blob-code blob-code-inner js-file-line">    });</td>
-      </tr>
-      <tr>
-        <td id="L673" class="blob-num js-line-number" data-line-number="673"></td>
-        <td id="LC673" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L674" class="blob-num js-line-number" data-line-number="674"></td>
-        <td id="LC674" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Run validation callback</span></td>
-      </tr>
-      <tr>
-        <td id="L675" class="blob-num js-line-number" data-line-number="675"></td>
-        <td id="LC675" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">onValidate</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L676" class="blob-num js-line-number" data-line-number="676"></td>
-        <td id="LC676" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> errors <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-en">onValidate</span>($form);</td>
-      </tr>
-      <tr>
-        <td id="L677" class="blob-num js-line-number" data-line-number="677"></td>
-        <td id="LC677" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-en">isArray</span>(errors)) {</td>
-      </tr>
-      <tr>
-        <td id="L678" class="blob-num js-line-number" data-line-number="678"></td>
-        <td id="LC678" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-en">each</span>(errors, <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">err</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L679" class="blob-num js-line-number" data-line-number="679"></td>
-        <td id="LC679" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">addErrorMessage</span>(<span class="pl-smi">err</span>.<span class="pl-smi">message</span>, <span class="pl-smi">err</span>.<span class="pl-smi">element</span>);</td>
-      </tr>
-      <tr>
-        <td id="L680" class="blob-num js-line-number" data-line-number="680"></td>
-        <td id="LC680" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L681" class="blob-num js-line-number" data-line-number="681"></td>
-        <td id="LC681" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L682" class="blob-num js-line-number" data-line-number="682"></td>
-        <td id="LC682" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">else</span> <span class="pl-k">if</span> (errors <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">errors</span>.<span class="pl-smi">element</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">errors</span>.<span class="pl-smi">message</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L683" class="blob-num js-line-number" data-line-number="683"></td>
-        <td id="LC683" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">addErrorMessage</span>(<span class="pl-smi">errors</span>.<span class="pl-smi">message</span>, <span class="pl-smi">errors</span>.<span class="pl-smi">element</span>);</td>
-      </tr>
-      <tr>
-        <td id="L684" class="blob-num js-line-number" data-line-number="684"></td>
-        <td id="LC684" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L685" class="blob-num js-line-number" data-line-number="685"></td>
-        <td id="LC685" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L686" class="blob-num js-line-number" data-line-number="686"></td>
-        <td id="LC686" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L687" class="blob-num js-line-number" data-line-number="687"></td>
-        <td id="LC687" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Reset form validation flag</span></td>
-      </tr>
-      <tr>
-        <td id="L688" class="blob-num js-line-number" data-line-number="688"></td>
-        <td id="LC688" class="blob-code blob-code-inner js-file-line">    <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">isValidatingEntireForm</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L689" class="blob-num js-line-number" data-line-number="689"></td>
-        <td id="LC689" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L690" class="blob-num js-line-number" data-line-number="690"></td>
-        <td id="LC690" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Validation failed</span></td>
-      </tr>
-      <tr>
-        <td id="L691" class="blob-num js-line-number" data-line-number="691"></td>
-        <td id="LC691" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">haltValidation</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">errorInputs</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L692" class="blob-num js-line-number" data-line-number="692"></td>
-        <td id="LC692" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L693" class="blob-num js-line-number" data-line-number="693"></td>
-        <td id="LC693" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (displayError) {</td>
-      </tr>
-      <tr>
-        <td id="L694" class="blob-num js-line-number" data-line-number="694"></td>
-        <td id="LC694" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L695" class="blob-num js-line-number" data-line-number="695"></td>
-        <td id="LC695" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">errorMessagePosition</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>top<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L696" class="blob-num js-line-number" data-line-number="696"></td>
-        <td id="LC696" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">setMessageInTopOfForm</span>($form, errorMessages, conf, language);</td>
-      </tr>
-      <tr>
-        <td id="L697" class="blob-num js-line-number" data-line-number="697"></td>
-        <td id="LC697" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L698" class="blob-num js-line-number" data-line-number="698"></td>
-        <td id="LC698" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-en">each</span>(errorInputs, <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">$input</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L699" class="blob-num js-line-number" data-line-number="699"></td>
-        <td id="LC699" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">setInlineMessage</span>($input, <span class="pl-smi">$input</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>current-error<span class="pl-pds">&#39;</span></span>), conf);</td>
-      </tr>
-      <tr>
-        <td id="L700" class="blob-num js-line-number" data-line-number="700"></td>
-        <td id="LC700" class="blob-code blob-code-inner js-file-line">          });</td>
-      </tr>
-      <tr>
-        <td id="L701" class="blob-num js-line-number" data-line-number="701"></td>
-        <td id="LC701" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L702" class="blob-num js-line-number" data-line-number="702"></td>
-        <td id="LC702" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">scrollToTopOnError</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L703" class="blob-num js-line-number" data-line-number="703"></td>
-        <td id="LC703" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">$win</span>.<span class="pl-en">scrollTop</span>(<span class="pl-smi">$form</span>.<span class="pl-en">offset</span>().<span class="pl-c1">top</span> <span class="pl-k">-</span> <span class="pl-c1">20</span>);</td>
-      </tr>
-      <tr>
-        <td id="L704" class="blob-num js-line-number" data-line-number="704"></td>
-        <td id="LC704" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L705" class="blob-num js-line-number" data-line-number="705"></td>
-        <td id="LC705" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L706" class="blob-num js-line-number" data-line-number="706"></td>
-        <td id="LC706" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L707" class="blob-num js-line-number" data-line-number="707"></td>
-        <td id="LC707" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L708" class="blob-num js-line-number" data-line-number="708"></td>
-        <td id="LC708" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L709" class="blob-num js-line-number" data-line-number="709"></td>
-        <td id="LC709" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L710" class="blob-num js-line-number" data-line-number="710"></td>
-        <td id="LC710" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L711" class="blob-num js-line-number" data-line-number="711"></td>
-        <td id="LC711" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">!</span>displayError <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">haltValidation</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L712" class="blob-num js-line-number" data-line-number="712"></td>
-        <td id="LC712" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">errorDisplayPreventedWhenHalted</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L713" class="blob-num js-line-number" data-line-number="713"></td>
-        <td id="LC713" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L714" class="blob-num js-line-number" data-line-number="714"></td>
-        <td id="LC714" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L715" class="blob-num js-line-number" data-line-number="715"></td>
-        <td id="LC715" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-k">!</span><span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">haltValidation</span>;</td>
-      </tr>
-      <tr>
-        <td id="L716" class="blob-num js-line-number" data-line-number="716"></td>
-        <td id="LC716" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L717" class="blob-num js-line-number" data-line-number="717"></td>
-        <td id="LC717" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L718" class="blob-num js-line-number" data-line-number="718"></td>
-        <td id="LC718" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L719" class="blob-num js-line-number" data-line-number="719"></td>
-        <td id="LC719" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Plugin for displaying input length restriction</span></td>
-      </tr>
-      <tr>
-        <td id="L720" class="blob-num js-line-number" data-line-number="720"></td>
-        <td id="LC720" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L721" class="blob-num js-line-number" data-line-number="721"></td>
-        <td id="LC721" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">restrictLength</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">maxLengthElement</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L722" class="blob-num js-line-number" data-line-number="722"></td>
-        <td id="LC722" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">new</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">lengthRestriction</span>(<span class="pl-v">this</span>, maxLengthElement);</td>
-      </tr>
-      <tr>
-        <td id="L723" class="blob-num js-line-number" data-line-number="723"></td>
-        <td id="LC723" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L724" class="blob-num js-line-number" data-line-number="724"></td>
-        <td id="LC724" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L725" class="blob-num js-line-number" data-line-number="725"></td>
-        <td id="LC725" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L726" class="blob-num js-line-number" data-line-number="726"></td>
-        <td id="LC726" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L727" class="blob-num js-line-number" data-line-number="727"></td>
-        <td id="LC727" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Add suggestion dropdown to inputs having data-suggestions with a comma</span></td>
-      </tr>
-      <tr>
-        <td id="L728" class="blob-num js-line-number" data-line-number="728"></td>
-        <td id="LC728" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * separated string with suggestions</span></td>
-      </tr>
-      <tr>
-        <td id="L729" class="blob-num js-line-number" data-line-number="729"></td>
-        <td id="LC729" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Array} [settings]</span></td>
-      </tr>
-      <tr>
-        <td id="L730" class="blob-num js-line-number" data-line-number="730"></td>
-        <td id="LC730" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@returns</span> {jQuery}</span></td>
-      </tr>
-      <tr>
-        <td id="L731" class="blob-num js-line-number" data-line-number="731"></td>
-        <td id="LC731" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L732" class="blob-num js-line-number" data-line-number="732"></td>
-        <td id="LC732" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">fn</span>.<span class="pl-en">addSuggestions</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">settings</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L733" class="blob-num js-line-number" data-line-number="733"></td>
-        <td id="LC733" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> sugs <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L734" class="blob-num js-line-number" data-line-number="734"></td>
-        <td id="LC734" class="blob-code blob-code-inner js-file-line">    <span class="pl-v">this</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>input<span class="pl-pds">&#39;</span></span>).<span class="pl-en">each</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L735" class="blob-num js-line-number" data-line-number="735"></td>
-        <td id="LC735" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $field <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>);</td>
-      </tr>
-      <tr>
-        <td id="L736" class="blob-num js-line-number" data-line-number="736"></td>
-        <td id="LC736" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L737" class="blob-num js-line-number" data-line-number="737"></td>
-        <td id="LC737" class="blob-code blob-code-inner js-file-line">      sugs <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-c1">split</span>(<span class="pl-smi">$field</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>data-suggestions<span class="pl-pds">&#39;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L738" class="blob-num js-line-number" data-line-number="738"></td>
-        <td id="LC738" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L739" class="blob-num js-line-number" data-line-number="739"></td>
-        <td id="LC739" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">sugs</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-smi">$field</span>.<span class="pl-en">hasClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>has-suggestions<span class="pl-pds">&#39;</span></span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L740" class="blob-num js-line-number" data-line-number="740"></td>
-        <td id="LC740" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">suggest</span>($field, sugs, settings);</td>
-      </tr>
-      <tr>
-        <td id="L741" class="blob-num js-line-number" data-line-number="741"></td>
-        <td id="LC741" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$field</span>.<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>has-suggestions<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L742" class="blob-num js-line-number" data-line-number="742"></td>
-        <td id="LC742" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L743" class="blob-num js-line-number" data-line-number="743"></td>
-        <td id="LC743" class="blob-code blob-code-inner js-file-line">    });</td>
-      </tr>
-      <tr>
-        <td id="L744" class="blob-num js-line-number" data-line-number="744"></td>
-        <td id="LC744" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">return</span> <span class="pl-v">this</span>;</td>
-      </tr>
-      <tr>
-        <td id="L745" class="blob-num js-line-number" data-line-number="745"></td>
-        <td id="LC745" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L746" class="blob-num js-line-number" data-line-number="746"></td>
-        <td id="LC746" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L747" class="blob-num js-line-number" data-line-number="747"></td>
-        <td id="LC747" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L748" class="blob-num js-line-number" data-line-number="748"></td>
-        <td id="LC748" class="blob-code blob-code-inner js-file-line">})(jQuery, <span class="pl-c1">window</span>);</td>
-      </tr>
-      <tr>
-        <td id="L749" class="blob-num js-line-number" data-line-number="749"></td>
-        <td id="LC749" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L750" class="blob-num js-line-number" data-line-number="750"></td>
-        <td id="LC750" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L751" class="blob-num js-line-number" data-line-number="751"></td>
-        <td id="LC751" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Utility methods used for handling loading of modules (attached to $.formUtils)</span></td>
-      </tr>
-      <tr>
-        <td id="L752" class="blob-num js-line-number" data-line-number="752"></td>
-        <td id="LC752" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L753" class="blob-num js-line-number" data-line-number="753"></td>
-        <td id="LC753" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span>(<span class="pl-smi">$</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L754" class="blob-num js-line-number" data-line-number="754"></td>
-        <td id="LC754" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L755" class="blob-num js-line-number" data-line-number="755"></td>
-        <td id="LC755" class="blob-code blob-code-inner js-file-line">  <span class="pl-s"><span class="pl-pds">&#39;</span>use strict<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L756" class="blob-num js-line-number" data-line-number="756"></td>
-        <td id="LC756" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L757" class="blob-num js-line-number" data-line-number="757"></td>
-        <td id="LC757" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span> <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>(<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span> <span class="pl-k">||</span> {}, {</td>
-      </tr>
-      <tr>
-        <td id="L758" class="blob-num js-line-number" data-line-number="758"></td>
-        <td id="LC758" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L759" class="blob-num js-line-number" data-line-number="759"></td>
-        <td id="LC759" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L760" class="blob-num js-line-number" data-line-number="760"></td>
-        <td id="LC760" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@var</span> {Boolean}</span></td>
-      </tr>
-      <tr>
-        <td id="L761" class="blob-num js-line-number" data-line-number="761"></td>
-        <td id="LC761" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L762" class="blob-num js-line-number" data-line-number="762"></td>
-        <td id="LC762" class="blob-code blob-code-inner js-file-line">    isLoadingModules<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L763" class="blob-num js-line-number" data-line-number="763"></td>
-        <td id="LC763" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L764" class="blob-num js-line-number" data-line-number="764"></td>
-        <td id="LC764" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L765" class="blob-num js-line-number" data-line-number="765"></td>
-        <td id="LC765" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@var</span> {Object}</span></td>
-      </tr>
-      <tr>
-        <td id="L766" class="blob-num js-line-number" data-line-number="766"></td>
-        <td id="LC766" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L767" class="blob-num js-line-number" data-line-number="767"></td>
-        <td id="LC767" class="blob-code blob-code-inner js-file-line">    loadedModules<span class="pl-k">:</span> {},</td>
-      </tr>
-      <tr>
-        <td id="L768" class="blob-num js-line-number" data-line-number="768"></td>
-        <td id="LC768" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L769" class="blob-num js-line-number" data-line-number="769"></td>
-        <td id="LC769" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L770" class="blob-num js-line-number" data-line-number="770"></td>
-        <td id="LC770" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@example</span></span></td>
-      </tr>
-      <tr>
-        <td id="L771" class="blob-num js-line-number" data-line-number="771"></td>
-        <td id="LC771" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *  $.formUtils.loadModules(&#39;date, security.dev&#39;);</span></td>
-      </tr>
-      <tr>
-        <td id="L772" class="blob-num js-line-number" data-line-number="772"></td>
-        <td id="LC772" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L773" class="blob-num js-line-number" data-line-number="773"></td>
-        <td id="LC773" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Will load the scripts date.js and security.dev.js from the</span></td>
-      </tr>
-      <tr>
-        <td id="L774" class="blob-num js-line-number" data-line-number="774"></td>
-        <td id="LC774" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * directory where this script resides. If you want to load</span></td>
-      </tr>
-      <tr>
-        <td id="L775" class="blob-num js-line-number" data-line-number="775"></td>
-        <td id="LC775" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * the modules from another directory you can use the</span></td>
-      </tr>
-      <tr>
-        <td id="L776" class="blob-num js-line-number" data-line-number="776"></td>
-        <td id="LC776" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * path argument.</span></td>
-      </tr>
-      <tr>
-        <td id="L777" class="blob-num js-line-number" data-line-number="777"></td>
-        <td id="LC777" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L778" class="blob-num js-line-number" data-line-number="778"></td>
-        <td id="LC778" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * The script will be cached by the browser unless the module</span></td>
-      </tr>
-      <tr>
-        <td id="L779" class="blob-num js-line-number" data-line-number="779"></td>
-        <td id="LC779" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * name ends with .dev</span></td>
-      </tr>
-      <tr>
-        <td id="L780" class="blob-num js-line-number" data-line-number="780"></td>
-        <td id="LC780" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L781" class="blob-num js-line-number" data-line-number="781"></td>
-        <td id="LC781" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">modules</span> - Comma separated string with module file names (no directory nor file extension)</span></td>
-      </tr>
-      <tr>
-        <td id="L782" class="blob-num js-line-number" data-line-number="782"></td>
-        <td id="LC782" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {String} [path] - Optional, path where the module files is located if their not in the same directory as the core modules</span></td>
-      </tr>
-      <tr>
-        <td id="L783" class="blob-num js-line-number" data-line-number="783"></td>
-        <td id="LC783" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {function} [callback] - Optional, whether or not to fire event &#39;load&#39; when modules finished loading</span></td>
-      </tr>
-      <tr>
-        <td id="L784" class="blob-num js-line-number" data-line-number="784"></td>
-        <td id="LC784" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L785" class="blob-num js-line-number" data-line-number="785"></td>
-        <td id="LC785" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">loadModules</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">modules</span>, <span class="pl-smi">path</span>, <span class="pl-smi">callback</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L786" class="blob-num js-line-number" data-line-number="786"></td>
-        <td id="LC786" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L787" class="blob-num js-line-number" data-line-number="787"></td>
-        <td id="LC787" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">isLoadingModules</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L788" class="blob-num js-line-number" data-line-number="788"></td>
-        <td id="LC788" class="blob-code blob-code-inner js-file-line">        <span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L789" class="blob-num js-line-number" data-line-number="789"></td>
-        <td id="LC789" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">loadModules</span>(modules, path, callback);</td>
-      </tr>
-      <tr>
-        <td id="L790" class="blob-num js-line-number" data-line-number="790"></td>
-        <td id="LC790" class="blob-code blob-code-inner js-file-line">        }, <span class="pl-c1">10</span>);</td>
-      </tr>
-      <tr>
-        <td id="L791" class="blob-num js-line-number" data-line-number="791"></td>
-        <td id="LC791" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span>;</td>
-      </tr>
-      <tr>
-        <td id="L792" class="blob-num js-line-number" data-line-number="792"></td>
-        <td id="LC792" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L793" class="blob-num js-line-number" data-line-number="793"></td>
-        <td id="LC793" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L794" class="blob-num js-line-number" data-line-number="794"></td>
-        <td id="LC794" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> hasLoadedAnyModule <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L795" class="blob-num js-line-number" data-line-number="795"></td>
-        <td id="LC795" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">loadModuleScripts</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">modules</span>, <span class="pl-smi">path</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L796" class="blob-num js-line-number" data-line-number="796"></td>
-        <td id="LC796" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L797" class="blob-num js-line-number" data-line-number="797"></td>
-        <td id="LC797" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> moduleList <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-c1">split</span>(modules),</td>
-      </tr>
-      <tr>
-        <td id="L798" class="blob-num js-line-number" data-line-number="798"></td>
-        <td id="LC798" class="blob-code blob-code-inner js-file-line">            numModules <span class="pl-k">=</span> <span class="pl-smi">moduleList</span>.<span class="pl-c1">length</span>,</td>
-      </tr>
-      <tr>
-        <td id="L799" class="blob-num js-line-number" data-line-number="799"></td>
-        <td id="LC799" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">moduleLoadedCallback</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L800" class="blob-num js-line-number" data-line-number="800"></td>
-        <td id="LC800" class="blob-code blob-code-inner js-file-line">              numModules<span class="pl-k">--</span>;</td>
-      </tr>
-      <tr>
-        <td id="L801" class="blob-num js-line-number" data-line-number="801"></td>
-        <td id="LC801" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">if</span> (numModules <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L802" class="blob-num js-line-number" data-line-number="802"></td>
-        <td id="LC802" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">isLoadingModules</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L803" class="blob-num js-line-number" data-line-number="803"></td>
-        <td id="LC803" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">if</span> (callback <span class="pl-k">&amp;&amp;</span> hasLoadedAnyModule) {</td>
-      </tr>
-      <tr>
-        <td id="L804" class="blob-num js-line-number" data-line-number="804"></td>
-        <td id="LC804" class="blob-code blob-code-inner js-file-line">                  <span class="pl-k">if</span>( <span class="pl-k">typeof</span> callback <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L805" class="blob-num js-line-number" data-line-number="805"></td>
-        <td id="LC805" class="blob-code blob-code-inner js-file-line">                    <span class="pl-en">callback</span>();</td>
-      </tr>
-      <tr>
-        <td id="L806" class="blob-num js-line-number" data-line-number="806"></td>
-        <td id="LC806" class="blob-code blob-code-inner js-file-line">                  }</td>
-      </tr>
-      <tr>
-        <td id="L807" class="blob-num js-line-number" data-line-number="807"></td>
-        <td id="LC807" class="blob-code blob-code-inner js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L808" class="blob-num js-line-number" data-line-number="808"></td>
-        <td id="LC808" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L809" class="blob-num js-line-number" data-line-number="809"></td>
-        <td id="LC809" class="blob-code blob-code-inner js-file-line">            };</td>
-      </tr>
-      <tr>
-        <td id="L810" class="blob-num js-line-number" data-line-number="810"></td>
-        <td id="LC810" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L811" class="blob-num js-line-number" data-line-number="811"></td>
-        <td id="LC811" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L812" class="blob-num js-line-number" data-line-number="812"></td>
-        <td id="LC812" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (numModules <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L813" class="blob-num js-line-number" data-line-number="813"></td>
-        <td id="LC813" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">isLoadingModules</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L814" class="blob-num js-line-number" data-line-number="814"></td>
-        <td id="LC814" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L815" class="blob-num js-line-number" data-line-number="815"></td>
-        <td id="LC815" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L816" class="blob-num js-line-number" data-line-number="816"></td>
-        <td id="LC816" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> cacheSuffix <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>?_=<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> ( <span class="pl-k">new</span> <span class="pl-en">Date</span>().<span class="pl-c1">getTime</span>() ),</td>
-      </tr>
-      <tr>
-        <td id="L817" class="blob-num js-line-number" data-line-number="817"></td>
-        <td id="LC817" class="blob-code blob-code-inner js-file-line">            appendToElement <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementsByTagName</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>head<span class="pl-pds">&#39;</span></span>)[<span class="pl-c1">0</span>] <span class="pl-k">||</span> <span class="pl-c1">document</span>.<span class="pl-c1">getElementsByTagName</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>body<span class="pl-pds">&#39;</span></span>)[<span class="pl-c1">0</span>];</td>
-      </tr>
-      <tr>
-        <td id="L818" class="blob-num js-line-number" data-line-number="818"></td>
-        <td id="LC818" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L819" class="blob-num js-line-number" data-line-number="819"></td>
-        <td id="LC819" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-en">each</span>(moduleList, <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">modName</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L820" class="blob-num js-line-number" data-line-number="820"></td>
-        <td id="LC820" class="blob-code blob-code-inner js-file-line">            modName <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">trim</span>(modName);</td>
-      </tr>
-      <tr>
-        <td id="L821" class="blob-num js-line-number" data-line-number="821"></td>
-        <td id="LC821" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (<span class="pl-smi">modName</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L822" class="blob-num js-line-number" data-line-number="822"></td>
-        <td id="LC822" class="blob-code blob-code-inner js-file-line">              <span class="pl-en">moduleLoadedCallback</span>();</td>
-      </tr>
-      <tr>
-        <td id="L823" class="blob-num js-line-number" data-line-number="823"></td>
-        <td id="LC823" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L824" class="blob-num js-line-number" data-line-number="824"></td>
-        <td id="LC824" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L825" class="blob-num js-line-number" data-line-number="825"></td>
-        <td id="LC825" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">var</span> scriptUrl <span class="pl-k">=</span> path <span class="pl-k">+</span> modName <span class="pl-k">+</span> (<span class="pl-smi">modName</span>.<span class="pl-c1">slice</span>(<span class="pl-k">-</span><span class="pl-c1">3</span>) <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.js<span class="pl-pds">&#39;</span></span> <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span> <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.js<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L826" class="blob-num js-line-number" data-line-number="826"></td>
-        <td id="LC826" class="blob-code blob-code-inner js-file-line">                script <span class="pl-k">=</span> <span class="pl-c1">document</span>.<span class="pl-c1">createElement</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>SCRIPT<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L827" class="blob-num js-line-number" data-line-number="827"></td>
-        <td id="LC827" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L828" class="blob-num js-line-number" data-line-number="828"></td>
-        <td id="LC828" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">if</span> (scriptUrl <span class="pl-k">in</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">loadedModules</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L829" class="blob-num js-line-number" data-line-number="829"></td>
-        <td id="LC829" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">// already loaded</span></td>
-      </tr>
-      <tr>
-        <td id="L830" class="blob-num js-line-number" data-line-number="830"></td>
-        <td id="LC830" class="blob-code blob-code-inner js-file-line">                <span class="pl-en">moduleLoadedCallback</span>();</td>
-      </tr>
-      <tr>
-        <td id="L831" class="blob-num js-line-number" data-line-number="831"></td>
-        <td id="LC831" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L832" class="blob-num js-line-number" data-line-number="832"></td>
-        <td id="LC832" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L833" class="blob-num js-line-number" data-line-number="833"></td>
-        <td id="LC833" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L834" class="blob-num js-line-number" data-line-number="834"></td>
-        <td id="LC834" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">// Remember that this script is loaded</span></td>
-      </tr>
-      <tr>
-        <td id="L835" class="blob-num js-line-number" data-line-number="835"></td>
-        <td id="LC835" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">loadedModules</span>[scriptUrl] <span class="pl-k">=</span> <span class="pl-c1">1</span>;</td>
-      </tr>
-      <tr>
-        <td id="L836" class="blob-num js-line-number" data-line-number="836"></td>
-        <td id="LC836" class="blob-code blob-code-inner js-file-line">                hasLoadedAnyModule <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L837" class="blob-num js-line-number" data-line-number="837"></td>
-        <td id="LC837" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L838" class="blob-num js-line-number" data-line-number="838"></td>
-        <td id="LC838" class="blob-code blob-code-inner js-file-line">                <span class="pl-c">// Load the script</span></td>
-      </tr>
-      <tr>
-        <td id="L839" class="blob-num js-line-number" data-line-number="839"></td>
-        <td id="LC839" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">script</span>.<span class="pl-c1">type</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>text/javascript<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L840" class="blob-num js-line-number" data-line-number="840"></td>
-        <td id="LC840" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">script</span>.<span class="pl-smi">onload</span> <span class="pl-k">=</span> moduleLoadedCallback;</td>
-      </tr>
-      <tr>
-        <td id="L841" class="blob-num js-line-number" data-line-number="841"></td>
-        <td id="LC841" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">script</span>.<span class="pl-smi">src</span> <span class="pl-k">=</span> scriptUrl <span class="pl-k">+</span> ( <span class="pl-smi">scriptUrl</span>.<span class="pl-c1">slice</span>(<span class="pl-k">-</span><span class="pl-c1">7</span>) <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.dev.js<span class="pl-pds">&#39;</span></span> <span class="pl-k">?</span> cacheSuffix <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span> );</td>
-      </tr>
-      <tr>
-        <td id="L842" class="blob-num js-line-number" data-line-number="842"></td>
-        <td id="LC842" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">script</span>.<span class="pl-en">onerror</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L843" class="blob-num js-line-number" data-line-number="843"></td>
-        <td id="LC843" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">warn</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Unable to load form validation module <span class="pl-pds">&#39;</span></span><span class="pl-k">+</span>scriptUrl);</td>
-      </tr>
-      <tr>
-        <td id="L844" class="blob-num js-line-number" data-line-number="844"></td>
-        <td id="LC844" class="blob-code blob-code-inner js-file-line">                };</td>
-      </tr>
-      <tr>
-        <td id="L845" class="blob-num js-line-number" data-line-number="845"></td>
-        <td id="LC845" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">script</span>.<span class="pl-en">onreadystatechange</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L846" class="blob-num js-line-number" data-line-number="846"></td>
-        <td id="LC846" class="blob-code blob-code-inner js-file-line">                  <span class="pl-c">// IE 7 fix</span></td>
-      </tr>
-      <tr>
-        <td id="L847" class="blob-num js-line-number" data-line-number="847"></td>
-        <td id="LC847" class="blob-code blob-code-inner js-file-line">                  <span class="pl-k">if</span> (<span class="pl-v">this</span>.<span class="pl-c1">readyState</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>complete<span class="pl-pds">&#39;</span></span> <span class="pl-k">||</span> <span class="pl-v">this</span>.<span class="pl-c1">readyState</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>loaded<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L848" class="blob-num js-line-number" data-line-number="848"></td>
-        <td id="LC848" class="blob-code blob-code-inner js-file-line">                    <span class="pl-en">moduleLoadedCallback</span>();</td>
-      </tr>
-      <tr>
-        <td id="L849" class="blob-num js-line-number" data-line-number="849"></td>
-        <td id="LC849" class="blob-code blob-code-inner js-file-line">                    <span class="pl-c">// Handle memory leak in IE</span></td>
-      </tr>
-      <tr>
-        <td id="L850" class="blob-num js-line-number" data-line-number="850"></td>
-        <td id="LC850" class="blob-code blob-code-inner js-file-line">                    <span class="pl-v">this</span>.<span class="pl-smi">onload</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L851" class="blob-num js-line-number" data-line-number="851"></td>
-        <td id="LC851" class="blob-code blob-code-inner js-file-line">                    <span class="pl-v">this</span>.<span class="pl-c1">onreadystatechange</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L852" class="blob-num js-line-number" data-line-number="852"></td>
-        <td id="LC852" class="blob-code blob-code-inner js-file-line">                  }</td>
-      </tr>
-      <tr>
-        <td id="L853" class="blob-num js-line-number" data-line-number="853"></td>
-        <td id="LC853" class="blob-code blob-code-inner js-file-line">                };</td>
-      </tr>
-      <tr>
-        <td id="L854" class="blob-num js-line-number" data-line-number="854"></td>
-        <td id="LC854" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">appendToElement</span>.<span class="pl-c1">appendChild</span>(script);</td>
-      </tr>
-      <tr>
-        <td id="L855" class="blob-num js-line-number" data-line-number="855"></td>
-        <td id="LC855" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L856" class="blob-num js-line-number" data-line-number="856"></td>
-        <td id="LC856" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L857" class="blob-num js-line-number" data-line-number="857"></td>
-        <td id="LC857" class="blob-code blob-code-inner js-file-line">          });</td>
-      </tr>
-      <tr>
-        <td id="L858" class="blob-num js-line-number" data-line-number="858"></td>
-        <td id="LC858" class="blob-code blob-code-inner js-file-line">        };</td>
-      </tr>
-      <tr>
-        <td id="L859" class="blob-num js-line-number" data-line-number="859"></td>
-        <td id="LC859" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L860" class="blob-num js-line-number" data-line-number="860"></td>
-        <td id="LC860" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (path) {</td>
-      </tr>
-      <tr>
-        <td id="L861" class="blob-num js-line-number" data-line-number="861"></td>
-        <td id="LC861" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">loadModuleScripts</span>(modules, path);</td>
-      </tr>
-      <tr>
-        <td id="L862" class="blob-num js-line-number" data-line-number="862"></td>
-        <td id="LC862" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L863" class="blob-num js-line-number" data-line-number="863"></td>
-        <td id="LC863" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> <span class="pl-en">findScriptPathAndLoadModules</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L864" class="blob-num js-line-number" data-line-number="864"></td>
-        <td id="LC864" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> foundPath <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L865" class="blob-num js-line-number" data-line-number="865"></td>
-        <td id="LC865" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>script[src*=&quot;form-validator&quot;]<span class="pl-pds">&#39;</span></span>).<span class="pl-en">each</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L866" class="blob-num js-line-number" data-line-number="866"></td>
-        <td id="LC866" class="blob-code blob-code-inner js-file-line">            foundPath <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-smi">src</span>.<span class="pl-c1">substr</span>(<span class="pl-c1">0</span>, <span class="pl-v">this</span>.<span class="pl-smi">src</span>.<span class="pl-c1">lastIndexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>/<span class="pl-pds">&#39;</span></span>)) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>/<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L867" class="blob-num js-line-number" data-line-number="867"></td>
-        <td id="LC867" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (foundPath <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>/<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L868" class="blob-num js-line-number" data-line-number="868"></td>
-        <td id="LC868" class="blob-code blob-code-inner js-file-line">              foundPath <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L869" class="blob-num js-line-number" data-line-number="869"></td>
-        <td id="LC869" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L870" class="blob-num js-line-number" data-line-number="870"></td>
-        <td id="LC870" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L871" class="blob-num js-line-number" data-line-number="871"></td>
-        <td id="LC871" class="blob-code blob-code-inner js-file-line">          });</td>
-      </tr>
-      <tr>
-        <td id="L872" class="blob-num js-line-number" data-line-number="872"></td>
-        <td id="LC872" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L873" class="blob-num js-line-number" data-line-number="873"></td>
-        <td id="LC873" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (foundPath <span class="pl-k">!==</span> <span class="pl-c1">false</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L874" class="blob-num js-line-number" data-line-number="874"></td>
-        <td id="LC874" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">loadModuleScripts</span>(modules, foundPath);</td>
-      </tr>
-      <tr>
-        <td id="L875" class="blob-num js-line-number" data-line-number="875"></td>
-        <td id="LC875" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L876" class="blob-num js-line-number" data-line-number="876"></td>
-        <td id="LC876" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L877" class="blob-num js-line-number" data-line-number="877"></td>
-        <td id="LC877" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L878" class="blob-num js-line-number" data-line-number="878"></td>
-        <td id="LC878" class="blob-code blob-code-inner js-file-line">        };</td>
-      </tr>
-      <tr>
-        <td id="L879" class="blob-num js-line-number" data-line-number="879"></td>
-        <td id="LC879" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L880" class="blob-num js-line-number" data-line-number="880"></td>
-        <td id="LC880" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-en">findScriptPathAndLoadModules</span>()) {</td>
-      </tr>
-      <tr>
-        <td id="L881" class="blob-num js-line-number" data-line-number="881"></td>
-        <td id="LC881" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">$</span>(findScriptPathAndLoadModules);</td>
-      </tr>
-      <tr>
-        <td id="L882" class="blob-num js-line-number" data-line-number="882"></td>
-        <td id="LC882" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L883" class="blob-num js-line-number" data-line-number="883"></td>
-        <td id="LC883" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L884" class="blob-num js-line-number" data-line-number="884"></td>
-        <td id="LC884" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L885" class="blob-num js-line-number" data-line-number="885"></td>
-        <td id="LC885" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L886" class="blob-num js-line-number" data-line-number="886"></td>
-        <td id="LC886" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L887" class="blob-num js-line-number" data-line-number="887"></td>
-        <td id="LC887" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L888" class="blob-num js-line-number" data-line-number="888"></td>
-        <td id="LC888" class="blob-code blob-code-inner js-file-line">})(jQuery);</td>
-      </tr>
-      <tr>
-        <td id="L889" class="blob-num js-line-number" data-line-number="889"></td>
-        <td id="LC889" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L890" class="blob-num js-line-number" data-line-number="890"></td>
-        <td id="LC890" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L891" class="blob-num js-line-number" data-line-number="891"></td>
-        <td id="LC891" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Setup function for the plugin</span></td>
-      </tr>
-      <tr>
-        <td id="L892" class="blob-num js-line-number" data-line-number="892"></td>
-        <td id="LC892" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L893" class="blob-num js-line-number" data-line-number="893"></td>
-        <td id="LC893" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span> (<span class="pl-smi">$</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L894" class="blob-num js-line-number" data-line-number="894"></td>
-        <td id="LC894" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L895" class="blob-num js-line-number" data-line-number="895"></td>
-        <td id="LC895" class="blob-code blob-code-inner js-file-line">  <span class="pl-s"><span class="pl-pds">&#39;</span>use strict<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L896" class="blob-num js-line-number" data-line-number="896"></td>
-        <td id="LC896" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L897" class="blob-num js-line-number" data-line-number="897"></td>
-        <td id="LC897" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L898" class="blob-num js-line-number" data-line-number="898"></td>
-        <td id="LC898" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L899" class="blob-num js-line-number" data-line-number="899"></td>
-        <td id="LC899" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * A bit smarter split function</span></td>
-      </tr>
-      <tr>
-        <td id="L900" class="blob-num js-line-number" data-line-number="900"></td>
-        <td id="LC900" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * delimiter can be space, comma, dash or pipe</span></td>
-      </tr>
-      <tr>
-        <td id="L901" class="blob-num js-line-number" data-line-number="901"></td>
-        <td id="LC901" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">val</span></span></td>
-      </tr>
-      <tr>
-        <td id="L902" class="blob-num js-line-number" data-line-number="902"></td>
-        <td id="LC902" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> {Function|String} [callback]</span></td>
-      </tr>
-      <tr>
-        <td id="L903" class="blob-num js-line-number" data-line-number="903"></td>
-        <td id="LC903" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@returns</span> {Array|void}</span></td>
-      </tr>
-      <tr>
-        <td id="L904" class="blob-num js-line-number" data-line-number="904"></td>
-        <td id="LC904" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L905" class="blob-num js-line-number" data-line-number="905"></td>
-        <td id="LC905" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-en">split</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">callback</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L906" class="blob-num js-line-number" data-line-number="906"></td>
-        <td id="LC906" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-k">typeof</span> callback <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L907" class="blob-num js-line-number" data-line-number="907"></td>
-        <td id="LC907" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// return array</span></td>
-      </tr>
-      <tr>
-        <td id="L908" class="blob-num js-line-number" data-line-number="908"></td>
-        <td id="LC908" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">!</span>val) {</td>
-      </tr>
-      <tr>
-        <td id="L909" class="blob-num js-line-number" data-line-number="909"></td>
-        <td id="LC909" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> [];</td>
-      </tr>
-      <tr>
-        <td id="L910" class="blob-num js-line-number" data-line-number="910"></td>
-        <td id="LC910" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L911" class="blob-num js-line-number" data-line-number="911"></td>
-        <td id="LC911" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> values <span class="pl-k">=</span> [];</td>
-      </tr>
-      <tr>
-        <td id="L912" class="blob-num js-line-number" data-line-number="912"></td>
-        <td id="LC912" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-en">each</span>(<span class="pl-smi">val</span>.<span class="pl-c1">split</span>(callback <span class="pl-k">?</span> callback <span class="pl-k">:</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-c1">[,|<span class="pl-c1">\-<span class="pl-cce">\s</span></span>]</span><span class="pl-c1">\s</span><span class="pl-k">*</span><span class="pl-pds">/</span>g</span>),</td>
-      </tr>
-      <tr>
-        <td id="L913" class="blob-num js-line-number" data-line-number="913"></td>
-        <td id="LC913" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">str</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L914" class="blob-num js-line-number" data-line-number="914"></td>
-        <td id="LC914" class="blob-code blob-code-inner js-file-line">          str <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">trim</span>(str);</td>
-      </tr>
-      <tr>
-        <td id="L915" class="blob-num js-line-number" data-line-number="915"></td>
-        <td id="LC915" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-smi">str</span>.<span class="pl-c1">length</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L916" class="blob-num js-line-number" data-line-number="916"></td>
-        <td id="LC916" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">values</span>.<span class="pl-c1">push</span>(str);</td>
-      </tr>
-      <tr>
-        <td id="L917" class="blob-num js-line-number" data-line-number="917"></td>
-        <td id="LC917" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L918" class="blob-num js-line-number" data-line-number="918"></td>
-        <td id="LC918" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L919" class="blob-num js-line-number" data-line-number="919"></td>
-        <td id="LC919" class="blob-code blob-code-inner js-file-line">      );</td>
-      </tr>
-      <tr>
-        <td id="L920" class="blob-num js-line-number" data-line-number="920"></td>
-        <td id="LC920" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> values;</td>
-      </tr>
-      <tr>
-        <td id="L921" class="blob-num js-line-number" data-line-number="921"></td>
-        <td id="LC921" class="blob-code blob-code-inner js-file-line">    } <span class="pl-k">else</span> <span class="pl-k">if</span> (val) {</td>
-      </tr>
-      <tr>
-        <td id="L922" class="blob-num js-line-number" data-line-number="922"></td>
-        <td id="LC922" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// exec callback func on each</span></td>
-      </tr>
-      <tr>
-        <td id="L923" class="blob-num js-line-number" data-line-number="923"></td>
-        <td id="LC923" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-en">each</span>(<span class="pl-smi">val</span>.<span class="pl-c1">split</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[,|<span class="pl-c1">\-<span class="pl-cce">\s</span></span>]</span><span class="pl-c1">\s</span><span class="pl-k">*</span><span class="pl-pds">/</span>g</span>),</td>
-      </tr>
-      <tr>
-        <td id="L924" class="blob-num js-line-number" data-line-number="924"></td>
-        <td id="LC924" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">str</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L925" class="blob-num js-line-number" data-line-number="925"></td>
-        <td id="LC925" class="blob-code blob-code-inner js-file-line">          str <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">trim</span>(str);</td>
-      </tr>
-      <tr>
-        <td id="L926" class="blob-num js-line-number" data-line-number="926"></td>
-        <td id="LC926" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-smi">str</span>.<span class="pl-c1">length</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L927" class="blob-num js-line-number" data-line-number="927"></td>
-        <td id="LC927" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-en">callback</span>(str, i);</td>
-      </tr>
-      <tr>
-        <td id="L928" class="blob-num js-line-number" data-line-number="928"></td>
-        <td id="LC928" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L929" class="blob-num js-line-number" data-line-number="929"></td>
-        <td id="LC929" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L930" class="blob-num js-line-number" data-line-number="930"></td>
-        <td id="LC930" class="blob-code blob-code-inner js-file-line">      );</td>
-      </tr>
-      <tr>
-        <td id="L931" class="blob-num js-line-number" data-line-number="931"></td>
-        <td id="LC931" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L932" class="blob-num js-line-number" data-line-number="932"></td>
-        <td id="LC932" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L933" class="blob-num js-line-number" data-line-number="933"></td>
-        <td id="LC933" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L934" class="blob-num js-line-number" data-line-number="934"></td>
-        <td id="LC934" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L935" class="blob-num js-line-number" data-line-number="935"></td>
-        <td id="LC935" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Short hand function that makes the validation setup require less code</span></td>
-      </tr>
-      <tr>
-        <td id="L936" class="blob-num js-line-number" data-line-number="936"></td>
-        <td id="LC936" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * <span class="pl-k">@param</span> conf</span></td>
-      </tr>
-      <tr>
-        <td id="L937" class="blob-num js-line-number" data-line-number="937"></td>
-        <td id="LC937" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L938" class="blob-num js-line-number" data-line-number="938"></td>
-        <td id="LC938" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-en">validate</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L939" class="blob-num js-line-number" data-line-number="939"></td>
-        <td id="LC939" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L940" class="blob-num js-line-number" data-line-number="940"></td>
-        <td id="LC940" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">var</span> defaultConf <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>(<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">defaultConfig</span>(), {</td>
-      </tr>
-      <tr>
-        <td id="L941" class="blob-num js-line-number" data-line-number="941"></td>
-        <td id="LC941" class="blob-code blob-code-inner js-file-line">      form<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>form<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L942" class="blob-num js-line-number" data-line-number="942"></td>
-        <td id="LC942" class="blob-code blob-code-inner js-file-line">      validateOnEvent<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L943" class="blob-num js-line-number" data-line-number="943"></td>
-        <td id="LC943" class="blob-code blob-code-inner js-file-line">      validateOnBlur<span class="pl-k">:</span> <span class="pl-c1">true</span>,</td>
-      </tr>
-      <tr>
-        <td id="L944" class="blob-num js-line-number" data-line-number="944"></td>
-        <td id="LC944" class="blob-code blob-code-inner js-file-line">      validateCheckboxRadioOnClick<span class="pl-k">:</span> <span class="pl-c1">true</span>,</td>
-      </tr>
-      <tr>
-        <td id="L945" class="blob-num js-line-number" data-line-number="945"></td>
-        <td id="LC945" class="blob-code blob-code-inner js-file-line">      showHelpOnFocus<span class="pl-k">:</span> <span class="pl-c1">true</span>,</td>
-      </tr>
-      <tr>
-        <td id="L946" class="blob-num js-line-number" data-line-number="946"></td>
-        <td id="LC946" class="blob-code blob-code-inner js-file-line">      addSuggestions<span class="pl-k">:</span> <span class="pl-c1">true</span>,</td>
-      </tr>
-      <tr>
-        <td id="L947" class="blob-num js-line-number" data-line-number="947"></td>
-        <td id="LC947" class="blob-code blob-code-inner js-file-line">      modules<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L948" class="blob-num js-line-number" data-line-number="948"></td>
-        <td id="LC948" class="blob-code blob-code-inner js-file-line">      onModulesLoaded<span class="pl-k">:</span> <span class="pl-c1">null</span>,</td>
-      </tr>
-      <tr>
-        <td id="L949" class="blob-num js-line-number" data-line-number="949"></td>
-        <td id="LC949" class="blob-code blob-code-inner js-file-line">      language<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L950" class="blob-num js-line-number" data-line-number="950"></td>
-        <td id="LC950" class="blob-code blob-code-inner js-file-line">      onSuccess<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L951" class="blob-num js-line-number" data-line-number="951"></td>
-        <td id="LC951" class="blob-code blob-code-inner js-file-line">      onError<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L952" class="blob-num js-line-number" data-line-number="952"></td>
-        <td id="LC952" class="blob-code blob-code-inner js-file-line">      onElementValidate<span class="pl-k">:</span> <span class="pl-c1">false</span></td>
-      </tr>
-      <tr>
-        <td id="L953" class="blob-num js-line-number" data-line-number="953"></td>
-        <td id="LC953" class="blob-code blob-code-inner js-file-line">    });</td>
-      </tr>
-      <tr>
-        <td id="L954" class="blob-num js-line-number" data-line-number="954"></td>
-        <td id="LC954" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L955" class="blob-num js-line-number" data-line-number="955"></td>
-        <td id="LC955" class="blob-code blob-code-inner js-file-line">    conf <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>(defaultConf, conf <span class="pl-k">||</span> {});</td>
-      </tr>
-      <tr>
-        <td id="L956" class="blob-num js-line-number" data-line-number="956"></td>
-        <td id="LC956" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L957" class="blob-num js-line-number" data-line-number="957"></td>
-        <td id="LC957" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span>( <span class="pl-smi">conf</span>.<span class="pl-c1">lang</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">conf</span>.<span class="pl-c1">lang</span> <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span>en<span class="pl-pds">&#39;</span></span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L958" class="blob-num js-line-number" data-line-number="958"></td>
-        <td id="LC958" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> langModule <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>lang/<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span><span class="pl-smi">conf</span>.<span class="pl-c1">lang</span><span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&#39;</span>.js<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L959" class="blob-num js-line-number" data-line-number="959"></td>
-        <td id="LC959" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">conf</span>.<span class="pl-smi">modules</span> <span class="pl-k">+=</span> <span class="pl-smi">conf</span>.<span class="pl-smi">modules</span>.<span class="pl-c1">length</span> <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">&#39;</span>,<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span>langModule <span class="pl-k">:</span> langModule;</td>
-      </tr>
-      <tr>
-        <td id="L960" class="blob-num js-line-number" data-line-number="960"></td>
-        <td id="LC960" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L961" class="blob-num js-line-number" data-line-number="961"></td>
-        <td id="LC961" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L962" class="blob-num js-line-number" data-line-number="962"></td>
-        <td id="LC962" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">// Add validation to forms</span></td>
-      </tr>
-      <tr>
-        <td id="L963" class="blob-num js-line-number" data-line-number="963"></td>
-        <td id="LC963" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">$</span>(<span class="pl-smi">conf</span>.<span class="pl-c1">form</span>).<span class="pl-en">each</span>(<span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">form</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L964" class="blob-num js-line-number" data-line-number="964"></td>
-        <td id="LC964" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L965" class="blob-num js-line-number" data-line-number="965"></td>
-        <td id="LC965" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Make a reference to the config for this form</span></td>
-      </tr>
-      <tr>
-        <td id="L966" class="blob-num js-line-number" data-line-number="966"></td>
-        <td id="LC966" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">form</span>.<span class="pl-smi">validationConfig</span> <span class="pl-k">=</span> conf;</td>
-      </tr>
-      <tr>
-        <td id="L967" class="blob-num js-line-number" data-line-number="967"></td>
-        <td id="LC967" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L968" class="blob-num js-line-number" data-line-number="968"></td>
-        <td id="LC968" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Trigger jQuery event that we&#39;re about to setup validation</span></td>
-      </tr>
-      <tr>
-        <td id="L969" class="blob-num js-line-number" data-line-number="969"></td>
-        <td id="LC969" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $form <span class="pl-k">=</span> <span class="pl-en">$</span>(form);</td>
-      </tr>
-      <tr>
-        <td id="L970" class="blob-num js-line-number" data-line-number="970"></td>
-        <td id="LC970" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// $.formUtils.$win.trigger(&#39;formValidationSetup&#39;, [$form, conf]);</span></td>
-      </tr>
-      <tr>
-        <td id="L971" class="blob-num js-line-number" data-line-number="971"></td>
-        <td id="LC971" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$form</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>formValidationSetup<span class="pl-pds">&#39;</span></span>, [$form, conf]);</td>
-      </tr>
-      <tr>
-        <td id="L972" class="blob-num js-line-number" data-line-number="972"></td>
-        <td id="LC972" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L973" class="blob-num js-line-number" data-line-number="973"></td>
-        <td id="LC973" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Remove classes and event handlers that might have been</span></td>
-      </tr>
-      <tr>
-        <td id="L974" class="blob-num js-line-number" data-line-number="974"></td>
-        <td id="LC974" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// added by a previous call to $.validate</span></td>
-      </tr>
-      <tr>
-        <td id="L975" class="blob-num js-line-number" data-line-number="975"></td>
-        <td id="LC975" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$form</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.has-help-txt<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L976" class="blob-num js-line-number" data-line-number="976"></td>
-        <td id="LC976" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>focus.validation<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L977" class="blob-num js-line-number" data-line-number="977"></td>
-        <td id="LC977" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>blur.validation<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L978" class="blob-num js-line-number" data-line-number="978"></td>
-        <td id="LC978" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L979" class="blob-num js-line-number" data-line-number="979"></td>
-        <td id="LC979" class="blob-code blob-code-inner js-file-line">      $form</td>
-      </tr>
-      <tr>
-        <td id="L980" class="blob-num js-line-number" data-line-number="980"></td>
-        <td id="LC980" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">removeClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>has-validation-callback<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L981" class="blob-num js-line-number" data-line-number="981"></td>
-        <td id="LC981" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>submit.validation<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L982" class="blob-num js-line-number" data-line-number="982"></td>
-        <td id="LC982" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>reset.validation<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L983" class="blob-num js-line-number" data-line-number="983"></td>
-        <td id="LC983" class="blob-code blob-code-inner js-file-line">        .<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>input[data-validation],textarea[data-validation]<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L984" class="blob-num js-line-number" data-line-number="984"></td>
-        <td id="LC984" class="blob-code blob-code-inner js-file-line">          .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>blur.validation<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L985" class="blob-num js-line-number" data-line-number="985"></td>
-        <td id="LC985" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L986" class="blob-num js-line-number" data-line-number="986"></td>
-        <td id="LC986" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Validate when submitted</span></td>
-      </tr>
-      <tr>
-        <td id="L987" class="blob-num js-line-number" data-line-number="987"></td>
-        <td id="LC987" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$form</span>.<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>submit.validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L988" class="blob-num js-line-number" data-line-number="988"></td>
-        <td id="LC988" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L989" class="blob-num js-line-number" data-line-number="989"></td>
-        <td id="LC989" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $form <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>);</td>
-      </tr>
-      <tr>
-        <td id="L990" class="blob-num js-line-number" data-line-number="990"></td>
-        <td id="LC990" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L991" class="blob-num js-line-number" data-line-number="991"></td>
-        <td id="LC991" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">haltValidation</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L992" class="blob-num js-line-number" data-line-number="992"></td>
-        <td id="LC992" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// pressing several times on submit button while validation is halted</span></td>
-      </tr>
-      <tr>
-        <td id="L993" class="blob-num js-line-number" data-line-number="993"></td>
-        <td id="LC993" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L994" class="blob-num js-line-number" data-line-number="994"></td>
-        <td id="LC994" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L995" class="blob-num js-line-number" data-line-number="995"></td>
-        <td id="LC995" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L996" class="blob-num js-line-number" data-line-number="996"></td>
-        <td id="LC996" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">isLoadingModules</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L997" class="blob-num js-line-number" data-line-number="997"></td>
-        <td id="LC997" class="blob-code blob-code-inner js-file-line">          <span class="pl-c1">setTimeout</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L998" class="blob-num js-line-number" data-line-number="998"></td>
-        <td id="LC998" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$form</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>submit.validation<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L999" class="blob-num js-line-number" data-line-number="999"></td>
-        <td id="LC999" class="blob-code blob-code-inner js-file-line">          }, <span class="pl-c1">200</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1000" class="blob-num js-line-number" data-line-number="1000"></td>
-        <td id="LC1000" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1001" class="blob-num js-line-number" data-line-number="1001"></td>
-        <td id="LC1001" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1002" class="blob-num js-line-number" data-line-number="1002"></td>
-        <td id="LC1002" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1003" class="blob-num js-line-number" data-line-number="1003"></td>
-        <td id="LC1003" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> valid <span class="pl-k">=</span> <span class="pl-smi">$form</span>.<span class="pl-en">isValid</span>(<span class="pl-smi">conf</span>.<span class="pl-c1">language</span>, conf);</td>
-      </tr>
-      <tr>
-        <td id="L1004" class="blob-num js-line-number" data-line-number="1004"></td>
-        <td id="LC1004" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1005" class="blob-num js-line-number" data-line-number="1005"></td>
-        <td id="LC1005" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">haltValidation</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1006" class="blob-num js-line-number" data-line-number="1006"></td>
-        <td id="LC1006" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Validation got halted by one of the validators</span></td>
-      </tr>
-      <tr>
-        <td id="L1007" class="blob-num js-line-number" data-line-number="1007"></td>
-        <td id="LC1007" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1008" class="blob-num js-line-number" data-line-number="1008"></td>
-        <td id="LC1008" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1009" class="blob-num js-line-number" data-line-number="1009"></td>
-        <td id="LC1009" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (valid <span class="pl-k">&amp;&amp;</span> <span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">onSuccess</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1010" class="blob-num js-line-number" data-line-number="1010"></td>
-        <td id="LC1010" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> callbackResponse <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-en">onSuccess</span>($form);</td>
-      </tr>
-      <tr>
-        <td id="L1011" class="blob-num js-line-number" data-line-number="1011"></td>
-        <td id="LC1011" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (callbackResponse <span class="pl-k">===</span> <span class="pl-c1">false</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1012" class="blob-num js-line-number" data-line-number="1012"></td>
-        <td id="LC1012" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1013" class="blob-num js-line-number" data-line-number="1013"></td>
-        <td id="LC1013" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L1014" class="blob-num js-line-number" data-line-number="1014"></td>
-        <td id="LC1014" class="blob-code blob-code-inner js-file-line">          } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-k">!</span>valid <span class="pl-k">&amp;&amp;</span> <span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">onError</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1015" class="blob-num js-line-number" data-line-number="1015"></td>
-        <td id="LC1015" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">conf</span>.<span class="pl-c1">onError</span>($form);</td>
-      </tr>
-      <tr>
-        <td id="L1016" class="blob-num js-line-number" data-line-number="1016"></td>
-        <td id="LC1016" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1017" class="blob-num js-line-number" data-line-number="1017"></td>
-        <td id="LC1017" class="blob-code blob-code-inner js-file-line">          } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1018" class="blob-num js-line-number" data-line-number="1018"></td>
-        <td id="LC1018" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> valid;</td>
-      </tr>
-      <tr>
-        <td id="L1019" class="blob-num js-line-number" data-line-number="1019"></td>
-        <td id="LC1019" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1020" class="blob-num js-line-number" data-line-number="1020"></td>
-        <td id="LC1020" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1021" class="blob-num js-line-number" data-line-number="1021"></td>
-        <td id="LC1021" class="blob-code blob-code-inner js-file-line">      })</td>
-      </tr>
-      <tr>
-        <td id="L1022" class="blob-num js-line-number" data-line-number="1022"></td>
-        <td id="LC1022" class="blob-code blob-code-inner js-file-line">      .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>reset.validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1023" class="blob-num js-line-number" data-line-number="1023"></td>
-        <td id="LC1023" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">removeAllMessagesAndStyling</span>($form, conf);</td>
-      </tr>
-      <tr>
-        <td id="L1024" class="blob-num js-line-number" data-line-number="1024"></td>
-        <td id="LC1024" class="blob-code blob-code-inner js-file-line">      })</td>
-      </tr>
-      <tr>
-        <td id="L1025" class="blob-num js-line-number" data-line-number="1025"></td>
-        <td id="LC1025" class="blob-code blob-code-inner js-file-line">      .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>has-validation-callback<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1026" class="blob-num js-line-number" data-line-number="1026"></td>
-        <td id="LC1026" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1027" class="blob-num js-line-number" data-line-number="1027"></td>
-        <td id="LC1027" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">showHelpOnFocus</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1028" class="blob-num js-line-number" data-line-number="1028"></td>
-        <td id="LC1028" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$form</span>.<span class="pl-en">showHelpOnFocus</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1029" class="blob-num js-line-number" data-line-number="1029"></td>
-        <td id="LC1029" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1030" class="blob-num js-line-number" data-line-number="1030"></td>
-        <td id="LC1030" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">addSuggestions</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1031" class="blob-num js-line-number" data-line-number="1031"></td>
-        <td id="LC1031" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$form</span>.<span class="pl-en">addSuggestions</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1032" class="blob-num js-line-number" data-line-number="1032"></td>
-        <td id="LC1032" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1033" class="blob-num js-line-number" data-line-number="1033"></td>
-        <td id="LC1033" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">validateOnBlur</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1034" class="blob-num js-line-number" data-line-number="1034"></td>
-        <td id="LC1034" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$form</span>.<span class="pl-en">validateOnBlur</span>(<span class="pl-smi">conf</span>.<span class="pl-c1">language</span>, conf);</td>
-      </tr>
-      <tr>
-        <td id="L1035" class="blob-num js-line-number" data-line-number="1035"></td>
-        <td id="LC1035" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$form</span>.<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>html5ValidationAttrsFound<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1036" class="blob-num js-line-number" data-line-number="1036"></td>
-        <td id="LC1036" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$form</span>.<span class="pl-en">validateOnBlur</span>(<span class="pl-smi">conf</span>.<span class="pl-c1">language</span>, conf);</td>
-      </tr>
-      <tr>
-        <td id="L1037" class="blob-num js-line-number" data-line-number="1037"></td>
-        <td id="LC1037" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L1038" class="blob-num js-line-number" data-line-number="1038"></td>
-        <td id="LC1038" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1039" class="blob-num js-line-number" data-line-number="1039"></td>
-        <td id="LC1039" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">validateOnEvent</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1040" class="blob-num js-line-number" data-line-number="1040"></td>
-        <td id="LC1040" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$form</span>.<span class="pl-en">validateOnEvent</span>(<span class="pl-smi">conf</span>.<span class="pl-c1">language</span>, conf);</td>
-      </tr>
-      <tr>
-        <td id="L1041" class="blob-num js-line-number" data-line-number="1041"></td>
-        <td id="LC1041" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1042" class="blob-num js-line-number" data-line-number="1042"></td>
-        <td id="LC1042" class="blob-code blob-code-inner js-file-line">    });</td>
-      </tr>
-      <tr>
-        <td id="L1043" class="blob-num js-line-number" data-line-number="1043"></td>
-        <td id="LC1043" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1044" class="blob-num js-line-number" data-line-number="1044"></td>
-        <td id="LC1044" class="blob-code blob-code-inner js-file-line">    <span class="pl-k">if</span> (<span class="pl-smi">conf</span>.<span class="pl-smi">modules</span> <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1045" class="blob-num js-line-number" data-line-number="1045"></td>
-        <td id="LC1045" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">loadModules</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">modules</span>, <span class="pl-c1">false</span>, <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L1046" class="blob-num js-line-number" data-line-number="1046"></td>
-        <td id="LC1046" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">onModulesLoaded</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1047" class="blob-num js-line-number" data-line-number="1047"></td>
-        <td id="LC1047" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">conf</span>.<span class="pl-en">onModulesLoaded</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1048" class="blob-num js-line-number" data-line-number="1048"></td>
-        <td id="LC1048" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1049" class="blob-num js-line-number" data-line-number="1049"></td>
-        <td id="LC1049" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> $form <span class="pl-k">=</span> <span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-c1">form</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>string<span class="pl-pds">&#39;</span></span> <span class="pl-k">?</span> <span class="pl-en">$</span>(<span class="pl-smi">conf</span>.<span class="pl-c1">form</span>) <span class="pl-k">:</span> <span class="pl-smi">conf</span>.<span class="pl-c1">form</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1050" class="blob-num js-line-number" data-line-number="1050"></td>
-        <td id="LC1050" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">$win</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validatorsLoaded<span class="pl-pds">&#39;</span></span>, [$form, conf]);</td>
-      </tr>
-      <tr>
-        <td id="L1051" class="blob-num js-line-number" data-line-number="1051"></td>
-        <td id="LC1051" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L1052" class="blob-num js-line-number" data-line-number="1052"></td>
-        <td id="LC1052" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L1053" class="blob-num js-line-number" data-line-number="1053"></td>
-        <td id="LC1053" class="blob-code blob-code-inner js-file-line">  };</td>
-      </tr>
-      <tr>
-        <td id="L1054" class="blob-num js-line-number" data-line-number="1054"></td>
-        <td id="LC1054" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1055" class="blob-num js-line-number" data-line-number="1055"></td>
-        <td id="LC1055" class="blob-code blob-code-inner js-file-line">})(jQuery);</td>
-      </tr>
-      <tr>
-        <td id="L1056" class="blob-num js-line-number" data-line-number="1056"></td>
-        <td id="LC1056" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1057" class="blob-num js-line-number" data-line-number="1057"></td>
-        <td id="LC1057" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1058" class="blob-num js-line-number" data-line-number="1058"></td>
-        <td id="LC1058" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * Utility methods and properties attached to $.formUtils</span></td>
-      </tr>
-      <tr>
-        <td id="L1059" class="blob-num js-line-number" data-line-number="1059"></td>
-        <td id="LC1059" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L1060" class="blob-num js-line-number" data-line-number="1060"></td>
-        <td id="LC1060" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span>(<span class="pl-smi">$</span>, <span class="pl-c1">window</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1061" class="blob-num js-line-number" data-line-number="1061"></td>
-        <td id="LC1061" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1062" class="blob-num js-line-number" data-line-number="1062"></td>
-        <td id="LC1062" class="blob-code blob-code-inner js-file-line">  <span class="pl-s"><span class="pl-pds">&#39;</span>use strict<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1063" class="blob-num js-line-number" data-line-number="1063"></td>
-        <td id="LC1063" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1064" class="blob-num js-line-number" data-line-number="1064"></td>
-        <td id="LC1064" class="blob-code blob-code-inner js-file-line">  <span class="pl-k">var</span> $win <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-c1">window</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1065" class="blob-num js-line-number" data-line-number="1065"></td>
-        <td id="LC1065" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1066" class="blob-num js-line-number" data-line-number="1066"></td>
-        <td id="LC1066" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span> <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">extend</span>(<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span> <span class="pl-k">||</span> {}, {</td>
-      </tr>
-      <tr>
-        <td id="L1067" class="blob-num js-line-number" data-line-number="1067"></td>
-        <td id="LC1067" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1068" class="blob-num js-line-number" data-line-number="1068"></td>
-        <td id="LC1068" class="blob-code blob-code-inner js-file-line">    $win<span class="pl-k">:</span> $win,</td>
-      </tr>
-      <tr>
-        <td id="L1069" class="blob-num js-line-number" data-line-number="1069"></td>
-        <td id="LC1069" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1070" class="blob-num js-line-number" data-line-number="1070"></td>
-        <td id="LC1070" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1071" class="blob-num js-line-number" data-line-number="1071"></td>
-        <td id="LC1071" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Default config for $(...).isValid();</span></td>
-      </tr>
-      <tr>
-        <td id="L1072" class="blob-num js-line-number" data-line-number="1072"></td>
-        <td id="LC1072" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1073" class="blob-num js-line-number" data-line-number="1073"></td>
-        <td id="LC1073" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">defaultConfig</span><span class="pl-k">:</span> <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1074" class="blob-num js-line-number" data-line-number="1074"></td>
-        <td id="LC1074" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1075" class="blob-num js-line-number" data-line-number="1075"></td>
-        <td id="LC1075" class="blob-code blob-code-inner js-file-line">        ignore<span class="pl-k">:</span> [], <span class="pl-c">// Names of inputs not to be validated even though `validationRuleAttribute` containing the validation rules tells us to</span></td>
-      </tr>
-      <tr>
-        <td id="L1076" class="blob-num js-line-number" data-line-number="1076"></td>
-        <td id="LC1076" class="blob-code blob-code-inner js-file-line">        errorElementClass<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>error<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// Class that will be put on elements which value is invalid</span></td>
-      </tr>
-      <tr>
-        <td id="L1077" class="blob-num js-line-number" data-line-number="1077"></td>
-        <td id="LC1077" class="blob-code blob-code-inner js-file-line">        borderColorOnError<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>#b94a48<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// Border color of elements which value is invalid, empty string to not change border color</span></td>
-      </tr>
-      <tr>
-        <td id="L1078" class="blob-num js-line-number" data-line-number="1078"></td>
-        <td id="LC1078" class="blob-code blob-code-inner js-file-line">        errorMessageClass<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>form-error<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// class name of div containing error messages when validation fails</span></td>
-      </tr>
-      <tr>
-        <td id="L1079" class="blob-num js-line-number" data-line-number="1079"></td>
-        <td id="LC1079" class="blob-code blob-code-inner js-file-line">        validationRuleAttribute<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>data-validation<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// name of the attribute holding the validation rules</span></td>
-      </tr>
-      <tr>
-        <td id="L1080" class="blob-num js-line-number" data-line-number="1080"></td>
-        <td id="LC1080" class="blob-code blob-code-inner js-file-line">        validationErrorMsgAttribute<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>data-validation-error-msg<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// define custom err msg inline with element</span></td>
-      </tr>
-      <tr>
-        <td id="L1081" class="blob-num js-line-number" data-line-number="1081"></td>
-        <td id="LC1081" class="blob-code blob-code-inner js-file-line">        errorMessagePosition<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>element<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// Can be either &quot;top&quot; or &quot;element&quot; or &quot;custom&quot;</span></td>
-      </tr>
-      <tr>
-        <td id="L1082" class="blob-num js-line-number" data-line-number="1082"></td>
-        <td id="LC1082" class="blob-code blob-code-inner js-file-line">        errorMessageTemplate<span class="pl-k">:</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1083" class="blob-num js-line-number" data-line-number="1083"></td>
-        <td id="LC1083" class="blob-code blob-code-inner js-file-line">          container<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;div class=&quot;{errorMessageClass} alert alert-danger&quot;&gt;{messages}&lt;/div&gt;<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1084" class="blob-num js-line-number" data-line-number="1084"></td>
-        <td id="LC1084" class="blob-code blob-code-inner js-file-line">          messages<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;strong&gt;{errorTitle}&lt;/strong&gt;&lt;ul&gt;{fields}&lt;/ul&gt;<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1085" class="blob-num js-line-number" data-line-number="1085"></td>
-        <td id="LC1085" class="blob-code blob-code-inner js-file-line">          field<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;li&gt;{msg}&lt;/li&gt;<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1086" class="blob-num js-line-number" data-line-number="1086"></td>
-        <td id="LC1086" class="blob-code blob-code-inner js-file-line">        },</td>
-      </tr>
-      <tr>
-        <td id="L1087" class="blob-num js-line-number" data-line-number="1087"></td>
-        <td id="LC1087" class="blob-code blob-code-inner js-file-line">        scrollToTopOnError<span class="pl-k">:</span> <span class="pl-c1">true</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1088" class="blob-num js-line-number" data-line-number="1088"></td>
-        <td id="LC1088" class="blob-code blob-code-inner js-file-line">        dateFormat<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>yyyy-mm-dd<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1089" class="blob-num js-line-number" data-line-number="1089"></td>
-        <td id="LC1089" class="blob-code blob-code-inner js-file-line">        addValidClassOnAll<span class="pl-k">:</span> <span class="pl-c1">false</span>, <span class="pl-c">// whether or not to apply class=&quot;valid&quot; even if the input wasn&#39;t validated</span></td>
-      </tr>
-      <tr>
-        <td id="L1090" class="blob-num js-line-number" data-line-number="1090"></td>
-        <td id="LC1090" class="blob-code blob-code-inner js-file-line">        decimalSeparator<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1091" class="blob-num js-line-number" data-line-number="1091"></td>
-        <td id="LC1091" class="blob-code blob-code-inner js-file-line">        inputParentClassOnError<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>has-error<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// twitter-bootstrap default class name</span></td>
-      </tr>
-      <tr>
-        <td id="L1092" class="blob-num js-line-number" data-line-number="1092"></td>
-        <td id="LC1092" class="blob-code blob-code-inner js-file-line">        inputParentClassOnSuccess<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>has-success<span class="pl-pds">&#39;</span></span>, <span class="pl-c">// twitter-bootstrap default class name</span></td>
-      </tr>
-      <tr>
-        <td id="L1093" class="blob-num js-line-number" data-line-number="1093"></td>
-        <td id="LC1093" class="blob-code blob-code-inner js-file-line">        validateHiddenInputs<span class="pl-k">:</span> <span class="pl-c1">false</span>, <span class="pl-c">// whether or not hidden inputs should be validated</span></td>
-      </tr>
-      <tr>
-        <td id="L1094" class="blob-num js-line-number" data-line-number="1094"></td>
-        <td id="LC1094" class="blob-code blob-code-inner js-file-line">        inlineErrorMessageCallback<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1095" class="blob-num js-line-number" data-line-number="1095"></td>
-        <td id="LC1095" class="blob-code blob-code-inner js-file-line">        submitErrorMessageCallback<span class="pl-k">:</span> <span class="pl-c1">false</span></td>
-      </tr>
-      <tr>
-        <td id="L1096" class="blob-num js-line-number" data-line-number="1096"></td>
-        <td id="LC1096" class="blob-code blob-code-inner js-file-line">      };</td>
-      </tr>
-      <tr>
-        <td id="L1097" class="blob-num js-line-number" data-line-number="1097"></td>
-        <td id="LC1097" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1098" class="blob-num js-line-number" data-line-number="1098"></td>
-        <td id="LC1098" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1099" class="blob-num js-line-number" data-line-number="1099"></td>
-        <td id="LC1099" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1100" class="blob-num js-line-number" data-line-number="1100"></td>
-        <td id="LC1100" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Available validators</span></td>
-      </tr>
-      <tr>
-        <td id="L1101" class="blob-num js-line-number" data-line-number="1101"></td>
-        <td id="LC1101" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1102" class="blob-num js-line-number" data-line-number="1102"></td>
-        <td id="LC1102" class="blob-code blob-code-inner js-file-line">    validators<span class="pl-k">:</span> {},</td>
-      </tr>
-      <tr>
-        <td id="L1103" class="blob-num js-line-number" data-line-number="1103"></td>
-        <td id="LC1103" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1104" class="blob-num js-line-number" data-line-number="1104"></td>
-        <td id="LC1104" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1105" class="blob-num js-line-number" data-line-number="1105"></td>
-        <td id="LC1105" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Events triggered by form validator</span></td>
-      </tr>
-      <tr>
-        <td id="L1106" class="blob-num js-line-number" data-line-number="1106"></td>
-        <td id="LC1106" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1107" class="blob-num js-line-number" data-line-number="1107"></td>
-        <td id="LC1107" class="blob-code blob-code-inner js-file-line">    _events<span class="pl-k">:</span> {load<span class="pl-k">:</span> [], valid<span class="pl-k">:</span> [], invalid<span class="pl-k">:</span> []},</td>
-      </tr>
-      <tr>
-        <td id="L1108" class="blob-num js-line-number" data-line-number="1108"></td>
-        <td id="LC1108" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1109" class="blob-num js-line-number" data-line-number="1109"></td>
-        <td id="LC1109" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1110" class="blob-num js-line-number" data-line-number="1110"></td>
-        <td id="LC1110" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Setting this property to true during validation will</span></td>
-      </tr>
-      <tr>
-        <td id="L1111" class="blob-num js-line-number" data-line-number="1111"></td>
-        <td id="LC1111" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * stop further validation from taking place and form will</span></td>
-      </tr>
-      <tr>
-        <td id="L1112" class="blob-num js-line-number" data-line-number="1112"></td>
-        <td id="LC1112" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * not be sent</span></td>
-      </tr>
-      <tr>
-        <td id="L1113" class="blob-num js-line-number" data-line-number="1113"></td>
-        <td id="LC1113" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1114" class="blob-num js-line-number" data-line-number="1114"></td>
-        <td id="LC1114" class="blob-code blob-code-inner js-file-line">    haltValidation<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1115" class="blob-num js-line-number" data-line-number="1115"></td>
-        <td id="LC1115" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1116" class="blob-num js-line-number" data-line-number="1116"></td>
-        <td id="LC1116" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1117" class="blob-num js-line-number" data-line-number="1117"></td>
-        <td id="LC1117" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * This variable will be true $.fn.isValid() is called</span></td>
-      </tr>
-      <tr>
-        <td id="L1118" class="blob-num js-line-number" data-line-number="1118"></td>
-        <td id="LC1118" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * and false when $.fn.validateOnBlur is called</span></td>
-      </tr>
-      <tr>
-        <td id="L1119" class="blob-num js-line-number" data-line-number="1119"></td>
-        <td id="LC1119" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1120" class="blob-num js-line-number" data-line-number="1120"></td>
-        <td id="LC1120" class="blob-code blob-code-inner js-file-line">    isValidatingEntireForm<span class="pl-k">:</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1121" class="blob-num js-line-number" data-line-number="1121"></td>
-        <td id="LC1121" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1122" class="blob-num js-line-number" data-line-number="1122"></td>
-        <td id="LC1122" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1123" class="blob-num js-line-number" data-line-number="1123"></td>
-        <td id="LC1123" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Function for adding a validator</span></td>
-      </tr>
-      <tr>
-        <td id="L1124" class="blob-num js-line-number" data-line-number="1124"></td>
-        <td id="LC1124" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">validator</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1125" class="blob-num js-line-number" data-line-number="1125"></td>
-        <td id="LC1125" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1126" class="blob-num js-line-number" data-line-number="1126"></td>
-        <td id="LC1126" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">addValidator</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">validator</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1127" class="blob-num js-line-number" data-line-number="1127"></td>
-        <td id="LC1127" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// prefix with &quot;validate_&quot; for backward compatibility reasons</span></td>
-      </tr>
-      <tr>
-        <td id="L1128" class="blob-num js-line-number" data-line-number="1128"></td>
-        <td id="LC1128" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> name <span class="pl-k">=</span> <span class="pl-smi">validator</span>.<span class="pl-c1">name</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validate_<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">?</span> <span class="pl-smi">validator</span>.<span class="pl-c1">name</span> <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>validate_<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">validator</span>.<span class="pl-c1">name</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1129" class="blob-num js-line-number" data-line-number="1129"></td>
-        <td id="LC1129" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">validator</span>.<span class="pl-smi">validateOnKeyUp</span> <span class="pl-k">===</span> <span class="pl-c1">undefined</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1130" class="blob-num js-line-number" data-line-number="1130"></td>
-        <td id="LC1130" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">validator</span>.<span class="pl-smi">validateOnKeyUp</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1131" class="blob-num js-line-number" data-line-number="1131"></td>
-        <td id="LC1131" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1132" class="blob-num js-line-number" data-line-number="1132"></td>
-        <td id="LC1132" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-smi">validators</span>[name] <span class="pl-k">=</span> validator;</td>
-      </tr>
-      <tr>
-        <td id="L1133" class="blob-num js-line-number" data-line-number="1133"></td>
-        <td id="LC1133" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1134" class="blob-num js-line-number" data-line-number="1134"></td>
-        <td id="LC1134" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1135" class="blob-num js-line-number" data-line-number="1135"></td>
-        <td id="LC1135" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1136" class="blob-num js-line-number" data-line-number="1136"></td>
-        <td id="LC1136" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Warn user via the console if available</span></td>
-      </tr>
-      <tr>
-        <td id="L1137" class="blob-num js-line-number" data-line-number="1137"></td>
-        <td id="LC1137" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1138" class="blob-num js-line-number" data-line-number="1138"></td>
-        <td id="LC1138" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">warn</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">msg</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1139" class="blob-num js-line-number" data-line-number="1139"></td>
-        <td id="LC1139" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span>( <span class="pl-s"><span class="pl-pds">&#39;</span>console<span class="pl-pds">&#39;</span></span> <span class="pl-k">in</span> <span class="pl-c1">window</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L1140" class="blob-num js-line-number" data-line-number="1140"></td>
-        <td id="LC1140" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span>( <span class="pl-k">typeof</span> <span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">warn</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L1141" class="blob-num js-line-number" data-line-number="1141"></td>
-        <td id="LC1141" class="blob-code blob-code-inner js-file-line">          <span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-en">warn</span>(msg);</td>
-      </tr>
-      <tr>
-        <td id="L1142" class="blob-num js-line-number" data-line-number="1142"></td>
-        <td id="LC1142" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">else</span> <span class="pl-k">if</span>( <span class="pl-k">typeof</span> <span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-smi">log</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L1143" class="blob-num js-line-number" data-line-number="1143"></td>
-        <td id="LC1143" class="blob-code blob-code-inner js-file-line">          <span class="pl-c1">window</span>.<span class="pl-smi">console</span>.<span class="pl-c1">log</span>(msg);</td>
-      </tr>
-      <tr>
-        <td id="L1144" class="blob-num js-line-number" data-line-number="1144"></td>
-        <td id="LC1144" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1145" class="blob-num js-line-number" data-line-number="1145"></td>
-        <td id="LC1145" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1146" class="blob-num js-line-number" data-line-number="1146"></td>
-        <td id="LC1146" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">alert</span>(msg);</td>
-      </tr>
-      <tr>
-        <td id="L1147" class="blob-num js-line-number" data-line-number="1147"></td>
-        <td id="LC1147" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1148" class="blob-num js-line-number" data-line-number="1148"></td>
-        <td id="LC1148" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1149" class="blob-num js-line-number" data-line-number="1149"></td>
-        <td id="LC1149" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1150" class="blob-num js-line-number" data-line-number="1150"></td>
-        <td id="LC1150" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1151" class="blob-num js-line-number" data-line-number="1151"></td>
-        <td id="LC1151" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Same as input $.fn.val() but also supporting input of typ radio or checkbox</span></td>
-      </tr>
-      <tr>
-        <td id="L1152" class="blob-num js-line-number" data-line-number="1152"></td>
-        <td id="LC1152" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@example</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1153" class="blob-num js-line-number" data-line-number="1153"></td>
-        <td id="LC1153" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1154" class="blob-num js-line-number" data-line-number="1154"></td>
-        <td id="LC1154" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *  $.formUtils.getValue(&#39;.myRadioButtons&#39;, $(&#39;#some-form&#39;));</span></td>
-      </tr>
-      <tr>
-        <td id="L1155" class="blob-num js-line-number" data-line-number="1155"></td>
-        <td id="LC1155" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *  $.formUtils.getValue($(&#39;#some-form&#39;).find(&#39;.check-boxes&#39;));</span></td>
-      </tr>
-      <tr>
-        <td id="L1156" class="blob-num js-line-number" data-line-number="1156"></td>
-        <td id="LC1156" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1157" class="blob-num js-line-number" data-line-number="1157"></td>
-        <td id="LC1157" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> query</span></td>
-      </tr>
-      <tr>
-        <td id="L1158" class="blob-num js-line-number" data-line-number="1158"></td>
-        <td id="LC1158" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> $parent</span></td>
-      </tr>
-      <tr>
-        <td id="L1159" class="blob-num js-line-number" data-line-number="1159"></td>
-        <td id="LC1159" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@returns</span> {String|Boolean}</span></td>
-      </tr>
-      <tr>
-        <td id="L1160" class="blob-num js-line-number" data-line-number="1160"></td>
-        <td id="LC1160" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1161" class="blob-num js-line-number" data-line-number="1161"></td>
-        <td id="LC1161" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">getValue</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">query</span>, <span class="pl-smi">$parent</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1162" class="blob-num js-line-number" data-line-number="1162"></td>
-        <td id="LC1162" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> $inputs <span class="pl-k">=</span> $parent <span class="pl-k">?</span> <span class="pl-smi">$parent</span>.<span class="pl-c1">find</span>(query) <span class="pl-k">:</span> query;</td>
-      </tr>
-      <tr>
-        <td id="L1163" class="blob-num js-line-number" data-line-number="1163"></td>
-        <td id="LC1163" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">$inputs</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L1164" class="blob-num js-line-number" data-line-number="1164"></td>
-        <td id="LC1164" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> type <span class="pl-k">=</span> <span class="pl-smi">$inputs</span>.<span class="pl-en">eq</span>(<span class="pl-c1">0</span>).<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>type<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1165" class="blob-num js-line-number" data-line-number="1165"></td>
-        <td id="LC1165" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (type <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>radio<span class="pl-pds">&#39;</span></span> <span class="pl-k">||</span> type <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>checkbox<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1166" class="blob-num js-line-number" data-line-number="1166"></td>
-        <td id="LC1166" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-smi">$inputs</span>.<span class="pl-en">filter</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:checked<span class="pl-pds">&#39;</span></span>).<span class="pl-en">val</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1167" class="blob-num js-line-number" data-line-number="1167"></td>
-        <td id="LC1167" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1168" class="blob-num js-line-number" data-line-number="1168"></td>
-        <td id="LC1168" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-smi">$inputs</span>.<span class="pl-en">val</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1169" class="blob-num js-line-number" data-line-number="1169"></td>
-        <td id="LC1169" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1170" class="blob-num js-line-number" data-line-number="1170"></td>
-        <td id="LC1170" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1171" class="blob-num js-line-number" data-line-number="1171"></td>
-        <td id="LC1171" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1172" class="blob-num js-line-number" data-line-number="1172"></td>
-        <td id="LC1172" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1173" class="blob-num js-line-number" data-line-number="1173"></td>
-        <td id="LC1173" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1174" class="blob-num js-line-number" data-line-number="1174"></td>
-        <td id="LC1174" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1175" class="blob-num js-line-number" data-line-number="1175"></td>
-        <td id="LC1175" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Validate the value of given element according to the validation rules</span></td>
-      </tr>
-      <tr>
-        <td id="L1176" class="blob-num js-line-number" data-line-number="1176"></td>
-        <td id="LC1176" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * found in the attribute data-validation. Will return an object representing</span></td>
-      </tr>
-      <tr>
-        <td id="L1177" class="blob-num js-line-number" data-line-number="1177"></td>
-        <td id="LC1177" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * a validation result, having the props shouldChangeDisplay, isValid and errorMsg</span></td>
-      </tr>
-      <tr>
-        <td id="L1178" class="blob-num js-line-number" data-line-number="1178"></td>
-        <td id="LC1178" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {jQuery} $elem</span></td>
-      </tr>
-      <tr>
-        <td id="L1179" class="blob-num js-line-number" data-line-number="1179"></td>
-        <td id="LC1179" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">language</span> ($.formUtils.LANG)</span></td>
-      </tr>
-      <tr>
-        <td id="L1180" class="blob-num js-line-number" data-line-number="1180"></td>
-        <td id="LC1180" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">conf</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1181" class="blob-num js-line-number" data-line-number="1181"></td>
-        <td id="LC1181" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {jQuery} $form</span></td>
-      </tr>
-      <tr>
-        <td id="L1182" class="blob-num js-line-number" data-line-number="1182"></td>
-        <td id="LC1182" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {String} [eventContext]</span></td>
-      </tr>
-      <tr>
-        <td id="L1183" class="blob-num js-line-number" data-line-number="1183"></td>
-        <td id="LC1183" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@return</span> {Object}</span></td>
-      </tr>
-      <tr>
-        <td id="L1184" class="blob-num js-line-number" data-line-number="1184"></td>
-        <td id="LC1184" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1185" class="blob-num js-line-number" data-line-number="1185"></td>
-        <td id="LC1185" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validateInput</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">$elem</span>, <span class="pl-smi">language</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">$form</span>, <span class="pl-smi">eventContext</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1186" class="blob-num js-line-number" data-line-number="1186"></td>
-        <td id="LC1186" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1187" class="blob-num js-line-number" data-line-number="1187"></td>
-        <td id="LC1187" class="blob-code blob-code-inner js-file-line">      conf <span class="pl-k">=</span> conf <span class="pl-k">||</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">defaultConfig</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1188" class="blob-num js-line-number" data-line-number="1188"></td>
-        <td id="LC1188" class="blob-code blob-code-inner js-file-line">      language <span class="pl-k">=</span> language <span class="pl-k">||</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-c1">LANG</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1189" class="blob-num js-line-number" data-line-number="1189"></td>
-        <td id="LC1189" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1190" class="blob-num js-line-number" data-line-number="1190"></td>
-        <td id="LC1190" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> value <span class="pl-k">=</span> <span class="pl-v">this</span>.<span class="pl-en">getValue</span>($elem);</td>
-      </tr>
-      <tr>
-        <td id="L1191" class="blob-num js-line-number" data-line-number="1191"></td>
-        <td id="LC1191" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1192" class="blob-num js-line-number" data-line-number="1192"></td>
-        <td id="LC1192" class="blob-code blob-code-inner js-file-line">      $elem</td>
-      </tr>
-      <tr>
-        <td id="L1193" class="blob-num js-line-number" data-line-number="1193"></td>
-        <td id="LC1193" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>skipped<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">false</span>)</td>
-      </tr>
-      <tr>
-        <td id="L1194" class="blob-num js-line-number" data-line-number="1194"></td>
-        <td id="LC1194" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">one</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>beforeValidation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L1195" class="blob-num js-line-number" data-line-number="1195"></td>
-        <td id="LC1195" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Skip input because its hidden or disabled</span></td>
-      </tr>
-      <tr>
-        <td id="L1196" class="blob-num js-line-number" data-line-number="1196"></td>
-        <td id="LC1196" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Doing this in a callback makes it possible for others to prevent the default</span></td>
-      </tr>
-      <tr>
-        <td id="L1197" class="blob-num js-line-number" data-line-number="1197"></td>
-        <td id="LC1197" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// behaviour by binding to the same event and call evt.stopImmediatePropagation()</span></td>
-      </tr>
-      <tr>
-        <td id="L1198" class="blob-num js-line-number" data-line-number="1198"></td>
-        <td id="LC1198" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>disabled<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span> (<span class="pl-k">!</span><span class="pl-smi">$elem</span>.<span class="pl-en">is</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:visible<span class="pl-pds">&#39;</span></span>) <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-smi">conf</span>.<span class="pl-smi">validateHiddenInputs</span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L1199" class="blob-num js-line-number" data-line-number="1199"></td>
-        <td id="LC1199" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>skipped<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">1</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1200" class="blob-num js-line-number" data-line-number="1200"></td>
-        <td id="LC1200" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1201" class="blob-num js-line-number" data-line-number="1201"></td>
-        <td id="LC1201" class="blob-code blob-code-inner js-file-line">        })</td>
-      </tr>
-      <tr>
-        <td id="L1202" class="blob-num js-line-number" data-line-number="1202"></td>
-        <td id="LC1202" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>beforeValidation<span class="pl-pds">&#39;</span></span>, [value, conf, language]);</td>
-      </tr>
-      <tr>
-        <td id="L1203" class="blob-num js-line-number" data-line-number="1203"></td>
-        <td id="LC1203" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1204" class="blob-num js-line-number" data-line-number="1204"></td>
-        <td id="LC1204" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> inputIsOptional <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>optional<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>true<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1205" class="blob-num js-line-number" data-line-number="1205"></td>
-        <td id="LC1205" class="blob-code blob-code-inner js-file-line">          skipBecauseItsEmpty <span class="pl-k">=</span> <span class="pl-k">!</span>value <span class="pl-k">&amp;&amp;</span> inputIsOptional,</td>
-      </tr>
-      <tr>
-        <td id="L1206" class="blob-num js-line-number" data-line-number="1206"></td>
-        <td id="LC1206" class="blob-code blob-code-inner js-file-line">          validationRules <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">validationRuleAttribute</span>),</td>
-      </tr>
-      <tr>
-        <td id="L1207" class="blob-num js-line-number" data-line-number="1207"></td>
-        <td id="LC1207" class="blob-code blob-code-inner js-file-line">          isValid <span class="pl-k">=</span> <span class="pl-c1">true</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1208" class="blob-num js-line-number" data-line-number="1208"></td>
-        <td id="LC1208" class="blob-code blob-code-inner js-file-line">          errorMsg <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1209" class="blob-num js-line-number" data-line-number="1209"></td>
-        <td id="LC1209" class="blob-code blob-code-inner js-file-line">          result <span class="pl-k">=</span> {isValid<span class="pl-k">:</span> <span class="pl-c1">true</span>, shouldChangeDisplay<span class="pl-k">:</span><span class="pl-c1">true</span>, errorMsg<span class="pl-k">:</span><span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>};</td>
-      </tr>
-      <tr>
-        <td id="L1210" class="blob-num js-line-number" data-line-number="1210"></td>
-        <td id="LC1210" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1211" class="blob-num js-line-number" data-line-number="1211"></td>
-        <td id="LC1211" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// For input type=&quot;number&quot;, browsers attempt to parse the entered value into a number.</span></td>
-      </tr>
-      <tr>
-        <td id="L1212" class="blob-num js-line-number" data-line-number="1212"></td>
-        <td id="LC1212" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// If the input is not numeric, browsers handle the situation differently:</span></td>
-      </tr>
-      <tr>
-        <td id="L1213" class="blob-num js-line-number" data-line-number="1213"></td>
-        <td id="LC1213" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Chrome 48 simply disallows non-numeric input; FF 44 clears out the input box on blur;</span></td>
-      </tr>
-      <tr>
-        <td id="L1214" class="blob-num js-line-number" data-line-number="1214"></td>
-        <td id="LC1214" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Safari 5 parses the entered string to find a leading number.</span></td>
-      </tr>
-      <tr>
-        <td id="L1215" class="blob-num js-line-number" data-line-number="1215"></td>
-        <td id="LC1215" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// If the input fails browser validation, the browser sets the input value equal to an empty string.</span></td>
-      </tr>
-      <tr>
-        <td id="L1216" class="blob-num js-line-number" data-line-number="1216"></td>
-        <td id="LC1216" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Therefore, we cannot distinguish (apart from hacks) between an empty input type=&quot;text&quot; and one with a</span></td>
-      </tr>
-      <tr>
-        <td id="L1217" class="blob-num js-line-number" data-line-number="1217"></td>
-        <td id="LC1217" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// value that can&#39;t be parsed by the browser.</span></td>
-      </tr>
-      <tr>
-        <td id="L1218" class="blob-num js-line-number" data-line-number="1218"></td>
-        <td id="LC1218" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1219" class="blob-num js-line-number" data-line-number="1219"></td>
-        <td id="LC1219" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">!</span>validationRules <span class="pl-k">||</span> skipBecauseItsEmpty <span class="pl-k">||</span> <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>skipped<span class="pl-pds">&#39;</span></span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L1220" class="blob-num js-line-number" data-line-number="1220"></td>
-        <td id="LC1220" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">result</span>.<span class="pl-smi">shouldChangeDisplay</span> <span class="pl-k">=</span> <span class="pl-smi">conf</span>.<span class="pl-smi">addValidClassOnAll</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1221" class="blob-num js-line-number" data-line-number="1221"></td>
-        <td id="LC1221" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> result;</td>
-      </tr>
-      <tr>
-        <td id="L1222" class="blob-num js-line-number" data-line-number="1222"></td>
-        <td id="LC1222" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1223" class="blob-num js-line-number" data-line-number="1223"></td>
-        <td id="LC1223" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1224" class="blob-num js-line-number" data-line-number="1224"></td>
-        <td id="LC1224" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Filter out specified characters</span></td>
-      </tr>
-      <tr>
-        <td id="L1225" class="blob-num js-line-number" data-line-number="1225"></td>
-        <td id="LC1225" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> ignore <span class="pl-k">=</span> <span class="pl-smi">$elem</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>ignore<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1226" class="blob-num js-line-number" data-line-number="1226"></td>
-        <td id="LC1226" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (ignore) {</td>
-      </tr>
-      <tr>
-        <td id="L1227" class="blob-num js-line-number" data-line-number="1227"></td>
-        <td id="LC1227" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-en">each</span>(<span class="pl-smi">ignore</span>.<span class="pl-c1">split</span>(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>), <span class="pl-k">function</span>(<span class="pl-smi">i</span>, <span class="pl-smi">char</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1228" class="blob-num js-line-number" data-line-number="1228"></td>
-        <td id="LC1228" class="blob-code blob-code-inner js-file-line">          value <span class="pl-k">=</span> <span class="pl-smi">value</span>.<span class="pl-c1">replace</span>(<span class="pl-k">new</span> <span class="pl-en">RegExp</span>(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-cce">\\</span><span class="pl-pds">&#39;</span></span><span class="pl-k">+</span>char), <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1229" class="blob-num js-line-number" data-line-number="1229"></td>
-        <td id="LC1229" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L1230" class="blob-num js-line-number" data-line-number="1230"></td>
-        <td id="LC1230" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1231" class="blob-num js-line-number" data-line-number="1231"></td>
-        <td id="LC1231" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1232" class="blob-num js-line-number" data-line-number="1232"></td>
-        <td id="LC1232" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-c1">split</span>(validationRules, <span class="pl-k">function</span> (<span class="pl-smi">rule</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1233" class="blob-num js-line-number" data-line-number="1233"></td>
-        <td id="LC1233" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1234" class="blob-num js-line-number" data-line-number="1234"></td>
-        <td id="LC1234" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">rule</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validate_<span class="pl-pds">&#39;</span></span>) <span class="pl-k">!==</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1235" class="blob-num js-line-number" data-line-number="1235"></td>
-        <td id="LC1235" class="blob-code blob-code-inner js-file-line">          rule <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>validate_<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> rule;</td>
-      </tr>
-      <tr>
-        <td id="L1236" class="blob-num js-line-number" data-line-number="1236"></td>
-        <td id="LC1236" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1237" class="blob-num js-line-number" data-line-number="1237"></td>
-        <td id="LC1237" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1238" class="blob-num js-line-number" data-line-number="1238"></td>
-        <td id="LC1238" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> validator <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">validators</span>[rule];</td>
-      </tr>
-      <tr>
-        <td id="L1239" class="blob-num js-line-number" data-line-number="1239"></td>
-        <td id="LC1239" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1240" class="blob-num js-line-number" data-line-number="1240"></td>
-        <td id="LC1240" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (validator) {</td>
-      </tr>
-      <tr>
-        <td id="L1241" class="blob-num js-line-number" data-line-number="1241"></td>
-        <td id="LC1241" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1242" class="blob-num js-line-number" data-line-number="1242"></td>
-        <td id="LC1242" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// special change of element for checkbox_group rule</span></td>
-      </tr>
-      <tr>
-        <td id="L1243" class="blob-num js-line-number" data-line-number="1243"></td>
-        <td id="LC1243" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (rule <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>validate_checkbox_group<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1244" class="blob-num js-line-number" data-line-number="1244"></td>
-        <td id="LC1244" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">// set element to first in group, so error msg attr doesn&#39;t need to be set on all elements in group</span></td>
-      </tr>
-      <tr>
-        <td id="L1245" class="blob-num js-line-number" data-line-number="1245"></td>
-        <td id="LC1245" class="blob-code blob-code-inner js-file-line">            $elem <span class="pl-k">=</span> <span class="pl-smi">$form</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>[name=&quot;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>name<span class="pl-pds">&#39;</span></span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&quot;]:eq(0)<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1246" class="blob-num js-line-number" data-line-number="1246"></td>
-        <td id="LC1246" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1247" class="blob-num js-line-number" data-line-number="1247"></td>
-        <td id="LC1247" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1248" class="blob-num js-line-number" data-line-number="1248"></td>
-        <td id="LC1248" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (eventContext <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span>keyup<span class="pl-pds">&#39;</span></span> <span class="pl-k">||</span> <span class="pl-smi">validator</span>.<span class="pl-smi">validateOnKeyUp</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1249" class="blob-num js-line-number" data-line-number="1249"></td>
-        <td id="LC1249" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">// A validator can prevent itself from getting triggered on keyup</span></td>
-      </tr>
-      <tr>
-        <td id="L1250" class="blob-num js-line-number" data-line-number="1250"></td>
-        <td id="LC1250" class="blob-code blob-code-inner js-file-line">            isValid <span class="pl-k">=</span> <span class="pl-smi">validator</span>.<span class="pl-en">validatorFunction</span>(value, $elem, conf, language, $form);</td>
-      </tr>
-      <tr>
-        <td id="L1251" class="blob-num js-line-number" data-line-number="1251"></td>
-        <td id="LC1251" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1252" class="blob-num js-line-number" data-line-number="1252"></td>
-        <td id="LC1252" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1253" class="blob-num js-line-number" data-line-number="1253"></td>
-        <td id="LC1253" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-k">!</span>isValid) {</td>
-      </tr>
-      <tr>
-        <td id="L1254" class="blob-num js-line-number" data-line-number="1254"></td>
-        <td id="LC1254" class="blob-code blob-code-inner js-file-line">            errorMsg <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">dialogs</span>.<span class="pl-en">resolveErrorMessage</span>($elem, validator, rule, conf, language);</td>
-      </tr>
-      <tr>
-        <td id="L1255" class="blob-num js-line-number" data-line-number="1255"></td>
-        <td id="LC1255" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-c1">false</span>; <span class="pl-c">// break iteration</span></td>
-      </tr>
-      <tr>
-        <td id="L1256" class="blob-num js-line-number" data-line-number="1256"></td>
-        <td id="LC1256" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1257" class="blob-num js-line-number" data-line-number="1257"></td>
-        <td id="LC1257" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1258" class="blob-num js-line-number" data-line-number="1258"></td>
-        <td id="LC1258" class="blob-code blob-code-inner js-file-line">        } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1259" class="blob-num js-line-number" data-line-number="1259"></td>
-        <td id="LC1259" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1260" class="blob-num js-line-number" data-line-number="1260"></td>
-        <td id="LC1260" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// todo: Add some validator lookup function and tell immediately which module is missing</span></td>
-      </tr>
-      <tr>
-        <td id="L1261" class="blob-num js-line-number" data-line-number="1261"></td>
-        <td id="LC1261" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-en">Error</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Using undefined validator &quot;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> rule <span class="pl-k">+</span></td>
-      </tr>
-      <tr>
-        <td id="L1262" class="blob-num js-line-number" data-line-number="1262"></td>
-        <td id="LC1262" class="blob-code blob-code-inner js-file-line">            <span class="pl-s"><span class="pl-pds">&#39;</span>&quot;. Maybe you have forgotten to load the module that &quot;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> rule <span class="pl-k">+</span><span class="pl-s"><span class="pl-pds">&#39;</span>&quot; belongs to?<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1263" class="blob-num js-line-number" data-line-number="1263"></td>
-        <td id="LC1263" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1264" class="blob-num js-line-number" data-line-number="1264"></td>
-        <td id="LC1264" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1265" class="blob-num js-line-number" data-line-number="1265"></td>
-        <td id="LC1265" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1266" class="blob-num js-line-number" data-line-number="1266"></td>
-        <td id="LC1266" class="blob-code blob-code-inner js-file-line">      }, <span class="pl-s"><span class="pl-pds">&#39;</span> <span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1267" class="blob-num js-line-number" data-line-number="1267"></td>
-        <td id="LC1267" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1268" class="blob-num js-line-number" data-line-number="1268"></td>
-        <td id="LC1268" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1269" class="blob-num js-line-number" data-line-number="1269"></td>
-        <td id="LC1269" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (isValid <span class="pl-k">===</span> <span class="pl-c1">false</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1270" class="blob-num js-line-number" data-line-number="1270"></td>
-        <td id="LC1270" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$elem</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validation<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">false</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1271" class="blob-num js-line-number" data-line-number="1271"></td>
-        <td id="LC1271" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">result</span>.<span class="pl-smi">errorMsg</span> <span class="pl-k">=</span> errorMsg;</td>
-      </tr>
-      <tr>
-        <td id="L1272" class="blob-num js-line-number" data-line-number="1272"></td>
-        <td id="LC1272" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">result</span>.<span class="pl-smi">isValid</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1273" class="blob-num js-line-number" data-line-number="1273"></td>
-        <td id="LC1273" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">result</span>.<span class="pl-smi">shouldChangeDisplay</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1274" class="blob-num js-line-number" data-line-number="1274"></td>
-        <td id="LC1274" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> <span class="pl-k">if</span> (isValid <span class="pl-k">===</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1275" class="blob-num js-line-number" data-line-number="1275"></td>
-        <td id="LC1275" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// A validatorFunction returning null means that it&#39;s not able to validate</span></td>
-      </tr>
-      <tr>
-        <td id="L1276" class="blob-num js-line-number" data-line-number="1276"></td>
-        <td id="LC1276" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// the input at this time. Most probably some async stuff need to gets finished</span></td>
-      </tr>
-      <tr>
-        <td id="L1277" class="blob-num js-line-number" data-line-number="1277"></td>
-        <td id="LC1277" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// first and then the validator will re-trigger the validation.</span></td>
-      </tr>
-      <tr>
-        <td id="L1278" class="blob-num js-line-number" data-line-number="1278"></td>
-        <td id="LC1278" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">result</span>.<span class="pl-smi">shouldChangeDisplay</span> <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1279" class="blob-num js-line-number" data-line-number="1279"></td>
-        <td id="LC1279" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1280" class="blob-num js-line-number" data-line-number="1280"></td>
-        <td id="LC1280" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$elem</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>validation<span class="pl-pds">&#39;</span></span>, <span class="pl-c1">true</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1281" class="blob-num js-line-number" data-line-number="1281"></td>
-        <td id="LC1281" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">result</span>.<span class="pl-smi">shouldChangeDisplay</span> <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1282" class="blob-num js-line-number" data-line-number="1282"></td>
-        <td id="LC1282" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1283" class="blob-num js-line-number" data-line-number="1283"></td>
-        <td id="LC1283" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1284" class="blob-num js-line-number" data-line-number="1284"></td>
-        <td id="LC1284" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// Run element validation callback</span></td>
-      </tr>
-      <tr>
-        <td id="L1285" class="blob-num js-line-number" data-line-number="1285"></td>
-        <td id="LC1285" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-k">typeof</span> <span class="pl-smi">conf</span>.<span class="pl-smi">onElementValidate</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span> <span class="pl-k">&amp;&amp;</span> errorMsg <span class="pl-k">!==</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1286" class="blob-num js-line-number" data-line-number="1286"></td>
-        <td id="LC1286" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">conf</span>.<span class="pl-en">onElementValidate</span>(<span class="pl-smi">result</span>.<span class="pl-smi">isValid</span>, $elem, $form, errorMsg);</td>
-      </tr>
-      <tr>
-        <td id="L1287" class="blob-num js-line-number" data-line-number="1287"></td>
-        <td id="LC1287" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1288" class="blob-num js-line-number" data-line-number="1288"></td>
-        <td id="LC1288" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1289" class="blob-num js-line-number" data-line-number="1289"></td>
-        <td id="LC1289" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$elem</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>afterValidation<span class="pl-pds">&#39;</span></span>, [result, eventContext]);</td>
-      </tr>
-      <tr>
-        <td id="L1290" class="blob-num js-line-number" data-line-number="1290"></td>
-        <td id="LC1290" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1291" class="blob-num js-line-number" data-line-number="1291"></td>
-        <td id="LC1291" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> result;</td>
-      </tr>
-      <tr>
-        <td id="L1292" class="blob-num js-line-number" data-line-number="1292"></td>
-        <td id="LC1292" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1293" class="blob-num js-line-number" data-line-number="1293"></td>
-        <td id="LC1293" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1294" class="blob-num js-line-number" data-line-number="1294"></td>
-        <td id="LC1294" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1295" class="blob-num js-line-number" data-line-number="1295"></td>
-        <td id="LC1295" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Is it a correct date according to given dateFormat. Will return false if not, otherwise</span></td>
-      </tr>
-      <tr>
-        <td id="L1296" class="blob-num js-line-number" data-line-number="1296"></td>
-        <td id="LC1296" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * an array 0=&gt;year 1=&gt;month 2=&gt;day</span></td>
-      </tr>
-      <tr>
-        <td id="L1297" class="blob-num js-line-number" data-line-number="1297"></td>
-        <td id="LC1297" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1298" class="blob-num js-line-number" data-line-number="1298"></td>
-        <td id="LC1298" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">val</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1299" class="blob-num js-line-number" data-line-number="1299"></td>
-        <td id="LC1299" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">dateFormat</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1300" class="blob-num js-line-number" data-line-number="1300"></td>
-        <td id="LC1300" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {Boolean} [addMissingLeadingZeros]</span></td>
-      </tr>
-      <tr>
-        <td id="L1301" class="blob-num js-line-number" data-line-number="1301"></td>
-        <td id="LC1301" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@return</span> {Array}|{Boolean}</span></td>
-      </tr>
-      <tr>
-        <td id="L1302" class="blob-num js-line-number" data-line-number="1302"></td>
-        <td id="LC1302" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1303" class="blob-num js-line-number" data-line-number="1303"></td>
-        <td id="LC1303" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">parseDate</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">dateFormat</span>, <span class="pl-smi">addMissingLeadingZeros</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1304" class="blob-num js-line-number" data-line-number="1304"></td>
-        <td id="LC1304" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> divider <span class="pl-k">=</span> <span class="pl-smi">dateFormat</span>.<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-c1">a-zA-Z</span>]</span><span class="pl-pds">/</span>gi</span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>).<span class="pl-c1">substring</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>),</td>
-      </tr>
-      <tr>
-        <td id="L1305" class="blob-num js-line-number" data-line-number="1305"></td>
-        <td id="LC1305" class="blob-code blob-code-inner js-file-line">        regexp <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>^<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1306" class="blob-num js-line-number" data-line-number="1306"></td>
-        <td id="LC1306" class="blob-code blob-code-inner js-file-line">        formatParts <span class="pl-k">=</span> <span class="pl-smi">dateFormat</span>.<span class="pl-c1">split</span>(divider <span class="pl-k">||</span> <span class="pl-c1">null</span>),</td>
-      </tr>
-      <tr>
-        <td id="L1307" class="blob-num js-line-number" data-line-number="1307"></td>
-        <td id="LC1307" class="blob-code blob-code-inner js-file-line">        matches, day, month, year;</td>
-      </tr>
-      <tr>
-        <td id="L1308" class="blob-num js-line-number" data-line-number="1308"></td>
-        <td id="LC1308" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1309" class="blob-num js-line-number" data-line-number="1309"></td>
-        <td id="LC1309" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$</span>.<span class="pl-en">each</span>(formatParts, <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">part</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1310" class="blob-num js-line-number" data-line-number="1310"></td>
-        <td id="LC1310" class="blob-code blob-code-inner js-file-line">        regexp <span class="pl-k">+=</span> (i <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">?</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-cce">\\</span><span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> divider <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>(<span class="pl-cce">\\</span>d{<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">part</span>.<span class="pl-c1">length</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>})<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1311" class="blob-num js-line-number" data-line-number="1311"></td>
-        <td id="LC1311" class="blob-code blob-code-inner js-file-line">      });</td>
-      </tr>
-      <tr>
-        <td id="L1312" class="blob-num js-line-number" data-line-number="1312"></td>
-        <td id="LC1312" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1313" class="blob-num js-line-number" data-line-number="1313"></td>
-        <td id="LC1313" class="blob-code blob-code-inner js-file-line">      regexp <span class="pl-k">+=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>$<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1314" class="blob-num js-line-number" data-line-number="1314"></td>
-        <td id="LC1314" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1315" class="blob-num js-line-number" data-line-number="1315"></td>
-        <td id="LC1315" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (addMissingLeadingZeros) {</td>
-      </tr>
-      <tr>
-        <td id="L1316" class="blob-num js-line-number" data-line-number="1316"></td>
-        <td id="LC1316" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> newValueParts <span class="pl-k">=</span> [];</td>
-      </tr>
-      <tr>
-        <td id="L1317" class="blob-num js-line-number" data-line-number="1317"></td>
-        <td id="LC1317" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-en">each</span>(<span class="pl-smi">val</span>.<span class="pl-c1">split</span>(divider), <span class="pl-k">function</span>(<span class="pl-smi">i</span>, <span class="pl-smi">part</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1318" class="blob-num js-line-number" data-line-number="1318"></td>
-        <td id="LC1318" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span>(<span class="pl-smi">part</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">1</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1319" class="blob-num js-line-number" data-line-number="1319"></td>
-        <td id="LC1319" class="blob-code blob-code-inner js-file-line">            part <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>0<span class="pl-pds">&#39;</span></span><span class="pl-k">+</span>part;</td>
-      </tr>
-      <tr>
-        <td id="L1320" class="blob-num js-line-number" data-line-number="1320"></td>
-        <td id="LC1320" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1321" class="blob-num js-line-number" data-line-number="1321"></td>
-        <td id="LC1321" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">newValueParts</span>.<span class="pl-c1">push</span>(part);</td>
-      </tr>
-      <tr>
-        <td id="L1322" class="blob-num js-line-number" data-line-number="1322"></td>
-        <td id="LC1322" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L1323" class="blob-num js-line-number" data-line-number="1323"></td>
-        <td id="LC1323" class="blob-code blob-code-inner js-file-line">        val <span class="pl-k">=</span> <span class="pl-smi">newValueParts</span>.<span class="pl-c1">join</span>(divider);</td>
-      </tr>
-      <tr>
-        <td id="L1324" class="blob-num js-line-number" data-line-number="1324"></td>
-        <td id="LC1324" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1325" class="blob-num js-line-number" data-line-number="1325"></td>
-        <td id="LC1325" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1326" class="blob-num js-line-number" data-line-number="1326"></td>
-        <td id="LC1326" class="blob-code blob-code-inner js-file-line">      matches <span class="pl-k">=</span> <span class="pl-smi">val</span>.<span class="pl-c1">match</span>(<span class="pl-k">new</span> <span class="pl-en">RegExp</span>(regexp));</td>
-      </tr>
-      <tr>
-        <td id="L1327" class="blob-num js-line-number" data-line-number="1327"></td>
-        <td id="LC1327" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (matches <span class="pl-k">===</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1328" class="blob-num js-line-number" data-line-number="1328"></td>
-        <td id="LC1328" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1329" class="blob-num js-line-number" data-line-number="1329"></td>
-        <td id="LC1329" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1330" class="blob-num js-line-number" data-line-number="1330"></td>
-        <td id="LC1330" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1331" class="blob-num js-line-number" data-line-number="1331"></td>
-        <td id="LC1331" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> <span class="pl-en">findDateUnit</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">unit</span>, <span class="pl-smi">formatParts</span>, <span class="pl-smi">matches</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1332" class="blob-num js-line-number" data-line-number="1332"></td>
-        <td id="LC1332" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">for</span> (<span class="pl-k">var</span> i <span class="pl-k">=</span> <span class="pl-c1">0</span>; i <span class="pl-k">&lt;</span> <span class="pl-smi">formatParts</span>.<span class="pl-c1">length</span>; i<span class="pl-k">++</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1333" class="blob-num js-line-number" data-line-number="1333"></td>
-        <td id="LC1333" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (formatParts[i].<span class="pl-c1">substring</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>) <span class="pl-k">===</span> unit) {</td>
-      </tr>
-      <tr>
-        <td id="L1334" class="blob-num js-line-number" data-line-number="1334"></td>
-        <td id="LC1334" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">parseDateInt</span>(matches[i <span class="pl-k">+</span> <span class="pl-c1">1</span>]);</td>
-      </tr>
-      <tr>
-        <td id="L1335" class="blob-num js-line-number" data-line-number="1335"></td>
-        <td id="LC1335" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1336" class="blob-num js-line-number" data-line-number="1336"></td>
-        <td id="LC1336" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1337" class="blob-num js-line-number" data-line-number="1337"></td>
-        <td id="LC1337" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-k">-</span><span class="pl-c1">1</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1338" class="blob-num js-line-number" data-line-number="1338"></td>
-        <td id="LC1338" class="blob-code blob-code-inner js-file-line">      };</td>
-      </tr>
-      <tr>
-        <td id="L1339" class="blob-num js-line-number" data-line-number="1339"></td>
-        <td id="LC1339" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1340" class="blob-num js-line-number" data-line-number="1340"></td>
-        <td id="LC1340" class="blob-code blob-code-inner js-file-line">      month <span class="pl-k">=</span> <span class="pl-en">findDateUnit</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>m<span class="pl-pds">&#39;</span></span>, formatParts, matches);</td>
-      </tr>
-      <tr>
-        <td id="L1341" class="blob-num js-line-number" data-line-number="1341"></td>
-        <td id="LC1341" class="blob-code blob-code-inner js-file-line">      day <span class="pl-k">=</span> <span class="pl-en">findDateUnit</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>d<span class="pl-pds">&#39;</span></span>, formatParts, matches);</td>
-      </tr>
-      <tr>
-        <td id="L1342" class="blob-num js-line-number" data-line-number="1342"></td>
-        <td id="LC1342" class="blob-code blob-code-inner js-file-line">      year <span class="pl-k">=</span> <span class="pl-en">findDateUnit</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>y<span class="pl-pds">&#39;</span></span>, formatParts, matches);</td>
-      </tr>
-      <tr>
-        <td id="L1343" class="blob-num js-line-number" data-line-number="1343"></td>
-        <td id="LC1343" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1344" class="blob-num js-line-number" data-line-number="1344"></td>
-        <td id="LC1344" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> ((month <span class="pl-k">===</span> <span class="pl-c1">2</span> <span class="pl-k">&amp;&amp;</span> day <span class="pl-k">&gt;</span> <span class="pl-c1">28</span> <span class="pl-k">&amp;&amp;</span> (year <span class="pl-k">%</span> <span class="pl-c1">4</span> <span class="pl-k">!==</span> <span class="pl-c1">0</span> <span class="pl-k">||</span> year <span class="pl-k">%</span> <span class="pl-c1">100</span> <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> year <span class="pl-k">%</span> <span class="pl-c1">400</span> <span class="pl-k">!==</span> <span class="pl-c1">0</span>)) <span class="pl-k">||</span></td>
-      </tr>
-      <tr>
-        <td id="L1345" class="blob-num js-line-number" data-line-number="1345"></td>
-        <td id="LC1345" class="blob-code blob-code-inner js-file-line">        (month <span class="pl-k">===</span> <span class="pl-c1">2</span> <span class="pl-k">&amp;&amp;</span> day <span class="pl-k">&gt;</span> <span class="pl-c1">29</span> <span class="pl-k">&amp;&amp;</span> (year <span class="pl-k">%</span> <span class="pl-c1">4</span> <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">||</span> year <span class="pl-k">%</span> <span class="pl-c1">100</span> <span class="pl-k">!==</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> year <span class="pl-k">%</span> <span class="pl-c1">400</span> <span class="pl-k">===</span> <span class="pl-c1">0</span>)) <span class="pl-k">||</span></td>
-      </tr>
-      <tr>
-        <td id="L1346" class="blob-num js-line-number" data-line-number="1346"></td>
-        <td id="LC1346" class="blob-code blob-code-inner js-file-line">        month <span class="pl-k">&gt;</span> <span class="pl-c1">12</span> <span class="pl-k">||</span> month <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1347" class="blob-num js-line-number" data-line-number="1347"></td>
-        <td id="LC1347" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1348" class="blob-num js-line-number" data-line-number="1348"></td>
-        <td id="LC1348" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1349" class="blob-num js-line-number" data-line-number="1349"></td>
-        <td id="LC1349" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> ((<span class="pl-v">this</span>.<span class="pl-en">isShortMonth</span>(month) <span class="pl-k">&amp;&amp;</span> day <span class="pl-k">&gt;</span> <span class="pl-c1">30</span>) <span class="pl-k">||</span> (<span class="pl-k">!</span><span class="pl-v">this</span>.<span class="pl-en">isShortMonth</span>(month) <span class="pl-k">&amp;&amp;</span> day <span class="pl-k">&gt;</span> <span class="pl-c1">31</span>) <span class="pl-k">||</span> day <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1350" class="blob-num js-line-number" data-line-number="1350"></td>
-        <td id="LC1350" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1351" class="blob-num js-line-number" data-line-number="1351"></td>
-        <td id="LC1351" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1352" class="blob-num js-line-number" data-line-number="1352"></td>
-        <td id="LC1352" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1353" class="blob-num js-line-number" data-line-number="1353"></td>
-        <td id="LC1353" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> [year, month, day];</td>
-      </tr>
-      <tr>
-        <td id="L1354" class="blob-num js-line-number" data-line-number="1354"></td>
-        <td id="LC1354" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1355" class="blob-num js-line-number" data-line-number="1355"></td>
-        <td id="LC1355" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1356" class="blob-num js-line-number" data-line-number="1356"></td>
-        <td id="LC1356" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1357" class="blob-num js-line-number" data-line-number="1357"></td>
-        <td id="LC1357" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * skum fix. är talet 05 eller lägre ger parseInt rätt int annars får man 0 när man kör parseInt?</span></td>
-      </tr>
-      <tr>
-        <td id="L1358" class="blob-num js-line-number" data-line-number="1358"></td>
-        <td id="LC1358" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1359" class="blob-num js-line-number" data-line-number="1359"></td>
-        <td id="LC1359" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{String}</span> <span class="pl-smi">val</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1360" class="blob-num js-line-number" data-line-number="1360"></td>
-        <td id="LC1360" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@return</span> {Number}</span></td>
-      </tr>
-      <tr>
-        <td id="L1361" class="blob-num js-line-number" data-line-number="1361"></td>
-        <td id="LC1361" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1362" class="blob-num js-line-number" data-line-number="1362"></td>
-        <td id="LC1362" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">parseDateInt</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1363" class="blob-num js-line-number" data-line-number="1363"></td>
-        <td id="LC1363" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">val</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>0<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1364" class="blob-num js-line-number" data-line-number="1364"></td>
-        <td id="LC1364" class="blob-code blob-code-inner js-file-line">        val <span class="pl-k">=</span> <span class="pl-smi">val</span>.<span class="pl-c1">replace</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>0<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1365" class="blob-num js-line-number" data-line-number="1365"></td>
-        <td id="LC1365" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1366" class="blob-num js-line-number" data-line-number="1366"></td>
-        <td id="LC1366" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">parseInt</span>(val, <span class="pl-c1">10</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1367" class="blob-num js-line-number" data-line-number="1367"></td>
-        <td id="LC1367" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1368" class="blob-num js-line-number" data-line-number="1368"></td>
-        <td id="LC1368" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1369" class="blob-num js-line-number" data-line-number="1369"></td>
-        <td id="LC1369" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1370" class="blob-num js-line-number" data-line-number="1370"></td>
-        <td id="LC1370" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Has month only 30 days?</span></td>
-      </tr>
-      <tr>
-        <td id="L1371" class="blob-num js-line-number" data-line-number="1371"></td>
-        <td id="LC1371" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1372" class="blob-num js-line-number" data-line-number="1372"></td>
-        <td id="LC1372" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{Number}</span> <span class="pl-smi">m</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1373" class="blob-num js-line-number" data-line-number="1373"></td>
-        <td id="LC1373" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@return</span> {Boolean}</span></td>
-      </tr>
-      <tr>
-        <td id="L1374" class="blob-num js-line-number" data-line-number="1374"></td>
-        <td id="LC1374" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1375" class="blob-num js-line-number" data-line-number="1375"></td>
-        <td id="LC1375" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">isShortMonth</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">m</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1376" class="blob-num js-line-number" data-line-number="1376"></td>
-        <td id="LC1376" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> (m <span class="pl-k">%</span> <span class="pl-c1">2</span> <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> m <span class="pl-k">&lt;</span> <span class="pl-c1">7</span>) <span class="pl-k">||</span> (m <span class="pl-k">%</span> <span class="pl-c1">2</span> <span class="pl-k">!==</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> m <span class="pl-k">&gt;</span> <span class="pl-c1">7</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1377" class="blob-num js-line-number" data-line-number="1377"></td>
-        <td id="LC1377" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1378" class="blob-num js-line-number" data-line-number="1378"></td>
-        <td id="LC1378" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1379" class="blob-num js-line-number" data-line-number="1379"></td>
-        <td id="LC1379" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1380" class="blob-num js-line-number" data-line-number="1380"></td>
-        <td id="LC1380" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Restrict input length</span></td>
-      </tr>
-      <tr>
-        <td id="L1381" class="blob-num js-line-number" data-line-number="1381"></td>
-        <td id="LC1381" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1382" class="blob-num js-line-number" data-line-number="1382"></td>
-        <td id="LC1382" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {jQuery} $inputElement Jquery Html object</span></td>
-      </tr>
-      <tr>
-        <td id="L1383" class="blob-num js-line-number" data-line-number="1383"></td>
-        <td id="LC1383" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {jQuery} $maxLengthElement jQuery Html Object</span></td>
-      </tr>
-      <tr>
-        <td id="L1384" class="blob-num js-line-number" data-line-number="1384"></td>
-        <td id="LC1384" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@return</span> void</span></td>
-      </tr>
-      <tr>
-        <td id="L1385" class="blob-num js-line-number" data-line-number="1385"></td>
-        <td id="LC1385" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1386" class="blob-num js-line-number" data-line-number="1386"></td>
-        <td id="LC1386" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">lengthRestriction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">$inputElement</span>, <span class="pl-smi">$maxLengthElement</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1387" class="blob-num js-line-number" data-line-number="1387"></td>
-        <td id="LC1387" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// read maxChars from counter display initial text value</span></td>
-      </tr>
-      <tr>
-        <td id="L1388" class="blob-num js-line-number" data-line-number="1388"></td>
-        <td id="LC1388" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> maxChars <span class="pl-k">=</span> <span class="pl-c1">parseInt</span>(<span class="pl-smi">$maxLengthElement</span>.<span class="pl-c1">text</span>(), <span class="pl-c1">10</span>),</td>
-      </tr>
-      <tr>
-        <td id="L1389" class="blob-num js-line-number" data-line-number="1389"></td>
-        <td id="LC1389" class="blob-code blob-code-inner js-file-line">        charsLeft <span class="pl-k">=</span> <span class="pl-c1">0</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1390" class="blob-num js-line-number" data-line-number="1390"></td>
-        <td id="LC1390" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1391" class="blob-num js-line-number" data-line-number="1391"></td>
-        <td id="LC1391" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// internal function does the counting and sets display value</span></td>
-      </tr>
-      <tr>
-        <td id="L1392" class="blob-num js-line-number" data-line-number="1392"></td>
-        <td id="LC1392" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">countCharacters</span> <span class="pl-k">=</span> <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1393" class="blob-num js-line-number" data-line-number="1393"></td>
-        <td id="LC1393" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> numChars <span class="pl-k">=</span> <span class="pl-smi">$inputElement</span>.<span class="pl-en">val</span>().<span class="pl-c1">length</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1394" class="blob-num js-line-number" data-line-number="1394"></td>
-        <td id="LC1394" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (numChars <span class="pl-k">&gt;</span> maxChars) {</td>
-      </tr>
-      <tr>
-        <td id="L1395" class="blob-num js-line-number" data-line-number="1395"></td>
-        <td id="LC1395" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">// get current scroll bar position</span></td>
-      </tr>
-      <tr>
-        <td id="L1396" class="blob-num js-line-number" data-line-number="1396"></td>
-        <td id="LC1396" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> currScrollTopPos <span class="pl-k">=</span> <span class="pl-smi">$inputElement</span>.<span class="pl-en">scrollTop</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1397" class="blob-num js-line-number" data-line-number="1397"></td>
-        <td id="LC1397" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">// trim value to max length</span></td>
-      </tr>
-      <tr>
-        <td id="L1398" class="blob-num js-line-number" data-line-number="1398"></td>
-        <td id="LC1398" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$inputElement</span>.<span class="pl-en">val</span>(<span class="pl-smi">$inputElement</span>.<span class="pl-en">val</span>().<span class="pl-c1">substring</span>(<span class="pl-c1">0</span>, maxChars));</td>
-      </tr>
-      <tr>
-        <td id="L1399" class="blob-num js-line-number" data-line-number="1399"></td>
-        <td id="LC1399" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$inputElement</span>.<span class="pl-en">scrollTop</span>(currScrollTopPos);</td>
-      </tr>
-      <tr>
-        <td id="L1400" class="blob-num js-line-number" data-line-number="1400"></td>
-        <td id="LC1400" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1401" class="blob-num js-line-number" data-line-number="1401"></td>
-        <td id="LC1401" class="blob-code blob-code-inner js-file-line">          charsLeft <span class="pl-k">=</span> maxChars <span class="pl-k">-</span> numChars;</td>
-      </tr>
-      <tr>
-        <td id="L1402" class="blob-num js-line-number" data-line-number="1402"></td>
-        <td id="LC1402" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (charsLeft <span class="pl-k">&lt;</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1403" class="blob-num js-line-number" data-line-number="1403"></td>
-        <td id="LC1403" class="blob-code blob-code-inner js-file-line">            charsLeft <span class="pl-k">=</span> <span class="pl-c1">0</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1404" class="blob-num js-line-number" data-line-number="1404"></td>
-        <td id="LC1404" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1405" class="blob-num js-line-number" data-line-number="1405"></td>
-        <td id="LC1405" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1406" class="blob-num js-line-number" data-line-number="1406"></td>
-        <td id="LC1406" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// set counter text</span></td>
-      </tr>
-      <tr>
-        <td id="L1407" class="blob-num js-line-number" data-line-number="1407"></td>
-        <td id="LC1407" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$maxLengthElement</span>.<span class="pl-c1">text</span>(charsLeft);</td>
-      </tr>
-      <tr>
-        <td id="L1408" class="blob-num js-line-number" data-line-number="1408"></td>
-        <td id="LC1408" class="blob-code blob-code-inner js-file-line">        };</td>
-      </tr>
-      <tr>
-        <td id="L1409" class="blob-num js-line-number" data-line-number="1409"></td>
-        <td id="LC1409" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1410" class="blob-num js-line-number" data-line-number="1410"></td>
-        <td id="LC1410" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// bind events to this element</span></td>
-      </tr>
-      <tr>
-        <td id="L1411" class="blob-num js-line-number" data-line-number="1411"></td>
-        <td id="LC1411" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// setTimeout is needed, cut or paste fires before val is available</span></td>
-      </tr>
-      <tr>
-        <td id="L1412" class="blob-num js-line-number" data-line-number="1412"></td>
-        <td id="LC1412" class="blob-code blob-code-inner js-file-line">      <span class="pl-en">$</span>($inputElement).<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keydown keyup keypress focus blur<span class="pl-pds">&#39;</span></span>, countCharacters)</td>
-      </tr>
-      <tr>
-        <td id="L1413" class="blob-num js-line-number" data-line-number="1413"></td>
-        <td id="LC1413" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>cut paste<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1414" class="blob-num js-line-number" data-line-number="1414"></td>
-        <td id="LC1414" class="blob-code blob-code-inner js-file-line">          <span class="pl-c1">setTimeout</span>(countCharacters, <span class="pl-c1">100</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1415" class="blob-num js-line-number" data-line-number="1415"></td>
-        <td id="LC1415" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L1416" class="blob-num js-line-number" data-line-number="1416"></td>
-        <td id="LC1416" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1417" class="blob-num js-line-number" data-line-number="1417"></td>
-        <td id="LC1417" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// count chars on pageload, if there are prefilled input-values</span></td>
-      </tr>
-      <tr>
-        <td id="L1418" class="blob-num js-line-number" data-line-number="1418"></td>
-        <td id="LC1418" class="blob-code blob-code-inner js-file-line">      <span class="pl-en">$</span>(<span class="pl-c1">document</span>).<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>ready<span class="pl-pds">&#39;</span></span>, countCharacters);</td>
-      </tr>
-      <tr>
-        <td id="L1419" class="blob-num js-line-number" data-line-number="1419"></td>
-        <td id="LC1419" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1420" class="blob-num js-line-number" data-line-number="1420"></td>
-        <td id="LC1420" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1421" class="blob-num js-line-number" data-line-number="1421"></td>
-        <td id="LC1421" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1422" class="blob-num js-line-number" data-line-number="1422"></td>
-        <td id="LC1422" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Test numeric against allowed range</span></td>
-      </tr>
-      <tr>
-        <td id="L1423" class="blob-num js-line-number" data-line-number="1423"></td>
-        <td id="LC1423" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1424" class="blob-num js-line-number" data-line-number="1424"></td>
-        <td id="LC1424" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> $value int</span></td>
-      </tr>
-      <tr>
-        <td id="L1425" class="blob-num js-line-number" data-line-number="1425"></td>
-        <td id="LC1425" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> $rangeAllowed str; (1-2, min1, max2, 10)</span></td>
-      </tr>
-      <tr>
-        <td id="L1426" class="blob-num js-line-number" data-line-number="1426"></td>
-        <td id="LC1426" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@return</span> array</span></td>
-      </tr>
-      <tr>
-        <td id="L1427" class="blob-num js-line-number" data-line-number="1427"></td>
-        <td id="LC1427" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1428" class="blob-num js-line-number" data-line-number="1428"></td>
-        <td id="LC1428" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">numericRangeCheck</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">value</span>, <span class="pl-smi">rangeAllowed</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1429" class="blob-num js-line-number" data-line-number="1429"></td>
-        <td id="LC1429" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// split by dash</span></td>
-      </tr>
-      <tr>
-        <td id="L1430" class="blob-num js-line-number" data-line-number="1430"></td>
-        <td id="LC1430" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> range <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-c1">split</span>(rangeAllowed),</td>
-      </tr>
-      <tr>
-        <td id="L1431" class="blob-num js-line-number" data-line-number="1431"></td>
-        <td id="LC1431" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// min or max</span></td>
-      </tr>
-      <tr>
-        <td id="L1432" class="blob-num js-line-number" data-line-number="1432"></td>
-        <td id="LC1432" class="blob-code blob-code-inner js-file-line">        minmax <span class="pl-k">=</span> <span class="pl-c1">parseInt</span>(<span class="pl-smi">rangeAllowed</span>.<span class="pl-c1">substr</span>(<span class="pl-c1">3</span>), <span class="pl-c1">10</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1433" class="blob-num js-line-number" data-line-number="1433"></td>
-        <td id="LC1433" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1434" class="blob-num js-line-number" data-line-number="1434"></td>
-        <td id="LC1434" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span>( <span class="pl-smi">range</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">1</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">rangeAllowed</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>min<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-k">-</span><span class="pl-c1">1</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">rangeAllowed</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>max<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-k">-</span><span class="pl-c1">1</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L1435" class="blob-num js-line-number" data-line-number="1435"></td>
-        <td id="LC1435" class="blob-code blob-code-inner js-file-line">        range <span class="pl-k">=</span> [rangeAllowed, rangeAllowed]; <span class="pl-c">// only a number, checking agains an exact number of characters</span></td>
-      </tr>
-      <tr>
-        <td id="L1436" class="blob-num js-line-number" data-line-number="1436"></td>
-        <td id="LC1436" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1437" class="blob-num js-line-number" data-line-number="1437"></td>
-        <td id="LC1437" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1438" class="blob-num js-line-number" data-line-number="1438"></td>
-        <td id="LC1438" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// range ?</span></td>
-      </tr>
-      <tr>
-        <td id="L1439" class="blob-num js-line-number" data-line-number="1439"></td>
-        <td id="LC1439" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">range</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">2</span> <span class="pl-k">&amp;&amp;</span> (value <span class="pl-k">&lt;</span> <span class="pl-c1">parseInt</span>(range[<span class="pl-c1">0</span>], <span class="pl-c1">10</span>) <span class="pl-k">||</span> value <span class="pl-k">&gt;</span> <span class="pl-c1">parseInt</span>(range[<span class="pl-c1">1</span>], <span class="pl-c1">10</span>) )) {</td>
-      </tr>
-      <tr>
-        <td id="L1440" class="blob-num js-line-number" data-line-number="1440"></td>
-        <td id="LC1440" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> [ <span class="pl-s"><span class="pl-pds">&#39;</span>out<span class="pl-pds">&#39;</span></span>, range[<span class="pl-c1">0</span>], range[<span class="pl-c1">1</span>] ];</td>
-      </tr>
-      <tr>
-        <td id="L1441" class="blob-num js-line-number" data-line-number="1441"></td>
-        <td id="LC1441" class="blob-code blob-code-inner js-file-line">      } <span class="pl-c">// value is out of range</span></td>
-      </tr>
-      <tr>
-        <td id="L1442" class="blob-num js-line-number" data-line-number="1442"></td>
-        <td id="LC1442" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-smi">rangeAllowed</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>min<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> (value <span class="pl-k">&lt;</span> minmax )) <span class="pl-c">// min</span></td>
-      </tr>
-      <tr>
-        <td id="L1443" class="blob-num js-line-number" data-line-number="1443"></td>
-        <td id="LC1443" class="blob-code blob-code-inner js-file-line">      {</td>
-      </tr>
-      <tr>
-        <td id="L1444" class="blob-num js-line-number" data-line-number="1444"></td>
-        <td id="LC1444" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> [<span class="pl-s"><span class="pl-pds">&#39;</span>min<span class="pl-pds">&#39;</span></span>, minmax];</td>
-      </tr>
-      <tr>
-        <td id="L1445" class="blob-num js-line-number" data-line-number="1445"></td>
-        <td id="LC1445" class="blob-code blob-code-inner js-file-line">      } <span class="pl-c">// value is below min</span></td>
-      </tr>
-      <tr>
-        <td id="L1446" class="blob-num js-line-number" data-line-number="1446"></td>
-        <td id="LC1446" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-smi">rangeAllowed</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>max<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> (value <span class="pl-k">&gt;</span> minmax )) <span class="pl-c">// max</span></td>
-      </tr>
-      <tr>
-        <td id="L1447" class="blob-num js-line-number" data-line-number="1447"></td>
-        <td id="LC1447" class="blob-code blob-code-inner js-file-line">      {</td>
-      </tr>
-      <tr>
-        <td id="L1448" class="blob-num js-line-number" data-line-number="1448"></td>
-        <td id="LC1448" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> [<span class="pl-s"><span class="pl-pds">&#39;</span>max<span class="pl-pds">&#39;</span></span>, minmax];</td>
-      </tr>
-      <tr>
-        <td id="L1449" class="blob-num js-line-number" data-line-number="1449"></td>
-        <td id="LC1449" class="blob-code blob-code-inner js-file-line">      } <span class="pl-c">// value is above max</span></td>
-      </tr>
-      <tr>
-        <td id="L1450" class="blob-num js-line-number" data-line-number="1450"></td>
-        <td id="LC1450" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// since no other returns executed, value is in allowed range</span></td>
-      </tr>
-      <tr>
-        <td id="L1451" class="blob-num js-line-number" data-line-number="1451"></td>
-        <td id="LC1451" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> [ <span class="pl-s"><span class="pl-pds">&#39;</span>ok<span class="pl-pds">&#39;</span></span> ];</td>
-      </tr>
-      <tr>
-        <td id="L1452" class="blob-num js-line-number" data-line-number="1452"></td>
-        <td id="LC1452" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1453" class="blob-num js-line-number" data-line-number="1453"></td>
-        <td id="LC1453" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1454" class="blob-num js-line-number" data-line-number="1454"></td>
-        <td id="LC1454" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1455" class="blob-num js-line-number" data-line-number="1455"></td>
-        <td id="LC1455" class="blob-code blob-code-inner js-file-line">    _numSuggestionElements<span class="pl-k">:</span> <span class="pl-c1">0</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1456" class="blob-num js-line-number" data-line-number="1456"></td>
-        <td id="LC1456" class="blob-code blob-code-inner js-file-line">    _selectedSuggestion<span class="pl-k">:</span> <span class="pl-c1">null</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1457" class="blob-num js-line-number" data-line-number="1457"></td>
-        <td id="LC1457" class="blob-code blob-code-inner js-file-line">    _previousTypedVal<span class="pl-k">:</span> <span class="pl-c1">null</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1458" class="blob-num js-line-number" data-line-number="1458"></td>
-        <td id="LC1458" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1459" class="blob-num js-line-number" data-line-number="1459"></td>
-        <td id="LC1459" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1460" class="blob-num js-line-number" data-line-number="1460"></td>
-        <td id="LC1460" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Utility function that can be used to create plugins that gives</span></td>
-      </tr>
-      <tr>
-        <td id="L1461" class="blob-num js-line-number" data-line-number="1461"></td>
-        <td id="LC1461" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * suggestions when inputs is typed into</span></td>
-      </tr>
-      <tr>
-        <td id="L1462" class="blob-num js-line-number" data-line-number="1462"></td>
-        <td id="LC1462" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> {jQuery} $elem</span></td>
-      </tr>
-      <tr>
-        <td id="L1463" class="blob-num js-line-number" data-line-number="1463"></td>
-        <td id="LC1463" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{Array}</span> <span class="pl-smi">suggestions</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1464" class="blob-num js-line-number" data-line-number="1464"></td>
-        <td id="LC1464" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@param</span> <span class="pl-en">{Object}</span> <span class="pl-smi">settings</span> - Optional</span></td>
-      </tr>
-      <tr>
-        <td id="L1465" class="blob-num js-line-number" data-line-number="1465"></td>
-        <td id="LC1465" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@return</span> {jQuery}</span></td>
-      </tr>
-      <tr>
-        <td id="L1466" class="blob-num js-line-number" data-line-number="1466"></td>
-        <td id="LC1466" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1467" class="blob-num js-line-number" data-line-number="1467"></td>
-        <td id="LC1467" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">suggest</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">$elem</span>, <span class="pl-smi">suggestions</span>, <span class="pl-smi">settings</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1468" class="blob-num js-line-number" data-line-number="1468"></td>
-        <td id="LC1468" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> conf <span class="pl-k">=</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1469" class="blob-num js-line-number" data-line-number="1469"></td>
-        <td id="LC1469" class="blob-code blob-code-inner js-file-line">          css<span class="pl-k">:</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1470" class="blob-num js-line-number" data-line-number="1470"></td>
-        <td id="LC1470" class="blob-code blob-code-inner js-file-line">            maxHeight<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>150px<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1471" class="blob-num js-line-number" data-line-number="1471"></td>
-        <td id="LC1471" class="blob-code blob-code-inner js-file-line">            background<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>#FFF<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1472" class="blob-num js-line-number" data-line-number="1472"></td>
-        <td id="LC1472" class="blob-code blob-code-inner js-file-line">            lineHeight<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>150%<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1473" class="blob-num js-line-number" data-line-number="1473"></td>
-        <td id="LC1473" class="blob-code blob-code-inner js-file-line">            textDecoration<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>underline<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1474" class="blob-num js-line-number" data-line-number="1474"></td>
-        <td id="LC1474" class="blob-code blob-code-inner js-file-line">            overflowX<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>hidden<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1475" class="blob-num js-line-number" data-line-number="1475"></td>
-        <td id="LC1475" class="blob-code blob-code-inner js-file-line">            overflowY<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>auto<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1476" class="blob-num js-line-number" data-line-number="1476"></td>
-        <td id="LC1476" class="blob-code blob-code-inner js-file-line">            border<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>#CCC solid 1px<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1477" class="blob-num js-line-number" data-line-number="1477"></td>
-        <td id="LC1477" class="blob-code blob-code-inner js-file-line">            borderTop<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>none<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1478" class="blob-num js-line-number" data-line-number="1478"></td>
-        <td id="LC1478" class="blob-code blob-code-inner js-file-line">            cursor<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>pointer<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1479" class="blob-num js-line-number" data-line-number="1479"></td>
-        <td id="LC1479" class="blob-code blob-code-inner js-file-line">          },</td>
-      </tr>
-      <tr>
-        <td id="L1480" class="blob-num js-line-number" data-line-number="1480"></td>
-        <td id="LC1480" class="blob-code blob-code-inner js-file-line">          activeSuggestionCSS<span class="pl-k">:</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1481" class="blob-num js-line-number" data-line-number="1481"></td>
-        <td id="LC1481" class="blob-code blob-code-inner js-file-line">            background<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>#E9E9E9<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1482" class="blob-num js-line-number" data-line-number="1482"></td>
-        <td id="LC1482" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1483" class="blob-num js-line-number" data-line-number="1483"></td>
-        <td id="LC1483" class="blob-code blob-code-inner js-file-line">        },</td>
-      </tr>
-      <tr>
-        <td id="L1484" class="blob-num js-line-number" data-line-number="1484"></td>
-        <td id="LC1484" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">setSuggsetionPosition</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">$suggestionContainer</span>, <span class="pl-smi">$input</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1485" class="blob-num js-line-number" data-line-number="1485"></td>
-        <td id="LC1485" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> offset <span class="pl-k">=</span> <span class="pl-smi">$input</span>.<span class="pl-en">offset</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1486" class="blob-num js-line-number" data-line-number="1486"></td>
-        <td id="LC1486" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">css</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1487" class="blob-num js-line-number" data-line-number="1487"></td>
-        <td id="LC1487" class="blob-code blob-code-inner js-file-line">            width<span class="pl-k">:</span> <span class="pl-smi">$input</span>.<span class="pl-c1">outerWidth</span>(),</td>
-      </tr>
-      <tr>
-        <td id="L1488" class="blob-num js-line-number" data-line-number="1488"></td>
-        <td id="LC1488" class="blob-code blob-code-inner js-file-line">            left<span class="pl-k">:</span> <span class="pl-smi">offset</span>.<span class="pl-c1">left</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>px<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1489" class="blob-num js-line-number" data-line-number="1489"></td>
-        <td id="LC1489" class="blob-code blob-code-inner js-file-line">            top<span class="pl-k">:</span> (<span class="pl-smi">offset</span>.<span class="pl-c1">top</span> <span class="pl-k">+</span> <span class="pl-smi">$input</span>.<span class="pl-c1">outerHeight</span>()) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>px<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1490" class="blob-num js-line-number" data-line-number="1490"></td>
-        <td id="LC1490" class="blob-code blob-code-inner js-file-line">          });</td>
-      </tr>
-      <tr>
-        <td id="L1491" class="blob-num js-line-number" data-line-number="1491"></td>
-        <td id="LC1491" class="blob-code blob-code-inner js-file-line">        };</td>
-      </tr>
-      <tr>
-        <td id="L1492" class="blob-num js-line-number" data-line-number="1492"></td>
-        <td id="LC1492" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1493" class="blob-num js-line-number" data-line-number="1493"></td>
-        <td id="LC1493" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (settings) {</td>
-      </tr>
-      <tr>
-        <td id="L1494" class="blob-num js-line-number" data-line-number="1494"></td>
-        <td id="LC1494" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-en">extend</span>(conf, settings);</td>
-      </tr>
-      <tr>
-        <td id="L1495" class="blob-num js-line-number" data-line-number="1495"></td>
-        <td id="LC1495" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1496" class="blob-num js-line-number" data-line-number="1496"></td>
-        <td id="LC1496" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1497" class="blob-num js-line-number" data-line-number="1497"></td>
-        <td id="LC1497" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">conf</span>.<span class="pl-smi">css</span>.<span class="pl-smi">position</span> <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>absolute<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1498" class="blob-num js-line-number" data-line-number="1498"></td>
-        <td id="LC1498" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">conf</span>.<span class="pl-smi">css</span>[<span class="pl-s"><span class="pl-pds">&#39;</span>z-index<span class="pl-pds">&#39;</span></span>] <span class="pl-k">=</span> <span class="pl-c1">9999</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1499" class="blob-num js-line-number" data-line-number="1499"></td>
-        <td id="LC1499" class="blob-code blob-code-inner js-file-line">      <span class="pl-smi">$elem</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>autocomplete<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>off<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1500" class="blob-num js-line-number" data-line-number="1500"></td>
-        <td id="LC1500" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1501" class="blob-num js-line-number" data-line-number="1501"></td>
-        <td id="LC1501" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-v">this</span>.<span class="pl-smi">_numSuggestionElements</span> <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1502" class="blob-num js-line-number" data-line-number="1502"></td>
-        <td id="LC1502" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// Re-position suggestion container if window size changes</span></td>
-      </tr>
-      <tr>
-        <td id="L1503" class="blob-num js-line-number" data-line-number="1503"></td>
-        <td id="LC1503" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$win</span>.<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>resize<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1504" class="blob-num js-line-number" data-line-number="1504"></td>
-        <td id="LC1504" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.jquery-form-suggestions<span class="pl-pds">&#39;</span></span>).<span class="pl-en">each</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1505" class="blob-num js-line-number" data-line-number="1505"></td>
-        <td id="LC1505" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> $container <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</td>
-      </tr>
-      <tr>
-        <td id="L1506" class="blob-num js-line-number" data-line-number="1506"></td>
-        <td id="LC1506" class="blob-code blob-code-inner js-file-line">              suggestID <span class="pl-k">=</span> <span class="pl-smi">$container</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>data-suggest-container<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1507" class="blob-num js-line-number" data-line-number="1507"></td>
-        <td id="LC1507" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">setSuggsetionPosition</span>($container, <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.suggestions-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestID).<span class="pl-en">eq</span>(<span class="pl-c1">0</span>));</td>
-      </tr>
-      <tr>
-        <td id="L1508" class="blob-num js-line-number" data-line-number="1508"></td>
-        <td id="LC1508" class="blob-code blob-code-inner js-file-line">          });</td>
-      </tr>
-      <tr>
-        <td id="L1509" class="blob-num js-line-number" data-line-number="1509"></td>
-        <td id="LC1509" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L1510" class="blob-num js-line-number" data-line-number="1510"></td>
-        <td id="LC1510" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1511" class="blob-num js-line-number" data-line-number="1511"></td>
-        <td id="LC1511" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1512" class="blob-num js-line-number" data-line-number="1512"></td>
-        <td id="LC1512" class="blob-code blob-code-inner js-file-line">      <span class="pl-v">this</span>.<span class="pl-smi">_numSuggestionElements</span><span class="pl-k">++</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1513" class="blob-num js-line-number" data-line-number="1513"></td>
-        <td id="LC1513" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1514" class="blob-num js-line-number" data-line-number="1514"></td>
-        <td id="LC1514" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> <span class="pl-en">onSelectSuggestion</span> <span class="pl-k">=</span> <span class="pl-k">function</span> (<span class="pl-smi">$el</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1515" class="blob-num js-line-number" data-line-number="1515"></td>
-        <td id="LC1515" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> suggestionId <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestion-nr<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1516" class="blob-num js-line-number" data-line-number="1516"></td>
-        <td id="LC1516" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1517" class="blob-num js-line-number" data-line-number="1517"></td>
-        <td id="LC1517" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_previousTypedVal</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1518" class="blob-num js-line-number" data-line-number="1518"></td>
-        <td id="LC1518" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.jquery-form-suggestion-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestionId).<span class="pl-en">fadeOut</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>fast<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1519" class="blob-num js-line-number" data-line-number="1519"></td>
-        <td id="LC1519" class="blob-code blob-code-inner js-file-line">      };</td>
-      </tr>
-      <tr>
-        <td id="L1520" class="blob-num js-line-number" data-line-number="1520"></td>
-        <td id="LC1520" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1521" class="blob-num js-line-number" data-line-number="1521"></td>
-        <td id="LC1521" class="blob-code blob-code-inner js-file-line">      $elem</td>
-      </tr>
-      <tr>
-        <td id="L1522" class="blob-num js-line-number" data-line-number="1522"></td>
-        <td id="LC1522" class="blob-code blob-code-inner js-file-line">        .<span class="pl-c1">data</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestions<span class="pl-pds">&#39;</span></span>, suggestions)</td>
-      </tr>
-      <tr>
-        <td id="L1523" class="blob-num js-line-number" data-line-number="1523"></td>
-        <td id="LC1523" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestion-nr<span class="pl-pds">&#39;</span></span>, <span class="pl-v">this</span>.<span class="pl-smi">_numSuggestionElements</span>)</td>
-      </tr>
-      <tr>
-        <td id="L1524" class="blob-num js-line-number" data-line-number="1524"></td>
-        <td id="LC1524" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>focus.suggest<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1525" class="blob-num js-line-number" data-line-number="1525"></td>
-        <td id="LC1525" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>focus.suggest<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1526" class="blob-num js-line-number" data-line-number="1526"></td>
-        <td id="LC1526" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keyup<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1527" class="blob-num js-line-number" data-line-number="1527"></td>
-        <td id="LC1527" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">=</span> <span class="pl-c1">null</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1528" class="blob-num js-line-number" data-line-number="1528"></td>
-        <td id="LC1528" class="blob-code blob-code-inner js-file-line">        })</td>
-      </tr>
-      <tr>
-        <td id="L1529" class="blob-num js-line-number" data-line-number="1529"></td>
-        <td id="LC1529" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keyup.suggest<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1530" class="blob-num js-line-number" data-line-number="1530"></td>
-        <td id="LC1530" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keyup.suggest<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1531" class="blob-num js-line-number" data-line-number="1531"></td>
-        <td id="LC1531" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> $input <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>),</td>
-      </tr>
-      <tr>
-        <td id="L1532" class="blob-num js-line-number" data-line-number="1532"></td>
-        <td id="LC1532" class="blob-code blob-code-inner js-file-line">            foundSuggestions <span class="pl-k">=</span> [],</td>
-      </tr>
-      <tr>
-        <td id="L1533" class="blob-num js-line-number" data-line-number="1533"></td>
-        <td id="LC1533" class="blob-code blob-code-inner js-file-line">            val <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-en">trim</span>(<span class="pl-smi">$input</span>.<span class="pl-en">val</span>()).<span class="pl-en">toLocaleLowerCase</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1534" class="blob-num js-line-number" data-line-number="1534"></td>
-        <td id="LC1534" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1535" class="blob-num js-line-number" data-line-number="1535"></td>
-        <td id="LC1535" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (val <span class="pl-k">===</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_previousTypedVal</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1536" class="blob-num js-line-number" data-line-number="1536"></td>
-        <td id="LC1536" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1537" class="blob-num js-line-number" data-line-number="1537"></td>
-        <td id="LC1537" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1538" class="blob-num js-line-number" data-line-number="1538"></td>
-        <td id="LC1538" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1539" class="blob-num js-line-number" data-line-number="1539"></td>
-        <td id="LC1539" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_previousTypedVal</span> <span class="pl-k">=</span> val;</td>
-      </tr>
-      <tr>
-        <td id="L1540" class="blob-num js-line-number" data-line-number="1540"></td>
-        <td id="LC1540" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1541" class="blob-num js-line-number" data-line-number="1541"></td>
-        <td id="LC1541" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1542" class="blob-num js-line-number" data-line-number="1542"></td>
-        <td id="LC1542" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> hasTypedSuggestion <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1543" class="blob-num js-line-number" data-line-number="1543"></td>
-        <td id="LC1543" class="blob-code blob-code-inner js-file-line">            suggestionId <span class="pl-k">=</span> <span class="pl-smi">$input</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestion-nr<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L1544" class="blob-num js-line-number" data-line-number="1544"></td>
-        <td id="LC1544" class="blob-code blob-code-inner js-file-line">            $suggestionContainer <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.jquery-form-suggestion-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestionId);</td>
-      </tr>
-      <tr>
-        <td id="L1545" class="blob-num js-line-number" data-line-number="1545"></td>
-        <td id="LC1545" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1546" class="blob-num js-line-number" data-line-number="1546"></td>
-        <td id="LC1546" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">scrollTop</span>(<span class="pl-c1">0</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1547" class="blob-num js-line-number" data-line-number="1547"></td>
-        <td id="LC1547" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1548" class="blob-num js-line-number" data-line-number="1548"></td>
-        <td id="LC1548" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Find the right suggestions</span></td>
-      </tr>
-      <tr>
-        <td id="L1549" class="blob-num js-line-number" data-line-number="1549"></td>
-        <td id="LC1549" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (val <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1550" class="blob-num js-line-number" data-line-number="1550"></td>
-        <td id="LC1550" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> findPartial <span class="pl-k">=</span> <span class="pl-smi">val</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">2</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1551" class="blob-num js-line-number" data-line-number="1551"></td>
-        <td id="LC1551" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$</span>.<span class="pl-en">each</span>(<span class="pl-smi">$input</span>.<span class="pl-c1">data</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestions<span class="pl-pds">&#39;</span></span>), <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">suggestion</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1552" class="blob-num js-line-number" data-line-number="1552"></td>
-        <td id="LC1552" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">var</span> lowerCaseVal <span class="pl-k">=</span> <span class="pl-smi">suggestion</span>.<span class="pl-en">toLocaleLowerCase</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1553" class="blob-num js-line-number" data-line-number="1553"></td>
-        <td id="LC1553" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">if</span> (lowerCaseVal <span class="pl-k">===</span> val) {</td>
-      </tr>
-      <tr>
-        <td id="L1554" class="blob-num js-line-number" data-line-number="1554"></td>
-        <td id="LC1554" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">foundSuggestions</span>.<span class="pl-c1">push</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>&lt;strong&gt;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestion <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;/strong&gt;<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1555" class="blob-num js-line-number" data-line-number="1555"></td>
-        <td id="LC1555" class="blob-code blob-code-inner js-file-line">                hasTypedSuggestion <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1556" class="blob-num js-line-number" data-line-number="1556"></td>
-        <td id="LC1556" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1557" class="blob-num js-line-number" data-line-number="1557"></td>
-        <td id="LC1557" class="blob-code blob-code-inner js-file-line">              } <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-smi">lowerCaseVal</span>.<span class="pl-c1">indexOf</span>(val) <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">||</span> (findPartial <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">lowerCaseVal</span>.<span class="pl-c1">indexOf</span>(val) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L1558" class="blob-num js-line-number" data-line-number="1558"></td>
-        <td id="LC1558" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">foundSuggestions</span>.<span class="pl-c1">push</span>(<span class="pl-smi">suggestion</span>.<span class="pl-c1">replace</span>(<span class="pl-k">new</span> <span class="pl-en">RegExp</span>(val, <span class="pl-s"><span class="pl-pds">&#39;</span>gi<span class="pl-pds">&#39;</span></span>), <span class="pl-s"><span class="pl-pds">&#39;</span>&lt;strong&gt;$&amp;&lt;/strong&gt;<span class="pl-pds">&#39;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L1559" class="blob-num js-line-number" data-line-number="1559"></td>
-        <td id="LC1559" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L1560" class="blob-num js-line-number" data-line-number="1560"></td>
-        <td id="LC1560" class="blob-code blob-code-inner js-file-line">            });</td>
-      </tr>
-      <tr>
-        <td id="L1561" class="blob-num js-line-number" data-line-number="1561"></td>
-        <td id="LC1561" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1562" class="blob-num js-line-number" data-line-number="1562"></td>
-        <td id="LC1562" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1563" class="blob-num js-line-number" data-line-number="1563"></td>
-        <td id="LC1563" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Hide suggestion container</span></td>
-      </tr>
-      <tr>
-        <td id="L1564" class="blob-num js-line-number" data-line-number="1564"></td>
-        <td id="LC1564" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (hasTypedSuggestion <span class="pl-k">||</span> (<span class="pl-smi">foundSuggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$suggestionContainer</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L1565" class="blob-num js-line-number" data-line-number="1565"></td>
-        <td id="LC1565" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">hide</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1566" class="blob-num js-line-number" data-line-number="1566"></td>
-        <td id="LC1566" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1567" class="blob-num js-line-number" data-line-number="1567"></td>
-        <td id="LC1567" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1568" class="blob-num js-line-number" data-line-number="1568"></td>
-        <td id="LC1568" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Create suggestion container if not already exists</span></td>
-      </tr>
-      <tr>
-        <td id="L1569" class="blob-num js-line-number" data-line-number="1569"></td>
-        <td id="LC1569" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-smi">foundSuggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$suggestionContainer</span>.<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1570" class="blob-num js-line-number" data-line-number="1570"></td>
-        <td id="LC1570" class="blob-code blob-code-inner js-file-line">            $suggestionContainer <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>&lt;div&gt;&lt;/div&gt;<span class="pl-pds">&#39;</span></span>).<span class="pl-en">css</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">css</span>).<span class="pl-en">appendTo</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>body<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1571" class="blob-num js-line-number" data-line-number="1571"></td>
-        <td id="LC1571" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$elem</span>.<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestions-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestionId);</td>
-      </tr>
-      <tr>
-        <td id="L1572" class="blob-num js-line-number" data-line-number="1572"></td>
-        <td id="LC1572" class="blob-code blob-code-inner js-file-line">            $suggestionContainer</td>
-      </tr>
-      <tr>
-        <td id="L1573" class="blob-num js-line-number" data-line-number="1573"></td>
-        <td id="LC1573" class="blob-code blob-code-inner js-file-line">              .<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>data-suggest-container<span class="pl-pds">&#39;</span></span>, suggestionId)</td>
-      </tr>
-      <tr>
-        <td id="L1574" class="blob-num js-line-number" data-line-number="1574"></td>
-        <td id="LC1574" class="blob-code blob-code-inner js-file-line">              .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>jquery-form-suggestions<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1575" class="blob-num js-line-number" data-line-number="1575"></td>
-        <td id="LC1575" class="blob-code blob-code-inner js-file-line">              .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>jquery-form-suggestion-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestionId);</td>
-      </tr>
-      <tr>
-        <td id="L1576" class="blob-num js-line-number" data-line-number="1576"></td>
-        <td id="LC1576" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1577" class="blob-num js-line-number" data-line-number="1577"></td>
-        <td id="LC1577" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1578" class="blob-num js-line-number" data-line-number="1578"></td>
-        <td id="LC1578" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Show hidden container</span></td>
-      </tr>
-      <tr>
-        <td id="L1579" class="blob-num js-line-number" data-line-number="1579"></td>
-        <td id="LC1579" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">else</span> <span class="pl-k">if</span> (<span class="pl-smi">foundSuggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span><span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">is</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:visible<span class="pl-pds">&#39;</span></span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L1580" class="blob-num js-line-number" data-line-number="1580"></td>
-        <td id="LC1580" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">show</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1581" class="blob-num js-line-number" data-line-number="1581"></td>
-        <td id="LC1581" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1582" class="blob-num js-line-number" data-line-number="1582"></td>
-        <td id="LC1582" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1583" class="blob-num js-line-number" data-line-number="1583"></td>
-        <td id="LC1583" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// add suggestions</span></td>
-      </tr>
-      <tr>
-        <td id="L1584" class="blob-num js-line-number" data-line-number="1584"></td>
-        <td id="LC1584" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-smi">foundSuggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">val</span>.<span class="pl-c1">length</span> <span class="pl-k">!==</span> foundSuggestions[<span class="pl-c1">0</span>].<span class="pl-c1">length</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1585" class="blob-num js-line-number" data-line-number="1585"></td>
-        <td id="LC1585" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1586" class="blob-num js-line-number" data-line-number="1586"></td>
-        <td id="LC1586" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">// put container in place every time, just in case</span></td>
-      </tr>
-      <tr>
-        <td id="L1587" class="blob-num js-line-number" data-line-number="1587"></td>
-        <td id="LC1587" class="blob-code blob-code-inner js-file-line">            <span class="pl-en">setSuggsetionPosition</span>($suggestionContainer, $input);</td>
-      </tr>
-      <tr>
-        <td id="L1588" class="blob-num js-line-number" data-line-number="1588"></td>
-        <td id="LC1588" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1589" class="blob-num js-line-number" data-line-number="1589"></td>
-        <td id="LC1589" class="blob-code blob-code-inner js-file-line">            <span class="pl-c">// Add suggestions HTML to container</span></td>
-      </tr>
-      <tr>
-        <td id="L1590" class="blob-num js-line-number" data-line-number="1590"></td>
-        <td id="LC1590" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">html</span>(<span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1591" class="blob-num js-line-number" data-line-number="1591"></td>
-        <td id="LC1591" class="blob-code blob-code-inner js-file-line">            <span class="pl-smi">$</span>.<span class="pl-en">each</span>(foundSuggestions, <span class="pl-k">function</span> (<span class="pl-smi">i</span>, <span class="pl-smi">text</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1592" class="blob-num js-line-number" data-line-number="1592"></td>
-        <td id="LC1592" class="blob-code blob-code-inner js-file-line">              <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>&lt;div&gt;&lt;/div&gt;<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1593" class="blob-num js-line-number" data-line-number="1593"></td>
-        <td id="LC1593" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">append</span>(text)</td>
-      </tr>
-      <tr>
-        <td id="L1594" class="blob-num js-line-number" data-line-number="1594"></td>
-        <td id="LC1594" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">css</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1595" class="blob-num js-line-number" data-line-number="1595"></td>
-        <td id="LC1595" class="blob-code blob-code-inner js-file-line">                  overflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>hidden<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1596" class="blob-num js-line-number" data-line-number="1596"></td>
-        <td id="LC1596" class="blob-code blob-code-inner js-file-line">                  textOverflow<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>ellipsis<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1597" class="blob-num js-line-number" data-line-number="1597"></td>
-        <td id="LC1597" class="blob-code blob-code-inner js-file-line">                  whiteSpace<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>nowrap<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1598" class="blob-num js-line-number" data-line-number="1598"></td>
-        <td id="LC1598" class="blob-code blob-code-inner js-file-line">                  padding<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>5px<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1599" class="blob-num js-line-number" data-line-number="1599"></td>
-        <td id="LC1599" class="blob-code blob-code-inner js-file-line">                })</td>
-      </tr>
-      <tr>
-        <td id="L1600" class="blob-num js-line-number" data-line-number="1600"></td>
-        <td id="LC1600" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>form-suggest-element<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1601" class="blob-num js-line-number" data-line-number="1601"></td>
-        <td id="LC1601" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">appendTo</span>($suggestionContainer)</td>
-      </tr>
-      <tr>
-        <td id="L1602" class="blob-num js-line-number" data-line-number="1602"></td>
-        <td id="LC1602" class="blob-code blob-code-inner js-file-line">                .<span class="pl-c1">click</span>(<span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1603" class="blob-num js-line-number" data-line-number="1603"></td>
-        <td id="LC1603" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$input</span>.<span class="pl-c1">focus</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1604" class="blob-num js-line-number" data-line-number="1604"></td>
-        <td id="LC1604" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$input</span>.<span class="pl-en">val</span>(<span class="pl-en">$</span>(<span class="pl-v">this</span>).<span class="pl-c1">text</span>());</td>
-      </tr>
-      <tr>
-        <td id="L1605" class="blob-num js-line-number" data-line-number="1605"></td>
-        <td id="LC1605" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$input</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>change<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1606" class="blob-num js-line-number" data-line-number="1606"></td>
-        <td id="LC1606" class="blob-code blob-code-inner js-file-line">                  <span class="pl-en">onSelectSuggestion</span>($input);</td>
-      </tr>
-      <tr>
-        <td id="L1607" class="blob-num js-line-number" data-line-number="1607"></td>
-        <td id="LC1607" class="blob-code blob-code-inner js-file-line">                });</td>
-      </tr>
-      <tr>
-        <td id="L1608" class="blob-num js-line-number" data-line-number="1608"></td>
-        <td id="LC1608" class="blob-code blob-code-inner js-file-line">            });</td>
-      </tr>
-      <tr>
-        <td id="L1609" class="blob-num js-line-number" data-line-number="1609"></td>
-        <td id="LC1609" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1610" class="blob-num js-line-number" data-line-number="1610"></td>
-        <td id="LC1610" class="blob-code blob-code-inner js-file-line">        })</td>
-      </tr>
-      <tr>
-        <td id="L1611" class="blob-num js-line-number" data-line-number="1611"></td>
-        <td id="LC1611" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keydown.validation<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1612" class="blob-num js-line-number" data-line-number="1612"></td>
-        <td id="LC1612" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>keydown.validation<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> (<span class="pl-smi">e</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1613" class="blob-num js-line-number" data-line-number="1613"></td>
-        <td id="LC1613" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> code <span class="pl-k">=</span> (<span class="pl-smi">e</span>.<span class="pl-smi">keyCode</span> <span class="pl-k">?</span> <span class="pl-smi">e</span>.<span class="pl-smi">keyCode</span> <span class="pl-k">:</span> <span class="pl-smi">e</span>.<span class="pl-smi">which</span>),</td>
-      </tr>
-      <tr>
-        <td id="L1614" class="blob-num js-line-number" data-line-number="1614"></td>
-        <td id="LC1614" class="blob-code blob-code-inner js-file-line">            suggestionId,</td>
-      </tr>
-      <tr>
-        <td id="L1615" class="blob-num js-line-number" data-line-number="1615"></td>
-        <td id="LC1615" class="blob-code blob-code-inner js-file-line">            $suggestionContainer,</td>
-      </tr>
-      <tr>
-        <td id="L1616" class="blob-num js-line-number" data-line-number="1616"></td>
-        <td id="LC1616" class="blob-code blob-code-inner js-file-line">            $input <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-v">this</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1617" class="blob-num js-line-number" data-line-number="1617"></td>
-        <td id="LC1617" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1618" class="blob-num js-line-number" data-line-number="1618"></td>
-        <td id="LC1618" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (code <span class="pl-k">===</span> <span class="pl-c1">13</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">!==</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1619" class="blob-num js-line-number" data-line-number="1619"></td>
-        <td id="LC1619" class="blob-code blob-code-inner js-file-line">            suggestionId <span class="pl-k">=</span> <span class="pl-smi">$input</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestion-nr<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1620" class="blob-num js-line-number" data-line-number="1620"></td>
-        <td id="LC1620" class="blob-code blob-code-inner js-file-line">            $suggestionContainer <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.jquery-form-suggestion-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestionId);</td>
-      </tr>
-      <tr>
-        <td id="L1621" class="blob-num js-line-number" data-line-number="1621"></td>
-        <td id="LC1621" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (<span class="pl-smi">$suggestionContainer</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1622" class="blob-num js-line-number" data-line-number="1622"></td>
-        <td id="LC1622" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">var</span> newText <span class="pl-k">=</span> <span class="pl-smi">$suggestionContainer</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>div<span class="pl-pds">&#39;</span></span>).<span class="pl-en">eq</span>(<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span>).<span class="pl-c1">text</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1623" class="blob-num js-line-number" data-line-number="1623"></td>
-        <td id="LC1623" class="blob-code blob-code-inner js-file-line">              <span class="pl-smi">$input</span>.<span class="pl-en">val</span>(newText);</td>
-      </tr>
-      <tr>
-        <td id="L1624" class="blob-num js-line-number" data-line-number="1624"></td>
-        <td id="LC1624" class="blob-code blob-code-inner js-file-line">              <span class="pl-smi">$input</span>.<span class="pl-en">trigger</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>change<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1625" class="blob-num js-line-number" data-line-number="1625"></td>
-        <td id="LC1625" class="blob-code blob-code-inner js-file-line">              <span class="pl-en">onSelectSuggestion</span>($input);</td>
-      </tr>
-      <tr>
-        <td id="L1626" class="blob-num js-line-number" data-line-number="1626"></td>
-        <td id="LC1626" class="blob-code blob-code-inner js-file-line">              <span class="pl-smi">e</span>.<span class="pl-en">preventDefault</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1627" class="blob-num js-line-number" data-line-number="1627"></td>
-        <td id="LC1627" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L1628" class="blob-num js-line-number" data-line-number="1628"></td>
-        <td id="LC1628" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1629" class="blob-num js-line-number" data-line-number="1629"></td>
-        <td id="LC1629" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1630" class="blob-num js-line-number" data-line-number="1630"></td>
-        <td id="LC1630" class="blob-code blob-code-inner js-file-line">            suggestionId <span class="pl-k">=</span> <span class="pl-smi">$input</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>suggestion-nr<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1631" class="blob-num js-line-number" data-line-number="1631"></td>
-        <td id="LC1631" class="blob-code blob-code-inner js-file-line">            $suggestionContainer <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.jquery-form-suggestion-<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> suggestionId);</td>
-      </tr>
-      <tr>
-        <td id="L1632" class="blob-num js-line-number" data-line-number="1632"></td>
-        <td id="LC1632" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">var</span> $suggestions <span class="pl-k">=</span> <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">children</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1633" class="blob-num js-line-number" data-line-number="1633"></td>
-        <td id="LC1633" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">if</span> (<span class="pl-smi">$suggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$</span>.<span class="pl-en">inArray</span>(code, [<span class="pl-c1">38</span>, <span class="pl-c1">40</span>]) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1634" class="blob-num js-line-number" data-line-number="1634"></td>
-        <td id="LC1634" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">if</span> (code <span class="pl-k">===</span> <span class="pl-c1">38</span>) { <span class="pl-c">// key up</span></td>
-      </tr>
-      <tr>
-        <td id="L1635" class="blob-num js-line-number" data-line-number="1635"></td>
-        <td id="LC1635" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">===</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1636" class="blob-num js-line-number" data-line-number="1636"></td>
-        <td id="LC1636" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">=</span> <span class="pl-smi">$suggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">-</span> <span class="pl-c1">1</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1637" class="blob-num js-line-number" data-line-number="1637"></td>
-        <td id="LC1637" class="blob-code blob-code-inner js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L1638" class="blob-num js-line-number" data-line-number="1638"></td>
-        <td id="LC1638" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">else</span>{</td>
-      </tr>
-      <tr>
-        <td id="L1639" class="blob-num js-line-number" data-line-number="1639"></td>
-        <td id="LC1639" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span><span class="pl-k">--</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1640" class="blob-num js-line-number" data-line-number="1640"></td>
-        <td id="LC1640" class="blob-code blob-code-inner js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L1641" class="blob-num js-line-number" data-line-number="1641"></td>
-        <td id="LC1641" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">&lt;</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1642" class="blob-num js-line-number" data-line-number="1642"></td>
-        <td id="LC1642" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">=</span> <span class="pl-smi">$suggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">-</span> <span class="pl-c1">1</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1643" class="blob-num js-line-number" data-line-number="1643"></td>
-        <td id="LC1643" class="blob-code blob-code-inner js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L1644" class="blob-num js-line-number" data-line-number="1644"></td>
-        <td id="LC1644" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L1645" class="blob-num js-line-number" data-line-number="1645"></td>
-        <td id="LC1645" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">else</span> <span class="pl-k">if</span> (code <span class="pl-k">===</span> <span class="pl-c1">40</span>) { <span class="pl-c">// key down</span></td>
-      </tr>
-      <tr>
-        <td id="L1646" class="blob-num js-line-number" data-line-number="1646"></td>
-        <td id="LC1646" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">===</span> <span class="pl-c1">null</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1647" class="blob-num js-line-number" data-line-number="1647"></td>
-        <td id="LC1647" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1648" class="blob-num js-line-number" data-line-number="1648"></td>
-        <td id="LC1648" class="blob-code blob-code-inner js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L1649" class="blob-num js-line-number" data-line-number="1649"></td>
-        <td id="LC1649" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1650" class="blob-num js-line-number" data-line-number="1650"></td>
-        <td id="LC1650" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span><span class="pl-k">++</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1651" class="blob-num js-line-number" data-line-number="1651"></td>
-        <td id="LC1651" class="blob-code blob-code-inner js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L1652" class="blob-num js-line-number" data-line-number="1652"></td>
-        <td id="LC1652" class="blob-code blob-code-inner js-file-line">                <span class="pl-k">if</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">&gt;</span> (<span class="pl-smi">$suggestions</span>.<span class="pl-c1">length</span> <span class="pl-k">-</span> <span class="pl-c1">1</span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L1653" class="blob-num js-line-number" data-line-number="1653"></td>
-        <td id="LC1653" class="blob-code blob-code-inner js-file-line">                  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span> <span class="pl-k">=</span> <span class="pl-c1">0</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1654" class="blob-num js-line-number" data-line-number="1654"></td>
-        <td id="LC1654" class="blob-code blob-code-inner js-file-line">                }</td>
-      </tr>
-      <tr>
-        <td id="L1655" class="blob-num js-line-number" data-line-number="1655"></td>
-        <td id="LC1655" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L1656" class="blob-num js-line-number" data-line-number="1656"></td>
-        <td id="LC1656" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1657" class="blob-num js-line-number" data-line-number="1657"></td>
-        <td id="LC1657" class="blob-code blob-code-inner js-file-line">              <span class="pl-c">// Scroll in suggestion window</span></td>
-      </tr>
-      <tr>
-        <td id="L1658" class="blob-num js-line-number" data-line-number="1658"></td>
-        <td id="LC1658" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">var</span> containerInnerHeight <span class="pl-k">=</span> <span class="pl-smi">$suggestionContainer</span>.<span class="pl-c1">innerHeight</span>(),</td>
-      </tr>
-      <tr>
-        <td id="L1659" class="blob-num js-line-number" data-line-number="1659"></td>
-        <td id="LC1659" class="blob-code blob-code-inner js-file-line">                containerScrollTop <span class="pl-k">=</span> <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">scrollTop</span>(),</td>
-      </tr>
-      <tr>
-        <td id="L1660" class="blob-num js-line-number" data-line-number="1660"></td>
-        <td id="LC1660" class="blob-code blob-code-inner js-file-line">                suggestionHeight <span class="pl-k">=</span> <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">children</span>().<span class="pl-en">eq</span>(<span class="pl-c1">0</span>).<span class="pl-c1">outerHeight</span>(),</td>
-      </tr>
-      <tr>
-        <td id="L1661" class="blob-num js-line-number" data-line-number="1661"></td>
-        <td id="LC1661" class="blob-code blob-code-inner js-file-line">                activeSuggestionPosY <span class="pl-k">=</span> suggestionHeight <span class="pl-k">*</span> (<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1662" class="blob-num js-line-number" data-line-number="1662"></td>
-        <td id="LC1662" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1663" class="blob-num js-line-number" data-line-number="1663"></td>
-        <td id="LC1663" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">if</span> (activeSuggestionPosY <span class="pl-k">&lt;</span> containerScrollTop <span class="pl-k">||</span> activeSuggestionPosY <span class="pl-k">&gt;</span> (containerScrollTop <span class="pl-k">+</span> containerInnerHeight)) {</td>
-      </tr>
-      <tr>
-        <td id="L1664" class="blob-num js-line-number" data-line-number="1664"></td>
-        <td id="LC1664" class="blob-code blob-code-inner js-file-line">                <span class="pl-smi">$suggestionContainer</span>.<span class="pl-en">scrollTop</span>(activeSuggestionPosY);</td>
-      </tr>
-      <tr>
-        <td id="L1665" class="blob-num js-line-number" data-line-number="1665"></td>
-        <td id="LC1665" class="blob-code blob-code-inner js-file-line">              }</td>
-      </tr>
-      <tr>
-        <td id="L1666" class="blob-num js-line-number" data-line-number="1666"></td>
-        <td id="LC1666" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1667" class="blob-num js-line-number" data-line-number="1667"></td>
-        <td id="LC1667" class="blob-code blob-code-inner js-file-line">              $suggestions</td>
-      </tr>
-      <tr>
-        <td id="L1668" class="blob-num js-line-number" data-line-number="1668"></td>
-        <td id="LC1668" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">removeClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>active-suggestion<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1669" class="blob-num js-line-number" data-line-number="1669"></td>
-        <td id="LC1669" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">css</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>background<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>none<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1670" class="blob-num js-line-number" data-line-number="1670"></td>
-        <td id="LC1670" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">eq</span>(<span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">_selectedSuggestion</span>)</td>
-      </tr>
-      <tr>
-        <td id="L1671" class="blob-num js-line-number" data-line-number="1671"></td>
-        <td id="LC1671" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">addClass</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>active-suggestion<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1672" class="blob-num js-line-number" data-line-number="1672"></td>
-        <td id="LC1672" class="blob-code blob-code-inner js-file-line">                .<span class="pl-en">css</span>(<span class="pl-smi">conf</span>.<span class="pl-smi">activeSuggestionCSS</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1673" class="blob-num js-line-number" data-line-number="1673"></td>
-        <td id="LC1673" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1674" class="blob-num js-line-number" data-line-number="1674"></td>
-        <td id="LC1674" class="blob-code blob-code-inner js-file-line">              <span class="pl-smi">e</span>.<span class="pl-en">preventDefault</span>();</td>
-      </tr>
-      <tr>
-        <td id="L1675" class="blob-num js-line-number" data-line-number="1675"></td>
-        <td id="LC1675" class="blob-code blob-code-inner js-file-line">              <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1676" class="blob-num js-line-number" data-line-number="1676"></td>
-        <td id="LC1676" class="blob-code blob-code-inner js-file-line">            }</td>
-      </tr>
-      <tr>
-        <td id="L1677" class="blob-num js-line-number" data-line-number="1677"></td>
-        <td id="LC1677" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1678" class="blob-num js-line-number" data-line-number="1678"></td>
-        <td id="LC1678" class="blob-code blob-code-inner js-file-line">        })</td>
-      </tr>
-      <tr>
-        <td id="L1679" class="blob-num js-line-number" data-line-number="1679"></td>
-        <td id="LC1679" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>blur.suggest<span class="pl-pds">&#39;</span></span>)</td>
-      </tr>
-      <tr>
-        <td id="L1680" class="blob-num js-line-number" data-line-number="1680"></td>
-        <td id="LC1680" class="blob-code blob-code-inner js-file-line">        .<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>blur.suggest<span class="pl-pds">&#39;</span></span>, <span class="pl-k">function</span> () {</td>
-      </tr>
-      <tr>
-        <td id="L1681" class="blob-num js-line-number" data-line-number="1681"></td>
-        <td id="LC1681" class="blob-code blob-code-inner js-file-line">          <span class="pl-en">onSelectSuggestion</span>(<span class="pl-en">$</span>(<span class="pl-v">this</span>));</td>
-      </tr>
-      <tr>
-        <td id="L1682" class="blob-num js-line-number" data-line-number="1682"></td>
-        <td id="LC1682" class="blob-code blob-code-inner js-file-line">        });</td>
-      </tr>
-      <tr>
-        <td id="L1683" class="blob-num js-line-number" data-line-number="1683"></td>
-        <td id="LC1683" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1684" class="blob-num js-line-number" data-line-number="1684"></td>
-        <td id="LC1684" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> $elem;</td>
-      </tr>
-      <tr>
-        <td id="L1685" class="blob-num js-line-number" data-line-number="1685"></td>
-        <td id="LC1685" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1686" class="blob-num js-line-number" data-line-number="1686"></td>
-        <td id="LC1686" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1687" class="blob-num js-line-number" data-line-number="1687"></td>
-        <td id="LC1687" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1688" class="blob-num js-line-number" data-line-number="1688"></td>
-        <td id="LC1688" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * Error dialogs</span></td>
-      </tr>
-      <tr>
-        <td id="L1689" class="blob-num js-line-number" data-line-number="1689"></td>
-        <td id="LC1689" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     *</span></td>
-      </tr>
-      <tr>
-        <td id="L1690" class="blob-num js-line-number" data-line-number="1690"></td>
-        <td id="LC1690" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     * <span class="pl-k">@var</span> {Object}</span></td>
-      </tr>
-      <tr>
-        <td id="L1691" class="blob-num js-line-number" data-line-number="1691"></td>
-        <td id="LC1691" class="blob-code blob-code-inner js-file-line"><span class="pl-c">     */</span></td>
-      </tr>
-      <tr>
-        <td id="L1692" class="blob-num js-line-number" data-line-number="1692"></td>
-        <td id="LC1692" class="blob-code blob-code-inner js-file-line">    LANG<span class="pl-k">:</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1693" class="blob-num js-line-number" data-line-number="1693"></td>
-        <td id="LC1693" class="blob-code blob-code-inner js-file-line">      errorTitle<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Form submission failed!<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1694" class="blob-num js-line-number" data-line-number="1694"></td>
-        <td id="LC1694" class="blob-code blob-code-inner js-file-line">      requiredField<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>This is a required field<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1695" class="blob-num js-line-number" data-line-number="1695"></td>
-        <td id="LC1695" class="blob-code blob-code-inner js-file-line">      requiredFields<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>You have not answered all required fields<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1696" class="blob-num js-line-number" data-line-number="1696"></td>
-        <td id="LC1696" class="blob-code blob-code-inner js-file-line">      badTime<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>You have not given a correct time<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1697" class="blob-num js-line-number" data-line-number="1697"></td>
-        <td id="LC1697" class="blob-code blob-code-inner js-file-line">      badEmail<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Please check your email address (It must be an SAE valid email)<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1698" class="blob-num js-line-number" data-line-number="1698"></td>
-        <td id="LC1698" class="blob-code blob-code-inner js-file-line">      badTelephone<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>You have not given a correct phone number<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1699" class="blob-num js-line-number" data-line-number="1699"></td>
-        <td id="LC1699" class="blob-code blob-code-inner js-file-line">      badSecurityAnswer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>You have not given a correct answer to the security question<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1700" class="blob-num js-line-number" data-line-number="1700"></td>
-        <td id="LC1700" class="blob-code blob-code-inner js-file-line">      badDate<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>You have not given a correct date<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1701" class="blob-num js-line-number" data-line-number="1701"></td>
-        <td id="LC1701" class="blob-code blob-code-inner js-file-line">      lengthBadStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The input value must be between <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1702" class="blob-num js-line-number" data-line-number="1702"></td>
-        <td id="LC1702" class="blob-code blob-code-inner js-file-line">      lengthBadEnd<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span> characters<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1703" class="blob-num js-line-number" data-line-number="1703"></td>
-        <td id="LC1703" class="blob-code blob-code-inner js-file-line">      lengthTooLongStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The input value is longer than <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1704" class="blob-num js-line-number" data-line-number="1704"></td>
-        <td id="LC1704" class="blob-code blob-code-inner js-file-line">      lengthTooShortStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The input value is shorter than <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1705" class="blob-num js-line-number" data-line-number="1705"></td>
-        <td id="LC1705" class="blob-code blob-code-inner js-file-line">      notConfirmed<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Input values could not be confirmed<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1706" class="blob-num js-line-number" data-line-number="1706"></td>
-        <td id="LC1706" class="blob-code blob-code-inner js-file-line">      badDomain<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Incorrect domain value<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1707" class="blob-num js-line-number" data-line-number="1707"></td>
-        <td id="LC1707" class="blob-code blob-code-inner js-file-line">      badUrl<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The input value is not a correct URL<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1708" class="blob-num js-line-number" data-line-number="1708"></td>
-        <td id="LC1708" class="blob-code blob-code-inner js-file-line">      badCustomVal<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The input value is incorrect<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1709" class="blob-num js-line-number" data-line-number="1709"></td>
-        <td id="LC1709" class="blob-code blob-code-inner js-file-line">      andSpaces<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span> and spaces <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1710" class="blob-num js-line-number" data-line-number="1710"></td>
-        <td id="LC1710" class="blob-code blob-code-inner js-file-line">      badInt<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The input value was not a correct number<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1711" class="blob-num js-line-number" data-line-number="1711"></td>
-        <td id="LC1711" class="blob-code blob-code-inner js-file-line">      badSecurityNumber<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Your social security number was incorrect<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1712" class="blob-num js-line-number" data-line-number="1712"></td>
-        <td id="LC1712" class="blob-code blob-code-inner js-file-line">      badUKVatAnswer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Incorrect UK VAT Number<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1713" class="blob-num js-line-number" data-line-number="1713"></td>
-        <td id="LC1713" class="blob-code blob-code-inner js-file-line">      badUKNin<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Incorrect UK NIN<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1714" class="blob-num js-line-number" data-line-number="1714"></td>
-        <td id="LC1714" class="blob-code blob-code-inner js-file-line">      badUKUtr<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Incorrect UK UTR Number<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1715" class="blob-num js-line-number" data-line-number="1715"></td>
-        <td id="LC1715" class="blob-code blob-code-inner js-file-line">      badStrength<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The password isn<span class="pl-cce">\&#39;</span>t strong enough<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1716" class="blob-num js-line-number" data-line-number="1716"></td>
-        <td id="LC1716" class="blob-code blob-code-inner js-file-line">      badNumberOfSelectedOptionsStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>You have to choose at least <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1717" class="blob-num js-line-number" data-line-number="1717"></td>
-        <td id="LC1717" class="blob-code blob-code-inner js-file-line">      badNumberOfSelectedOptionsEnd<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span> answers<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1718" class="blob-num js-line-number" data-line-number="1718"></td>
-        <td id="LC1718" class="blob-code blob-code-inner js-file-line">      badAlphaNumeric<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The input value can only contain alphanumeric characters <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1719" class="blob-num js-line-number" data-line-number="1719"></td>
-        <td id="LC1719" class="blob-code blob-code-inner js-file-line">      badAlphaNumericExtra<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span> and <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1720" class="blob-num js-line-number" data-line-number="1720"></td>
-        <td id="LC1720" class="blob-code blob-code-inner js-file-line">      wrongFileSize<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The file you are trying to upload is too large (max %s)<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1721" class="blob-num js-line-number" data-line-number="1721"></td>
-        <td id="LC1721" class="blob-code blob-code-inner js-file-line">      wrongFileType<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Only files of type %s is allowed<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1722" class="blob-num js-line-number" data-line-number="1722"></td>
-        <td id="LC1722" class="blob-code blob-code-inner js-file-line">      groupCheckedRangeStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Please choose between <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1723" class="blob-num js-line-number" data-line-number="1723"></td>
-        <td id="LC1723" class="blob-code blob-code-inner js-file-line">      groupCheckedTooFewStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Please choose at least <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1724" class="blob-num js-line-number" data-line-number="1724"></td>
-        <td id="LC1724" class="blob-code blob-code-inner js-file-line">      groupCheckedTooManyStart<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Please choose a maximum of <span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1725" class="blob-num js-line-number" data-line-number="1725"></td>
-        <td id="LC1725" class="blob-code blob-code-inner js-file-line">      groupCheckedEnd<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span> item(s)<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1726" class="blob-num js-line-number" data-line-number="1726"></td>
-        <td id="LC1726" class="blob-code blob-code-inner js-file-line">      badCreditCard<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The credit card number is not correct<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1727" class="blob-num js-line-number" data-line-number="1727"></td>
-        <td id="LC1727" class="blob-code blob-code-inner js-file-line">      badCVV<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The CVV number was not correct<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1728" class="blob-num js-line-number" data-line-number="1728"></td>
-        <td id="LC1728" class="blob-code blob-code-inner js-file-line">      wrongFileDim <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Incorrect image dimensions,<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1729" class="blob-num js-line-number" data-line-number="1729"></td>
-        <td id="LC1729" class="blob-code blob-code-inner js-file-line">      imageTooTall <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>the image can not be taller than<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1730" class="blob-num js-line-number" data-line-number="1730"></td>
-        <td id="LC1730" class="blob-code blob-code-inner js-file-line">      imageTooWide <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>the image can not be wider than<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1731" class="blob-num js-line-number" data-line-number="1731"></td>
-        <td id="LC1731" class="blob-code blob-code-inner js-file-line">      imageTooSmall <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>the image was too small<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1732" class="blob-num js-line-number" data-line-number="1732"></td>
-        <td id="LC1732" class="blob-code blob-code-inner js-file-line">      min <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>min<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1733" class="blob-num js-line-number" data-line-number="1733"></td>
-        <td id="LC1733" class="blob-code blob-code-inner js-file-line">      max <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>max<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1734" class="blob-num js-line-number" data-line-number="1734"></td>
-        <td id="LC1734" class="blob-code blob-code-inner js-file-line">      imageRatioNotAccepted <span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Image ratio is not be accepted<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1735" class="blob-num js-line-number" data-line-number="1735"></td>
-        <td id="LC1735" class="blob-code blob-code-inner js-file-line">      badBrazilTelephoneAnswer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The phone number entered is invalid<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1736" class="blob-num js-line-number" data-line-number="1736"></td>
-        <td id="LC1736" class="blob-code blob-code-inner js-file-line">      badBrazilCEPAnswer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The CEP entered is invalid<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1737" class="blob-num js-line-number" data-line-number="1737"></td>
-        <td id="LC1737" class="blob-code blob-code-inner js-file-line">      badBrazilCPFAnswer<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The CPF entered is invalid<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1738" class="blob-num js-line-number" data-line-number="1738"></td>
-        <td id="LC1738" class="blob-code blob-code-inner js-file-line">      badPlPesel<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The PESEL entered is invalid<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1739" class="blob-num js-line-number" data-line-number="1739"></td>
-        <td id="LC1739" class="blob-code blob-code-inner js-file-line">      badPlNip<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The NIP entered is invalid<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1740" class="blob-num js-line-number" data-line-number="1740"></td>
-        <td id="LC1740" class="blob-code blob-code-inner js-file-line">      badPlRegon<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>The REGON entered is invalid<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1741" class="blob-num js-line-number" data-line-number="1741"></td>
-        <td id="LC1741" class="blob-code blob-code-inner js-file-line">      badreCaptcha<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>Please confirm that you are not a bot<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1742" class="blob-num js-line-number" data-line-number="1742"></td>
-        <td id="LC1742" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L1743" class="blob-num js-line-number" data-line-number="1743"></td>
-        <td id="LC1743" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1744" class="blob-num js-line-number" data-line-number="1744"></td>
-        <td id="LC1744" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1745" class="blob-num js-line-number" data-line-number="1745"></td>
-        <td id="LC1745" class="blob-code blob-code-inner js-file-line">})(jQuery, <span class="pl-c1">window</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1746" class="blob-num js-line-number" data-line-number="1746"></td>
-        <td id="LC1746" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1747" class="blob-num js-line-number" data-line-number="1747"></td>
-        <td id="LC1747" class="blob-code blob-code-inner js-file-line"><span class="pl-c">/**</span></td>
-      </tr>
-      <tr>
-        <td id="L1748" class="blob-num js-line-number" data-line-number="1748"></td>
-        <td id="LC1748" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> * File declaring all default validators.</span></td>
-      </tr>
-      <tr>
-        <td id="L1749" class="blob-num js-line-number" data-line-number="1749"></td>
-        <td id="LC1749" class="blob-code blob-code-inner js-file-line"><span class="pl-c"> */</span></td>
-      </tr>
-      <tr>
-        <td id="L1750" class="blob-num js-line-number" data-line-number="1750"></td>
-        <td id="LC1750" class="blob-code blob-code-inner js-file-line">(<span class="pl-k">function</span>(<span class="pl-smi">$</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1751" class="blob-num js-line-number" data-line-number="1751"></td>
-        <td id="LC1751" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1752" class="blob-num js-line-number" data-line-number="1752"></td>
-        <td id="LC1752" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1753" class="blob-num js-line-number" data-line-number="1753"></td>
-        <td id="LC1753" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate email</span></td>
-      </tr>
-      <tr>
-        <td id="L1754" class="blob-num js-line-number" data-line-number="1754"></td>
-        <td id="LC1754" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1755" class="blob-num js-line-number" data-line-number="1755"></td>
-        <td id="LC1755" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1756" class="blob-num js-line-number" data-line-number="1756"></td>
-        <td id="LC1756" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>email<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1757" class="blob-num js-line-number" data-line-number="1757"></td>
-        <td id="LC1757" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">email</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1758" class="blob-num js-line-number" data-line-number="1758"></td>
-        <td id="LC1758" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1759" class="blob-num js-line-number" data-line-number="1759"></td>
-        <td id="LC1759" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> emailParts <span class="pl-k">=</span> <span class="pl-smi">email</span>.<span class="pl-c1">toLowerCase</span>().<span class="pl-c1">split</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>@<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L1760" class="blob-num js-line-number" data-line-number="1760"></td>
-        <td id="LC1760" class="blob-code blob-code-inner js-file-line">        localPart <span class="pl-k">=</span> emailParts[<span class="pl-c1">0</span>],</td>
-      </tr>
-      <tr>
-        <td id="L1761" class="blob-num js-line-number" data-line-number="1761"></td>
-        <td id="LC1761" class="blob-code blob-code-inner js-file-line">        domain <span class="pl-k">=</span> emailParts[<span class="pl-c1">1</span>];</td>
-      </tr>
-      <tr>
-        <td id="L1762" class="blob-num js-line-number" data-line-number="1762"></td>
-        <td id="LC1762" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> email_student <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>student.sae.edu<span class="pl-pds">&quot;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1763" class="blob-num js-line-number" data-line-number="1763"></td>
-        <td id="LC1763" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> email_staff <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&quot;</span>sae.edu<span class="pl-pds">&quot;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1764" class="blob-num js-line-number" data-line-number="1764"></td>
-        <td id="LC1764" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1765" class="blob-num js-line-number" data-line-number="1765"></td>
-        <td id="LC1765" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (localPart <span class="pl-k">&amp;&amp;</span> domain <span class="pl-k">&amp;&amp;</span> domain <span class="pl-k">==</span> email_student <span class="pl-k">||</span> localPart <span class="pl-k">&amp;&amp;</span> domain <span class="pl-k">&amp;&amp;</span> domain <span class="pl-k">==</span> email_staff) {</td>
-      </tr>
-      <tr>
-        <td id="L1766" class="blob-num js-line-number" data-line-number="1766"></td>
-        <td id="LC1766" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1767" class="blob-num js-line-number" data-line-number="1767"></td>
-        <td id="LC1767" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span>( <span class="pl-smi">localPart</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>&quot;<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span> ) {</td>
-      </tr>
-      <tr>
-        <td id="L1768" class="blob-num js-line-number" data-line-number="1768"></td>
-        <td id="LC1768" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">var</span> len <span class="pl-k">=</span> <span class="pl-smi">localPart</span>.<span class="pl-c1">length</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1769" class="blob-num js-line-number" data-line-number="1769"></td>
-        <td id="LC1769" class="blob-code blob-code-inner js-file-line">          localPart <span class="pl-k">=</span> <span class="pl-smi">localPart</span>.<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-cce">\&quot;</span><span class="pl-pds">/</span>g</span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1770" class="blob-num js-line-number" data-line-number="1770"></td>
-        <td id="LC1770" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span>( <span class="pl-smi">localPart</span>.<span class="pl-c1">length</span> <span class="pl-k">!==</span> (len<span class="pl-k">-</span><span class="pl-c1">2</span>) ) {</td>
-      </tr>
-      <tr>
-        <td id="L1771" class="blob-num js-line-number" data-line-number="1771"></td>
-        <td id="LC1771" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-c1">false</span>; <span class="pl-c">// It was not allowed to have more than two apostrophes</span></td>
-      </tr>
-      <tr>
-        <td id="L1772" class="blob-num js-line-number" data-line-number="1772"></td>
-        <td id="LC1772" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1773" class="blob-num js-line-number" data-line-number="1773"></td>
-        <td id="LC1773" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1774" class="blob-num js-line-number" data-line-number="1774"></td>
-        <td id="LC1774" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1775" class="blob-num js-line-number" data-line-number="1775"></td>
-        <td id="LC1775" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">validators</span>.<span class="pl-smi">validate_domain</span>.<span class="pl-en">validatorFunction</span>(emailParts[<span class="pl-c1">1</span>]) <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L1776" class="blob-num js-line-number" data-line-number="1776"></td>
-        <td id="LC1776" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">localPart</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span>) <span class="pl-k">!==</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L1777" class="blob-num js-line-number" data-line-number="1777"></td>
-        <td id="LC1777" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">localPart</span>.<span class="pl-c1">substring</span>(<span class="pl-smi">localPart</span>.<span class="pl-c1">length</span><span class="pl-k">-</span><span class="pl-c1">1</span>, <span class="pl-smi">localPart</span>.<span class="pl-c1">length</span>) <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span> <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L1778" class="blob-num js-line-number" data-line-number="1778"></td>
-        <td id="LC1778" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">localPart</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>..<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-k">-</span><span class="pl-c1">1</span> <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L1779" class="blob-num js-line-number" data-line-number="1779"></td>
-        <td id="LC1779" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">!</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-k">^</span><span class="pl-c1">\w</span><span class="pl-cce">\+\.</span><span class="pl-c1">\-<span class="pl-cce">\#</span>\-<span class="pl-cce">\_</span></span><span class="pl-cce">\~\!\$\&amp;\&#39;\(\)\*\+\,\;\=\:</span>]</span><span class="pl-pds">/</span></span>.<span class="pl-c1">test</span>(localPart));</td>
-      </tr>
-      <tr>
-        <td id="L1780" class="blob-num js-line-number" data-line-number="1780"></td>
-        <td id="LC1780" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1781" class="blob-num js-line-number" data-line-number="1781"></td>
-        <td id="LC1781" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1782" class="blob-num js-line-number" data-line-number="1782"></td>
-        <td id="LC1782" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1783" class="blob-num js-line-number" data-line-number="1783"></td>
-        <td id="LC1783" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1784" class="blob-num js-line-number" data-line-number="1784"></td>
-        <td id="LC1784" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1785" class="blob-num js-line-number" data-line-number="1785"></td>
-        <td id="LC1785" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>badEmail<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1786" class="blob-num js-line-number" data-line-number="1786"></td>
-        <td id="LC1786" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1787" class="blob-num js-line-number" data-line-number="1787"></td>
-        <td id="LC1787" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1788" class="blob-num js-line-number" data-line-number="1788"></td>
-        <td id="LC1788" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1789" class="blob-num js-line-number" data-line-number="1789"></td>
-        <td id="LC1789" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate domain name</span></td>
-      </tr>
-      <tr>
-        <td id="L1790" class="blob-num js-line-number" data-line-number="1790"></td>
-        <td id="LC1790" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1791" class="blob-num js-line-number" data-line-number="1791"></td>
-        <td id="LC1791" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1792" class="blob-num js-line-number" data-line-number="1792"></td>
-        <td id="LC1792" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>domain<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1793" class="blob-num js-line-number" data-line-number="1793"></td>
-        <td id="LC1793" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1794" class="blob-num js-line-number" data-line-number="1794"></td>
-        <td id="LC1794" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-smi">val</span>.<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span> <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L1795" class="blob-num js-line-number" data-line-number="1795"></td>
-        <td id="LC1795" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">val</span>.<span class="pl-c1">length</span> <span class="pl-k">&lt;=</span> <span class="pl-c1">253</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-c">// Including sub domains</span></td>
-      </tr>
-      <tr>
-        <td id="L1796" class="blob-num js-line-number" data-line-number="1796"></td>
-        <td id="LC1796" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">!</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-k">^</span><span class="pl-c1">a-zA-Z0-9</span>]</span><span class="pl-pds">/</span></span>.<span class="pl-c1">test</span>(<span class="pl-smi">val</span>.<span class="pl-c1">slice</span>(<span class="pl-k">-</span><span class="pl-c1">2</span>))) <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-k">^</span><span class="pl-c1">a-zA-Z0-9</span>]</span><span class="pl-pds">/</span></span>.<span class="pl-c1">test</span>(<span class="pl-smi">val</span>.<span class="pl-c1">substr</span>(<span class="pl-c1">0</span>, <span class="pl-c1">1</span>))) <span class="pl-k">&amp;&amp;</span> <span class="pl-k">!</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-k">^</span><span class="pl-c1">a-zA-Z0-9</span><span class="pl-cce">\.\-</span>]</span><span class="pl-pds">/</span></span>.<span class="pl-c1">test</span>(val)) <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L1797" class="blob-num js-line-number" data-line-number="1797"></td>
-        <td id="LC1797" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">val</span>.<span class="pl-c1">split</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>..<span class="pl-pds">&#39;</span></span>).<span class="pl-c1">length</span> <span class="pl-k">===</span> <span class="pl-c1">1</span> <span class="pl-k">&amp;&amp;</span></td>
-      </tr>
-      <tr>
-        <td id="L1798" class="blob-num js-line-number" data-line-number="1798"></td>
-        <td id="LC1798" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">val</span>.<span class="pl-c1">split</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span>).<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">1</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1799" class="blob-num js-line-number" data-line-number="1799"></td>
-        <td id="LC1799" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1800" class="blob-num js-line-number" data-line-number="1800"></td>
-        <td id="LC1800" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1801" class="blob-num js-line-number" data-line-number="1801"></td>
-        <td id="LC1801" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>badDomain<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1802" class="blob-num js-line-number" data-line-number="1802"></td>
-        <td id="LC1802" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1803" class="blob-num js-line-number" data-line-number="1803"></td>
-        <td id="LC1803" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1804" class="blob-num js-line-number" data-line-number="1804"></td>
-        <td id="LC1804" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1805" class="blob-num js-line-number" data-line-number="1805"></td>
-        <td id="LC1805" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate required</span></td>
-      </tr>
-      <tr>
-        <td id="L1806" class="blob-num js-line-number" data-line-number="1806"></td>
-        <td id="LC1806" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1807" class="blob-num js-line-number" data-line-number="1807"></td>
-        <td id="LC1807" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1808" class="blob-num js-line-number" data-line-number="1808"></td>
-        <td id="LC1808" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>required<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1809" class="blob-num js-line-number" data-line-number="1809"></td>
-        <td id="LC1809" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">$el</span>, <span class="pl-smi">config</span>, <span class="pl-smi">language</span>, <span class="pl-smi">$form</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1810" class="blob-num js-line-number" data-line-number="1810"></td>
-        <td id="LC1810" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">switch</span> (<span class="pl-smi">$el</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>type<span class="pl-pds">&#39;</span></span>)) {</td>
-      </tr>
-      <tr>
-        <td id="L1811" class="blob-num js-line-number" data-line-number="1811"></td>
-        <td id="LC1811" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>checkbox<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L1812" class="blob-num js-line-number" data-line-number="1812"></td>
-        <td id="LC1812" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-smi">$el</span>.<span class="pl-en">is</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:checked<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1813" class="blob-num js-line-number" data-line-number="1813"></td>
-        <td id="LC1813" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>radio<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L1814" class="blob-num js-line-number" data-line-number="1814"></td>
-        <td id="LC1814" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-smi">$form</span>.<span class="pl-c1">find</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>input[name=&quot;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">$el</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>name<span class="pl-pds">&#39;</span></span>) <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&quot;]<span class="pl-pds">&#39;</span></span>).<span class="pl-en">filter</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:checked<span class="pl-pds">&#39;</span></span>).<span class="pl-c1">length</span> <span class="pl-k">&gt;</span> <span class="pl-c1">0</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1815" class="blob-num js-line-number" data-line-number="1815"></td>
-        <td id="LC1815" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">default</span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L1816" class="blob-num js-line-number" data-line-number="1816"></td>
-        <td id="LC1816" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-smi">$</span>.<span class="pl-en">trim</span>(val) <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1817" class="blob-num js-line-number" data-line-number="1817"></td>
-        <td id="LC1817" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1818" class="blob-num js-line-number" data-line-number="1818"></td>
-        <td id="LC1818" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1819" class="blob-num js-line-number" data-line-number="1819"></td>
-        <td id="LC1819" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1820" class="blob-num js-line-number" data-line-number="1820"></td>
-        <td id="LC1820" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">errorMessageKey</span><span class="pl-k">:</span> <span class="pl-k">function</span>(<span class="pl-smi">config</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1821" class="blob-num js-line-number" data-line-number="1821"></td>
-        <td id="LC1821" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">config</span>.<span class="pl-smi">errorMessagePosition</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>top<span class="pl-pds">&#39;</span></span> <span class="pl-k">||</span> <span class="pl-k">typeof</span> <span class="pl-smi">config</span>.<span class="pl-smi">errorMessagePosition</span> <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>function<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1822" class="blob-num js-line-number" data-line-number="1822"></td>
-        <td id="LC1822" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">&#39;</span>requiredFields<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1823" class="blob-num js-line-number" data-line-number="1823"></td>
-        <td id="LC1823" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1824" class="blob-num js-line-number" data-line-number="1824"></td>
-        <td id="LC1824" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L1825" class="blob-num js-line-number" data-line-number="1825"></td>
-        <td id="LC1825" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">&#39;</span>requiredField<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1826" class="blob-num js-line-number" data-line-number="1826"></td>
-        <td id="LC1826" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1827" class="blob-num js-line-number" data-line-number="1827"></td>
-        <td id="LC1827" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L1828" class="blob-num js-line-number" data-line-number="1828"></td>
-        <td id="LC1828" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1829" class="blob-num js-line-number" data-line-number="1829"></td>
-        <td id="LC1829" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1830" class="blob-num js-line-number" data-line-number="1830"></td>
-        <td id="LC1830" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1831" class="blob-num js-line-number" data-line-number="1831"></td>
-        <td id="LC1831" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate length range</span></td>
-      </tr>
-      <tr>
-        <td id="L1832" class="blob-num js-line-number" data-line-number="1832"></td>
-        <td id="LC1832" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1833" class="blob-num js-line-number" data-line-number="1833"></td>
-        <td id="LC1833" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1834" class="blob-num js-line-number" data-line-number="1834"></td>
-        <td id="LC1834" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>length<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1835" class="blob-num js-line-number" data-line-number="1835"></td>
-        <td id="LC1835" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">$el</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">lang</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1836" class="blob-num js-line-number" data-line-number="1836"></td>
-        <td id="LC1836" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> lengthAllowed <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>length<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L1837" class="blob-num js-line-number" data-line-number="1837"></td>
-        <td id="LC1837" class="blob-code blob-code-inner js-file-line">        type <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>type<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1838" class="blob-num js-line-number" data-line-number="1838"></td>
-        <td id="LC1838" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1839" class="blob-num js-line-number" data-line-number="1839"></td>
-        <td id="LC1839" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (lengthAllowed <span class="pl-k">===</span> <span class="pl-c1">undefined</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1840" class="blob-num js-line-number" data-line-number="1840"></td>
-        <td id="LC1840" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Please add attribute &quot;data-validation-length&quot; to <span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> $el[<span class="pl-c1">0</span>].<span class="pl-c1">nodeName</span> <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span> named <span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">$el</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>name<span class="pl-pds">&#39;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L1841" class="blob-num js-line-number" data-line-number="1841"></td>
-        <td id="LC1841" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1842" class="blob-num js-line-number" data-line-number="1842"></td>
-        <td id="LC1842" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1843" class="blob-num js-line-number" data-line-number="1843"></td>
-        <td id="LC1843" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1844" class="blob-num js-line-number" data-line-number="1844"></td>
-        <td id="LC1844" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// check if length is above min, below max or within range.</span></td>
-      </tr>
-      <tr>
-        <td id="L1845" class="blob-num js-line-number" data-line-number="1845"></td>
-        <td id="LC1845" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> len <span class="pl-k">=</span> type <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>file<span class="pl-pds">&#39;</span></span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">$el</span>.<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span> <span class="pl-k">!==</span> <span class="pl-c1">undefined</span> <span class="pl-k">?</span> <span class="pl-smi">$el</span>.<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-smi">files</span>.<span class="pl-c1">length</span> <span class="pl-k">:</span> <span class="pl-smi">val</span>.<span class="pl-c1">length</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1846" class="blob-num js-line-number" data-line-number="1846"></td>
-        <td id="LC1846" class="blob-code blob-code-inner js-file-line">        lengthCheckResults <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">numericRangeCheck</span>(len, lengthAllowed),</td>
-      </tr>
-      <tr>
-        <td id="L1847" class="blob-num js-line-number" data-line-number="1847"></td>
-        <td id="LC1847" class="blob-code blob-code-inner js-file-line">        checkResult;</td>
-      </tr>
-      <tr>
-        <td id="L1848" class="blob-num js-line-number" data-line-number="1848"></td>
-        <td id="LC1848" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1849" class="blob-num js-line-number" data-line-number="1849"></td>
-        <td id="LC1849" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">switch</span> (lengthCheckResults[<span class="pl-c1">0</span>]) {   <span class="pl-c">// outside of allowed range</span></td>
-      </tr>
-      <tr>
-        <td id="L1850" class="blob-num js-line-number" data-line-number="1850"></td>
-        <td id="LC1850" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>out<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L1851" class="blob-num js-line-number" data-line-number="1851"></td>
-        <td id="LC1851" class="blob-code blob-code-inner js-file-line">          <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">lang</span>.<span class="pl-smi">lengthBadStart</span> <span class="pl-k">+</span> lengthAllowed <span class="pl-k">+</span> <span class="pl-smi">lang</span>.<span class="pl-smi">lengthBadEnd</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1852" class="blob-num js-line-number" data-line-number="1852"></td>
-        <td id="LC1852" class="blob-code blob-code-inner js-file-line">          checkResult <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1853" class="blob-num js-line-number" data-line-number="1853"></td>
-        <td id="LC1853" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">break</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1854" class="blob-num js-line-number" data-line-number="1854"></td>
-        <td id="LC1854" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// too short</span></td>
-      </tr>
-      <tr>
-        <td id="L1855" class="blob-num js-line-number" data-line-number="1855"></td>
-        <td id="LC1855" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>min<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L1856" class="blob-num js-line-number" data-line-number="1856"></td>
-        <td id="LC1856" class="blob-code blob-code-inner js-file-line">          <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">lang</span>.<span class="pl-smi">lengthTooShortStart</span> <span class="pl-k">+</span> lengthCheckResults[<span class="pl-c1">1</span>] <span class="pl-k">+</span> <span class="pl-smi">lang</span>.<span class="pl-smi">lengthBadEnd</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1857" class="blob-num js-line-number" data-line-number="1857"></td>
-        <td id="LC1857" class="blob-code blob-code-inner js-file-line">          checkResult <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1858" class="blob-num js-line-number" data-line-number="1858"></td>
-        <td id="LC1858" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">break</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1859" class="blob-num js-line-number" data-line-number="1859"></td>
-        <td id="LC1859" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// too long</span></td>
-      </tr>
-      <tr>
-        <td id="L1860" class="blob-num js-line-number" data-line-number="1860"></td>
-        <td id="LC1860" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>max<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L1861" class="blob-num js-line-number" data-line-number="1861"></td>
-        <td id="LC1861" class="blob-code blob-code-inner js-file-line">          <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">lang</span>.<span class="pl-smi">lengthTooLongStart</span> <span class="pl-k">+</span> lengthCheckResults[<span class="pl-c1">1</span>] <span class="pl-k">+</span> <span class="pl-smi">lang</span>.<span class="pl-smi">lengthBadEnd</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1862" class="blob-num js-line-number" data-line-number="1862"></td>
-        <td id="LC1862" class="blob-code blob-code-inner js-file-line">          checkResult <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1863" class="blob-num js-line-number" data-line-number="1863"></td>
-        <td id="LC1863" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">break</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1864" class="blob-num js-line-number" data-line-number="1864"></td>
-        <td id="LC1864" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// ok</span></td>
-      </tr>
-      <tr>
-        <td id="L1865" class="blob-num js-line-number" data-line-number="1865"></td>
-        <td id="LC1865" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">default</span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L1866" class="blob-num js-line-number" data-line-number="1866"></td>
-        <td id="LC1866" class="blob-code blob-code-inner js-file-line">          checkResult <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1867" class="blob-num js-line-number" data-line-number="1867"></td>
-        <td id="LC1867" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1868" class="blob-num js-line-number" data-line-number="1868"></td>
-        <td id="LC1868" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1869" class="blob-num js-line-number" data-line-number="1869"></td>
-        <td id="LC1869" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> checkResult;</td>
-      </tr>
-      <tr>
-        <td id="L1870" class="blob-num js-line-number" data-line-number="1870"></td>
-        <td id="LC1870" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1871" class="blob-num js-line-number" data-line-number="1871"></td>
-        <td id="LC1871" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1872" class="blob-num js-line-number" data-line-number="1872"></td>
-        <td id="LC1872" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1873" class="blob-num js-line-number" data-line-number="1873"></td>
-        <td id="LC1873" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1874" class="blob-num js-line-number" data-line-number="1874"></td>
-        <td id="LC1874" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1875" class="blob-num js-line-number" data-line-number="1875"></td>
-        <td id="LC1875" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1876" class="blob-num js-line-number" data-line-number="1876"></td>
-        <td id="LC1876" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate url</span></td>
-      </tr>
-      <tr>
-        <td id="L1877" class="blob-num js-line-number" data-line-number="1877"></td>
-        <td id="LC1877" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1878" class="blob-num js-line-number" data-line-number="1878"></td>
-        <td id="LC1878" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1879" class="blob-num js-line-number" data-line-number="1879"></td>
-        <td id="LC1879" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>url<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1880" class="blob-num js-line-number" data-line-number="1880"></td>
-        <td id="LC1880" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">url</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1881" class="blob-num js-line-number" data-line-number="1881"></td>
-        <td id="LC1881" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// written by Scott Gonzalez: http://projects.scottsplayground.com/iri/</span></td>
-      </tr>
-      <tr>
-        <td id="L1882" class="blob-num js-line-number" data-line-number="1882"></td>
-        <td id="LC1882" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// - Victor Jonsson added support for arrays in the url ?arg[]=sdfsdf</span></td>
-      </tr>
-      <tr>
-        <td id="L1883" class="blob-num js-line-number" data-line-number="1883"></td>
-        <td id="LC1883" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// - General improvements made by Stéphane Moureau &lt;https://github.com/TraderStf&gt;</span></td>
-      </tr>
-      <tr>
-        <td id="L1884" class="blob-num js-line-number" data-line-number="1884"></td>
-        <td id="LC1884" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1885" class="blob-num js-line-number" data-line-number="1885"></td>
-        <td id="LC1885" class="blob-code blob-code-inner js-file-line">      var urlFilter = /^(https?|ftp):\/\/((((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#39;\(\)\*\+,;=]|:)*@)?(((\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5])\.(\d|[1-9]\d|1\d\d|2[0-4]\d|25[0-5]))|((([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])(\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|\d|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.)+(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])(\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])*([a-z]|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])))\.?)(:\d*)?)(\/(((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#39;\(\)\*\+,;=]|:|@)+(\/((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#39;\(\)\*\+,;=]|:|@)*)*)?)?(\?((([a-z]|\d|\[|\]|-|\.|_|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#39;\(\)\*\+,;=]|:|@)|[\uE000-\uF8FF]|\/|\?)*)?(\#(((\w|-|\.|~|[\u00A0-\uD7FF\uF900-\uFDCF\uFDF0-\uFFEF])|(%[\da-f]{2})|[!\$&amp;&#39;\(\)\*\+,;=]|:|@)|\/|\?)*)?$/i;</td>
-      </tr>
-      <tr>
-        <td id="L1886" class="blob-num js-line-number" data-line-number="1886"></td>
-        <td id="LC1886" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">urlFilter</span>.<span class="pl-c1">test</span>(url)) {</td>
-      </tr>
-      <tr>
-        <td id="L1887" class="blob-num js-line-number" data-line-number="1887"></td>
-        <td id="LC1887" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> domain <span class="pl-k">=</span> <span class="pl-smi">url</span>.<span class="pl-c1">split</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>://<span class="pl-pds">&#39;</span></span>)[<span class="pl-c1">1</span>],</td>
-      </tr>
-      <tr>
-        <td id="L1888" class="blob-num js-line-number" data-line-number="1888"></td>
-        <td id="LC1888" class="blob-code blob-code-inner js-file-line">          domainSlashPos <span class="pl-k">=</span> <span class="pl-smi">domain</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>/<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1889" class="blob-num js-line-number" data-line-number="1889"></td>
-        <td id="LC1889" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1890" class="blob-num js-line-number" data-line-number="1890"></td>
-        <td id="LC1890" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (domainSlashPos <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1891" class="blob-num js-line-number" data-line-number="1891"></td>
-        <td id="LC1891" class="blob-code blob-code-inner js-file-line">          domain <span class="pl-k">=</span> <span class="pl-smi">domain</span>.<span class="pl-c1">substr</span>(<span class="pl-c1">0</span>, domainSlashPos);</td>
-      </tr>
-      <tr>
-        <td id="L1892" class="blob-num js-line-number" data-line-number="1892"></td>
-        <td id="LC1892" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1893" class="blob-num js-line-number" data-line-number="1893"></td>
-        <td id="LC1893" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1894" class="blob-num js-line-number" data-line-number="1894"></td>
-        <td id="LC1894" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-smi">validators</span>.<span class="pl-smi">validate_domain</span>.<span class="pl-en">validatorFunction</span>(domain); <span class="pl-c">// todo: add support for IP-addresses</span></td>
-      </tr>
-      <tr>
-        <td id="L1895" class="blob-num js-line-number" data-line-number="1895"></td>
-        <td id="LC1895" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1896" class="blob-num js-line-number" data-line-number="1896"></td>
-        <td id="LC1896" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1897" class="blob-num js-line-number" data-line-number="1897"></td>
-        <td id="LC1897" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1898" class="blob-num js-line-number" data-line-number="1898"></td>
-        <td id="LC1898" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1899" class="blob-num js-line-number" data-line-number="1899"></td>
-        <td id="LC1899" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>badUrl<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1900" class="blob-num js-line-number" data-line-number="1900"></td>
-        <td id="LC1900" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1901" class="blob-num js-line-number" data-line-number="1901"></td>
-        <td id="LC1901" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1902" class="blob-num js-line-number" data-line-number="1902"></td>
-        <td id="LC1902" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1903" class="blob-num js-line-number" data-line-number="1903"></td>
-        <td id="LC1903" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate youtube</span></td>
-      </tr>
-      <tr>
-        <td id="L1904" class="blob-num js-line-number" data-line-number="1904"></td>
-        <td id="LC1904" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1905" class="blob-num js-line-number" data-line-number="1905"></td>
-        <td id="LC1905" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1906" class="blob-num js-line-number" data-line-number="1906"></td>
-        <td id="LC1906" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>youtube<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1907" class="blob-num js-line-number" data-line-number="1907"></td>
-        <td id="LC1907" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">url</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1908" class="blob-num js-line-number" data-line-number="1908"></td>
-        <td id="LC1908" class="blob-code blob-code-inner js-file-line">      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>hello<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1909" class="blob-num js-line-number" data-line-number="1909"></td>
-        <td id="LC1909" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> youtubeFilter <span class="pl-k">=</span><span class="pl-sr"> <span class="pl-pds">/</span><span class="pl-k">^</span>(https<span class="pl-k">?</span><span class="pl-cce">\:\/\/</span>)<span class="pl-k">?</span>(www<span class="pl-cce">\.</span>)<span class="pl-k">?</span>(youtube<span class="pl-cce">\.</span>com<span class="pl-k">|</span>youtu<span class="pl-cce">\.</span><span class="pl-k">?</span>be)<span class="pl-cce">\/</span><span class="pl-c1">.</span><span class="pl-k">+</span><span class="pl-k">$</span><span class="pl-pds">/</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1910" class="blob-num js-line-number" data-line-number="1910"></td>
-        <td id="LC1910" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">//var youtubeFilter = /^.*((youtu.be/)|(v/)|(/u/w/)|(embed/)|(watch?))??v?=?([^#&amp;?]*).*/;</span></td>
-      </tr>
-      <tr>
-        <td id="L1911" class="blob-num js-line-number" data-line-number="1911"></td>
-        <td id="LC1911" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (<span class="pl-smi">youtubeFilter</span>.<span class="pl-c1">test</span>(url)) {</td>
-      </tr>
-      <tr>
-        <td id="L1912" class="blob-num js-line-number" data-line-number="1912"></td>
-        <td id="LC1912" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>youtube validate worked<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1913" class="blob-num js-line-number" data-line-number="1913"></td>
-        <td id="LC1913" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1914" class="blob-num js-line-number" data-line-number="1914"></td>
-        <td id="LC1914" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1915" class="blob-num js-line-number" data-line-number="1915"></td>
-        <td id="LC1915" class="blob-code blob-code-inner js-file-line">      <span class="pl-en">console</span>.<span class="pl-c1">log</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>youtube validate did not work<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1916" class="blob-num js-line-number" data-line-number="1916"></td>
-        <td id="LC1916" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1917" class="blob-num js-line-number" data-line-number="1917"></td>
-        <td id="LC1917" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1918" class="blob-num js-line-number" data-line-number="1918"></td>
-        <td id="LC1918" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>incorrect link<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1919" class="blob-num js-line-number" data-line-number="1919"></td>
-        <td id="LC1919" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>badUrl<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1920" class="blob-num js-line-number" data-line-number="1920"></td>
-        <td id="LC1920" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1921" class="blob-num js-line-number" data-line-number="1921"></td>
-        <td id="LC1921" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1922" class="blob-num js-line-number" data-line-number="1922"></td>
-        <td id="LC1922" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1923" class="blob-num js-line-number" data-line-number="1923"></td>
-        <td id="LC1923" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate number (floating or integer)</span></td>
-      </tr>
-      <tr>
-        <td id="L1924" class="blob-num js-line-number" data-line-number="1924"></td>
-        <td id="LC1924" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1925" class="blob-num js-line-number" data-line-number="1925"></td>
-        <td id="LC1925" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1926" class="blob-num js-line-number" data-line-number="1926"></td>
-        <td id="LC1926" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>number<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1927" class="blob-num js-line-number" data-line-number="1927"></td>
-        <td id="LC1927" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">$el</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1928" class="blob-num js-line-number" data-line-number="1928"></td>
-        <td id="LC1928" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (val <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1929" class="blob-num js-line-number" data-line-number="1929"></td>
-        <td id="LC1929" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> allowing <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>allowing<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1930" class="blob-num js-line-number" data-line-number="1930"></td>
-        <td id="LC1930" class="blob-code blob-code-inner js-file-line">          decimalSeparator <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>decimal-separator<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span> <span class="pl-smi">conf</span>.<span class="pl-smi">decimalSeparator</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1931" class="blob-num js-line-number" data-line-number="1931"></td>
-        <td id="LC1931" class="blob-code blob-code-inner js-file-line">          allowsRange <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1932" class="blob-num js-line-number" data-line-number="1932"></td>
-        <td id="LC1932" class="blob-code blob-code-inner js-file-line">          begin, end,</td>
-      </tr>
-      <tr>
-        <td id="L1933" class="blob-num js-line-number" data-line-number="1933"></td>
-        <td id="LC1933" class="blob-code blob-code-inner js-file-line">          steps <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>step<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1934" class="blob-num js-line-number" data-line-number="1934"></td>
-        <td id="LC1934" class="blob-code blob-code-inner js-file-line">          allowsSteps <span class="pl-k">=</span> <span class="pl-c1">false</span>,</td>
-      </tr>
-      <tr>
-        <td id="L1935" class="blob-num js-line-number" data-line-number="1935"></td>
-        <td id="LC1935" class="blob-code blob-code-inner js-file-line">          sanitize <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>data-sanitize<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1936" class="blob-num js-line-number" data-line-number="1936"></td>
-        <td id="LC1936" class="blob-code blob-code-inner js-file-line">          isFormattedWithNumeral <span class="pl-k">=</span> <span class="pl-smi">sanitize</span>.<span class="pl-c1">match</span>(<span class="pl-sr"><span class="pl-pds">/</span>(<span class="pl-k">^</span><span class="pl-k">|</span><span class="pl-c1">[<span class="pl-c1">\s</span>]</span>)numberFormat(<span class="pl-c1">[<span class="pl-c1">\s</span>]</span><span class="pl-k">|</span><span class="pl-k">$</span>)<span class="pl-pds">/</span>i</span>);</td>
-      </tr>
-      <tr>
-        <td id="L1937" class="blob-num js-line-number" data-line-number="1937"></td>
-        <td id="LC1937" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1938" class="blob-num js-line-number" data-line-number="1938"></td>
-        <td id="LC1938" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (isFormattedWithNumeral) {</td>
-      </tr>
-      <tr>
-        <td id="L1939" class="blob-num js-line-number" data-line-number="1939"></td>
-        <td id="LC1939" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-k">!</span><span class="pl-c1">window</span>.<span class="pl-smi">numeral</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1940" class="blob-num js-line-number" data-line-number="1940"></td>
-        <td id="LC1940" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">throw</span> <span class="pl-k">new</span> <span class="pl-en">ReferenceError</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>The data-sanitize value numberFormat cannot be used without the numeral<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span></td>
-      </tr>
-      <tr>
-        <td id="L1941" class="blob-num js-line-number" data-line-number="1941"></td>
-        <td id="LC1941" class="blob-code blob-code-inner js-file-line">              <span class="pl-s"><span class="pl-pds">&#39;</span> library. Please see Data Validation in http://www.formvalidator.net for more information.<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1942" class="blob-num js-line-number" data-line-number="1942"></td>
-        <td id="LC1942" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1943" class="blob-num js-line-number" data-line-number="1943"></td>
-        <td id="LC1943" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">//Unformat input first, then convert back to String</span></td>
-      </tr>
-      <tr>
-        <td id="L1944" class="blob-num js-line-number" data-line-number="1944"></td>
-        <td id="LC1944" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-smi">val</span>.<span class="pl-c1">length</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1945" class="blob-num js-line-number" data-line-number="1945"></td>
-        <td id="LC1945" class="blob-code blob-code-inner js-file-line">            val <span class="pl-k">=</span> <span class="pl-c1">String</span>(<span class="pl-en">numeral</span>().<span class="pl-en">unformat</span>(val));</td>
-      </tr>
-      <tr>
-        <td id="L1946" class="blob-num js-line-number" data-line-number="1946"></td>
-        <td id="LC1946" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1947" class="blob-num js-line-number" data-line-number="1947"></td>
-        <td id="LC1947" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1948" class="blob-num js-line-number" data-line-number="1948"></td>
-        <td id="LC1948" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1949" class="blob-num js-line-number" data-line-number="1949"></td>
-        <td id="LC1949" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>number<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1950" class="blob-num js-line-number" data-line-number="1950"></td>
-        <td id="LC1950" class="blob-code blob-code-inner js-file-line">          allowing <span class="pl-k">+=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>,number<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1951" class="blob-num js-line-number" data-line-number="1951"></td>
-        <td id="LC1951" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1952" class="blob-num js-line-number" data-line-number="1952"></td>
-        <td id="LC1952" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1953" class="blob-num js-line-number" data-line-number="1953"></td>
-        <td id="LC1953" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>negative<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-k">-</span><span class="pl-c1">1</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">val</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>-<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-c1">0</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1954" class="blob-num js-line-number" data-line-number="1954"></td>
-        <td id="LC1954" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1955" class="blob-num js-line-number" data-line-number="1955"></td>
-        <td id="LC1955" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1956" class="blob-num js-line-number" data-line-number="1956"></td>
-        <td id="LC1956" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1957" class="blob-num js-line-number" data-line-number="1957"></td>
-        <td id="LC1957" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>range<span class="pl-pds">&#39;</span></span>) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1958" class="blob-num js-line-number" data-line-number="1958"></td>
-        <td id="LC1958" class="blob-code blob-code-inner js-file-line">          begin <span class="pl-k">=</span> <span class="pl-c1">parseFloat</span>(<span class="pl-smi">allowing</span>.<span class="pl-c1">substring</span>(<span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>[<span class="pl-pds">&#39;</span></span>) <span class="pl-k">+</span> <span class="pl-c1">1</span>, <span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>;<span class="pl-pds">&#39;</span></span>)));</td>
-      </tr>
-      <tr>
-        <td id="L1959" class="blob-num js-line-number" data-line-number="1959"></td>
-        <td id="LC1959" class="blob-code blob-code-inner js-file-line">          end <span class="pl-k">=</span> <span class="pl-c1">parseFloat</span>(<span class="pl-smi">allowing</span>.<span class="pl-c1">substring</span>(<span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>;<span class="pl-pds">&#39;</span></span>) <span class="pl-k">+</span> <span class="pl-c1">1</span>, <span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>]<span class="pl-pds">&#39;</span></span>)));</td>
-      </tr>
-      <tr>
-        <td id="L1960" class="blob-num js-line-number" data-line-number="1960"></td>
-        <td id="LC1960" class="blob-code blob-code-inner js-file-line">          allowsRange <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1961" class="blob-num js-line-number" data-line-number="1961"></td>
-        <td id="LC1961" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1962" class="blob-num js-line-number" data-line-number="1962"></td>
-        <td id="LC1962" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1963" class="blob-num js-line-number" data-line-number="1963"></td>
-        <td id="LC1963" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (steps <span class="pl-k">!==</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1964" class="blob-num js-line-number" data-line-number="1964"></td>
-        <td id="LC1964" class="blob-code blob-code-inner js-file-line">          allowsSteps <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1965" class="blob-num js-line-number" data-line-number="1965"></td>
-        <td id="LC1965" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1966" class="blob-num js-line-number" data-line-number="1966"></td>
-        <td id="LC1966" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1967" class="blob-num js-line-number" data-line-number="1967"></td>
-        <td id="LC1967" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (decimalSeparator <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>,<span class="pl-pds">&#39;</span></span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1968" class="blob-num js-line-number" data-line-number="1968"></td>
-        <td id="LC1968" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">if</span> (<span class="pl-smi">val</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span>) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1969" class="blob-num js-line-number" data-line-number="1969"></td>
-        <td id="LC1969" class="blob-code blob-code-inner js-file-line">            <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1970" class="blob-num js-line-number" data-line-number="1970"></td>
-        <td id="LC1970" class="blob-code blob-code-inner js-file-line">          }</td>
-      </tr>
-      <tr>
-        <td id="L1971" class="blob-num js-line-number" data-line-number="1971"></td>
-        <td id="LC1971" class="blob-code blob-code-inner js-file-line">          <span class="pl-c">// Fix for checking range with floats using ,</span></td>
-      </tr>
-      <tr>
-        <td id="L1972" class="blob-num js-line-number" data-line-number="1972"></td>
-        <td id="LC1972" class="blob-code blob-code-inner js-file-line">          val <span class="pl-k">=</span> <span class="pl-smi">val</span>.<span class="pl-c1">replace</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>,<span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span>.<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L1973" class="blob-num js-line-number" data-line-number="1973"></td>
-        <td id="LC1973" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1974" class="blob-num js-line-number" data-line-number="1974"></td>
-        <td id="LC1974" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">val</span>.<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-c1">[<span class="pl-c1">0-9</span>-]</span><span class="pl-pds">/</span>g</span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span> <span class="pl-k">&amp;&amp;</span> (<span class="pl-k">!</span>allowsRange <span class="pl-k">||</span> (val <span class="pl-k">&gt;=</span> begin <span class="pl-k">&amp;&amp;</span> val <span class="pl-k">&lt;=</span> end)) <span class="pl-k">&amp;&amp;</span> (<span class="pl-k">!</span>allowsSteps <span class="pl-k">||</span> (val <span class="pl-k">%</span> steps <span class="pl-k">===</span> <span class="pl-c1">0</span>))) {</td>
-      </tr>
-      <tr>
-        <td id="L1975" class="blob-num js-line-number" data-line-number="1975"></td>
-        <td id="LC1975" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1976" class="blob-num js-line-number" data-line-number="1976"></td>
-        <td id="LC1976" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1977" class="blob-num js-line-number" data-line-number="1977"></td>
-        <td id="LC1977" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1978" class="blob-num js-line-number" data-line-number="1978"></td>
-        <td id="LC1978" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">allowing</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>float<span class="pl-pds">&#39;</span></span>) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span> <span class="pl-k">&amp;&amp;</span> <span class="pl-smi">val</span>.<span class="pl-c1">match</span>(<span class="pl-k">new</span> <span class="pl-en">RegExp</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>^([0-9-]+)<span class="pl-cce">\\</span>.([0-9]+)$<span class="pl-pds">&#39;</span></span>)) <span class="pl-k">!==</span> <span class="pl-c1">null</span> <span class="pl-k">&amp;&amp;</span> (<span class="pl-k">!</span>allowsRange <span class="pl-k">||</span> (val <span class="pl-k">&gt;=</span> begin <span class="pl-k">&amp;&amp;</span> val <span class="pl-k">&lt;=</span> end)) <span class="pl-k">&amp;&amp;</span> (<span class="pl-k">!</span>allowsSteps <span class="pl-k">||</span> (val <span class="pl-k">%</span> steps <span class="pl-k">===</span> <span class="pl-c1">0</span>))) {</td>
-      </tr>
-      <tr>
-        <td id="L1979" class="blob-num js-line-number" data-line-number="1979"></td>
-        <td id="LC1979" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">return</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1980" class="blob-num js-line-number" data-line-number="1980"></td>
-        <td id="LC1980" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L1981" class="blob-num js-line-number" data-line-number="1981"></td>
-        <td id="LC1981" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L1982" class="blob-num js-line-number" data-line-number="1982"></td>
-        <td id="LC1982" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L1983" class="blob-num js-line-number" data-line-number="1983"></td>
-        <td id="LC1983" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L1984" class="blob-num js-line-number" data-line-number="1984"></td>
-        <td id="LC1984" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1985" class="blob-num js-line-number" data-line-number="1985"></td>
-        <td id="LC1985" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>badInt<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L1986" class="blob-num js-line-number" data-line-number="1986"></td>
-        <td id="LC1986" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L1987" class="blob-num js-line-number" data-line-number="1987"></td>
-        <td id="LC1987" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1988" class="blob-num js-line-number" data-line-number="1988"></td>
-        <td id="LC1988" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L1989" class="blob-num js-line-number" data-line-number="1989"></td>
-        <td id="LC1989" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate alpha numeric</span></td>
-      </tr>
-      <tr>
-        <td id="L1990" class="blob-num js-line-number" data-line-number="1990"></td>
-        <td id="LC1990" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L1991" class="blob-num js-line-number" data-line-number="1991"></td>
-        <td id="LC1991" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L1992" class="blob-num js-line-number" data-line-number="1992"></td>
-        <td id="LC1992" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>alphanumeric<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1993" class="blob-num js-line-number" data-line-number="1993"></td>
-        <td id="LC1993" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">$el</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">language</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L1994" class="blob-num js-line-number" data-line-number="1994"></td>
-        <td id="LC1994" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> patternStart <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>^([a-zA-Z0-9<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1995" class="blob-num js-line-number" data-line-number="1995"></td>
-        <td id="LC1995" class="blob-code blob-code-inner js-file-line">        patternEnd <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span>]+)$<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L1996" class="blob-num js-line-number" data-line-number="1996"></td>
-        <td id="LC1996" class="blob-code blob-code-inner js-file-line">        additionalChars <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>allowing<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L1997" class="blob-num js-line-number" data-line-number="1997"></td>
-        <td id="LC1997" class="blob-code blob-code-inner js-file-line">        pattern <span class="pl-k">=</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L1998" class="blob-num js-line-number" data-line-number="1998"></td>
-        <td id="LC1998" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L1999" class="blob-num js-line-number" data-line-number="1999"></td>
-        <td id="LC1999" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (additionalChars) {</td>
-      </tr>
-      <tr>
-        <td id="L2000" class="blob-num js-line-number" data-line-number="2000"></td>
-        <td id="LC2000" class="blob-code blob-code-inner js-file-line">        pattern <span class="pl-k">=</span> patternStart <span class="pl-k">+</span> additionalChars <span class="pl-k">+</span> patternEnd;</td>
-      </tr>
-      <tr>
-        <td id="L2001" class="blob-num js-line-number" data-line-number="2001"></td>
-        <td id="LC2001" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> extra <span class="pl-k">=</span> <span class="pl-smi">additionalChars</span>.<span class="pl-c1">replace</span>(<span class="pl-sr"><span class="pl-pds">/</span><span class="pl-cce">\\</span><span class="pl-pds">/</span>g</span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L2002" class="blob-num js-line-number" data-line-number="2002"></td>
-        <td id="LC2002" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">if</span> (<span class="pl-smi">extra</span>.<span class="pl-c1">indexOf</span>(<span class="pl-s"><span class="pl-pds">&#39;</span> <span class="pl-pds">&#39;</span></span>) <span class="pl-k">&gt;</span> <span class="pl-k">-</span><span class="pl-c1">1</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L2003" class="blob-num js-line-number" data-line-number="2003"></td>
-        <td id="LC2003" class="blob-code blob-code-inner js-file-line">          extra <span class="pl-k">=</span> <span class="pl-smi">extra</span>.<span class="pl-c1">replace</span>(<span class="pl-s"><span class="pl-pds">&#39;</span> <span class="pl-pds">&#39;</span></span>, <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L2004" class="blob-num js-line-number" data-line-number="2004"></td>
-        <td id="LC2004" class="blob-code blob-code-inner js-file-line">          extra <span class="pl-k">+=</span> <span class="pl-smi">language</span>.<span class="pl-smi">andSpaces</span> <span class="pl-k">||</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-c1">LANG</span>.<span class="pl-smi">andSpaces</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2005" class="blob-num js-line-number" data-line-number="2005"></td>
-        <td id="LC2005" class="blob-code blob-code-inner js-file-line">        }</td>
-      </tr>
-      <tr>
-        <td id="L2006" class="blob-num js-line-number" data-line-number="2006"></td>
-        <td id="LC2006" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">language</span>.<span class="pl-smi">badAlphaNumeric</span> <span class="pl-k">+</span> <span class="pl-smi">language</span>.<span class="pl-smi">badAlphaNumericExtra</span> <span class="pl-k">+</span> extra;</td>
-      </tr>
-      <tr>
-        <td id="L2007" class="blob-num js-line-number" data-line-number="2007"></td>
-        <td id="LC2007" class="blob-code blob-code-inner js-file-line">      } <span class="pl-k">else</span> {</td>
-      </tr>
-      <tr>
-        <td id="L2008" class="blob-num js-line-number" data-line-number="2008"></td>
-        <td id="LC2008" class="blob-code blob-code-inner js-file-line">        pattern <span class="pl-k">=</span> patternStart <span class="pl-k">+</span> patternEnd;</td>
-      </tr>
-      <tr>
-        <td id="L2009" class="blob-num js-line-number" data-line-number="2009"></td>
-        <td id="LC2009" class="blob-code blob-code-inner js-file-line">        <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">language</span>.<span class="pl-smi">badAlphaNumeric</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2010" class="blob-num js-line-number" data-line-number="2010"></td>
-        <td id="LC2010" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L2011" class="blob-num js-line-number" data-line-number="2011"></td>
-        <td id="LC2011" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2012" class="blob-num js-line-number" data-line-number="2012"></td>
-        <td id="LC2012" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-k">new</span> <span class="pl-en">RegExp</span>(pattern).<span class="pl-c1">test</span>(val);</td>
-      </tr>
-      <tr>
-        <td id="L2013" class="blob-num js-line-number" data-line-number="2013"></td>
-        <td id="LC2013" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L2014" class="blob-num js-line-number" data-line-number="2014"></td>
-        <td id="LC2014" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L2015" class="blob-num js-line-number" data-line-number="2015"></td>
-        <td id="LC2015" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L2016" class="blob-num js-line-number" data-line-number="2016"></td>
-        <td id="LC2016" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L2017" class="blob-num js-line-number" data-line-number="2017"></td>
-        <td id="LC2017" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2018" class="blob-num js-line-number" data-line-number="2018"></td>
-        <td id="LC2018" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L2019" class="blob-num js-line-number" data-line-number="2019"></td>
-        <td id="LC2019" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate against regexp</span></td>
-      </tr>
-      <tr>
-        <td id="L2020" class="blob-num js-line-number" data-line-number="2020"></td>
-        <td id="LC2020" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L2021" class="blob-num js-line-number" data-line-number="2021"></td>
-        <td id="LC2021" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L2022" class="blob-num js-line-number" data-line-number="2022"></td>
-        <td id="LC2022" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>custom<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L2023" class="blob-num js-line-number" data-line-number="2023"></td>
-        <td id="LC2023" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">$el</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L2024" class="blob-num js-line-number" data-line-number="2024"></td>
-        <td id="LC2024" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> regexp <span class="pl-k">=</span> <span class="pl-k">new</span> <span class="pl-en">RegExp</span>(<span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>regexp<span class="pl-pds">&#39;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L2025" class="blob-num js-line-number" data-line-number="2025"></td>
-        <td id="LC2025" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-smi">regexp</span>.<span class="pl-c1">test</span>(val);</td>
-      </tr>
-      <tr>
-        <td id="L2026" class="blob-num js-line-number" data-line-number="2026"></td>
-        <td id="LC2026" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L2027" class="blob-num js-line-number" data-line-number="2027"></td>
-        <td id="LC2027" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L2028" class="blob-num js-line-number" data-line-number="2028"></td>
-        <td id="LC2028" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>badCustomVal<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L2029" class="blob-num js-line-number" data-line-number="2029"></td>
-        <td id="LC2029" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L2030" class="blob-num js-line-number" data-line-number="2030"></td>
-        <td id="LC2030" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2031" class="blob-num js-line-number" data-line-number="2031"></td>
-        <td id="LC2031" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L2032" class="blob-num js-line-number" data-line-number="2032"></td>
-        <td id="LC2032" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate date</span></td>
-      </tr>
-      <tr>
-        <td id="L2033" class="blob-num js-line-number" data-line-number="2033"></td>
-        <td id="LC2033" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L2034" class="blob-num js-line-number" data-line-number="2034"></td>
-        <td id="LC2034" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L2035" class="blob-num js-line-number" data-line-number="2035"></td>
-        <td id="LC2035" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>date<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L2036" class="blob-num js-line-number" data-line-number="2036"></td>
-        <td id="LC2036" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">date</span>, <span class="pl-smi">$el</span>, <span class="pl-smi">conf</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L2037" class="blob-num js-line-number" data-line-number="2037"></td>
-        <td id="LC2037" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> dateFormat <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>format<span class="pl-pds">&#39;</span></span>) <span class="pl-k">||</span> <span class="pl-smi">conf</span>.<span class="pl-smi">dateFormat</span> <span class="pl-k">||</span> <span class="pl-s"><span class="pl-pds">&#39;</span>yyyy-mm-dd<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L2038" class="blob-num js-line-number" data-line-number="2038"></td>
-        <td id="LC2038" class="blob-code blob-code-inner js-file-line">        addMissingLeadingZeros <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>require-leading-zero<span class="pl-pds">&#39;</span></span>) <span class="pl-k">===</span> <span class="pl-s"><span class="pl-pds">&#39;</span>false<span class="pl-pds">&#39;</span></span>;</td>
-      </tr>
-      <tr>
-        <td id="L2039" class="blob-num js-line-number" data-line-number="2039"></td>
-        <td id="LC2039" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">parseDate</span>(date, dateFormat, addMissingLeadingZeros) <span class="pl-k">!==</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2040" class="blob-num js-line-number" data-line-number="2040"></td>
-        <td id="LC2040" class="blob-code blob-code-inner js-file-line">    },</td>
-      </tr>
-      <tr>
-        <td id="L2041" class="blob-num js-line-number" data-line-number="2041"></td>
-        <td id="LC2041" class="blob-code blob-code-inner js-file-line">    errorMessage<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span><span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L2042" class="blob-num js-line-number" data-line-number="2042"></td>
-        <td id="LC2042" class="blob-code blob-code-inner js-file-line">    errorMessageKey<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>badDate<span class="pl-pds">&#39;</span></span></td>
-      </tr>
-      <tr>
-        <td id="L2043" class="blob-num js-line-number" data-line-number="2043"></td>
-        <td id="LC2043" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L2044" class="blob-num js-line-number" data-line-number="2044"></td>
-        <td id="LC2044" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2045" class="blob-num js-line-number" data-line-number="2045"></td>
-        <td id="LC2045" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2046" class="blob-num js-line-number" data-line-number="2046"></td>
-        <td id="LC2046" class="blob-code blob-code-inner js-file-line">  <span class="pl-c">/*</span></td>
-      </tr>
-      <tr>
-        <td id="L2047" class="blob-num js-line-number" data-line-number="2047"></td>
-        <td id="LC2047" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * Validate group of checkboxes, validate qty required is checked</span></td>
-      </tr>
-      <tr>
-        <td id="L2048" class="blob-num js-line-number" data-line-number="2048"></td>
-        <td id="LC2048" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * written by Steve Wasiura : http://stevewasiura.waztech.com</span></td>
-      </tr>
-      <tr>
-        <td id="L2049" class="blob-num js-line-number" data-line-number="2049"></td>
-        <td id="LC2049" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   * element attrs</span></td>
-      </tr>
-      <tr>
-        <td id="L2050" class="blob-num js-line-number" data-line-number="2050"></td>
-        <td id="LC2050" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *    data-validation=&quot;checkbox_group&quot;</span></td>
-      </tr>
-      <tr>
-        <td id="L2051" class="blob-num js-line-number" data-line-number="2051"></td>
-        <td id="LC2051" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *    data-validation-qty=&quot;1-2&quot;  // min 1 max 2</span></td>
-      </tr>
-      <tr>
-        <td id="L2052" class="blob-num js-line-number" data-line-number="2052"></td>
-        <td id="LC2052" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   *    data-validation-error-msg=&quot;chose min 1, max of 2 checkboxes&quot;</span></td>
-      </tr>
-      <tr>
-        <td id="L2053" class="blob-num js-line-number" data-line-number="2053"></td>
-        <td id="LC2053" class="blob-code blob-code-inner js-file-line"><span class="pl-c">   */</span></td>
-      </tr>
-      <tr>
-        <td id="L2054" class="blob-num js-line-number" data-line-number="2054"></td>
-        <td id="LC2054" class="blob-code blob-code-inner js-file-line">  <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">addValidator</span>({</td>
-      </tr>
-      <tr>
-        <td id="L2055" class="blob-num js-line-number" data-line-number="2055"></td>
-        <td id="LC2055" class="blob-code blob-code-inner js-file-line">    name<span class="pl-k">:</span> <span class="pl-s"><span class="pl-pds">&#39;</span>checkbox_group<span class="pl-pds">&#39;</span></span>,</td>
-      </tr>
-      <tr>
-        <td id="L2056" class="blob-num js-line-number" data-line-number="2056"></td>
-        <td id="LC2056" class="blob-code blob-code-inner js-file-line">    <span class="pl-en">validatorFunction</span><span class="pl-k">:</span> <span class="pl-k">function</span> (<span class="pl-smi">val</span>, <span class="pl-smi">$el</span>, <span class="pl-smi">conf</span>, <span class="pl-smi">lang</span>, <span class="pl-smi">$form</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L2057" class="blob-num js-line-number" data-line-number="2057"></td>
-        <td id="LC2057" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// preset return var</span></td>
-      </tr>
-      <tr>
-        <td id="L2058" class="blob-num js-line-number" data-line-number="2058"></td>
-        <td id="LC2058" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> isValid <span class="pl-k">=</span> <span class="pl-c1">true</span>,</td>
-      </tr>
-      <tr>
-        <td id="L2059" class="blob-num js-line-number" data-line-number="2059"></td>
-        <td id="LC2059" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// get name of element. since it is a checkbox group, all checkboxes will have same name</span></td>
-      </tr>
-      <tr>
-        <td id="L2060" class="blob-num js-line-number" data-line-number="2060"></td>
-        <td id="LC2060" class="blob-code blob-code-inner js-file-line">        elname <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>name<span class="pl-pds">&#39;</span></span>),</td>
-      </tr>
-      <tr>
-        <td id="L2061" class="blob-num js-line-number" data-line-number="2061"></td>
-        <td id="LC2061" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// get checkboxes and count the checked ones</span></td>
-      </tr>
-      <tr>
-        <td id="L2062" class="blob-num js-line-number" data-line-number="2062"></td>
-        <td id="LC2062" class="blob-code blob-code-inner js-file-line">        $checkBoxes <span class="pl-k">=</span> <span class="pl-en">$</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>input[type=checkbox][name^=&quot;<span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> elname <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span>&quot;]<span class="pl-pds">&#39;</span></span>, $form),</td>
-      </tr>
-      <tr>
-        <td id="L2063" class="blob-num js-line-number" data-line-number="2063"></td>
-        <td id="LC2063" class="blob-code blob-code-inner js-file-line">        checkedCount <span class="pl-k">=</span> <span class="pl-smi">$checkBoxes</span>.<span class="pl-en">filter</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>:checked<span class="pl-pds">&#39;</span></span>).<span class="pl-c1">length</span>,</td>
-      </tr>
-      <tr>
-        <td id="L2064" class="blob-num js-line-number" data-line-number="2064"></td>
-        <td id="LC2064" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// get el attr that specs qty required / allowed</span></td>
-      </tr>
-      <tr>
-        <td id="L2065" class="blob-num js-line-number" data-line-number="2065"></td>
-        <td id="LC2065" class="blob-code blob-code-inner js-file-line">        qtyAllowed <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">valAttr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>qty<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L2066" class="blob-num js-line-number" data-line-number="2066"></td>
-        <td id="LC2066" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2067" class="blob-num js-line-number" data-line-number="2067"></td>
-        <td id="LC2067" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span> (qtyAllowed <span class="pl-k">===</span> <span class="pl-c1">undefined</span>) {</td>
-      </tr>
-      <tr>
-        <td id="L2068" class="blob-num js-line-number" data-line-number="2068"></td>
-        <td id="LC2068" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> elementType <span class="pl-k">=</span> <span class="pl-smi">$el</span>.<span class="pl-en">get</span>(<span class="pl-c1">0</span>).<span class="pl-c1">nodeName</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2069" class="blob-num js-line-number" data-line-number="2069"></td>
-        <td id="LC2069" class="blob-code blob-code-inner js-file-line">        <span class="pl-en">alert</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>Attribute &quot;data-validation-qty&quot; is missing from <span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> elementType <span class="pl-k">+</span> <span class="pl-s"><span class="pl-pds">&#39;</span> named <span class="pl-pds">&#39;</span></span> <span class="pl-k">+</span> <span class="pl-smi">$el</span>.<span class="pl-en">attr</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>name<span class="pl-pds">&#39;</span></span>));</td>
-      </tr>
-      <tr>
-        <td id="L2070" class="blob-num js-line-number" data-line-number="2070"></td>
-        <td id="LC2070" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L2071" class="blob-num js-line-number" data-line-number="2071"></td>
-        <td id="LC2071" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2072" class="blob-num js-line-number" data-line-number="2072"></td>
-        <td id="LC2072" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// call Utility function to check if count is above min, below max, within range etc.</span></td>
-      </tr>
-      <tr>
-        <td id="L2073" class="blob-num js-line-number" data-line-number="2073"></td>
-        <td id="LC2073" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">var</span> qtyCheckResults <span class="pl-k">=</span> <span class="pl-smi">$</span>.<span class="pl-smi">formUtils</span>.<span class="pl-en">numericRangeCheck</span>(checkedCount, qtyAllowed);</td>
-      </tr>
-      <tr>
-        <td id="L2074" class="blob-num js-line-number" data-line-number="2074"></td>
-        <td id="LC2074" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2075" class="blob-num js-line-number" data-line-number="2075"></td>
-        <td id="LC2075" class="blob-code blob-code-inner js-file-line">      <span class="pl-c">// results will be array, [0]=result str, [1]=qty int</span></td>
-      </tr>
-      <tr>
-        <td id="L2076" class="blob-num js-line-number" data-line-number="2076"></td>
-        <td id="LC2076" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">switch</span> (qtyCheckResults[<span class="pl-c1">0</span>]) {</td>
-      </tr>
-      <tr>
-        <td id="L2077" class="blob-num js-line-number" data-line-number="2077"></td>
-        <td id="LC2077" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// outside allowed range</span></td>
-      </tr>
-      <tr>
-        <td id="L2078" class="blob-num js-line-number" data-line-number="2078"></td>
-        <td id="LC2078" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>out<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L2079" class="blob-num js-line-number" data-line-number="2079"></td>
-        <td id="LC2079" class="blob-code blob-code-inner js-file-line">          <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">lang</span>.<span class="pl-smi">groupCheckedRangeStart</span> <span class="pl-k">+</span> qtyAllowed <span class="pl-k">+</span> <span class="pl-smi">lang</span>.<span class="pl-smi">groupCheckedEnd</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2080" class="blob-num js-line-number" data-line-number="2080"></td>
-        <td id="LC2080" class="blob-code blob-code-inner js-file-line">          isValid <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2081" class="blob-num js-line-number" data-line-number="2081"></td>
-        <td id="LC2081" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">break</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2082" class="blob-num js-line-number" data-line-number="2082"></td>
-        <td id="LC2082" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// below min qty</span></td>
-      </tr>
-      <tr>
-        <td id="L2083" class="blob-num js-line-number" data-line-number="2083"></td>
-        <td id="LC2083" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>min<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L2084" class="blob-num js-line-number" data-line-number="2084"></td>
-        <td id="LC2084" class="blob-code blob-code-inner js-file-line">          <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">lang</span>.<span class="pl-smi">groupCheckedTooFewStart</span> <span class="pl-k">+</span> qtyCheckResults[<span class="pl-c1">1</span>] <span class="pl-k">+</span> <span class="pl-smi">lang</span>.<span class="pl-smi">groupCheckedEnd</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2085" class="blob-num js-line-number" data-line-number="2085"></td>
-        <td id="LC2085" class="blob-code blob-code-inner js-file-line">          isValid <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2086" class="blob-num js-line-number" data-line-number="2086"></td>
-        <td id="LC2086" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">break</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2087" class="blob-num js-line-number" data-line-number="2087"></td>
-        <td id="LC2087" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// above max qty</span></td>
-      </tr>
-      <tr>
-        <td id="L2088" class="blob-num js-line-number" data-line-number="2088"></td>
-        <td id="LC2088" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">case</span> <span class="pl-s"><span class="pl-pds">&#39;</span>max<span class="pl-pds">&#39;</span></span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L2089" class="blob-num js-line-number" data-line-number="2089"></td>
-        <td id="LC2089" class="blob-code blob-code-inner js-file-line">          <span class="pl-v">this</span>.<span class="pl-smi">errorMessage</span> <span class="pl-k">=</span> <span class="pl-smi">lang</span>.<span class="pl-smi">groupCheckedTooManyStart</span> <span class="pl-k">+</span> qtyCheckResults[<span class="pl-c1">1</span>] <span class="pl-k">+</span> <span class="pl-smi">lang</span>.<span class="pl-smi">groupCheckedEnd</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2090" class="blob-num js-line-number" data-line-number="2090"></td>
-        <td id="LC2090" class="blob-code blob-code-inner js-file-line">          isValid <span class="pl-k">=</span> <span class="pl-c1">false</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2091" class="blob-num js-line-number" data-line-number="2091"></td>
-        <td id="LC2091" class="blob-code blob-code-inner js-file-line">          <span class="pl-k">break</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2092" class="blob-num js-line-number" data-line-number="2092"></td>
-        <td id="LC2092" class="blob-code blob-code-inner js-file-line">        <span class="pl-c">// ok</span></td>
-      </tr>
-      <tr>
-        <td id="L2093" class="blob-num js-line-number" data-line-number="2093"></td>
-        <td id="LC2093" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">default</span><span class="pl-k">:</span></td>
-      </tr>
-      <tr>
-        <td id="L2094" class="blob-num js-line-number" data-line-number="2094"></td>
-        <td id="LC2094" class="blob-code blob-code-inner js-file-line">          isValid <span class="pl-k">=</span> <span class="pl-c1">true</span>;</td>
-      </tr>
-      <tr>
-        <td id="L2095" class="blob-num js-line-number" data-line-number="2095"></td>
-        <td id="LC2095" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L2096" class="blob-num js-line-number" data-line-number="2096"></td>
-        <td id="LC2096" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2097" class="blob-num js-line-number" data-line-number="2097"></td>
-        <td id="LC2097" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">if</span>( <span class="pl-k">!</span>isValid ) {</td>
-      </tr>
-      <tr>
-        <td id="L2098" class="blob-num js-line-number" data-line-number="2098"></td>
-        <td id="LC2098" class="blob-code blob-code-inner js-file-line">        <span class="pl-k">var</span> <span class="pl-en">_triggerOnBlur</span> <span class="pl-k">=</span> <span class="pl-k">function</span>() {</td>
-      </tr>
-      <tr>
-        <td id="L2099" class="blob-num js-line-number" data-line-number="2099"></td>
-        <td id="LC2099" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$checkBoxes</span>.<span class="pl-en">unbind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>click<span class="pl-pds">&#39;</span></span>, _triggerOnBlur);</td>
-      </tr>
-      <tr>
-        <td id="L2100" class="blob-num js-line-number" data-line-number="2100"></td>
-        <td id="LC2100" class="blob-code blob-code-inner js-file-line">          <span class="pl-smi">$checkBoxes</span>.<span class="pl-en">filter</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>*[data-validation]<span class="pl-pds">&#39;</span></span>).<span class="pl-en">validateInputOnBlur</span>(lang, conf, <span class="pl-c1">false</span>, <span class="pl-s"><span class="pl-pds">&#39;</span>blur<span class="pl-pds">&#39;</span></span>);</td>
-      </tr>
-      <tr>
-        <td id="L2101" class="blob-num js-line-number" data-line-number="2101"></td>
-        <td id="LC2101" class="blob-code blob-code-inner js-file-line">        };</td>
-      </tr>
-      <tr>
-        <td id="L2102" class="blob-num js-line-number" data-line-number="2102"></td>
-        <td id="LC2102" class="blob-code blob-code-inner js-file-line">        <span class="pl-smi">$checkBoxes</span>.<span class="pl-en">bind</span>(<span class="pl-s"><span class="pl-pds">&#39;</span>click<span class="pl-pds">&#39;</span></span>, _triggerOnBlur);</td>
-      </tr>
-      <tr>
-        <td id="L2103" class="blob-num js-line-number" data-line-number="2103"></td>
-        <td id="LC2103" class="blob-code blob-code-inner js-file-line">      }</td>
-      </tr>
-      <tr>
-        <td id="L2104" class="blob-num js-line-number" data-line-number="2104"></td>
-        <td id="LC2104" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2105" class="blob-num js-line-number" data-line-number="2105"></td>
-        <td id="LC2105" class="blob-code blob-code-inner js-file-line">      <span class="pl-k">return</span> isValid;</td>
-      </tr>
-      <tr>
-        <td id="L2106" class="blob-num js-line-number" data-line-number="2106"></td>
-        <td id="LC2106" class="blob-code blob-code-inner js-file-line">    }</td>
-      </tr>
-      <tr>
-        <td id="L2107" class="blob-num js-line-number" data-line-number="2107"></td>
-        <td id="LC2107" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">//   errorMessage : &#39;&#39;, // set above in switch statement</span></td>
-      </tr>
-      <tr>
-        <td id="L2108" class="blob-num js-line-number" data-line-number="2108"></td>
-        <td id="LC2108" class="blob-code blob-code-inner js-file-line">    <span class="pl-c">//   errorMessageKey: &#39;&#39; // not used</span></td>
-      </tr>
-      <tr>
-        <td id="L2109" class="blob-num js-line-number" data-line-number="2109"></td>
-        <td id="LC2109" class="blob-code blob-code-inner js-file-line">  });</td>
-      </tr>
-      <tr>
-        <td id="L2110" class="blob-num js-line-number" data-line-number="2110"></td>
-        <td id="LC2110" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2111" class="blob-num js-line-number" data-line-number="2111"></td>
-        <td id="LC2111" class="blob-code blob-code-inner js-file-line">})(jQuery);</td>
-      </tr>
-      <tr>
-        <td id="L2112" class="blob-num js-line-number" data-line-number="2112"></td>
-        <td id="LC2112" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2113" class="blob-num js-line-number" data-line-number="2113"></td>
-        <td id="LC2113" class="blob-code blob-code-inner js-file-line">
-</td>
-      </tr>
-      <tr>
-        <td id="L2114" class="blob-num js-line-number" data-line-number="2114"></td>
-        <td id="LC2114" class="blob-code blob-code-inner js-file-line">}));</td>
-      </tr>
-</table>
-
-  </div>
-
-</div>
-
-<button type="button" data-facebox="#jump-to-line" data-facebox-class="linejump" data-hotkey="l" class="hidden">Jump to Line</button>
-<div id="jump-to-line" style="display:none">
-  <!-- </textarea> --><!-- '"` --><form accept-charset="UTF-8" action="" class="js-jump-to-line-form" method="get"><div style="margin:0;padding:0;display:inline"><input name="utf8" type="hidden" value="&#x2713;" /></div>
-    <input class="form-control linejump-input js-jump-to-line-field" type="text" placeholder="Jump to line&hellip;" aria-label="Jump to line" autofocus>
-    <button type="submit" class="btn">Go</button>
-</form></div>
-
-  </div>
-  <div class="modal-backdrop"></div>
-</div>
-
-
-    </div>
-  </div>
-
-    </div>
-
-        <div class="container site-footer-container">
-  <div class="site-footer" role="contentinfo">
-    <ul class="site-footer-links right">
-        <li><a href="https://status.github.com/" data-ga-click="Footer, go to status, text:status">Status</a></li>
-      <li><a href="https://developer.github.com" data-ga-click="Footer, go to api, text:api">API</a></li>
-      <li><a href="https://training.github.com" data-ga-click="Footer, go to training, text:training">Training</a></li>
-      <li><a href="https://shop.github.com" data-ga-click="Footer, go to shop, text:shop">Shop</a></li>
-        <li><a href="https://github.com/blog" data-ga-click="Footer, go to blog, text:blog">Blog</a></li>
-        <li><a href="https://github.com/about" data-ga-click="Footer, go to about, text:about">About</a></li>
-
-    </ul>
-
-    <a href="https://github.com" aria-label="Homepage" class="site-footer-mark">
-      <svg aria-hidden="true" class="octicon octicon-mark-github" height="24" title="GitHub " version="1.1" viewBox="0 0 16 16" width="24"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59 0.4 0.07 0.55-0.17 0.55-0.38 0-0.19-0.01-0.82-0.01-1.49-2.01 0.37-2.53-0.49-2.69-0.94-0.09-0.23-0.48-0.94-0.82-1.13-0.28-0.15-0.68-0.52-0.01-0.53 0.63-0.01 1.08 0.58 1.23 0.82 0.72 1.21 1.87 0.87 2.33 0.66 0.07-0.52 0.28-0.87 0.51-1.07-1.78-0.2-3.64-0.89-3.64-3.95 0-0.87 0.31-1.59 0.82-2.15-0.08-0.2-0.36-1.02 0.08-2.12 0 0 0.67-0.21 2.2 0.82 0.64-0.18 1.32-0.27 2-0.27 0.68 0 1.36 0.09 2 0.27 1.53-1.04 2.2-0.82 2.2-0.82 0.44 1.1 0.16 1.92 0.08 2.12 0.51 0.56 0.82 1.27 0.82 2.15 0 3.07-1.87 3.75-3.65 3.95 0.29 0.25 0.54 0.73 0.54 1.48 0 1.07-0.01 1.93-0.01 2.2 0 0.21 0.15 0.46 0.55 0.38C13.71 14.53 16 11.53 16 8 16 3.58 12.42 0 8 0z"></path></svg>
-</a>
-    <ul class="site-footer-links">
-      <li>&copy; 2016 <span title="0.09910s from github-fe155-cp1-prd.iad.github.net">GitHub</span>, Inc.</li>
-        <li><a href="https://github.com/site/terms" data-ga-click="Footer, go to terms, text:terms">Terms</a></li>
-        <li><a href="https://github.com/site/privacy" data-ga-click="Footer, go to privacy, text:privacy">Privacy</a></li>
-        <li><a href="https://github.com/security" data-ga-click="Footer, go to security, text:security">Security</a></li>
-        <li><a href="https://github.com/contact" data-ga-click="Footer, go to contact, text:contact">Contact</a></li>
-        <li><a href="https://help.github.com" data-ga-click="Footer, go to help, text:help">Help</a></li>
-    </ul>
-  </div>
 </div>
 
 
 
-    
-    
-
-    <div id="ajax-error-message" class="ajax-error-message flash flash-error">
-      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15.72 12.5l-6.85-11.98C8.69 0.21 8.36 0.02 8 0.02s-0.69 0.19-0.87 0.5l-6.85 11.98c-0.18 0.31-0.18 0.69 0 1C0.47 13.81 0.8 14 1.15 14h13.7c0.36 0 0.69-0.19 0.86-0.5S15.89 12.81 15.72 12.5zM9 12H7V10h2V12zM9 9H7V5h2V9z"></path></svg>
-      <button type="button" class="flash-close js-flash-close js-ajax-error-dismiss" aria-label="Dismiss error">
-        <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
-      </button>
-      Something went wrong with that request. Please try again.
-    </div>
-
-
-      
-      <script crossorigin="anonymous" integrity="sha256-X6pwVg2HSOFiD//1Ue4Nxnel9uD2t2ymDdIVLo4RbOM=" src="https://assets-cdn.github.com/assets/frameworks-5faa70560d8748e1620ffff551ee0dc677a5f6e0f6b76ca60dd2152e8e116ce3.js"></script>
-      <script async="async" crossorigin="anonymous" integrity="sha256-JZpAJhpN9UTe6o6bGREi7BTexrQq84Xc+WQdJfqF+hc=" src="https://assets-cdn.github.com/assets/github-259a40261a4df544deea8e9b191122ec14dec6b42af385dcf9641d25fa85fa17.js"></script>
-      
-      
-      
-      
-      
-    <div class="js-stale-session-flash stale-session-flash flash flash-warn flash-banner hidden">
-      <svg aria-hidden="true" class="octicon octicon-alert" height="16" version="1.1" viewBox="0 0 16 16" width="16"><path d="M15.72 12.5l-6.85-11.98C8.69 0.21 8.36 0.02 8 0.02s-0.69 0.19-0.87 0.5l-6.85 11.98c-0.18 0.31-0.18 0.69 0 1C0.47 13.81 0.8 14 1.15 14h13.7c0.36 0 0.69-0.19 0.86-0.5S15.89 12.81 15.72 12.5zM9 12H7V10h2V12zM9 9H7V5h2V9z"></path></svg>
-      <span class="signed-in-tab-flash">You signed in with another tab or window. <a href="">Reload</a> to refresh your session.</span>
-      <span class="signed-out-tab-flash">You signed out in another tab or window. <a href="">Reload</a> to refresh your session.</span>
-    </div>
-    <div class="facebox" id="facebox" style="display:none;">
-  <div class="facebox-popup">
-    <div class="facebox-content" role="dialog" aria-labelledby="facebox-header" aria-describedby="facebox-description">
-    </div>
-    <button type="button" class="facebox-close js-facebox-close" aria-label="Close modal">
-      <svg aria-hidden="true" class="octicon octicon-x" height="16" version="1.1" viewBox="0 0 12 16" width="12"><path d="M7.48 8l3.75 3.75-1.48 1.48-3.75-3.75-3.75 3.75-1.48-1.48 3.75-3.75L0.77 4.25l1.48-1.48 3.75 3.75 3.75-3.75 1.48 1.48-3.75 3.75z"></path></svg>
-    </button>
-  </div>
+		
+	</div>
+	<div id="overlay"></div>
 </div>
 
-  </body>
+
+
+
+
+<script type="text/javascript">
+var cdn_url = "https:\/\/slack.global.ssl.fastly.net";
+var inc_js_setup_data = {
+	emoji_sheets: {
+		apple: 'https://a.slack-edge.com/e4cee/img/emoji_2016_02_06/sheet_apple_64_indexed_256colors.png',
+		google: 'https://a.slack-edge.com/93405/img/emoji_2016_02_06/sheet_google_64_indexed_128colors.png',
+		twitter: 'https://a.slack-edge.com/93405/img/emoji_2016_02_06/sheet_twitter_64_indexed_128colors.png',
+		emojione: 'https://a.slack-edge.com/3e24/img/emoji_2016_02_06/sheet_emojione_64_indexed_128colors.png',
+	},
+};
+</script>
+			<script type="text/javascript">
+<!--
+	// common boot_data
+	var boot_data = {
+		start_ms: Date.now(),
+		app: 'web',
+		user_id: 'U0MRF6CA0',
+		no_login: false,
+		version_ts: '1460330883',
+		version_uid: '9fbe87666e87cb4161d238f7868871797e8b2f58',
+		cache_version: "v13-tiger",
+		cache_ts_version: "v1-cat",
+		redir_domain: 'slack-redir.net',
+		signin_url: 'https://slack.com/signin',
+		abs_root_url: 'https://slack.com/',
+		api_url: '/api/',
+		team_url: 'https://saebneweb.slack.com/',
+		image_proxy_url: 'https://slack-imgs.com/',
+		beacon_timing_url: "https:\/\/slack.com\/beacon\/timing",
+		beacon_error_url: "https:\/\/slack.com\/beacon\/error",
+		api_token: 'xoxs-21536046065-21865216340-27285723024-c5a5c23bd3',
+		ls_disabled: false,
+
+		feature_status: false,
+
+		notification_sounds: [{"value":"b2.mp3","label":"Ding","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/b2.mp3"},{"value":"animal_stick.mp3","label":"Boing","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/animal_stick.mp3"},{"value":"been_tree.mp3","label":"Drop","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/been_tree.mp3"},{"value":"complete_quest_requirement.mp3","label":"Ta-da","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/complete_quest_requirement.mp3"},{"value":"confirm_delivery.mp3","label":"Plink","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/confirm_delivery.mp3"},{"value":"flitterbug.mp3","label":"Wow","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/flitterbug.mp3"},{"value":"here_you_go_lighter.mp3","label":"Here you go","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/here_you_go_lighter.mp3"},{"value":"hi_flowers_hit.mp3","label":"Hi","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/hi_flowers_hit.mp3"},{"value":"item_pickup.mp3","label":"Yoink","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/item_pickup.mp3"},{"value":"knock_brush.mp3","label":"Knock Brush","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/knock_brush.mp3"},{"value":"save_and_checkout.mp3","label":"Woah!","url":"https:\/\/slack.global.ssl.fastly.net\/dfc0\/sounds\/push\/save_and_checkout.mp3"},{"value":"none","label":"None"}],
+		alert_sounds: [{"value":"frog.mp3","label":"Frog","url":"https:\/\/slack.global.ssl.fastly.net\/a34a\/sounds\/frog.mp3"}],
+		call_sounds: [{"value":"call\/alert_v2.mp3","label":"Alert","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/alert_v2.mp3"},{"value":"call\/incoming_ring_v2.mp3","label":"Incoming ring","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/incoming_ring_v2.mp3"},{"value":"call\/outgoing_ring_v2.mp3","label":"Outgoing ring","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/outgoing_ring_v2.mp3"},{"value":"call\/pop_v2.mp3","label":"Incoming reaction","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/pop_v2.mp3"},{"value":"call\/they_left_call_v2.mp3","label":"They left call","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/they_left_call_v2.mp3"},{"value":"call\/you_left_call_v2.mp3","label":"You left call","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/you_left_call_v2.mp3"},{"value":"call\/they_joined_call_v2.mp3","label":"They joined call","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/they_joined_call_v2.mp3"},{"value":"call\/you_joined_call_v2.mp3","label":"You joined call","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/you_joined_call_v2.mp3"},{"value":"call\/confirmation_v2.mp3","label":"Confirmation","url":"https:\/\/slack.global.ssl.fastly.net\/08f7\/sounds\/call\/confirmation_v2.mp3"}],
+		call_sounds_version: "v2",
+
+		feature_tinyspeck: false,
+		feature_dm_yahself: false,
+		feature_dm_yahself_ios: false,
+		feature_dm_yahself_android: false,
+		feature_dm_yahself_winphone: false,
+		feature_feat_full_names: true,
+		feature_signup_email_confirmation: true,
+		feature_create_team_google_auth: false,
+		feature_api_extended_2fa_backup: false,
+		feature_api_queue_depth_warning: true,
+		feature_ms_batch_presence_changes: false,
+		feature_exp_ls: false,
+		feature_perf_defer_initial_msg_check: false,
+		feature_message_replies: false,
+		feature_no_rollups: false,
+		feature_ephemeral_attachments: false,
+		feature_web_lean: false,
+		feature_web_lean_all_users: false,
+		feature_reminders_v3: false,
+		feature_all_skin_tones: false,
+		feature_a11y_keyboard_shortcuts: false,
+		feature_email_integration: true,
+		feature_email_ingestion: false,
+		feature_msg_consistency: false,
+		feature_emoji_keywords: false,
+		feature_attachments_inline: false,
+		feature_ms_events_always_use_promises: true,
+		feature_billing_netsuite: true,
+		feature_fix_files: true,
+		feature_files_list: true,
+		feature_chat_sounds: false,
+		feature_channel_eventlog_client: true,
+		feature_macssb1_banner: true,
+		feature_macssb2_banner: true,
+		feature_winssb1_banner: true,
+		feature_latest_event_ts: true,
+		feature_elide_closed_dms: true,
+		feature_no_redirects_in_ssb: true,
+		feature_referer_policy: true,
+		feature_more_field_in_message_attachments: false,
+		feature_user_hidden_msgs: false,
+		feature_calls: true,
+		feature_calls_no_rtm_start: false,
+		feature_non_admin_invites: true,
+		feature_integrations_message_preview: false,
+		feature_paging_api: false,
+		feature_enterprise_dashboard: true,
+		feature_enterprise_api: true,
+		feature_enterprise_create: true,
+		feature_enterprise_api_auth: false,
+		feature_enterprise_profile: true,
+		feature_enterprise_search: true,
+		feature_enterprise_team_invite: true,
+		feature_bot_profile: false,
+		feature_private_channels: true,
+		feature_mpim_restrictions: false,
+		feature_subteams: true,
+		feature_subteams_hard_delete: false,
+		feature_no_unread_counts: true,
+		feature_js_raf_queue: false,
+		feature_shared_channels: false,
+		feature_join_channel_overlay_redesign: false,
+		feature_shared_channels_ui: false,
+		feature_external_shared_channels_ui: false,
+		feature_fast_files_flexpane: false,
+		feature_no_has_files: true,
+		feature_tab_complete_search_changed: true,
+		feature_custom_saml_signin_button_label: true,
+		feature_services_jira_1_5: true,
+		feature_channel_header_refresh: true,
+		feature_winssb_beta_channel: false,
+		feature_inline_video: false,
+		feature_help_modal_refresh: false,
+		feature_developers_lp: false,
+		feature_homepage_ssb_download: false,
+		feature_ssb_download_confirmation: false,
+		feature_one_click_handler: true,
+		feature_upload_file_switch_channel: true,
+		feature_live_support: true,
+		feature_slackbot_goes_to_college: false,
+		feature_hbs_templates_version: true,
+		feature_popover_dismiss_only: false,
+		feature_jumbomoji: true,
+		feature_jumbomoji_tsf: true,
+		feature_attachment_actions: false,
+		feature_remind_attachment_actions: false,
+		feature_shared_invites: true,
+		feature_lato_2_ssb: true,
+		feature_refactor_buildmsghtml: false,
+		feature_defer_client_bind_ui: true,
+		feature_defer_localstorage_io: false,
+		feature_allow_cdn_experiments: false,
+		feature_omit_localstorage_users_bots: false,
+		feature_disable_ls_compression: false,
+		feature_sign_in_with_slack: false,
+		feature_attachments_makeover: false,
+		feature_slack_menu_improvements: true,
+		feature_app_review: false,
+		feature_name_tagging_client: false,
+		feature_browse_date: false,
+		feature_day_div_no_display: false,
+		feature_no_ls_msgs_cache: false,
+		feature_use_imgproxy_resizing: false,
+		feature_update_message_file: false,
+		feature_intercept_format_copy: false,
+		feature_show_skin_tone_label: true,
+		feature_calls_linux: false,
+		feature_dont_send_internal_args: false,
+		feature_client_save_cursor: false,
+		feature_twilio_copilot: false,
+
+		img: {
+			app_icon: 'https://a.slack-edge.com/272a/img/slack_growl_icon.png'
+		},
+		page_needs_custom_emoji: false,
+		page_needs_team_profile_fields: false,
+		page_needs_enterprise: false,
+	};
+
+	
+	
+	
+	
+	// client boot data
+	
+//-->
+</script>	
+	
+	
+	<!-- output_js "core" -->
+<script type="text/javascript" src="https://a.slack-edge.com/b7e8/js/rollup-core_required_libs.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://a.slack-edge.com/a8718/js/rollup-core_required_ts.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://a.slack-edge.com/7ab04/js/TS.web.js" crossorigin="anonymous"></script>
+
+	<!-- output_js "core_web" -->
+<script type="text/javascript" src="https://a.slack-edge.com/32de7/js/rollup-core_web.js" crossorigin="anonymous"></script>
+
+	<!-- output_js "secondary" -->
+<script type="text/javascript" src="https://a.slack-edge.com/bc8ac/js/rollup-secondary_a_required.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://a.slack-edge.com/7278d/js/rollup-secondary_b_required.js" crossorigin="anonymous"></script>
+
+			<!-- output_js "regular" -->
+<script type="text/javascript" src="https://a.slack-edge.com/1636/js/TS.web.comments.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://a.slack-edge.com/fbd4/js/TS.web.file.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://a.slack-edge.com/5183/js/libs/codemirror.js" crossorigin="anonymous"></script>
+<script type="text/javascript" src="https://a.slack-edge.com/e826/js/codemirror_load.js" crossorigin="anonymous"></script>
+
+		<script type="text/javascript">
+	<!--
+		boot_data.page_needs_custom_emoji = true;
+
+		boot_data.file = {"id":"F0ZFS5Y5V","created":1460340613,"timestamp":1460340613,"name":"jquery.form-validator.js","title":"jquery.form-validator.js","mimetype":"text\/plain","filetype":"javascript","pretty_type":"JavaScript\/JSON","user":"U0MLKCL8H","editable":true,"size":72583,"mode":"snippet","is_external":false,"external_type":"","is_public":false,"public_url_shared":false,"display_as_bot":false,"username":"","url_private":"https:\/\/files.slack.com\/files-pri\/T0MFS1C1X-F0ZFS5Y5V\/jquery.form-validator.js","url_private_download":"https:\/\/files.slack.com\/files-pri\/T0MFS1C1X-F0ZFS5Y5V\/download\/jquery.form-validator.js","permalink":"https:\/\/saebneweb.slack.com\/files\/tatiana\/F0ZFS5Y5V\/jquery.form-validator.js","permalink_public":"https:\/\/slack-files.com\/T0MFS1C1X-F0ZFS5Y5V-169670f89f","edit_link":"https:\/\/saebneweb.slack.com\/files\/tatiana\/F0ZFS5Y5V\/jquery.form-validator.js\/edit","preview":"(function (root, factory) {\r\n  if (typeof define === 'function' && define.amd) {\r\n    \/\/ AMD. Register as an anonymous module unless amdModuleId is set\r\n    define([\"jquery\"], function (a0) {\r\n      return (factory(a0));\r","preview_highlight":"\u003Cdiv class=\"CodeMirror cm-s-default CodeMirrorServer\"\u003E\n\u003Cdiv class=\"CodeMirror-code\"\u003E\n\u003Cdiv\u003E\u003Cpre\u003E(\u003Cspan class=\"cm-keyword\"\u003Efunction\u003C\/span\u003E (\u003Cspan class=\"cm-def\"\u003Eroot\u003C\/span\u003E, \u003Cspan class=\"cm-def\"\u003Efactory\u003C\/span\u003E) {\u003C\/pre\u003E\u003C\/div\u003E\n\u003Cdiv\u003E\u003Cpre\u003E  \u003Cspan class=\"cm-keyword\"\u003Eif\u003C\/span\u003E (\u003Cspan class=\"cm-keyword\"\u003Etypeof\u003C\/span\u003E \u003Cspan class=\"cm-variable\"\u003Edefine\u003C\/span\u003E \u003Cspan class=\"cm-operator\"\u003E===\u003C\/span\u003E \u003Cspan class=\"cm-string\"\u003E'function'\u003C\/span\u003E \u003Cspan class=\"cm-operator\"\u003E&amp;&amp;\u003C\/span\u003E \u003Cspan class=\"cm-variable\"\u003Edefine\u003C\/span\u003E.\u003Cspan class=\"cm-property\"\u003Eamd\u003C\/span\u003E) {\u003C\/pre\u003E\u003C\/div\u003E\n\u003Cdiv\u003E\u003Cpre\u003E    \u003Cspan class=\"cm-comment\"\u003E\/\/ AMD. Register as an anonymous module unless amdModuleId is set\u003C\/span\u003E\u003C\/pre\u003E\u003C\/div\u003E\n\u003Cdiv\u003E\u003Cpre\u003E    \u003Cspan class=\"cm-variable\"\u003Edefine\u003C\/span\u003E([\u003Cspan class=\"cm-string\"\u003E&quot;jquery&quot;\u003C\/span\u003E], \u003Cspan class=\"cm-keyword\"\u003Efunction\u003C\/span\u003E (\u003Cspan class=\"cm-def\"\u003Ea0\u003C\/span\u003E) {\u003C\/pre\u003E\u003C\/div\u003E\n\u003Cdiv\u003E\u003Cpre\u003E      \u003Cspan class=\"cm-keyword\"\u003Ereturn\u003C\/span\u003E (\u003Cspan class=\"cm-variable-2\"\u003Efactory\u003C\/span\u003E(\u003Cspan class=\"cm-variable-2\"\u003Ea0\u003C\/span\u003E));\u003C\/pre\u003E\u003C\/div\u003E\n\u003C\/div\u003E\n\u003C\/div\u003E\n","lines":2121,"lines_more":2116,"channels":[],"groups":[],"ims":["D0MRMFX46"],"comments_count":0};
+		boot_data.file.comments = [];
+
+		
+
+		var g_editor;
+
+		$(function(){
+
+			var wrap_long_lines = !!TS.model.code_wrap_long_lines;
+
+			g_editor = CodeMirror(function(elt){
+				var content = document.getElementById("file_contents");
+				content.parentNode.replaceChild(elt, content);
+			}, {
+				value: $('#file_contents').text(),
+				lineNumbers: true,
+				matchBrackets: true,
+				indentUnit: 4,
+				indentWithTabs: true,
+				enterMode: "keep",
+				tabMode: "shift",
+				viewportMargin: Infinity,
+				readOnly: true,
+				lineWrapping: wrap_long_lines
+			});
+
+			$('#file_preview_wrap_cb').bind('change', function(e) {
+				TS.model.code_wrap_long_lines = $(this).prop('checked');
+				g_editor.setOption('lineWrapping', TS.model.code_wrap_long_lines);
+			})
+
+			$('#file_preview_wrap_cb').prop('checked', wrap_long_lines);
+
+			CodeMirror.switchSlackMode(g_editor, "javascript");
+		});
+
+		
+		$('#file_comment').css('overflow', 'hidden').autogrow();
+	//-->
+	</script>
+
+			<script type="text/javascript">TS.boot(boot_data);</script>
+	<!-- slack-www549 / 2016-04-10 19:17:40 / v9fbe87666e87cb4161d238f7868871797e8b2f58 -->
+<style>.color_9f69e7:not(.nuc) {color:#9F69E7;}.color_4bbe2e:not(.nuc) {color:#4BBE2E;}.color_e7392d:not(.nuc) {color:#E7392D;}.color_3c989f:not(.nuc) {color:#3C989F;}.color_674b1b:not(.nuc) {color:#674B1B;}.color_e96699:not(.nuc) {color:#E96699;}.color_e0a729:not(.nuc) {color:#E0A729;}.color_684b6c:not(.nuc) {color:#684B6C;}.color_5b89d5:not(.nuc) {color:#5B89D5;}.color_2b6836:not(.nuc) {color:#2B6836;}.color_99a949:not(.nuc) {color:#99A949;}.color_df3dc0:not(.nuc) {color:#DF3DC0;}.color_4cc091:not(.nuc) {color:#4CC091;}.color_9b3b45:not(.nuc) {color:#9B3B45;}.color_d58247:not(.nuc) {color:#D58247;}.color_bb86b7:not(.nuc) {color:#BB86B7;}.color_5a4592:not(.nuc) {color:#5A4592;}.color_db3150:not(.nuc) {color:#DB3150;}.color_235e5b:not(.nuc) {color:#235E5B;}.color_9e3997:not(.nuc) {color:#9E3997;}.color_53b759:not(.nuc) {color:#53B759;}.color_c386df:not(.nuc) {color:#C386DF;}.color_385a86:not(.nuc) {color:#385A86;}.color_a63024:not(.nuc) {color:#A63024;}.color_5870dd:not(.nuc) {color:#5870DD;}.color_ea2977:not(.nuc) {color:#EA2977;}.color_50a0cf:not(.nuc) {color:#50A0CF;}.color_d55aef:not(.nuc) {color:#D55AEF;}.color_d1707d:not(.nuc) {color:#D1707D;}.color_43761b:not(.nuc) {color:#43761B;}.color_e06b56:not(.nuc) {color:#E06B56;}.color_8f4a2b:not(.nuc) {color:#8F4A2B;}.color_902d59:not(.nuc) {color:#902D59;}.color_de5f24:not(.nuc) {color:#DE5F24;}.color_a2a5dc:not(.nuc) {color:#A2A5DC;}.color_827327:not(.nuc) {color:#827327;}.color_3c8c69:not(.nuc) {color:#3C8C69;}.color_8d4b84:not(.nuc) {color:#8D4B84;}.color_84b22f:not(.nuc) {color:#84B22F;}.color_4ec0d6:not(.nuc) {color:#4EC0D6;}.color_e23f99:not(.nuc) {color:#E23F99;}.color_e475df:not(.nuc) {color:#E475DF;}.color_619a4f:not(.nuc) {color:#619A4F;}.color_a72f79:not(.nuc) {color:#A72F79;}.color_7d414c:not(.nuc) {color:#7D414C;}.color_aba727:not(.nuc) {color:#ABA727;}.color_965d1b:not(.nuc) {color:#965D1B;}.color_4d5e26:not(.nuc) {color:#4D5E26;}.color_dd8527:not(.nuc) {color:#DD8527;}.color_bd9336:not(.nuc) {color:#BD9336;}.color_e85d72:not(.nuc) {color:#E85D72;}.color_dc7dbb:not(.nuc) {color:#DC7DBB;}.color_bc3663:not(.nuc) {color:#BC3663;}.color_9d8eee:not(.nuc) {color:#9D8EEE;}.color_8469bc:not(.nuc) {color:#8469BC;}.color_73769d:not(.nuc) {color:#73769D;}.color_b14cbc:not(.nuc) {color:#B14CBC;}</style>
+</body>
 </html>
-
