@@ -10,6 +10,7 @@
 				Available Functions:
 					return_all_projects
 					return_project
+					return_user_project
 					search_project
 					upddate_project
 					new_project
@@ -23,7 +24,7 @@
 			switch($function){
 
 				case "return_all_projects":
-					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id";
+					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id ORDER BY average_rating DESC";
 
 					if(!$stmt = $mysqli->prepare ($sql)){
 						echo "prepare failed";
@@ -68,6 +69,55 @@
 						$target = $_POST['target']; // film id
 
 						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ?";
+						if(!$stmt = $mysqli->prepare ($sql)) {
+							echo "prepare failed";
+						}
+						if(!$stmt->bind_param("i", $target)){
+							echo "binding param failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failied";
+						}
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+							echo "binding results failed";
+						}
+						$data = array();
+						
+						while($stmt->fetch()) {
+							$data[] = array(
+								"id" => $id,
+								"title" => $title,
+								"synopsis" => $synopsis,
+								"video_link" => $video_link,
+								"cover_image" => $cover_image,
+								"runtime" => $runtime,
+								"user_id" => $user_id,
+								"published" => $published,
+								"active" => $active,
+								"average_rating" => $average_rating,
+								"first_name" => $first_name,
+								"last_name" => $last_name,
+								"campus" => $location
+							);
+						} // end while
+
+						$stmt->close();
+
+					} // end if target is set
+
+				break; // end return single project
+
+
+
+
+
+				case "return_user_project":
+					if(!isset($_POST['target'])){
+						$errormsg = "No user has been selected";
+					} else {
+						$target = $_POST['target']; // user id
+
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND users.id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}

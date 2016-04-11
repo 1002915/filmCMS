@@ -1,12 +1,9 @@
 <?php 
 	include('header.php'); 
-
-	//get from header
-	echo $_SESSION();
-	$currentuser = $user_id;
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
+	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
 	
 
 <h2>Link Your Video</h2>
@@ -63,7 +60,7 @@
 	</select>
 
 	<!-- hidden fields-->
-	<input type="hidden" name="user_id" value="<?php echo $currentuser; ?>"><br>
+	<input type="hidden" name="user_id" value="<?php echo $id; ?>"><br>
 	<input type="hidden" name="active" value="true"><br>
 
 	<input type="submit">
