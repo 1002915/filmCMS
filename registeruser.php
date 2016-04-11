@@ -76,7 +76,7 @@ $sql = "INSERT INTO users (campus_id, first_name, Last_name, email, password_has
 
 if (mysqli_query($mysqli, $sql)) {
 
-    $confirm_url = 'localhost/filmCMS/login/confirmreg.php?code='.$verify_hash;
+    $confirm_url = 'localhost/filmCMS/confirmreg.php?code='.$verify_hash;
 
     $confirm_id = $mysqli->insert_id;
 

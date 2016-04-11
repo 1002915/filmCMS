@@ -31,9 +31,19 @@
   		
 		<?php } else echo''; ?>
 		<?php if (isset($_SESSION['email'])) { ?>
-		<form id="login_button" action="logout.php">
+
+		<form class="login_button profile" action="profile.php">
+			<input type="submit" Value="my profile">
+		</form>
+
+		<form class="login_button contribute" action="newfilm.php">
+			<input type="submit" Value="contribute">
+		</form>
+
+		<form class="login_button logout" action="logout.php">
 			<input type="submit" Value="logout">
 		</form>
+
 		<?php } else echo''; ?>
 
 		<div id='search_bar'>

@@ -1,4 +1,10 @@
-<?php include('header.php');?>
+<?php
+if (!isset($_SESSION['first_name'])) {
+
+ include('header.php');
+
+
+?>
 	
 <div class="login_error">
 	
@@ -32,5 +38,8 @@
   });
 </script>
 
-<?php include('footer.php'); ?>
+<?php include('footer.php');
+
+} else header('Location: index.php');
+ ?>
 
