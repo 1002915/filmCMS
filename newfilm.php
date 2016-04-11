@@ -1,11 +1,11 @@
-<?php
-	$currentuser = '';
+<?php 
+	include('header.php'); 
+
+	//get from header
+	echo $_SESSION();
+	$currentuser = $user_id;
 ?>
 
-
-	<link rel='stylesheet' type='text/css' href='css/tatiana_styles.css'>
-
-	<script src="js/jquery-2.2.2.min.js"></script>
 	<script src="js/form-validator/jquery.form-validator.js"></script>
 	
 
@@ -53,20 +53,18 @@
 		</tr>
 	</table>
 
-	
 	<h3>Cover Image</h3><br>
 	<input type="text" name="cover_image"><br>
-	<h3>Published</h3><br>
+
 	<input type="text" name="published"><br>
+	<select data-validation="required">
+		<option value="draft">Save Draft</option>
+		<option value="published">Publish</option>
+	</select>
 
-
-
-	<!-- automatically filled in-->
-	<h3>User ID</h3><br>
-	<input type="text" name="user_id"><br>
-	<h3>Active</h3><br>
-	<input type="text" name="active"><br>
-
+	<!-- hidden fields-->
+	<input type="hidden" name="user_id" value="<?php echo $currentuser; ?>"><br>
+	<input type="hidden" name="active" value="true"><br>
 
 	<input type="submit">
 
@@ -78,6 +76,7 @@
 	
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+	<script src="./path/to/dropzone.js"></script>
 	<script>
 		$.validate();
 
