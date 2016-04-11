@@ -16,7 +16,7 @@
 	<div id="runtime"></div>
 
 	<div class='display_video'>
-		<iframe class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
 
 	<h3>Title:</h3><br>
@@ -72,6 +72,7 @@
 
 	
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
+	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 	<script>
 		$.validate();
 
@@ -84,45 +85,65 @@
 		    // if video was on youtube
 			if(videolink.indexOf(str) > -1){
 				var videolinkiframe = videolink.replace("watch?v=", "v/");
+
+				//get youtube id
+			   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
+
+			   	// start youtube api
+				gapi.client.setApiKey('AIzaSyAD94F0GwBoXnncL0ck2bZdSeZf6RDW_3s');
+				gapi.client.load('youtube', 'v3').then(makeRequest);
+
+				// display results
+				function appendResults(text) {
+			        var results = document.getElementById('runtime');
+			        results.appendChild(document.createElement('p'));
+			        results.appendChild(document.createTextNode(text));
+			    }
+				
+				// actually make api request
+				function makeRequest() {
+		            var request = gapi.client.youtube.videos.list({
+						part: "contentDetails",
+						id: videoid
+					});
+		            console.log('request made');
+					request.then(function(response){					
+						appendResults(response.result.items[0].contentDetails.duration);
+			        }, function(reason) {
+			          	console.log('Error: ' + reason.result.error.message);
+			        });
+		        }
+
+
 			} else {
 				// if video was on vimeo
 				var videolinkiframe = videolink.replace("//", "//player.");
 		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
-		    	var videolinkiframe = videolinkiframe.concat("?badge=0");
-			}
+		    	var videolinkiframe = videolinkiframe.concat("?api=1&player_id=player1");
+
+		    	//add vimeo api
+				var iframe = $('#player1')[0];
+    			var player = $f(iframe);
+
+				// When the player is ready, add listeners for pause, finish, and playProgress
+				player.addEvent('ready', function() {
+					getDuration();
+				});
+
+				function appendResults(text) {
+			        var results = document.getElementById('runtime');
+			        results.appendChild(document.createElement('p'));
+			        results.appendChild(document.createTextNode(text));
+			    }
+
+				function getDuration() {
+				    player.api('getDuration', function(dur) {
+				        appendResults(dur);
+				    });
+				}
+		    }
 
 		    $(".preview-video").attr("src", videolinkiframe);
-
-
-
-		    //get youtube id
-		   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
-
-		   	// start youtube api
-			gapi.client.setApiKey('AIzaSyAD94F0GwBoXnncL0ck2bZdSeZf6RDW_3s');
-			gapi.client.load('youtube', 'v3').then(makeRequest);
-
-			// display results
-			function appendResults(text) {
-		        var results = document.getElementById('runtime');
-		        results.appendChild(document.createElement('p'));
-		        results.appendChild(document.createTextNode(text));
-		    }
-			
-			// actually make api request
-			function makeRequest() {
-	            var request = gapi.client.youtube.videos.list({
-					part: "contentDetails",
-					id: videoid
-				});
-	            console.log('request made');
-				request.then(function(response){					
-					appendResults(response.result.items[0].contentDetails.duration);
-		        }, function(reason) {
-		          	console.log('Error: ' + reason.result.error.message);
-		        });
-	        }
-
 
 		});	
 
