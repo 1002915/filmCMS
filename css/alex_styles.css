@@ -40,7 +40,7 @@ select {
 }
 
 .coverImage {
-
+	width:300px;
 }
 
 .runTime {
@@ -48,5 +48,10 @@ select {
 }
 
 #campus_selection {
+	float:left;
+}
+
+.search_product {
+	width:33.3%;
 	float:left;
 }
