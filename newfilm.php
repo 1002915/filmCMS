@@ -54,7 +54,7 @@
 	</table>
 
 	<h3>Cover Image</h3><br>
-	<input type="text" name="cover_image"><br>
+	<div class="dropzone" id="cover_image" name="cover_image"></div>
 
 	<input type="text" name="published"><br>
 	<select data-validation="required">
@@ -76,9 +76,11 @@
 	
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
-	<script src="./path/to/dropzone.js"></script>
+	<script src="js/dropzone.js"></script>
 	<script>
 		$.validate();
+
+		$("div#cover_image").dropzone({ url: "#" });
 
 		// converting time in seconds to hh:mm:ss
 		function runtimeformat(seconds) {
