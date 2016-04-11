@@ -76,6 +76,23 @@
 	<script>
 		$.validate();
 
+		// converting time in seconds to hh:mm:ss
+		function runtimeformat(seconds) {
+			seconds = Math.round(seconds)
+			//get time in hours and round down
+			var hours = Math.floor(seconds / 3600);
+			var minutes = Math.floor((seconds - (hours * 3600)) / 60);
+			var seconds = seconds - ((hours * 3600) + (minutes * 60));
+			var time = hours + ': '+ minutes + ':' + seconds;
+			return time;
+		}
+
+		function appendResults(text) {
+			var results = document.getElementById('runtime');
+			results.appendChild(document.createElement('p'));
+			results.appendChild(document.createTextNode(text));
+		}
+		
 		// load video after user inputs link
 		$("#new_video_link").on('input', function () {
 		    var videolink = $('#new_video_link').val();
@@ -93,12 +110,33 @@
 				gapi.client.setApiKey('AIzaSyAD94F0GwBoXnncL0ck2bZdSeZf6RDW_3s');
 				gapi.client.load('youtube', 'v3').then(makeRequest);
 
-				// display results
-				function appendResults(text) {
-			        var results = document.getElementById('runtime');
-			        results.appendChild(document.createElement('p'));
-			        results.appendChild(document.createTextNode(text));
-			    }
+				//convert youtube time to seconds
+				function convertosecs(duration){
+					var a = duration.match(/\d+/g);
+				    if (duration.indexOf('M') >= 0 && duration.indexOf('H') == -1 && duration.indexOf('S') == -1) {
+				        a = [0, a[0], 0];
+				    }
+				    if (duration.indexOf('H') >= 0 && duration.indexOf('M') == -1) {
+				        a = [a[0], 0, a[1]];
+				    }
+				    if (duration.indexOf('H') >= 0 && duration.indexOf('M') == -1 && duration.indexOf('S') == -1) {
+				        a = [a[0], 0, 0];
+				    }
+				    duration = 0;
+				    if (a.length == 3) {
+				        duration = duration + parseInt(a[0]) * 3600;
+				        duration = duration + parseInt(a[1]) * 60;
+				        duration = duration + parseInt(a[2]);
+				    }
+				    if (a.length == 2) {
+				        duration = duration + parseInt(a[0]) * 60;
+				        duration = duration + parseInt(a[1]);
+				    }
+				    if (a.length == 1) {
+				        duration = duration + parseInt(a[0]);
+				    }
+				    return duration
+				}
 				
 				// actually make api request
 				function makeRequest() {
@@ -107,13 +145,13 @@
 						id: videoid
 					});
 		            console.log('request made');
-					request.then(function(response){					
-						appendResults(response.result.items[0].contentDetails.duration);
-			        }, function(reason) {
-			          	console.log('Error: ' + reason.result.error.message);
+					request.then(function(response){
+						var duration = 	response.result.items[0].contentDetails.duration;
+						duration = convertosecs(duration);
+						duration = runtimeformat(duration);
+						appendResults(duration);
 			        });
 		        }
-
 
 			} else {
 				// if video was on vimeo
@@ -130,15 +168,10 @@
 					getDuration();
 				});
 
-				function appendResults(text) {
-			        var results = document.getElementById('runtime');
-			        results.appendChild(document.createElement('p'));
-			        results.appendChild(document.createTextNode(text));
-			    }
-
 				function getDuration() {
-				    player.api('getDuration', function(dur) {
-				        appendResults(dur);
+				    player.api('getDuration', function(duration) {
+				    	duration = runtimeformat(duration);
+				        appendResults(duration);
 				    });
 				}
 		    }
@@ -147,6 +180,8 @@
 
 		});	
 
+
+	
 
 		// Increase collaborators as user inputs info
 		$("#new_collaborator > tbody > tr:last > td > .firstname").on('blur', function(){
