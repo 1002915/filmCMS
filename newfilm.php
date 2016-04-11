@@ -1,3 +1,7 @@
+<?php
+	$currentuser = '';
+?>
+
 
 	<link rel='stylesheet' type='text/css' href='css/tatiana_styles.css'>
 
@@ -54,6 +58,7 @@
 	<input type="text" name="cover_image"><br>
 	<h3>Published</h3><br>
 	<input type="text" name="published"><br>
+
 
 
 	<!-- automatically filled in-->
