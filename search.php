@@ -1,10 +1,7 @@
 <?php
 	include('header.php');
 ?>
-	<body>
-
-
-
+	<body id='search_body'>
 
 		<div id='searchBar'>
 			Search Bar
@@ -26,10 +23,16 @@
 			<div id='searchList'></div>
 		</div>
 		<script>
+		//EDITING THE HEADER SEARCH BAR
+		$(document).ready(function(){ 
+			if ($('body').attr('id') == 'search_body') {
+				$('#search_bar').hide();
+			}
+		});
+		// SEARCH ENGINE FUNCTION
 			function search() {
 				console.log('Keypress!');
 					var search = $('#search').val();
-
 					var campus_selection = $('#campus_selection').val();
 					$.ajax({
 						type:"POST",
@@ -46,7 +49,7 @@
  							$.each(res, function(index,value) {
  								console.log(value);
  								$('#searchList').html('');
-								$('#searchList').append( "<img src='"+value['cover_image']+"'class='coverImage' alt='cover_image'> <p>"+value['title']+"</p><p>"+value['synopsis']+"</p> " );
+								$('#searchList').append( "<div class='search_product'><img src='"+value['cover_image']+"'class='coverImage' alt='cover_image'> <p>"+value['title']+"</p><p>"+value['synopsis']+"</p></div>" );
 								// WHEN THE CONENT IS NOT IN THE DATABASE
     							if(value['id'] == null){
 									$('#searchList').html('');
@@ -63,7 +66,7 @@
 						search();
 					<?php }?>
 
-					$(document).on('change', '#search, #campus_selection', function() {
+					$(document).on('keypress', '#search, #campus_selection', function() {
 						search();
 					});
 				
