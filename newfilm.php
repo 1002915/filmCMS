@@ -14,7 +14,7 @@
 
 	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
 
-	<input type="hidden" id="runtime" name="runtime" value="">
+	<input type="text" id="runtime" name="runtime">
 
 	<div class='display_video'>
 		<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
