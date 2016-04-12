@@ -3,6 +3,11 @@
 
 	//$filmid = $_GET['id'];
 	$filmid = 3;
+
+    $data = array("value" => $filmid);
+    echo json_encode($data);
+?>
+
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
@@ -78,7 +83,7 @@
 
 		$.validate();
 
-		var target = "<?php $filmid; ?>";
+		var target = json_encode
 
 		// return single project
 		function return_project() {	
@@ -91,7 +96,6 @@
 				},
 				dataType:'json',
 				success:function(res) {
-					console.log(res);
 	 				$.each(res, function(i, val) {
 	 					console.log(val);
 	 					$('input#edit_video_link').val(val['video_link']);
