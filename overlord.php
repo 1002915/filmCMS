@@ -330,11 +330,11 @@
 
 
  						// Film history
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -388,32 +388,34 @@
 						// Insert collaborators
 						$collab = $_POST['collab'];
 						foreach($collab as $value=>$data) {
-						     $collab_fn = $data['firstname'];
-						     $collab_ln = $data['lastname'];
-						     $collab_role = $data['role'];
-						     $collab_email = $data['email'];
+							if(!empty($data['firstname'] && $data['lastname'] && $data['role'] && $data['email'])){
+								$collab_fn = $data['firstname'];
+							     $collab_ln = $data['lastname'];
+							     $collab_role = $data['role'];
+							     $collab_email = $data['email'];
 
-						     $sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES (?,?,?,?,?)";
-						     if(!$stmt = $mysqli->prepare ($sql)){
-						     	echo "prepare failed";
-						     }
-						     if(!$stmt->bind_param("issss", $target, $collab_fn, $collab_ln, $collab_role, $collab_email)){
-						     	echo "binding param failed";
-						     }
-						     if(!$stmt->execute()){
-						     	echo "execute failed";
-						     }
-						     $stmt->close();
+							     $sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES (?,?,?,?,?)";
+							     if(!$stmt = $mysqli->prepare ($sql)){
+							     	echo "prepare failed";
+							     }
+							     if(!$stmt->bind_param("issss", $target, $collab_fn, $collab_ln, $collab_role, $collab_email)){
+							     	echo "binding param failed";
+							     }
+							     if(!$stmt->execute()){
+							     	echo "execute failed";
+							     }
+							     $stmt->close();
+							}
 						}
 
 
 
 						// Insert into film history
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iis", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -453,11 +455,11 @@
 						
 						// Insert into film history
 						
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -535,11 +537,11 @@
 
 						// Film history
  						
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
