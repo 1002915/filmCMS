@@ -46,6 +46,7 @@
 						},
 						dataType:'json',
 						success:function(res) {
+							console.log('hello');
 							// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
 							$('#searchList').html('');
  							$.each(res, function(index,value) {
@@ -56,7 +57,7 @@
     							if(value['id'] == null){
 									$('#searchList').html('');
  									$('#searchList').append("<p>Sorry there are no results</p>");
-
+P
  								}	 
 							});
 						}
