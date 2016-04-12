@@ -1,6 +1,5 @@
 <?php 
-session_start();
-
+include('header.php');
 include('connection.php');
 
 function e($text) {
@@ -8,7 +7,9 @@ function e($text) {
     return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
    
 }
-
+?>
+<div class="login_box"> <a href="register.php">REGISTER HERE</a>
+    <?php
 /* 
 SELECT the 'id' of the user where their email address matches their input 
 */
@@ -17,7 +18,7 @@ $email = e($_POST['email']);
 
 $verify_hash = md5(uniqid(rand(), true));
 
-$sql = "SELECT id FROM users WHERE email = '$email'";
+$sql = "SELECT * FROM users WHERE email = '$email'";
 
 $result = $mysqli->query($sql);
 
@@ -27,17 +28,13 @@ if ($result->num_rows > 0) {
 
         $row_id = $row["id"];
 
-    }
 
-} else {
-
-    echo "0 results";
-}
 
 /* 
 UPDATE 'verify_hash' in the database. This wey, we can send the hash to the users email 
 which will then link to the page where the user can update their password 
 */
+
 
 $update_hash = "UPDATE users SET verify_hash='$verify_hash' WHERE id='$row_id'";
 
@@ -55,7 +52,7 @@ if (isset($_POST['email'])) {
 
 require_once('PHPMailerAutoload.php');
 
-$confirm_url = 'localhost/filmCMS/login/resetlink.php?code='.$verify_hash;
+$confirm_url = 'localhost/filmCMS/resetlink.php?code='.$verify_hash;
 
 $confirm_id = $mysqli->insert_id;
 
@@ -120,5 +117,14 @@ echo '<h3>Thanks for being a part of Film CMS.</h3>We have sent your password to
     
     echo "Error updating record: " . mysqli_error($mysqli);
 }
+    }
+
+} else {
+
+    echo "Sorry, that email address isn't yet registered. Please sign up before resetting your email.";
+
+}
 
 ?>
+</div>
+<?php include('footer.php'); ?>

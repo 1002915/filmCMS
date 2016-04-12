@@ -1759,7 +1759,7 @@
       var emailParts = email.toLowerCase().split('@'),
         localPart = emailParts[0],
         domain = emailParts[1];
-        var email_student = "student.sae.edu";
+        var email_student = "student.sae.edu.au";
         var email_staff = "sae.edu";
 
       if (localPart && domain && domain == email_student || localPart && domain && domain == email_staff) {
@@ -1896,6 +1896,32 @@
       return false;
     },
     errorMessage: '',
+    errorMessageKey: 'badUrl'
+  });
+
+  /*
+   * Validate youtube
+   */
+  $.formUtils.addValidator({
+    name: 'youtube',
+    validatorFunction: function (url) {
+
+      var youtubeFilter = /^(https?\:\/\/)?(www\.)?(youtube\.com|youtu\.?be)\/.+$/;
+      var vimeoFilter = /https?:\/\/(?:www\.|player\.)?vimeo.com\/(.*)$/;
+
+      if (youtubeFilter.test(url)) {
+        console.log('youtube validate worked');
+        return true;
+
+      } if (vimeoFilter.test(url)) {
+        console.log('vimeo validate worked');
+        return true;
+      }
+
+      console.log('video validation did not work');
+      return false;
+    },
+    errorMessage: 'incorrect link',
     errorMessageKey: 'badUrl'
   });
 

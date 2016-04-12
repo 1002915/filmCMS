@@ -43,6 +43,8 @@ $(document).ready(function(){
 							var group = "content_left";
 							var inner = 1;
 
+<div class="push"></div>
+</div>
 
 
  							$.each(res, function(index,value) {
