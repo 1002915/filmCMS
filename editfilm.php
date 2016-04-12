@@ -4,10 +4,7 @@
 	//$filmid = $_GET['id'];
 	$filmid = 3;
 
-    $data = array("value" => $filmid);
-    echo json_encode($data);
-?>
-
+    json_encode($filmid);
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
@@ -83,7 +80,8 @@
 
 		$.validate();
 
-		var target = json_encode
+		var target = <?php echo json_encode($filmid)?>;
+		console.log(target);
 
 		// return single project
 		function return_project() {	
@@ -101,6 +99,10 @@
 	 					$('input#edit_video_link').val(val['video_link']);
 	 					$('input#edit_title').val(val['title']);
 	 					$('input#edit_synopsis').val(val['synopsis']);	 
+	 					$('input#edit_cover_image').val(val['cover_image']);
+	 					$('input#edit_published').val(val['published']);
+	 					$('input#edit_user_id').val(val['user_id']);	 
+	 					$('input#edit_active').val(val['active']);	 
 					});
 				}, 
 				error: function(res) {
