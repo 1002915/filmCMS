@@ -7,8 +7,6 @@
     json_encode($filmid);
 ?>
 
-?>
-
 	<script src="js/form-validator/jquery.form-validator.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
 
