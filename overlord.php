@@ -201,7 +201,7 @@
 							echo "execute failed";
 						}
 						$stmt->store_result();
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $first_name, $last_name, $location, $campus_id) {
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $first_name, $last_name, $location, $campus_id)) {
 							echo "binding results failed";
 						}
 						$data = array();
