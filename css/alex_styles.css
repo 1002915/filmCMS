@@ -78,6 +78,7 @@ select {
 .search_product {
 	width:33.3%;
 	float:left;
+	padding:10px 20px;
 }
 
 .text_width {
