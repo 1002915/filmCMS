@@ -35,7 +35,13 @@ $.validate();
 
  
 </script>
-</div>
 
+
+</div>
+<img src="<?php echo $_SESSION['user_photo'];?>" class="cover_image_profile">
+
+<div class="security_box">
+    <form name="upload" id="upload" action="upload.php" class="dropzone"></form>
+</div>
 
 <?php include('footer.php'); ?>
