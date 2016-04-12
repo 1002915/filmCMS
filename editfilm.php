@@ -1,33 +1,33 @@
 <?php 
-
-	require('overlord.php');
 	include('header.php'); 
 
+	//$filmid = $_GET['id'];
+	$filmid = 3;
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
-	
+
 
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
 
-<form method="POST" action="#">
+<form method="POST" action="displayfilm.php">
 	<input type="hidden" name="function" value="new_project">
 
-	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
+	<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
 
-	<input type="hidden" id="runtime" name="runtime" value="">
+	<input type="text" id="edit_runtime" name="runtime">
 
 	<div class='display_video'>
 		<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
 
 	<h3>Title:</h3><br>
-	<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+	<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
 	<h3>Synopsis</h3><br>
-	<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+	<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
 	<h3>Collaborators</h3>
 	<table id="new_collaborator">
@@ -55,16 +55,16 @@
 
 	<h3>Cover Image</h3><br>
 	<!--<div class="dropzone" id="cover_image" name="cover_image"></div>-->
-	<input type="text" name="cover_image">
+	<input type="text" id="edit_cover_image" name="cover_image">
 
-	<select>
-		<option name="published" value="0">Save Draft</option>
-		<option name="published" value="1">Publish</option>
+	<select id="edit_published" name="published">
+		<option value="0">Save Draft</option>
+		<option value="1">Publish</option>
 	</select>
 
 	<!-- hidden fields-->
-	<input type="hidden" name="user_id" value="2"><br>
-	<input type="hidden" name="active" value="1"><br>
+	<input type="hidden" id="edit_user_id" name="user_id" value="2"><br>
+	<input type="hidden" id="edit_active" name="active" value="1"><br>
 
 	<input type="submit">
 
@@ -75,9 +75,36 @@
 	<script src="js/dropzone.js"></script>
 
 	<script>
+
 		$.validate();
 
-		$("div#cover_image").dropzone({ url: "#" });
+		var target = "<?php $filmid; ?>";
+
+		// return single project
+		function return_project() {	
+			$.ajax({
+				type:"POST",
+				url:"overlord.php",
+				data:{
+					function:'return_project',
+					target: target
+				},
+				dataType:'json',
+				success:function(res) {
+					console.log(res);
+	 				$.each(res, function(i, val) {
+	 					console.log(val);
+	 					$('input#edit_video_link').val(val['video_link']);
+	 					$('input#edit_title').val(val['title']);
+	 					$('input#edit_synopsis').val(val['synopsis']);	 
+					});
+				}, 
+				error: function(res) {
+					console.log("ERROR: no id received");
+				}
+			});
+		}
+
 
 		// converting time in seconds to hh:mm:ss
 		function runtimeformat(seconds) {
@@ -90,6 +117,7 @@
 			return time;
 		}
 
+		// append runtime to input field
 		function appendResults(text) {
 			$('input#runtime').val($('input#runtime').val() + text);
 			console.log($('input#runtime').val());
@@ -183,8 +211,6 @@
 		});	
 
 
-	
-
 		// Increase collaborators as user inputs info
 		$("#new_collaborator > tbody > tr:last > td > .firstname").on('blur', function(){
 			if($("#new_collaborator > tbody > tr:last > td > .firstname").val() != ''){
@@ -203,6 +229,10 @@
 				$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
 			}
 
+		});
+
+		$(document).ready(function(){ 
+			return_project();
 		});
 
 	</script>
