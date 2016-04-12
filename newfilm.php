@@ -1,6 +1,5 @@
 <?php 
 	include('header.php'); 
-
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
@@ -55,9 +54,9 @@
 	<!--<div class="dropzone" id="cover_image" name="cover_image"></div>-->
 	<input type="text" name="cover_image">
 
-	<select>
-		<option name="published" value="0">Save Draft</option>
-		<option name="published" value="1">Publish</option>
+	<select name="published">
+		<option value="0">Save Draft</option>
+		<option value="1">Publish</option>
 	</select>
 
 	<!-- hidden fields-->

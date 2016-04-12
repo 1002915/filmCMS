@@ -1759,7 +1759,7 @@
       var emailParts = email.toLowerCase().split('@'),
         localPart = emailParts[0],
         domain = emailParts[1];
-        var email_student = "student.sae.edu";
+        var email_student = "student.sae.edu.au";
         var email_staff = "sae.edu";
 
       if (localPart && domain && domain == email_student || localPart && domain && domain == email_staff) {

@@ -330,11 +330,11 @@
 
 
  						// Film history
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -409,11 +409,11 @@
 
 
 						// Insert into film history
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iis", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -453,11 +453,11 @@
 						
 						// Insert into film history
 						
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -535,11 +535,11 @@
 
 						// Film history
  						
-						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,?,?)";
+						$sql  = "INSERT INTO film_history (film_id, user_id, time_now, user_action) VALUES (?,?,NOW(),?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, NOW(), $action)){
+						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
