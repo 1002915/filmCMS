@@ -38,8 +38,9 @@ $.validate();
 
 
 </div>
+<?php if (isset($_SESSION['user_photo'])){?>
 <img src="<?php echo $_SESSION['user_photo'];?>" class="cover_image_profile">
-
+<?php }?>
 <div class="security_box">
     <form name="upload" id="upload" action="upload.php" class="dropzone"></form>
 </div>
