@@ -223,3 +223,7 @@ select {
   background-color: white;
   text-shadow: none;
 }
+
+span {
+  color: black;
+}

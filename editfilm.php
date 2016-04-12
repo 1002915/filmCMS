@@ -1,5 +1,8 @@
 <?php 
+
+	require('overlord.php');
 	include('header.php'); 
+
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
@@ -9,12 +12,12 @@
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
 
-<form method="POST" action="displayfilm.php">
+<form method="POST" action="#">
 	<input type="hidden" name="function" value="new_project">
 
 	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
 
-	<input type="text" id="runtime" name="runtime">
+	<input type="hidden" id="runtime" name="runtime" value="">
 
 	<div class='display_video'>
 		<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
@@ -54,9 +57,9 @@
 	<!--<div class="dropzone" id="cover_image" name="cover_image"></div>-->
 	<input type="text" name="cover_image">
 
-	<select name="published">
-		<option value="0">Save Draft</option>
-		<option value="1">Publish</option>
+	<select>
+		<option name="published" value="0">Save Draft</option>
+		<option name="published" value="1">Publish</option>
 	</select>
 
 	<!-- hidden fields-->
