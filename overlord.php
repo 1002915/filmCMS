@@ -24,7 +24,7 @@
 			switch($function){
 
 				case "return_all_projects":
-					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id ORDER BY average_rating DESC";
+					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, campus, users WHERE film.user_id = users.id AND users.campus_id = campus.id";
 
 					if(!$stmt = $mysqli->prepare ($sql)){
 						echo "prepare failed";
@@ -32,13 +32,35 @@
 					if(!$stmt->execute()){
 						echo "execute failed";
 					}
-					
-					if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+					$stmt->store_result();
+					if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $location)) {
 						echo "binding results failed";
 					}
+					
 					$data = array();
 
 					while($stmt->fetch()) {
+
+						$sql = "SELECT AVG(rating) AS average_rating FROM rating WHERE film_id = ?";
+
+						if(!$stmt2 = $mysqli->prepare ($sql)){
+							echo "prepare failed";
+						}
+						if(!$stmt2->bind_param("i", $id)){
+							echo "bind param failed";
+						}
+						if(!$stmt2->execute()){
+							echo "execute failed";
+						}
+						$stmt2->store_result();
+						if(!$stmt2->bind_result($average_rating)) {
+							echo "binding results failed";
+						}
+
+						while($stmt2->fetch()) {
+							$rating = $average_rating;
+						}
+
 						$data[] = array(
 							"id" => $id,
 							"title" => $title,
@@ -49,10 +71,8 @@
 							"user_id" => $user_id,
 							"published" => $published,
 							"active" => $active,
-							"average_rating" => $average_rating,
-							"first_name" => $first_name,
-							"last_name" => $last_name,
-							"campus" => $location
+							"campus" => $location,
+							"average_rating" => $rating
 						);
 					}
 
@@ -169,7 +189,7 @@
 							$campus = '';
 						}
 						$searchstring = "%".$target."%";
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, location, collaborators.first_name, collaborators.last_name FROM film, rating, users, campus, collaborators WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND collaborators.film_id = film.id AND title LIKE ? OR synopsis LIKE ? OR collaborators.first_name LIKE ? OR collaborators.last_name LIKE ?".$campus;
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location, collaborators.first_name, collaborators.last_name FROM film, users, campus, collaborators WHERE film.user_id = users.id AND users.campus_id = campus.id AND collaborators.film_id = film.id AND title LIKE ? OR synopsis LIKE ? OR collaborators.first_name LIKE ? OR collaborators.last_name LIKE ?".$campus;
 						if(!$stmt = $mysqli->prepare($sql)){
 							echo "prepare failed";
 						}
@@ -179,12 +199,35 @@
 						if(!$stmt->execute()){
 							echo "execute failed";
 						}
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $location, $first_name, $last_name)) {
+						$stmt->store_result();
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $location, $first_name, $last_name)) {
 							echo "binding results failed";
 						}
 						$data = array();
 						
 						while($stmt->fetch()) {
+
+							$sql = "SELECT AVG(rating) AS average_rating FROM rating WHERE film_id = ?";
+
+							if(!$stmt2 = $mysqli->prepare ($sql)){
+								echo "prepare failed";
+							}
+							if(!$stmt2->bind_param("i", $id)){
+								echo "bind param failed";
+							}
+							if(!$stmt2->execute()){
+								echo "execute failed";
+							}
+							$stmt2->store_result();
+							if(!$stmt2->bind_result($average_rating)) {
+								echo "binding results failed";
+							}
+
+							while($stmt2->fetch()) {
+								$rating = $average_rating;
+							}
+
+
 							$data[] = array(
 								"id" => $id,
 								"title" => $title,
@@ -195,10 +238,10 @@
 								//"user_id" => $user_id,
 								"published" => $published,
 								"active" => $active,
-								"average_rating" => $average_rating,
 								"first_name" => $first_name,
 								"last_name" => $last_name,
 								"campus" => $location
+								"average_rating" => $rating
 							);
 						} // end while
 
