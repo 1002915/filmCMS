@@ -46,20 +46,24 @@
 						},
 						dataType:'json',
 						success:function(res) {
-							console.log('hello');
 							// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
 							$('#searchList').html('');
+ 							var count = 0;
  							$.each(res, function(index,value) {
- 								console.log(value);
- 								$('#searchList').html('');
-								$('#searchList').append( "<div class='search_product'><img src='"+value['cover_image']+"'class='coverImage' alt='cover_image'> <p class='text_width'>"+value['title']+"</p><p class='text_width'>"+value['first_name']+"</p><p class='text_width'>"+value['synopsis']+"</p></div>" );
-								// WHEN THE CONENT IS NOT IN THE DATABASE
-    							if(value['id'] == null){
-									$('#searchList').html('');
- 									$('#searchList').append("<p>Sorry there are no results</p>");
-P
- 								}	 
+ 								if(value['id'] != null){
+	 								console.log(value);
+	 								//$('#searchList').html('');
+									$('#searchList').append( "<div class='search_product'><img src='"+value['cover_image']+"'class='coverImage' alt='cover_image'> <p class='text_width'>"+value['title']+"</p><p class='text_width'>"+value['synopsis']+"</p></div>" );
+									// WHEN THE CONENT IS NOT IN THE DATABASE
+    							
+									count++;		
+ 								}
 							});
+ 							if (count < 1){
+ 								$('#searchList').html('');
+ 								$('#searchList').append("<p>Sorry there are no results</p>");
+ 							}
+							
 						}
 					});
 			}
