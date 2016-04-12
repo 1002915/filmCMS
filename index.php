@@ -21,58 +21,115 @@ Etiam in dui nulla. Nullam ac nunc mauris.putate in luctus vel, congue id augue.
 			</div>
 		</div>
 
-		<div class="content_left">
-			<div class="film_large">
-				<img src="img/placeholder.jpg"/>
-				<div class="film_title_big">Placeholder Film Title</div>
-			</div>
-		
-			<div class="film_small">
-				<img src="img/placeholder.jpg"/>
-				<div class="film_title_small">Placeholder Film Title</div>
-			</div>
-		
-			<div class="film_small">
-				<img src="img/placeholder.jpg"/>
-				<div class="film_title_small">Placeholder Film Title</div>
-			</div>
+		<div id="film_content">
 		</div>
+<script>
+$(document).ready(function(){
 
-		<div class="content_right">
-			<div class="film_small">
-				<img src="img/placeholder.jpg">
-				<div class="film_title_small">Placeholder Film Title</div>
-			</div>
-		
-			<div class="film_small">
-				<img src="img/placeholder.jpg">
-				<div class="film_title_small">Placeholder Film Title</div>
-			</div>
-			<div class="film_large">
-				<img src="img/placeholder.jpg">
-				<div class="film_title_big">Placeholder Film Title</div>
-			</div>
-		</div>
+					console.log('Keypress!');
+					
+					$.ajax({
+						type:"POST",
+						url:"overlord.php",
+						data:{
+							function:'return_all_projects'
+						},
+						dataType:'json',
+						success:function(res) {
+							// loop through all film
 
-		<div class="content_bottom">
-			<div class="film_medium">
-				<img src="img/placeholder.jpg">
-				<div class="film_title_medium">Placeholder Film Title</div>
-			</div>
-		
-			<div class="film_medium">
-				<img src="img/placeholder.jpg">
-				<div class="film_title_medium">Placeholder Film Title</div>
-			</div>
-			<div class="film_medium">
-				<img src="img/placeholder.jpg">
-				<div class="film_title_medium">Placeholder Film Title</div>
-			</div>
+							var counter = 1;
+
+							var group = "content_left";
+							var inner = 1;
 
 <div class="push"></div>
 </div>
 
 
+ 							$.each(res, function(index,value) {
+ 								console.log(counter);
+ 								if (group == "content_left") {
+ 									if (inner == 1) {
+ 										$("#film_content").append('<div class="content_left" id="content_left_'+counter+'" ></div>');
+ 										$('#content_left_'+counter).append('<div class="film_large"><img src="'+value.cover_image+'"><div class="film_title_large">'+value.title+'</div></div>');
+ 										inner++;
+ 									} else if (inner == 2) {
+ 										$('#content_left_'+counter).append('<div class="film_small"><img src="'+value.cover_image+'"><div class="film_title_small">'+value.title+'</div></div>');
+ 										inner++
+ 									} else {
+ 										$('#content_left_'+counter).append('<div class="film_small"><img src="'+value.cover_image+'"><div class="film_title_small">'+value.title+'</div></div>');
+ 										group = 'content_right'
+ 										inner = 1 
+ 									};
+
+ 								} else if (group == "content_right") {
+ 									if (inner == 1) {
+ 										$("#film_content").append('<div class="content_right" id="content_right_'+counter+'" ></div>');
+ 										$('#content_right_'+counter).append('<div class="film_small"><img src="'+value.cover_image+'"><div class="film_title_small">'+value.title+'</div></div>');
+ 										inner++;
+
+ 									} else if (inner == 2) {
+ 										$('#content_right_'+counter).append('<div class="film_small"><img src="'+value.cover_image+'"><div class="film_title_small">'+value.title+'</div></div>');
+ 										inner++;
+
+ 									} else {
+ 										$('#content_right_'+counter).append('<div class="film_large"><img src="'+value.cover_image+'"><div class="film_title_large">'+value.title+'</div></div>');
+ 										group = 'content_bottom'
+ 										inner = 1 
+ 									};
+
+ 								} else {
+ 									if (inner == 1) {
+ 										$("#film_content").append('<div class="content_bottom" id="content_bottom_'+counter+'" ></div>');
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><img src="'+value.cover_image+'"><div class="film_title_medium">'+value.title+'</div></div>');
+ 										inner++;
+ 									} else if (inner == 2) {
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><img src="'+value.cover_image+'"><div class="film_title_medium">'+value.title+'</div></div>');
+ 										inner++;
+
+ 									} else {
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><img src="'+value.cover_image+'"><div class="film_title_medium">'+value.title+'</div></div>');
+ 										group = 'content_left';
+ 										inner = 1;
+ 										counter++;
+ 									};
+
+ 								};
+
+
+
+ 								console.log(value);
+ 								//counter++;
+
+ 						//$("#film_content").append('<div class="film_small"><img src="'+value.cover_image+'"><div class="film_title_small">'+value.title+'</div></div>')
+    					//$("#film_content").append('<div class="film_medium"><img src="'+value.cover_image+'"><div class="film_title_medium">'+value.title+'</div></div>')
+						//$("#film_content").append('<div class="film_large"><img src="'+value.cover_image+'"><div class="film_title_large">'+value.title+'</div></div>')
+							//counter = counter + 1 
+							
+							//counter = counter - 1
+							//counter--
+
+    							if(value['id'] == null){
+									$('#film_content').html('');
+ 									$('#film_content').append("<p>Sorry there are no results</p>");
+ 								}	 
+							});
+								
+							//$('#searchList').html(res);
+						},
+						error:function(req,text,error) {
+							console.log('Oops!');
+							console.log(req);
+							console.log(text);
+							console.log(error);
+						}
+					});
+				});
+		
+
+	</script>
 	
 
 <?php include('footer.php'); ?>
+
