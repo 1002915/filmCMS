@@ -240,7 +240,7 @@
 								"active" => $active,
 								"first_name" => $first_name,
 								"last_name" => $last_name,
-								"campus" => $location
+								"campus" => $location,
 								"average_rating" => $rating
 							);
 						} // end while
