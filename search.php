@@ -1,6 +1,7 @@
 <?php
 	include('header.php');
 ?>
+
 	<body id='search_body'>
 
 		<div id='searchBar'>
@@ -36,36 +37,39 @@
 				console.log('Keypress!');
 					var search = $('#search').val();
 					var campus_selection = $('#campus_selection').val();
-					$.ajax({
-						type:"POST",
-						url:"overlord.php",
-						data:{
-							function:'search_project',
-							target:search,
-							campus:campus_selection
-						},
-						dataType:'json',
-						success:function(res) {
-							// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
-							$('#searchList').html('');
- 							var count = 0;
- 							$.each(res, function(index,value) {
- 								if(value['id'] != null){
-	 								console.log(value);
-	 								//$('#searchList').html('');
-									$('#searchList').append( "<div class='search_product'><img src='"+value['cover_image']+"'class='coverImage' alt='cover_image'> <p class='text_width'>"+value['title']+"</p><p class='text_width'>"+value['synopsis']+"</p></div>" );
-									// WHEN THE CONENT IS NOT IN THE DATABASE
-    							
-									count++;		
- 								}
-							});
- 							if (count < 1){
- 								$('#searchList').html('');
- 								$('#searchList').append("<p>Sorry there are no results</p>");
- 							}
-							
-						}
-					});
+					if (search != '') {
+						$.ajax({
+							type:"POST",
+							url:"overlord.php",
+							data:{
+								function:'search_project',
+								target:search,
+								campus:campus_selection
+							},
+							dataType:'json',
+							success:function(res) {
+								// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
+								$('#searchList').html('');
+	 							var count = 0;
+	 							$.each(res, function(index,value) {
+	 								if(value['id'] != null){
+		 								console.log(value);
+										$('#searchList').append( "<div class='search_product'><div class='film_cover_image' style='background-image:url("+value['cover_image']+");'></div><p class='text_width'>"+value['title']+"</p><p class='text_width'>"+value['synopsis']+"</p></div>" );
+										// WHEN THE CONENT IS NOT IN THE DATABASE
+	    							
+										count++;		
+	 								}
+								});
+	 							if (count < 1){
+	 								$('#searchList').html('');
+	 								$('#searchList').append("<p>Sorry there are no results</p>");
+	 							}
+								
+							}
+						});
+					} else {
+						$('#searchList').html('');
+					}
 			}
 
 			$(document).ready(function(){ 
