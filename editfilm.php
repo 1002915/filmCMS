@@ -10,7 +10,6 @@
 	<script src="js/form-validator/jquery.form-validator.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
 
-
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
 
@@ -38,6 +37,7 @@
 			<td>Last Name</td>
 			<td>Role</td>
 			<td>Email</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>
@@ -51,6 +51,9 @@
 			</td>
 			<td>
 				<input type="text" class="email" name="collab[1][email]">
+			</td>
+			<td>
+				<input type="button" id="remove" value="remove" onclick="deleteRow(this)" name="collab[1][remove]">
 			</td>
 		</tr>
 	</table>
@@ -102,7 +105,7 @@
 	 					$('input#edit_cover_image').val(val['cover_image']);
 	 					$('input#edit_published').val(val['published']);
 	 					$('input#edit_user_id').val(val['user_id']);	 
-	 					$('input#edit_active').val(val['active']);	 
+	 					$('input#edit_active').val(val['active']);
 					});
 				}, 
 				error: function(res) {
@@ -223,7 +226,10 @@
 				// clone last row of table and empty its values
 				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
 				var input = $('#new_collaborator > tbody > tr:last > td > input');
-				input.val('');
+				$('#new_collaborator > tbody > tr:last > td > input.firstname').val('');
+				$('#new_collaborator > tbody > tr:last > td > input.lastname').val('');
+				$('#new_collaborator > tbody > tr:last > td > input.role').val('');
+				$('#new_collaborator > tbody > tr:last > td > input.email').val('');
 
 				// get number of rows in table
 				var rowcount = $('#new_collaborator tr').length;
@@ -233,10 +239,16 @@
 				$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + rowcurrent + '][lastname]');
 				$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
 				$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
+				$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
 			}
 
 		});
-
+	
+		// remove collaborators
+		function deleteRow(btn) {
+		  	var row = btn.parentNode.parentNode;
+		  	row.parentNode.removeChild(row);
+		}
 		$(document).ready(function(){ 
 			return_project();
 		});
