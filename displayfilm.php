@@ -21,7 +21,7 @@
 
 <div id="displayvideo">
 	
-	  <iframe id="video" width="100%" height="450" src="" frameborder="0" allowfullscreen></iframe>
+	  <iframe id="video" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
 	
 
 <section id="details">
@@ -48,7 +48,7 @@
 <script>
 
 	function return_project() {
-		var target = 2;
+		var target = <?PHP echo $_GET['id'];?>;
 		$.ajax({
 			type:"POST",
 			url:"overlord.php",
@@ -73,77 +73,16 @@
 
 				//get youtube id
 			   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
-
-			   	// start youtube api
-				gapi.client.setApiKey('AIzaSyAD94F0GwBoXnncL0ck2bZdSeZf6RDW_3s');
-				gapi.client.load('youtube', 'v3').then(makeRequest);
-
-				//convert youtube time to seconds
-				function convertosecs(duration){
-					var a = duration.match(/\d+/g);
-				    if (duration.indexOf('M') >= 0 && duration.indexOf('H') == -1 && duration.indexOf('S') == -1) {
-				        a = [0, a[0], 0];
-				    }
-				    if (duration.indexOf('H') >= 0 && duration.indexOf('M') == -1) {
-				        a = [a[0], 0, a[1]];
-				    }
-				    if (duration.indexOf('H') >= 0 && duration.indexOf('M') == -1 && duration.indexOf('S') == -1) {
-				        a = [a[0], 0, 0];
-				    }
-				    duration = 0;
-				    if (a.length == 3) {
-				        duration = duration + parseInt(a[0]) * 3600;
-				        duration = duration + parseInt(a[1]) * 60;
-				        duration = duration + parseInt(a[2]);
-				    }
-				    if (a.length == 2) {
-				        duration = duration + parseInt(a[0]) * 60;
-				        duration = duration + parseInt(a[1]);
-				    }
-				    if (a.length == 1) {
-				        duration = duration + parseInt(a[0]);
-				    }
-				    return duration
-				}
 				
-				// actually make api request
-				function makeRequest() {
-		            var request = gapi.client.youtube.videos.list({
-						part: "contentDetails",
-						id: videoid
-					});
-		            console.log('request made');
-					request.then(function(response){
-						var duration = 	response.result.items[0].contentDetails.duration;
-						duration = convertosecs(duration);
-						duration = runtimeformat(duration);
-						appendResults(duration);
-			        });
-		        }
+
 
 			} else {
 				// if video was on vimeo
 				var videolinkiframe = videolink.replace("//", "//player.");
 		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
 		    	var videolinkiframe = videolinkiframe.concat("?api=1&player_id=player1");
-
-		    	//add vimeo api
-				var iframe = $('#player1')[0];
-    			var player = $f(iframe);
-
-				// When the player is ready, add listeners for pause, finish, and playProgress
-			//	player.addEvent('ready', function() {
-			//		getDuration();
-			//	});
-
-				function getDuration() {
-				    player.api('getDuration', function(duration) {
-				    	duration = runtimeformat(duration);
-				        appendResults(duration);
-				    });
-				}
 		    }
-		    
+
 
 		    $("#video").attr("src", videolinkiframe);
  					console.log(value);
