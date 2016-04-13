@@ -10,10 +10,29 @@ span {
 	font-size: 16px;
 }
 
+p {
+	line-height: 25px;
+}
+
 select {
 	border: 1px #420420 solid;
 	border-radius: 0;
 	padding:10px;
+}
+
+.clear_float {
+	clear: both;
+}
+
+.middle_postition {
+	width:500px;
+	height:10px;
+	margin:0 auto;
+}
+
+.center_text {
+	text-align: center;
+	padding:20px;
 }
 
 #searchBar {
@@ -23,8 +42,10 @@ select {
 }
 
 #search {
-	width:50%;
+	width:70%;
+	padding: 20px;
 	margin:0 auto;
+	float:left;
 	display:block;
 	border:#3b3b3b 2px solid;
 	padding:20px;
@@ -49,9 +70,30 @@ select {
 
 #campus_selection {
 	float:left;
+	margin-left: 20px;
+	margin-top:5px;
+	width:110px;
 }
 
 .search_product {
 	width:33.3%;
 	float:left;
+	padding:10px 20px;
+}
+
+.text_width {
+	width:300px;
+}
+
+.film_cover_image {
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height:200px;
+	width:90%;
+	margin:0 auto;
+}
+
+@media screen and (max-width: 700px) {
+	#search {width:50%;}
+	.middle_postition {width:80%;}
 }
