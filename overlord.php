@@ -189,7 +189,12 @@
 							$campus = '';
 						}
 						$searchstring = "%".$target."%";
-						$sql = "SELECT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, collaborators.first_name, collaborators.last_name, campus.location, campus.ID FROM campus INNER JOIN ((film INNER JOIN collaborators ON film.ID = collaborators.film_id) INNER JOIN users ON film.user_id = users.ID) ON campus.ID = users.campus_id WHERE (((film.title) Like ?)) OR (((collaborators.first_name) Like ?)) OR (((film.synopsis) Like ?)) OR (((collaborators.last_name) Like ?))".$campus;
+						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID 
+						FROM film, campus, users, collaborators 
+						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id 
+						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id 
+						OR film.synopsis Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id 
+						OR collaborators.last_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id".$campus;
 
 						if(!$stmt = $mysqli->prepare($sql)){
 							echo "prepare failed";
@@ -201,7 +206,7 @@
 							echo "execute failed";
 						}
 						$stmt->store_result();
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $first_name, $last_name, $location, $campus_id)) {
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $location, $campus_id)) {
 							echo "binding results failed";
 						}
 						$data = array();
@@ -239,8 +244,6 @@
 								//"user_id" => $user_id,
 								"published" => $published,
 								"active" => $active,
-								"first_name" => $first_name,
-								"last_name" => $last_name,
 								"campus" => $location,
 								"campus_id" => $campus_id,
  								"average_rating" => $rating
