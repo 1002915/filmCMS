@@ -1,0 +1,59 @@
+#displayvideo {
+	width:800px;
+	height: 50%;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 50px;
+}
+
+#details {
+	float:left;
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.film_title {
+	background-color: #ffd00b;
+	box-sizing: border-box;
+	padding: 5px;
+	font-size: 2em;
+	width: 50%;
+	margin-top: 10px;
+	margin-bottom: 10px;
+} 
+#details2 {
+	float:left;
+	width: 50%;
+	margin-left: auto;
+	margin-right: auto;
+}
+.student_name {
+	font-size: 1.5em;
+	color: #FFF;
+	position: relative;
+	display: inline-block;
+	float: left;
+
+}
+
+.campus {
+	font-size: 1em;
+	color: #D1D3D4;
+	position: relative;
+	display: inline-block;
+	float: right;
+}
+
+#rating{
+	float: right;
+	width: 30%;
+}
+#synopsis {
+	color: #FFF;
+	width: 100%;
+}
+#contributors {
+	color: #D1D3D4;
+	width: 100%;
+}

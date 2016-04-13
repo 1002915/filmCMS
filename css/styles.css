@@ -64,7 +64,7 @@ html {
 }
 
 .content_left {
-	margin-top: 30px;
+	
 	width:50%;
 	display: flex;
 	flex-wrap: wrap;
@@ -90,6 +90,14 @@ html {
 	align-items: center;
 	float: left;
 }
+.film_thumbnail {
+	background-size: cover;
+	width: 100%;
+	height: 200px;
+}
+.film_large .film_thumbnail {
+	height: 400px;
+}
 
 .film_large {
 	width: 100%;
@@ -98,17 +106,21 @@ html {
 	height: 50%;
 	margin: 10px;
 	float: left;
+	margin-bottom: 50px;
 }
 
 .film_large img {
 	width: 100%;
 }
 
-.film_title_big {
+.film_title_large {
 	background-color: #ffd00b;
 	box-sizing: border-box;
 	padding: 5px;
 	font-size: 1.6em;
+	position: relative;
+    top: 100%;
+
 }
 
 .film_small {
@@ -118,6 +130,7 @@ html {
 	height: 50%;
 	margin: 10px;
 	float: left;
+	margin-bottom: 50px;
 }
 
 .film_small img {
@@ -128,6 +141,8 @@ html {
 	box-sizing: border-box;
 	padding: 5px;
 	font-size: 1.2em;
+	position: relative;
+    top: 100%;
 }
 
 .film_medium {
