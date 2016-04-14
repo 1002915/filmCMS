@@ -1,10 +1,14 @@
 <?php 
 	include('header.php'); 
 
-	//$filmid = $_GET['id'];
-	$filmid = 3;
+	$user_id = $_SESSION['id'];
+	$user_type = $_SESSION['user_type'];
+	$activebutton = false;
 
-    json_encode($filmid);
+	//$filmid = $_GET['id'];
+	$film_id = 3;
+
+    json_encode($film_id);
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
@@ -14,7 +18,7 @@
 <p>Please copy and paste the link from youtube or vimeo</p>
 
 <form method="POST" action="displayfilm.php">
-	<input type="hidden" name="function" value="new_project">
+	<input type="hidden" name="function" value="update_project">
 
 	<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
 
@@ -67,9 +71,22 @@
 		<option value="1">Publish</option>
 	</select>
 
+	<?php
+	if($user_type == 0) {
+		?>
+
+		<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
+	    <label class="active-label" for="edit_active">
+	        <span class="active-inner"></span>
+	        <span class="active-switch"></span>
+	    </label>
+
+		<?php
+	}
+	?>
+
 	<!-- hidden fields-->
-	<input type="hidden" id="edit_user_id" name="user_id" value="2"><br>
-	<input type="hidden" id="edit_active" name="active" value="1"><br>
+	<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>"><br>
 
 	<input type="submit">
 
@@ -83,7 +100,7 @@
 
 		$.validate();
 
-		var target = <?php echo json_encode($filmid)?>;
+		var target = <?php echo json_encode($film_id)?>;
 		console.log(target);
 
 		// return single project

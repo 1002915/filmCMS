@@ -103,6 +103,8 @@
 						$data = array();
 						
 						while($stmt->fetch()) {
+
+							
 							$data[] = array(
 								"id" => $id,
 								"title" => $title,
@@ -184,11 +186,15 @@
 						$target = $_POST['target']; // any search term entered
 						$campus = $_POST['campus'];
 						if ($campus != "all") {
-							$campus = ' AND campus = "'.$campus.'"';
+							$campus = ' AND campus.id = "'.$campus.'"';
 						} else {
 							$campus = '';
 						}
-						$searchstring = "%".$target."%";
+						if ($target != '') {
+							$searchstring = "%".$target."%";
+						} else {
+							$searchstring = '%';
+						}
 						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID 
 						FROM film, campus, users, collaborators 
 						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
