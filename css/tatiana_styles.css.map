@@ -1,7 +1,0 @@
-{
-"version": 3,
-"mappings": "AAAA,+BAA+B;EAC9B,MAAM,EAAE,aAAa;;AAGtB,2BAA2B;EAC1B,MAAM,EAAE,eAAe",
-"sources": ["../scss/tatiana_styles.scss"],
-"names": [],
-"file": "tatiana_styles.css"
-}

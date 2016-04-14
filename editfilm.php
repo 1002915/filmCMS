@@ -1,21 +1,24 @@
 <?php 
 	include('header.php'); 
 
-	//$filmid = $_GET['id'];
-	$filmid = 3;
+	$user_id = $_SESSION['id'];
+	$user_type = $_SESSION['user_type'];
+	$activebutton = false;
 
-    json_encode($filmid);
+	//$filmid = $_GET['id'];
+	$film_id = 3;
+
+    json_encode($film_id);
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
 
-
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
 
 <form method="POST" action="displayfilm.php">
-	<input type="hidden" name="function" value="new_project">
+	<input type="hidden" name="function" value="update_project">
 
 	<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
 
@@ -38,6 +41,7 @@
 			<td>Last Name</td>
 			<td>Role</td>
 			<td>Email</td>
+			<td></td>
 		</tr>
 		<tr>
 			<td>
@@ -52,6 +56,9 @@
 			<td>
 				<input type="text" class="email" name="collab[1][email]">
 			</td>
+			<td>
+				<input type="button" id="remove" value="remove" onclick="deleteRow(this)" name="collab[1][remove]">
+			</td>
 		</tr>
 	</table>
 
@@ -64,9 +71,22 @@
 		<option value="1">Publish</option>
 	</select>
 
+	<?php
+	if($user_type == 0) {
+		?>
+
+		<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
+	    <label class="active-label" for="edit_active">
+	        <span class="active-inner"></span>
+	        <span class="active-switch"></span>
+	    </label>
+
+		<?php
+	}
+	?>
+
 	<!-- hidden fields-->
-	<input type="hidden" id="edit_user_id" name="user_id" value="2"><br>
-	<input type="hidden" id="edit_active" name="active" value="1"><br>
+	<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>"><br>
 
 	<input type="submit">
 
@@ -80,8 +100,8 @@
 
 		$.validate();
 
-	//	var target = <?php echo json_encode($filmid)?>;
-	//	console.log(target);
+	var target = <?php echo json_encode($filmid)?>;
+	console.log(target);
 
 		// return single project
 		function return_project() {	
@@ -102,7 +122,7 @@
 	 					$('input#edit_cover_image').val(val['cover_image']);
 	 					$('input#edit_published').val(val['published']);
 	 					$('input#edit_user_id').val(val['user_id']);	 
-	 					$('input#edit_active').val(val['active']);	 
+	 					$('input#edit_active').val(val['active']);
 					});
 				}, 
 				error: function(res) {
@@ -223,7 +243,10 @@
 				// clone last row of table and empty its values
 				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
 				var input = $('#new_collaborator > tbody > tr:last > td > input');
-				input.val('');
+				$('#new_collaborator > tbody > tr:last > td > input.firstname').val('');
+				$('#new_collaborator > tbody > tr:last > td > input.lastname').val('');
+				$('#new_collaborator > tbody > tr:last > td > input.role').val('');
+				$('#new_collaborator > tbody > tr:last > td > input.email').val('');
 
 				// get number of rows in table
 				var rowcount = $('#new_collaborator tr').length;
@@ -233,10 +256,16 @@
 				$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + rowcurrent + '][lastname]');
 				$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
 				$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
+				$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
 			}
 
 		});
-
+	
+		// remove collaborators
+		function deleteRow(btn) {
+		  	var row = btn.parentNode.parentNode;
+		  	row.parentNode.removeChild(row);
+		}
 		$(document).ready(function(){ 
 			return_project();
 		});

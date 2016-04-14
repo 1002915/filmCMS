@@ -24,7 +24,7 @@
 			switch($function){
 
 				case "return_all_projects":
-					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, campus, users WHERE film.user_id = users.id AND users.campus_id = campus.id";
+					$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, campus, users WHERE film.user_id = users.id AND users.campus_id = campus.id AND published = 1 AND active = 1";
 
 					if(!$stmt = $mysqli->prepare ($sql)){
 						echo "prepare failed";
@@ -87,7 +87,7 @@
 					} else {
 						$target = $_POST['target']; // film id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ?";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1 AND active = 1";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -103,6 +103,8 @@
 						$data = array();
 						
 						while($stmt->fetch()) {
+
+							
 							$data[] = array(
 								"id" => $id,
 								"title" => $title,
@@ -135,7 +137,7 @@
 					} else {
 						$target = $_POST['target']; // user id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND users.id = ?";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND users.id = ? AND active = 1";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -184,17 +186,21 @@
 						$target = $_POST['target']; // any search term entered
 						$campus = $_POST['campus'];
 						if ($campus != "all") {
-							$campus = ' AND campus = "'.$campus.'"';
+							$campus = ' AND campus.id = "'.$campus.'"';
 						} else {
 							$campus = '';
 						}
-						$searchstring = "%".$target."%";
+						if ($target != '') {
+							$searchstring = "%".$target."%";
+						} else {
+							$searchstring = '%';
+						}
 						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID 
 						FROM film, campus, users, collaborators 
-						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id 
-						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id 
-						OR film.synopsis Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id 
-						OR collaborators.last_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id".$campus;
+						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
+						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
+						OR film.synopsis Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
+						OR collaborators.last_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus;
 
 						if(!$stmt = $mysqli->prepare($sql)){
 							echo "prepare failed";
