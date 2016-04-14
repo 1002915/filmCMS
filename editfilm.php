@@ -80,8 +80,8 @@
 
 		$.validate();
 
-		var target = <?php echo json_encode($filmid)?>;
-		console.log(target);
+	//	var target = <?php echo json_encode($filmid)?>;
+	//	console.log(target);
 
 		// return single project
 		function return_project() {	
