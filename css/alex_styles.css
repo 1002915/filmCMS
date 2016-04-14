@@ -78,10 +78,19 @@ select {
 .search_product {
 	width:33.3%;
 	float:left;
+	padding:10px 20px;
 }
 
 .text_width {
 	width:300px;
+}
+
+.film_cover_image {
+	background-size: 100%;
+	background-repeat: no-repeat;
+	height:200px;
+	width:90%;
+	margin:0 auto;
 }
 
 @media screen and (max-width: 700px) {

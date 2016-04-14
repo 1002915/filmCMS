@@ -1,7 +1,12 @@
-<?php include('header.php');?>
+<?php include('header.php');
+$user_id = $_SESSION['id'];
+json_encode($user_id);
+$film_id = 'testID';
+?>
 
 <div class="error_box"></div> 
-    <div class="security_box">My details
+    <div class="security_box">My details</div>
+    <div class="security_box">
 
         <form name="registerForm" method="post" class="toggle-disabled" action="updateuser.php">
             <input name='first_name' type='text' data-validation="length required" data-validation-length="min2" data-validation-error-msg="Please enter your first name" value="<?php echo $_SESSION['first_name']; ?>"placeholder="first Name" maxlength="50" /><br/>
@@ -18,30 +23,52 @@
                 <option value="6" name="6">Perth</option>
                 <option value="7" name="7">Online</option>
             </select><BR><BR>
-            <input class="checkbox" type="checkbox" data-validation="required" data-validation-qty="min 1" name="accept" value="accept"> 
-            I have selected the correct campus AND entered in the correct details. I also agree to the terms and conditions.<br><BR>
+            
             <input id="SubmitButton" type='submit' name='Submit' value='Submit' />
 
 </form><BR>
+</div>
+<div class="project_profile">
+   
+</div>
+ <script>
+$(document).ready(function(){
+                    var target = <?php echo json_encode($user_id)?>;
+                    $.ajax({
+                        type:"POST",
+                        url:"overlord.php",
+                        data:{
+                            function:'return_user_project',
+                            target: target
+                        },
+                        dataType:'json',
+                        success:function(res) {
+                            // loop through all film
+                            $.each(res, function(index,value) {
+                                console.log(value);
+                                $('.project_profile').append( "<img src='uploads/<?php echo $_SESSION['id'] ?>/"+value['cover_image']+"'class='cover_image_profile' alt='cover_image'> <BR><p>"+value['title']+"</p>"+"<BR>"+"<form action='editfilm.php' method='GET'>" + "<input type='hidden' name='filmid' value='"+value['id']+"'> <input type='submit' value='edit'> </form>" );
 
-<script src="js/jquery-2.2.2.min.js"></script>
-<script src="js/form-validator/jquery.form-validator.js"></script>
+                            });
+                        },
+                        error:function(req,text,error) {
+                            console.log('Oops!');
+                            console.log(req);
+                            console.log(text);
+                            console.log(error);
+                        }
+                    });
+                });
+        
 
-<script>
-$.validate();
+        $.validate();
   $.validate({
     modules : 'security'
   });
 
- 
-</script>
+
+    </script>
 
 
-</div>
-<img src="<?php echo $_SESSION['user_photo'];?>" class="cover_image_profile">
 
-<div class="security_box">
-    <form name="upload" id="upload" action="upload.php" class="dropzone"></form>
-</div>
 
 <?php include('footer.php'); ?>
