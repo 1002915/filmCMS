@@ -1,6 +1,7 @@
 <?php include('header.php');?>
 
 <div class="error_box"></div>
+    <div class="security_box">Register</div>
     <div class="security_box">
 
         <form name="registerForm" method="post" class="toggle-disabled" action="registeruser.php">

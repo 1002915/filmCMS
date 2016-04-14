@@ -10,10 +10,11 @@
 	<link rel="stylesheet" type="text/css" href="css/matt_styles.css">
 	<link rel="stylesheet" type="text/css" href="css/tatiana_styles.css">
 	<link rel="stylesheet" type="text/css" href="css/alex_styles.css">
-	<link rel="stylesheet" type="text/css" href="css/anna_styles.css">
+	<link rel="stylesheet" type="text/css" href="css/ana_styles.css">
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="js/form-validator/jquery.form-validator.js"></script>
 	<script src="js/dropzone.js"></script>
 </head>
 

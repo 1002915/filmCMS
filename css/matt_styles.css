@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.security_box {
+.security_box, project_profile {
     margin: 0 auto;
     width: 450px;
     display:flex;
@@ -15,9 +15,22 @@
     height: auto;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
-    margin-bottom: 100px;
+    margin-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.3);
 }
+
+.project_profile {
+  margin: 0 auto;
+  width: 450px;
+  padding: 20px;
+  height: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
 
 .login_error {
     color: red;
@@ -229,5 +242,6 @@ span {
 }
 
 .cover_image_profile {
-  width: ;
+  width: 100%;
+
 }
