@@ -1,4 +1,5 @@
 <?php 
+	require "overlord.php";
 	include('header.php'); 
 
 	$user_id = $_SESSION['id'];
@@ -6,7 +7,7 @@
 	$activebutton = false;
 
 	//$filmid = $_GET['id'];
-	$film_id = 3;
+	$film_id = 1;
 
     json_encode($film_id);
 ?>
@@ -45,16 +46,16 @@
 		</tr>
 		<tr>
 			<td>
-				<input type="text" class="firstname" name="collab[1][firstname]">
+				<input type="text" id="edit_collab_firstname" class="firstname" name="collab[1][firstname]">
 			</td>
 			<td>
-				<input type="text" class="lastname" name="collab[1][lastname]">
+				<input type="text" id="edit_collab_lastname" class="lastname" name="collab[1][lastname]">
 			</td>
 			<td>
-				<input type="text" class="role" name="collab[1][role]">
+				<input type="text" id="edit_collab_role" class="role" name="collab[1][role]">
 			</td>
 			<td>
-				<input type="text" class="email" name="collab[1][email]">
+				<input type="text" id="edit_collab_email" class="email" name="collab[1][email]">
 			</td>
 			<td>
 				<input type="button" id="remove" value="remove" onclick="deleteRow(this)" name="collab[1][remove]">
@@ -72,7 +73,7 @@
 	</select>
 
 	<?php
-	if($user_type == 0) {
+	if($user_type == 1) {
 		?>
 
 		<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
@@ -100,8 +101,8 @@
 
 		$.validate();
 
-	var target = <?php echo json_encode($filmid)?>;
-	console.log(target);
+		// relevant film id
+		var target = <?php echo json_encode($film_id)?>;
 
 		// return single project
 		function return_project() {	
@@ -114,8 +115,11 @@
 				},
 				dataType:'json',
 				success:function(res) {
+
+					// loop through response
 	 				$.each(res, function(i, val) {
-	 					console.log(val);
+
+	 					// input the values from the overlord into the appropraite input fields
 	 					$('input#edit_video_link').val(val['video_link']);
 	 					$('input#edit_title').val(val['title']);
 	 					$('input#edit_synopsis').val(val['synopsis']);	 
@@ -123,6 +127,46 @@
 	 					$('input#edit_published').val(val['published']);
 	 					$('input#edit_user_id').val(val['user_id']);	 
 	 					$('input#edit_active').val(val['active']);
+						
+
+						// get array length
+	 					var collablength = (Object.keys(val['collab']).length);
+
+	 					// get current number of rows in table not including the heading row
+	 					var rowcount = $('#new_collaborator tr').length;
+						var rowcurrent = rowcount -1;
+
+
+						// if current number of rows in table don't match length of array - then add rows until equal
+	 					if(collablength != rowcurrent){
+	 						var i = 1;
+	 						while(i < collablength){
+	 							var newrow = i+1;
+	 							$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
+	 							$('#new_collaborator > tbody > tr:last').val('');
+	 							$('#new_collaborator > tbody > tr:last > td > input.firstname').attr('name', 'collab[' + newrow + '][firstname]');
+								$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + newrow + '][lastname]');
+								$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + newrow + '][role]');
+								$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + newrow + '][email]');
+								$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + newrow + '][remove]');
+	 							i++;
+	 						}
+	 					}
+
+	 					// loop through collab array
+	 					$.each(val['collab'], function(i,val){
+
+	 						//$('input#edit_collab_firstname').val($('input#edit_collab_firstname').val);
+	 						//$('input#edit_collab_lastname').val($('input#edit_collab_lastname').val);
+	 						//$('input#edit_collab_role').val($('input#edit_collab_role').val);
+	 						//$('input#edit_collab_email').val($('input#edit_collab_email').val);
+	 						console.log(val['first_name']);
+	 						console.log(val['last_name']);
+	 						console.log(val['role']);
+	 						console.log(val['email']);
+	 					});
+	 					
+
 					});
 				}, 
 				error: function(res) {
@@ -205,6 +249,7 @@
 						var duration = 	response.result.items[0].contentDetails.duration;
 						duration = convertosecs(duration);
 						duration = runtimeformat(duration);
+						// trigger insert duration function
 						appendResults(duration);
 			        });
 		        }
@@ -236,10 +281,10 @@
 
 		});	
 
-
 		// Increase collaborators as user inputs info
 		$("#new_collaborator > tbody > tr:last > td > .firstname").on('blur', function(){
 			if($("#new_collaborator > tbody > tr:last > td > .firstname").val() != ''){
+
 				// clone last row of table and empty its values
 				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
 				var input = $('#new_collaborator > tbody > tr:last > td > input');
@@ -252,6 +297,7 @@
 				var rowcount = $('#new_collaborator tr').length;
 				var rowcurrent = rowcount -1;
 
+				// name each field in [collab][current row number]['xxxxx'] format
 				$('#new_collaborator > tbody > tr:last > td > input.firstname').attr('name', 'collab[' + rowcurrent + '][firstname]');
 				$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + rowcurrent + '][lastname]');
 				$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
@@ -266,6 +312,8 @@
 		  	var row = btn.parentNode.parentNode;
 		  	row.parentNode.removeChild(row);
 		}
+
+		// do all the things
 		$(document).ready(function(){ 
 			return_project();
 		});

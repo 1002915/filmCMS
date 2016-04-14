@@ -105,20 +105,33 @@
 						
 						while($stmt->fetch()) {
 
-							$sql = "SELECT first_name, last_name FROM collaborators WHERE film.id = collaborators.film_id AND film.id = ?";
-							if(!$stmt2 = $mysqli->prepare ($sql)) {
-								echo "prepare failed";
+							$sql = "SELECT collaborators.first_name, collaborators.last_name, collaborators.role, collaborators.email FROM collaborators WHERE collaborators.film_id = ?";
+							if(!$stmt2 = $mysqli->prepare ($sql)) { 
+								echo "stmt2 prepare failed";
 							}
 							if(!$stmt2->bind_param("i", $id)){
-								echo "binding param failed";
+								echo "stmt2 binding param failed";
 							}
-							if(!$stm2t->execute()){
-								echo "execute failied";
+							if(!$stmt2->execute()){
+								echo "stmt2 execute failied";
 							}
 							$stmt2->store_result();
-							if(!$stmt2->bind_result($first_name, $last_name)) {
-								echo "binding results failed";
+							if(!$stmt2->bind_result($first_name, $last_name, $role, $email)) {
+								echo "stmt2 binding results failed";
 							}
+
+							$collab = array();
+
+							while($stmt2->fetch()){
+								$collab[] = array(
+									"first_name" => $first_name,
+									"last_name" => $last_name,
+									"role" => $role,
+									"email" => $email
+								);
+							}
+
+							$stmt2->close();
 
 							$data[] = array(
 								"id" => $id,
@@ -131,9 +144,8 @@
 								"published" => $published,
 								"active" => $active,
 								"average_rating" => $average_rating,
-								"first_name" => $first_name,
-								"last_name" => $last_name,
-								"campus" => $location
+								"campus" => $location,
+								"collab" => $collab
 							);
 						} // end while
 
@@ -668,6 +680,7 @@
 			if(empty($data)){
 				$errormsg = "You haven't typed anything!";
 			}
+		
 
 	} //end if function not empty
 
