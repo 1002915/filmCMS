@@ -113,6 +113,8 @@ $sendmail->SMTPAuth = true;
 
 $sendmail->SMTPSecure = "tls";  
 
+$sendmail->Host = "smtp.gmail.com";
+
 $sendmail->Port = 587;    
 
 $sendmail->Username = "1002915@student.sae.edu.au"; 

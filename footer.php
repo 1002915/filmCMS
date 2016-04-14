@@ -21,3 +21,41 @@
 </div>
 </footer>
 </body>
+<script>
+//script to start validator
+$.validate();
+//popup dialog box start //	
+$("#modal_trigger").leanModal({
+        top: 80,
+        overlay: 0.6,
+        closeButton: ".modal_close"
+});
+
+$(function() {
+		//open login by clicking the header button
+	    $("#modal_trigger").click(function() {
+                $(".social_login").hide();
+                $(".user_login").show();
+                $(".user_register").hide();
+
+                return false;
+        });
+                // Going back to Social Forms
+        $(".back_btn2").click(function() {
+                $(".user_login").hide();
+                $(".user_register").show();
+                $(".social_login").hide();
+                $(".header_title").text('Login');
+                return false;
+        });
+
+                        // Going back to Social Forms
+        $(".loginform").click(function() {
+                $(".user_login").show();
+                $(".user_register").hide();
+                $(".header_title").text('Login');
+                return false;
+        });
+});
+//popup dialog end//
+</script>
