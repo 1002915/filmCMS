@@ -212,9 +212,9 @@
 						}
 						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID 
 						FROM film, campus, users, collaborators 
-						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
-						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
-						OR film.synopsis Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
+						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
+						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
+						OR film.synopsis Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
 						OR collaborators.last_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus;
 
 						if(!$stmt = $mysqli->prepare($sql)){
