@@ -87,7 +87,7 @@
 					} else {
 						$target = $_POST['target']; // film id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1 AND active = 1";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1 AND active = 1";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -97,14 +97,29 @@
 						if(!$stmt->execute()){
 							echo "execute failied";
 						}
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+						$stmt->store_result();
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $location)) {
 							echo "binding results failed";
 						}
 						$data = array();
 						
 						while($stmt->fetch()) {
 
-							
+							$sql = "SELECT first_name, last_name FROM collaborators WHERE film.id = collaborators.film_id AND film.id = ?";
+							if(!$stmt2 = $mysqli->prepare ($sql)) {
+								echo "prepare failed";
+							}
+							if(!$stmt2->bind_param("i", $id)){
+								echo "binding param failed";
+							}
+							if(!$stm2t->execute()){
+								echo "execute failied";
+							}
+							$stmt2->store_result();
+							if(!$stmt2->bind_result($first_name, $last_name)) {
+								echo "binding results failed";
+							}
+
 							$data[] = array(
 								"id" => $id,
 								"title" => $title,
@@ -197,9 +212,9 @@
 						}
 						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID 
 						FROM film, campus, users, collaborators 
-						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
-						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
-						OR film.synopsis Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1
+						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
+						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
+						OR film.synopsis Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
 						OR collaborators.last_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus;
 
 						if(!$stmt = $mysqli->prepare($sql)){
