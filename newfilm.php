@@ -1,29 +1,34 @@
-<?php 
-	include('header.php'); 
-?>
+<?php
+include('header.php');
+include('connection.php');
+include('uploader.php');
 
-	<script src="js/form-validator/jquery.form-validator.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
-	
+?>
 
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
+<div class="security_box">
+    <form name="upload" id="upload" action="newfilm.php" class="dropzone"></form>
+</div>
 
+<div class="security_box"> 
 <form method="POST" action="displayfilm.php">
 	<input type="hidden" name="function" value="new_project">
 
-	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
+	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
 
-	<input type="text" id="runtime" name="runtime">
+	<input disabled type="text" id="runtime" name="runtime" placeholder="runtime of film (filled automatically)">
 
 	<div class='display_video'>
-		<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		<iframe id="player1" class="preview-video" width="100%" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 	</div>
 
-	<h3>Title:</h3><br>
+	<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+
+	<h3>Title:</h3>
 	<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-	<h3>Synopsis</h3><br>
+	<h3>Synopsis</h3>
 	<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
 	<h3>Collaborators</h3>
@@ -50,31 +55,59 @@
 		</tr>
 	</table>
 
-	<h3>Cover Image</h3><br>
-	<!--<div class="dropzone" id="cover_image" name="cover_image"></div>-->
-	<input type="text" name="cover_image">
-
 	<select name="published">
 		<option value="0">Save Draft</option>
 		<option value="1">Publish</option>
 	</select>
 
 	<!-- hidden fields-->
-	<input type="hidden" name="user_id" value="2"><br>
+	<input type="hidden" id="user_id" name="user_id" value="4"><br>
 	<input type="hidden" name="active" value="1"><br>
 
 	<input type="submit">
 
 </form>
+</div>
 	
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
-	<script src="js/dropzone.js"></script>
+
 
 	<script>
+
 		$.validate();
 
-		$("div#cover_image").dropzone({ url: "#" });
+		var errors = false;
+
+		var myDropzone = new Dropzone("#upload" , {
+
+		error: function(file, errorMessage) {
+
+		        errors = true;
+		},
+		
+		success: function(file, response ) {
+
+		    	console.log(file);
+
+		        if(errors) {
+
+		        	console.log("There were errors!");
+
+		        } else {
+
+		        	console.log("We're done!");
+		        	var userid = $('input#user_id').val();
+					var filepathstring = 'uploads/';
+					var file_name = file['name'];
+					var filepath = filepathstring + userid + '/'+ file_name;
+					console.log(filepath);
+					$('input[name=cover_image]').val(file_name);
+		        }
+		    }
+		});
+
+		
 
 		// converting time in seconds to hh:mm:ss
 		function runtimeformat(seconds) {
@@ -203,5 +236,7 @@
 		});
 
 	</script>
+
+	<?php include('footer.php') ?>
 
 	

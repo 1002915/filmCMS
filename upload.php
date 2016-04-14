@@ -11,15 +11,18 @@ $user_directory = 'uploads/'.$id;
 
 $image_name = $_FILES['file']['name'];
 
-$sql = "UPDATE film SET cover_image = '$image_name' WHERE id = '$id'";
+/*$sql = "UPDATE film SET cover_image = '$image_name' WHERE id = '$id'";
 
 $result = mysqli_query($mysqli, $sql);
 
 if ($mysqli->query($sql) === TRUE) {
+
     echo "Record updated successfully. click <a href='index.php'>here</a> to return to the home screen.";
+
 } else {
+
     echo "Error updating record: " . $mysqli->error;
-}
+} */
 
 if (!file_exists($user_directory)) {
 
@@ -36,7 +39,7 @@ if (!empty($_FILES)) {
  
     move_uploaded_file($tempFile,$targetFile);
 
-    $_SESSION['user_photo'] = 'uploads/'.$id.'/'.$_FILES['file']['name'];
+   $_SESSION['user_photo'] = 'uploads/'.$id.'/'.$_FILES['file']['name'];
      
 }
 ?>
