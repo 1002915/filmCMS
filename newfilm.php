@@ -4,9 +4,9 @@ include('connection.php');
 include('uploader.php');
 
 ?>
-
+<div class="security_box"> 
 <h2>Link Your Video</h2>
-<p>Please copy and paste the link from youtube or vimeo</p>
+</div>
 <div class="security_box">
     <form name="upload" id="upload" action="newfilm.php" class="dropzone"></form>
 </div>
