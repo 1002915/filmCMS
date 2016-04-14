@@ -1,10 +1,4 @@
 <?php
-	require "overlord.php";
-?>
-
-
-
-<?php
 	include('header.php');
 ?>
 
@@ -25,19 +19,26 @@
 	
 
 <section id="details">
-	<div id="film_title" class="film_title">The Bunny Attack </div>
+	
 	<section id="details2">
+		<div id="film_title" class="film_title">The Bunny Attack </div>
 		<div class="student_name">Robertson Ave</div>
 		<div class="campus">Brisbane Campus</div>
 	</section>
+	<section id="rating"> 
+		<div class="star" id="star1"></div>
+		<div class="star" id="star2"></div>
+		<div class="star" id="star3"></div>
+		<div class="star" id="star4"></div>
+		<div class="star" id="star5"></div>
+	</section>
 </section>
-<section id="rating"> 
-<!-- insert stars -->
-</section>
+
 <section id="synopsis">
 	<p>In a futuristic world where bunnies have multiplied like a plague and evolved like pokemons are trying to rule and destroy every human and easter leftovers.  </p>
 </section>
 <section id="contributors">
+	<div class="contributors_title">Contributors</div>
 	<div class="contributor1">Blue Glue</div>
 </section>
 </div>
@@ -62,7 +63,40 @@
 				//$('#displayvideo').html('');
  				$.each(res, function(index,value) {
  					$('#film_title').html(value.title);
+ 					//$('#contributors').html(value.title);
  					$('#synopsis').html('<p>'+value.synopsis+'</p>');
+
+ 					for(var i=1;i < value.rating;i++) {
+ 						$("#star"+i).addClass("star_full");
+ 					} 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
  					var videolink = value.video_link;
 
 		    var str = "youtube";

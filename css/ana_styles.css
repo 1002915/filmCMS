@@ -11,6 +11,7 @@
 	width: 100%;
 	margin-left: auto;
 	margin-right: auto;
+	margin-bottom: 30px;
 }
 
 .film_title {
@@ -18,7 +19,6 @@
 	box-sizing: border-box;
 	padding: 5px;
 	font-size: 2em;
-	width: 50%;
 	margin-top: 10px;
 	margin-bottom: 10px;
 } 
@@ -43,17 +43,39 @@
 	position: relative;
 	display: inline-block;
 	float: right;
+	padding-top: 6px;
 }
 
 #rating{
 	float: right;
 	width: 30%;
+	padding-top: 6px;
 }
+.star {
+	background-image: url("../images/star_empty.png");
+	height: 41px;
+    width: 43px;
+    background-repeat: no-repeat;
+    display: inline-block;
+}
+
+.star_full {
+	background-image: url("../images/star_full.png");
+}
+
 #synopsis {
 	color: #FFF;
 	width: 100%;
+	margin-bottom: 30px;
+	
 }
-#contributors {
+#synopsis .p {
+	margin-top: 30px;
+}
+#contributors div{
 	color: #D1D3D4;
 	width: 100%;
+}
+.contributors_title {
+	padding-bottom: 20px;
 }
