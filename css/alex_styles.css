@@ -52,12 +52,12 @@ select {
 }
 
 #searchList {
-	width:80%;
+	width:100%;
 	margin:0 auto;
 	margin-top:20px;
-	height:400px;
-	padding:20px;
-	border:#3b3b3b 1px solid;
+	min-height: 300px;
+	height:auto;
+	border:#ffd00b 1px solid;
 }
 
 .coverImage {
@@ -76,20 +76,37 @@ select {
 }
 
 .search_product {
-	width:33.3%;
+	width:340px;
 	float:left;
-	padding:10px 20px;
+	padding:10px;
 }
 
 .text_width {
 	width:300px;
 }
 
+.max_length {
+	width:300px;
+	height:30px;
+	white-space: nowrap;
+    overflow:hidden !important;
+    text-overflow: ellipsis;
+}
+
+.film_title_search {
+	color:#ffd00b;
+}
+
+.film_title_search:hover {
+	text-decoration: underline;
+}
+
 .film_cover_image {
-	background-size: 100%;
+	background-position: center;
+	background-size: cover;
 	background-repeat: no-repeat;
 	height:200px;
-	width:90%;
+	width:100%;
 	margin:0 auto;
 }
 

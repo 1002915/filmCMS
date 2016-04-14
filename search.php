@@ -24,6 +24,7 @@
 			<div class='clear_float'></div>
 			<!-- SEARCH RESULTS CONTAINER -->
 			<div id='searchList'></div>
+			<div class='clear_float'></div>
 		</div>
 		<script>
 		//EDITING THE HEADER SEARCH BAR
@@ -37,6 +38,7 @@
 				console.log('Keypress!');
 					var search = $('#search').val();
 					var campus_selection = $('#campus_selection').val();
+					console.log(campus_selection);
 					if (search != '') {
 						$.ajax({
 							type:"POST",
@@ -54,7 +56,7 @@
 	 							$.each(res, function(index,value) {
 	 								if(value['id'] != null){
 		 								console.log(value);
-										$('#searchList').append( "<div class='search_product'><div class='film_cover_image' style='background-image:url("+value['cover_image']+");'></div><p class='text_width'>"+value['title']+"</p><p class='text_width'>"+value['synopsis']+"</p></div>" );
+										$('#searchList').append( "<div class='search_product'><a href='displayfilm.php?id="+value['id']+"'><div class='film_cover_image' style='background-image:url("+value['cover_image']+");'></div></a><a href='displayfilm.php?id="+value['id']+"'><p class='film_title_search text_width'>"+value['title']+"</p></a><p class='max_length text_width'>"+value['synopsis']+"</p></div>" );
 										// WHEN THE CONENT IS NOT IN THE DATABASE
 	    							
 										count++;		
