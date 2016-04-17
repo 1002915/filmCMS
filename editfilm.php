@@ -44,23 +44,6 @@
 			<td>Email</td>
 			<td></td>
 		</tr>
-		<tr>
-			<td>
-				<input type="text" id="edit_collab_firstname" class="firstname" name="collab[1][firstname]">
-			</td>
-			<td>
-				<input type="text" id="edit_collab_lastname" class="lastname" name="collab[1][lastname]">
-			</td>
-			<td>
-				<input type="text" id="edit_collab_role" class="role" name="collab[1][role]">
-			</td>
-			<td>
-				<input type="text" id="edit_collab_email" class="email" name="collab[1][email]">
-			</td>
-			<td>
-				<input type="button" id="remove" value="remove" onclick="deleteRow(this)" name="collab[1][remove]">
-			</td>
-		</tr>
 	</table>
 
 	<h3>Cover Image</h3><br>
@@ -127,46 +110,31 @@
 	 					$('input#edit_published').val(val['published']);
 	 					$('input#edit_user_id').val(val['user_id']);	 
 	 					$('input#edit_active').val(val['active']);
-						
 
-						// get array length
+	 					// get array length
 	 					var collablength = (Object.keys(val['collab']).length);
 
-	 					// get current number of rows in table not including the heading row
-	 					var rowcount = $('#new_collaborator tr').length;
-						var rowcurrent = rowcount -1;
+						// add rows to table with collab values input
+	 					var table = $('#new_collaborator > tbody'),
+						    props = ["first_name", "last_name", "role", "email"];
+						    var fred = 1;
 
+						$.each(val['collab'], function(i, val) {
+						  	var tr = $('<tr>');
+						  	var input = $('#new_collaborator > tbody > tr:last > td > input');
 
-						// if current number of rows in table don't match length of array - then add rows until equal
-	 					if(collablength != rowcurrent){
-	 						var i = 1;
-	 						while(i < collablength){
-	 							var newrow = i+1;
-	 							$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
-	 							$('#new_collaborator > tbody > tr:last').val('');
-	 							$('#new_collaborator > tbody > tr:last > td > input.firstname').attr('name', 'collab[' + newrow + '][firstname]');
-								$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + newrow + '][lastname]');
-								$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + newrow + '][role]');
-								$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + newrow + '][email]');
-								$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + newrow + '][remove]');
-	 							i++;
-	 						}
-	 					}
+						  	$.each(props, function(i, prop) {
+						   		$('<td>').html('<input type="text" class="' + prop + '" value=" ' + val[prop] + ' " name="collab[' + fred + '][' + prop + ']">').appendTo(tr);
 
-	 					// loop through collab array
-	 					$.each(val['collab'], function(i,val){
+						  	});
 
-	 						//$('input#edit_collab_firstname').val($('input#edit_collab_firstname').val);
-	 						//$('input#edit_collab_lastname').val($('input#edit_collab_lastname').val);
-	 						//$('input#edit_collab_role').val($('input#edit_collab_role').val);
-	 						//$('input#edit_collab_email').val($('input#edit_collab_email').val);
-	 						console.log(val['first_name']);
-	 						console.log(val['last_name']);
-	 						console.log(val['role']);
-	 						console.log(val['email']);
-	 					});
-	 					
+						  	$('<td>').html('<input type="button" id="remove" value="remove" name="collab[' + fred + '][remove]" onclick="deleteRow(this)">').appendTo(tr);
 
+						  	fred++;
+
+						  	table.append(tr);
+						});
+							
 					});
 				}, 
 				error: function(res) {
