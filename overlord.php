@@ -469,7 +469,7 @@
 						// Insert collaborators
 						$collab = $_POST['collab'];
 						foreach($collab as $value=>$data) {
-							if(!empty($data['firstname'] && $data['lastname'] && $data['role'] && $data['email'])){
+							if(!empty($data['first_name'] && $data['last_name'] && $data['role'] && $data['email'])){
 								$collab_fn = $data['firstname'];
 							     $collab_ln = $data['lastname'];
 							     $collab_role = $data['role'];

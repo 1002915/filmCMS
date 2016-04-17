@@ -1,5 +1,4 @@
-<?php session_start();
-require "overlord.php";		
+<?php session_start();	
 ?>
 
 <!DOCTYPE html>
