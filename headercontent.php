@@ -30,7 +30,7 @@
                 	<section class="popupBody">      
                         <div class="user_login">
                             <form method="post" action="checklogin.php">
-                                <label>Email / Username</label>
+                                <label>SAE email Address</label>
                                 <input type="text" name='email' placeholder="email" maxlength="50"/><BR>
                                 <label>Password</label>
                                 <input type='password'  name='password_hash' maxlength="50" placeholder="password"/><BR>
@@ -68,7 +68,7 @@
                     </section>
             </div>   
     </div>
-<? } else echo ''; ?>
+<?php }; ?>
     </div>
 	
 
