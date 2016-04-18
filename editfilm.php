@@ -4,12 +4,8 @@
 
 	$user_id = $_SESSION['id'];
 	$user_type = $_SESSION['user_type'];
-	$activebutton = false;
 
-	//$filmid = $_GET['id'];
-	$film_id = 1;
-
-    json_encode($film_id);
+	$film_id = $_GET['filmid'];
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
@@ -18,7 +14,7 @@
 <h2>Link Your Video</h2>
 <p>Please copy and paste the link from youtube or vimeo</p>
 
-<form method="POST" action="displayfilm.php">
+<form method="POST" action="formsubmit.php">
 	<input type="hidden" name="function" value="update_project">
 
 	<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
@@ -57,15 +53,13 @@
 
 	<?php
 	if($user_type == 1) {
-		?>
-
+	?>
 		<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
 	    <label class="active-label" for="edit_active">
 	        <span class="active-inner"></span>
 	        <span class="active-switch"></span>
 	    </label>
-
-		<?php
+	<?php
 	}
 	?>
 
@@ -85,7 +79,7 @@
 		$.validate();
 
 		// relevant film id
-		var target = <?php echo json_encode($film_id)?>;
+		var target = <?php echo $film_id; ?>;
 
 		// return single project
 		function return_project() {	

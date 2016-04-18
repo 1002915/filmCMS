@@ -16,16 +16,19 @@
 </div>
 
 <div class="security_box"> 
-	<form method="POST" action="#" id="new_project">
+
+	<form method="POST" action="formsubmit.php" id="new_project">
 		<input type="hidden" name="function" value="new_project">
+
 		<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
-		<input disabled type="text" id="runtime" name="runtime" placeholder="runtime of film (filled automatically)">
+		
+		<input type="hidden" id="runtime" name="runtime">
 
 		<div class='display_video'>
 			<iframe id="player1" class="preview-video" width="100%" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
 		</div>
 
-		<input type="text" name="cover_image" id="cover_image" value="cover_image">
+		<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
 
 		<h3>Title:</h3>
 		<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
@@ -68,13 +71,17 @@
 
 		<input type="submit">
 	</form>
+
+
 </div>
 	
+
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 	<script>
 		$.validate();
 
+		
 		// dropzone function
 		var errors = false;
 		var myDropzone = new Dropzone("#upload", {
@@ -114,7 +121,9 @@
 		}
 
 		function appendResults(text) {
-			$('input#runtime').val($('input#runtime').val() + text);
+			var runtime = String(text);
+			$('input#runtime').val(runtime);
+			console.log(runtime);
 			console.log($('input#runtime').val());
 		}
 		
@@ -229,30 +238,6 @@
 		});
 
 
-
-		var form = $('#new_project');
-		form.submit(function(e){
-			$.ajax({
-				type:"POST",
-				url:"overlord.php",
-				data:{
-					function:'new_project',
-
-					// HOW THE FUCK DO I SUBMIT THIS DAMN THING???
-					
-				},
-				dataType:'json',
-				success:function(res){
-					console.log('project added');
-				},
-				error:function(res){
-					console.log('project failed to add');
-					console.log(res);
-				}
-			});
-
-			e.preventDefault();
-		});
 
 	</script>
 

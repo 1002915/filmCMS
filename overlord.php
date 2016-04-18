@@ -470,8 +470,8 @@
 						$collab = $_POST['collab'];
 						foreach($collab as $value=>$data) {
 							if(!empty($data['first_name'] && $data['last_name'] && $data['role'] && $data['email'])){
-								$collab_fn = $data['firstname'];
-							     $collab_ln = $data['lastname'];
+								$collab_fn = $data['first_name'];
+							     $collab_ln = $data['last_name'];
 							     $collab_role = $data['role'];
 							     $collab_email = $data['email'];
 
