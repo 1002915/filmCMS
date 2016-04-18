@@ -4,71 +4,80 @@
 
 	$user_id = $_SESSION['id'];
 	$user_type = $_SESSION['user_type'];
-
 	$film_id = $_GET['filmid'];
 ?>
 
 	<script src="js/form-validator/jquery.form-validator.js"></script>
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
 
-<h2>Link Your Video</h2>
-<p>Please copy and paste the link from youtube or vimeo</p>
 
-<form method="POST" action="formsubmit.php">
-	<input type="hidden" name="function" value="update_project">
+<div class="security_box"> 
+	<h2>Link Your Video</h2>
+</div>
 
-	<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
+<div class="security_box">
+    <form name="upload" id="upload" action="newfilm.php" class="dropzone">
+    </form>
+</div>
 
-	<input type="text" id="edit_runtime" name="runtime">
 
-	<div class='display_video'>
-		<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	</div>
+<div class="security_box"> 
 
-	<h3>Title:</h3><br>
-	<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+	<form method="POST" action="formsubmit.php">
+		<input type="hidden" name="function" value="update_project">
 
-	<h3>Synopsis</h3><br>
-	<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
 
-	<h3>Collaborators</h3>
-	<table id="new_collaborator">
-		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>Role</td>
-			<td>Email</td>
-			<td></td>
-		</tr>
-	</table>
+		<input type="text" id="edit_runtime" name="runtime">
 
-	<h3>Cover Image</h3><br>
-	<!--<div class="dropzone" id="cover_image" name="cover_image"></div>-->
-	<input type="text" id="edit_cover_image" name="cover_image">
+		<div class='display_video'>
+			<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
 
-	<select id="edit_published" name="published">
-		<option value="0">Save Draft</option>
-		<option value="1">Publish</option>
-	</select>
+		<h3>Title:</h3><br>
+		<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-	<?php
-	if($user_type == 1) {
-	?>
-		<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
-	    <label class="active-label" for="edit_active">
-	        <span class="active-inner"></span>
-	        <span class="active-switch"></span>
-	    </label>
-	<?php
-	}
-	?>
+		<h3>Synopsis</h3><br>
+		<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-	<!-- hidden fields-->
-	<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>"><br>
+		<h3>Collaborators</h3>
+		<table id="new_collaborator">
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Role</td>
+				<td>Email</td>
+				<td></td>
+			</tr>
+		</table>
 
-	<input type="submit">
+		<h3>Cover Image</h3><br>
+		<!--<div class="dropzone" id="cover_image" name="cover_image"></div>-->
+		<input type="text" id="edit_cover_image" name="cover_image">
 
-</form>
+		<select id="edit_published" name="published">
+			<option value="0">Save Draft</option>
+			<option value="1">Publish</option>
+		</select>
+
+		<?php
+		if($user_type == 1) {
+		?>
+			<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
+		    <label class="active-label" for="edit_active">
+		        <span class="active-inner"></span>
+		        <span class="active-switch"></span>
+		    </label>
+		<?php
+		}
+		?>
+
+		<!-- hidden fields-->
+		<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>"><br>
+
+		<input type="submit">
+	</form>
+</div>
 	
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
