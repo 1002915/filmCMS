@@ -1,115 +1,115 @@
 <?php
-include('header.php');
-include('connection.php');
-include('uploader.php');
+	include('header.php');
+	include('uploader.php');
+
+	$user_id = $_SESSION['id'];
 
 ?>
+
 <div class="security_box"> 
-<h2>Link Your Video</h2>
+	<h2>Link Your Video</h2>
 </div>
+
 <div class="security_box">
-    <form name="upload" id="upload" action="newfilm.php" class="dropzone"></form>
+    <form name="upload" id="upload" action="newfilm.php" class="dropzone">
+    </form>
 </div>
 
 <div class="security_box"> 
-<form method="POST" action="displayfilm.php">
-	<input type="hidden" name="function" value="new_project">
 
-	<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
+	<form method="POST" action="formsubmit.php" id="new_project">
+		<input type="hidden" name="function" value="new_project">
 
-	<input disabled type="text" id="runtime" name="runtime" placeholder="runtime of film (filled automatically)">
+		<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
+		
+		<input type="hidden" id="runtime" name="runtime">
 
-	<div class='display_video'>
-		<iframe id="player1" class="preview-video" width="100%" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-	</div>
+		<div class='display_video'>
+			<iframe id="player1" class="preview-video" width="100%" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+		</div>
 
-	<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+		<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
 
-	<h3>Title:</h3>
-	<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<h3>Title:</h3>
+		<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-	<h3>Synopsis</h3>
-	<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<h3>Synopsis</h3>
+		<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-	<h3>Collaborators</h3>
-	<table id="new_collaborator">
-		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>Role</td>
-			<td>Email</td>
-		</tr>
-		<tr>
-			<td>
-				<input type="text" class="firstname" name="collab[1][firstname]">
-			</td>
-			<td>
-				<input type="text" class="lastname" name="collab[1][lastname]">
-			</td>
-			<td>
-				<input type="text" class="role" name="collab[1][role]">
-			</td>
-			<td>
-				<input type="text" class="email" name="collab[1][email]">
-			</td>
-		</tr>
-	</table>
+		<h3>Collaborators</h3>
+		<table id="new_collaborator">
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>Role</td>
+				<td>Email</td>
+			</tr>
+			<tr>
+				<td>
+					<input type="text" class="first_name" name="collab[1][first_name]">
+				</td>
+				<td>
+					<input type="text" class="last_name" name="collab[1][last_name]">
+				</td>
+				<td>
+					<input type="text" class="role" name="collab[1][role]">
+				</td>
+				<td>
+					<input type="text" class="email" name="collab[1][email]">
+				</td>
+			</tr>
+		</table>
 
-	<select name="published">
-		<option value="0">Save Draft</option>
-		<option value="1">Publish</option>
-	</select>
+		<select id="published" name="published">
+			<option value="0">Save Draft</option>
+			<option value="1">Publish</option>
+		</select>
 
-	<!-- hidden fields-->
-	<input type="hidden" id="user_id" name="user_id" value="4"><br>
-	<input type="hidden" name="active" value="1"><br>
+		<!-- hidden fields-->
+		<input type="hidden" id="user_id" name="user_id" value="<?php echo $user_id; ?>"><br>
+		<input type="hidden" name="active" value="1"><br>
 
-	<input type="submit">
+		<input type="submit">
+	</form>
 
-</form>
+
 </div>
 	
+
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
-
-
 	<script>
-
 		$.validate();
 
-		var errors = false;
-
-		var myDropzone = new Dropzone("#upload" , {
-
-		error: function(file, errorMessage) {
-
-		        errors = true;
-		},
 		
-		success: function(file, response ) {
-
-		    	console.log(file);
-
-		        if(errors) {
-
-		        	console.log("There were errors!");
-
-		        } else {
-
-		        	console.log("We're done!");
-		        	var userid = $('input#user_id').val();
+		// dropzone function
+		var errors = false;
+		var myDropzone = new Dropzone("#upload", {
+			error: function(file, errorMessage) {
+			    errors = true;
+			},
+			success: function(file, response ) {
+			    console.log(file);
+			    if(errors) {
+			        console.log("There were errors!");
+			   	} else {
+			        console.log("We're done!");
+			        var userid = $('input#user_id').val();
 					var filepathstring = 'uploads/';
 					var file_name = file['name'];
 					var filepath = filepathstring + userid + '/'+ file_name;
 					console.log(filepath);
 					$('input[name=cover_image]').val(file_name);
-		        }
-		    }
+			    }
+			}
 		});
 
 		
 
-		// converting time in seconds to hh:mm:ss
+
+
+
+		// converting video time in seconds to hh:mm:ss
 		function runtimeformat(seconds) {
 			seconds = Math.round(seconds)
 			//get time in hours and round down
@@ -121,7 +121,9 @@ include('uploader.php');
 		}
 
 		function appendResults(text) {
-			$('input#runtime').val($('input#runtime').val() + text);
+			var runtime = String(text);
+			$('input#runtime').val(runtime);
+			console.log(runtime);
 			console.log($('input#runtime').val());
 		}
 		
@@ -207,33 +209,35 @@ include('uploader.php');
 				    });
 				}
 		    }
-
 		    $(".preview-video").attr("src", videolinkiframe);
-
 		});	
 
 
 	
 
+
+
 		// Increase collaborators as user inputs info
-		$("#new_collaborator > tbody > tr:last > td > .firstname").on('blur', function(){
-			if($("#new_collaborator > tbody > tr:last > td > .firstname").val() != ''){
+		$("#new_collaborator > tbody > tr:last > td > .first_name").on('blur', function(){
+			if($("#new_collaborator > tbody > tr:last > td > .first_name").val() != ''){
 				// clone last row of table and empty its values
 				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
 				var input = $('#new_collaborator > tbody > tr:last > td > input');
 				input.val('');
 
 				// get number of rows in table
-				var rowcount = $('#new_collaborator tr').length;
+				var rowcount = $('#new_collaborator tr').length;	
 				var rowcurrent = rowcount -1;
 
-				$('#new_collaborator > tbody > tr:last > td > input.firstname').attr('name', 'collab[' + rowcurrent + '][firstname]');
-				$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + rowcurrent + '][lastname]');
+				$('#new_collaborator > tbody > tr:last > td > input.first_name').attr('name', 'collab[' + rowcurrent + '][first_name]');
+				$('#new_collaborator > tbody > tr:last > td > input.last_name').attr('name', 'collab[' + rowcurrent + '][last_name]');
 				$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
 				$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
 			}
 
 		});
+
+
 
 	</script>
 
