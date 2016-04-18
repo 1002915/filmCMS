@@ -1,4 +1,7 @@
-<?php session_start();?>
+<?php session_start();
+require "overlord.php";		
+?>
+
 <!DOCTYPE html>
 <head>
 <title>Film CMS</title>
@@ -21,4 +24,5 @@
 
 <body>
 <?php include('headercontent.php');?>
+
 
