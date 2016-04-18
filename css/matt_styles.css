@@ -49,12 +49,13 @@
 
 
 .footer {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.65);
   padding: 5px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
+  height: 50px;
 }
 
 #loginForm input[type=text] {
