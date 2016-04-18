@@ -1,5 +1,6 @@
-<?php session_start();
-require "overlord.php";		
+<?php if(session_id() == '') {
+    session_start();
+}		
 ?>
 
 <!DOCTYPE html>
