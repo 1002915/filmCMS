@@ -1,7 +1,21 @@
-<?php include('header.php');
+<?php session_start();
+
+if (!isset($_SESSION['id'])) {
+
+    header('Location: index.php');
+
+} else {
+
+include('header.php');
+
+
 $user_id = $_SESSION['id'];
+
 json_encode($user_id);
+
 $film_id = 'testID';
+
+
 ?>
 
 <div class="error_box"></div> 
@@ -71,4 +85,4 @@ $(document).ready(function(){
 
 
 
-<?php include('footer.php'); ?>
+<?php include('footer.php'); };?>
