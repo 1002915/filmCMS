@@ -313,7 +313,7 @@
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action = "Update project prepare failed";
 						}
-						if(!$stmt->bind_param("ssssiiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $target, $user_id)){
+						if(!$stmt->bind_param("sssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $target, $user_id)){
 							$action = "Update project binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -450,7 +450,7 @@
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action =  "Insert new film prepare failed";
 						}
-						if(!$stmt->bind_param("ssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
+						if(!$stmt->bind_param("sssssiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
 							$action =  "Insert new film binding param failed";
 						}
 						if(!$stmt->execute()){
