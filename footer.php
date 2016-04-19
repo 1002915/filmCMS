@@ -1,24 +1,21 @@
 </div>
 </div>
-<footer>
-	<div class="footer">
-		<div class="footer_col_one"> 
-			<a href="index.php">HOME</a> <BR><BR>
-			<a href="login.php"> LOGIN</a> <BR><BR>
-			<a href="register.php"> REGISTER</a> <BR><BR>
-			<a href="search.php"> SEARCH</a> 
-		</div>
-
-	<div class="footer_col_two">
-		 F <BR><BR> LINES TWO <BR><BR> LINES THREE <BR><BR> LINES FOURS
-	</div>
-
-	<div class="footer_col_three"> F <BR><BR> LINES TWO <BR><BR> LINES THREE <BR><BR> LINES FOURS
-	</div>
-
-	<div class="footer_col_four"> ALEX MURPHY <BR><BR> ANNA ESTRELA <BR><BR> MATTHEW NEAL <BR><BR> TATIANA ROGA
-	</div>
 </div>
+<footer>
+        <div class="footer">
+		<div class="footer_col_one"> 
+			  contact@email.com<!-- <a href="index.php">HOME</a> 	-->
+		</div>
+	       <div class="footer_col_two">
+		     <!--  <a href="login.php"> LOGIN</a> -->
+	       </div>
+	       <div class="footer_col_three">
+                  <!--     <a href="register.php"> REGISTER</a> -->
+	       </div>
+	       <div class="footer_col_four">
+                  LocoDoco 2015 <!--      <a href="search.php"> SEARCH</a> -->
+	       </div>
+        </div>
 </footer>
 </body>
 <script>
@@ -58,4 +55,14 @@ $(function() {
         });
 });
 //popup dialog end//
+</script>
+<div class="popper"><!-- Place at bottom of page --></div>
+
+<script>
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+});
 </script>
