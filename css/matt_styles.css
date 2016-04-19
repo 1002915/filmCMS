@@ -47,14 +47,18 @@
   color: grey;
 }
 
+.footer_col_four {
+  text-align: right;
+}
 
 .footer {
-  background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgba(0, 0, 0, 0.65);
   padding: 5px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
+  height: 50px;
 }
 
 #loginForm input[type=text] {
@@ -127,7 +131,7 @@ input[type="submit"]:hover{
 }
 
 .header_navigation input[type="text"], input[type="password"] {
-  width: 80%;
+  width: calc(100% - 100px);
   margin: 5px 0px 0px 0px;
 }
 
@@ -188,7 +192,7 @@ select {
 }
 
 .site_content .reset_email input[type="text"] {
-  width: calc(100% - 80px);
+  width: calc(100% - 100px);
 }
 
 .contribute  input[type="submit"]{
@@ -431,10 +435,47 @@ a.btn {
 
 input[type="submit"] {
   width: 100px;
-  height: 36px;
+  height: 37px;
 }
 
 .float {
   display: flex;
   justify-content: space-between;
+}
+
+/* Start by setting display:none to make this hidden.
+   Then we position it in relation to the viewport window
+   with position:fixed. Width, height, top and left speak
+   for themselves. Background we set to 80% white with
+   our animation centered, and no-repeating */
+.popper {
+    display:    none;
+    position:   fixed;
+    z-index:    1000;
+    top:        0;
+    left:       0;
+    height:     100%;
+    width:      100%;
+    background: #414042 
+                url('../img/loader.gif') 
+                50% 50% 
+                no-repeat;
+}
+
+/* When the body has the loading class, we turn
+   the scrollbar off with overflow:hidden */
+body.loading {
+    overflow: hidden;   
+}
+
+
+/* Anytime the body has the loading class, our
+   modal element will be visible */
+body.loading .popper {
+    display: block;
+}
+
+.logo {
+  width: 55px;
+  height: 70px;
 }

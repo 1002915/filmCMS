@@ -49,13 +49,13 @@ $(document).ready(function(){
  								if (group == "content_left") {
  									if (inner == 1) {
  										$("#film_content").append('<div class="content_left" id="content_left_'+counter+'"></div>');
- 										$('#content_left_'+counter).append('<div class="film_large"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_large">'+value.title+'</div></div></a></div>');
+ 										$('#content_left_'+counter).append('<div class="film_large"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url(uploads/'+value.user_id+'/'+value.cover_image+')"><div class="film_title_large">'+value.title+'</div></div></a></div>');
  										inner++;
  									} else if (inner == 2) {
- 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
+ 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url(uploads/'+value.user_id+'/'+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
  										inner++
  									} else {
- 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
+ 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url(uploads/'+value.user_id+'/'+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
  										group = 'content_right'
  										inner = 1 
  									};
