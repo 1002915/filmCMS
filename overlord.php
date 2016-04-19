@@ -594,18 +594,20 @@
 						$feedback_1 = $_POST['feedback_1'];
 						$feedback_2 = $_POST['feedback_2'];
 						$feedback_3 = $_POST['feedback_3'];
+						$feedback_4 = $_POST['feedback_4'];
+						$feedback_5 = $_POST['feedback_5'];
 
-						$sql = "INSERT INTO academic (film_id, user_id, feedback_1, feedback_2, feedback_3) VALUES (?,?,?,?,?)";
+						$sql = "INSERT INTO academic (film_id, user_id, feedback_1, feedback_2, feedback_3, feedback_4, feedback_5) VALUES (?,?,?,?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action =  "Inserting film feedback prepare failed";
 						}
-						if(!$stmt->bind_param("iisss", $target, $user_id, $feedback_1, $feedback_2, $feedback_3)) {
+						if(!$stmt->bind_param("iisssss", $target, $user_id, $feedback_1, $feedback_2, $feedback_3, $feedback_4, $feedback_5)) {
 							$action =  "Inserting film feedback binding param failed";
 						}
 						if(!$stmt->execute()){
 							$action =  "Inserting film feedback execute failed";
 						}
-						if(!$stmt->bind_result($film_id, $user_id, $feedback_1, $feedback_2, $feedback_3)){
+						if(!$stmt->bind_result($film_id, $user_id, $feedback_1, $feedback_2, $feedback_3,  $feedback_4, $feedback_5)){
 							$action =  "Inserting film feedback binding result failed";
 						} 
 						else {

@@ -19,21 +19,16 @@
 	<h2>Edit Your Video</h2>
 </div>
 
-<!--
-<div class="filmdisplay_box">
-    <form name="upload" id="upload" action="editfilm.php" class="dropzone">
-    </form>
-</div>
--->
-
-
 <div class="filmdisplay_box"> 
 
 	<form method="POST" action="formsubmit.php">
 		<input type="hidden" name="function" value="update_project">
 
-		<label for="edit_title">Video</label>
-		<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
+		<label for="edit_title">Title</label>
+		<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250">
+
+		<label for="edit_video_link">Video</label>
+		<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required">
 
 		<input type="hidden" id="edit_runtime" name="runtime">
 
@@ -41,16 +36,13 @@
 			<iframe id="player1" class="preview-video" width="100%" height="540" frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1"></iframe>
 		</div>
 
-		<label for="edit_title">Title</label>
-		<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
-
 		<label for="edit_synopsis">Synopsis</label>
-		<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250">
 
+		<label for="cover_image">Cover Image</label>
 		<div id="upload" class="dropzone">
 			 <div class="dz-default dz-message"></div>
 		</div>
-
 		<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
 		<div class="display_cover_image">
 			<img>

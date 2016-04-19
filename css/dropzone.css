@@ -175,7 +175,9 @@
 
 .dropzone {
   height: 80px;
-  background: white; }
+    /* background: white; */
+    border: 1px dashed #797979
+}
   .dropzone.dz-clickable {
     cursor: pointer; }
     .dropzone.dz-clickable * {
@@ -190,7 +192,7 @@
       opacity: 0.5; }
   .dropzone .dz-message {
     text-align: center;
-    margin: 30px 0px; }
+    margin: 10px 0px; }
   .dropzone .dz-preview {
     position: relative;
     display: inline-block;
