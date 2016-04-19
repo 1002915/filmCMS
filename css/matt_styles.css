@@ -456,7 +456,7 @@ input[type="submit"] {
     left:       0;
     height:     100%;
     width:      100%;
-    background: rgba( 255, 255, 255, .8 ) 
+    background: #414042 
                 url('../img/loader.gif') 
                 50% 50% 
                 no-repeat;
@@ -468,8 +468,14 @@ body.loading {
     overflow: hidden;   
 }
 
+
 /* Anytime the body has the loading class, our
    modal element will be visible */
 body.loading .popper {
     display: block;
+}
+
+.logo {
+  width: 55px;
+  height: 70px;
 }
