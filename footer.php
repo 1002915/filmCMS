@@ -4,13 +4,13 @@
 <footer>
         <div class="footer">
 		<div class="footer_col_one"> 
-			<!-- <a href="index.php">HOME</a> 	-->
+			  contact@email.com<!-- <a href="index.php">HOME</a> 	-->
 		</div>
 	       <div class="footer_col_two">
 		     <!--  <a href="login.php"> LOGIN</a> -->
 	       </div>
 	       <div class="footer_col_three">
-                  contact@email.com  <!--     <a href="register.php"> REGISTER</a> -->
+                  <!--     <a href="register.php"> REGISTER</a> -->
 	       </div>
 	       <div class="footer_col_four">
                   LocoDoco 2015 <!--      <a href="search.php"> SEARCH</a> -->
@@ -55,4 +55,14 @@ $(function() {
         });
 });
 //popup dialog end//
+</script>
+<div class="popper"><!-- Place at bottom of page --></div>
+
+<script>
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+});
 </script>
