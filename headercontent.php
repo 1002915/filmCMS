@@ -20,7 +20,7 @@
 <!-- BEGIN LOGIN FORM  - VISIBLE IN HEADER -->
 <?php if (!isset($_SESSION['email'])) { ?>
 	<div class="container">
-        <a id="modal_trigger" href="#modal" class="btn">Login or Register</a>
+        <a id="modal_trigger" href="#modal" class="btn grey">Login or Register</a>
         	<div id="modal" class="popupContainer" style="display:none;">
            		<header class="popupHeader">
            		    <span class="header_title">Login</span>
