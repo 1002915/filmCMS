@@ -3,10 +3,9 @@
 	include('uploader.php');
 
 	$user_id = $_SESSION['id'];
-
 ?>
 
-<div class="security_box"> 
+<div class="edit"> 
 	<h2>Link Your Video</h2>
 </div>
 
@@ -25,16 +24,19 @@
 		<input type="hidden" id="runtime" name="runtime">
 
 		<div class='display_video'>
-			<iframe id="player1" class="preview-video" width="100%" height="270" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<iframe id="player1" class="preview-video" width="100%" height="540" frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1"></iframe>
 		</div>
-
-		<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
 
 		<h3>Title:</h3>
 		<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
 		<h3>Synopsis</h3>
 		<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+
+		<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+		<div class="display_cover_image">
+			<img>
+		</div>
 
 		<h3>Collaborators</h3>
 		<table id="new_collaborator">
@@ -46,16 +48,16 @@
 			</tr>
 			<tr>
 				<td>
-					<input type="text" class="first_name" name="collab[1][first_name]">
+					<input type="text" class="first_name" data-validation="required" name="collab[1][first_name]">
 				</td>
 				<td>
-					<input type="text" class="last_name" name="collab[1][last_name]">
+					<input type="text" class="last_name" data-validation="required" name="collab[1][last_name]">
 				</td>
 				<td>
-					<input type="text" class="role" name="collab[1][role]">
+					<input type="text" class="role" data-validation="required" name="collab[1][role]">
 				</td>
 				<td>
-					<input type="text" class="email" name="collab[1][email]">
+					<input type="text" class="email" data-validation="required" name="collab[1][email]">
 				</td>
 			</tr>
 		</table>
@@ -71,8 +73,6 @@
 
 		<input type="submit">
 	</form>
-
-
 </div>
 	
 
@@ -100,6 +100,8 @@
 					var filepath = filepathstring + userid + '/'+ file_name;
 					console.log(filepath);
 					$('input[name=cover_image]').val(file_name);
+
+					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
 			    }
 			}
 		});
@@ -210,30 +212,55 @@
 				}
 		    }
 		    $(".preview-video").attr("src", videolinkiframe);
+
+
 		});	
+
+
+
+
+
+		// remove collaborators
+		function deleteRow(btn) {
+			var rowcount = $('#edit_collaborator tr').length;
+			var rowcurrent = rowcount -1;
+			if(rowcurrent > 1){
+				var row = btn.parentNode.parentNode;
+		  		row.parentNode.removeChild(row);
+			}
+		}
 
 
 	
 
 
+		// do all the things
+		$(document).ready(function(){
 
-		// Increase collaborators as user inputs info
-		$("#new_collaborator > tbody > tr:last > td > .first_name").on('blur', function(){
-			if($("#new_collaborator > tbody > tr:last > td > .first_name").val() != ''){
-				// clone last row of table and empty its values
-				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
-				var input = $('#new_collaborator > tbody > tr:last > td > input');
-				input.val('');
+			// Increase collaborators as user inputs info
+			$(document).on('blur',"#new_collaborator > tbody > tr:last > td > input.first_name", function(){
+				if($("#new_collaborator > tbody > tr:last > td > input.first_name").val() != ''){
 
-				// get number of rows in table
-				var rowcount = $('#new_collaborator tr').length;	
-				var rowcurrent = rowcount -1;
+					// clone last row of table and empty its values
+					$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
+					$('#new_collaborator > tbody > tr:last > td > input.first_name').val('');
+					$('#new_collaborator > tbody > tr:last > td > input.last_name').val('');
+					$('#new_collaborator > tbody > tr:last > td > input.role').val('');
+					$('#new_collaborator > tbody > tr:last > td > input.email').val('');
 
-				$('#new_collaborator > tbody > tr:last > td > input.first_name').attr('name', 'collab[' + rowcurrent + '][first_name]');
-				$('#new_collaborator > tbody > tr:last > td > input.last_name').attr('name', 'collab[' + rowcurrent + '][last_name]');
-				$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
-				$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
-			}
+					// get number of rows in table
+					var rowcount = $('#edit_collaborator tr').length;
+					var rowcurrent = rowcount -1;
+
+					// name each field in [collab][current row number]['xxxxx'] format
+					$('#new_collaborator > tbody > tr:last > td > input.first_name').attr('name', 'collab[' + rowcurrent + '][first_name]');
+					$('#new_collaborator > tbody > tr:last > td > input.last_name').attr('name', 'collab[' + rowcurrent + '][last_name]');
+					$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
+					$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
+					$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
+				}
+
+			});
 
 		});
 
