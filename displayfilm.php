@@ -18,29 +18,53 @@
 	  <iframe id="video" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
 	
 
-<section id="details">
-	
-	<section id="details2">
-		<div id="film_title" class="film_title">The Bunny Attack </div>
-		<div class="student_name">Robertson Ave</div>
-		<div class="campus">Brisbane Campus</div>
+	<section id="details">
+		
+		<section id="details2">
+			<div id="film_title" class="film_title">The Bunny Attack </div>
+			<div class="student_name">Robertson Ave</div>
+			<div class="campus">Brisbane Campus</div>
+		</section>
+		<section id="rating"> 
+			<div class="star" id="star1"></div>
+			<div class="star" id="star2"></div>
+			<div class="star" id="star3"></div>
+			<div class="star" id="star4"></div>
+			<div class="star" id="star5"></div>
+		</section>
 	</section>
-	<section id="rating"> 
-		<div class="star" id="star1"></div>
-		<div class="star" id="star2"></div>
-		<div class="star" id="star3"></div>
-		<div class="star" id="star4"></div>
-		<div class="star" id="star5"></div>
-	</section>
-</section>
 
-<section id="synopsis">
-	<p>In a futuristic world where bunnies have multiplied like a plague and evolved like pokemons are trying to rule and destroy every human and easter leftovers.  </p>
-</section>
-<section id="contributors">
-	<div class="contributors_title">Contributors</div>
-	<div class="contributor1">Blue Glue</div>
-</section>
+	<section id="synopsis">
+		<p>In a futuristic world where bunnies have multiplied like a plague and evolved like pokemons are trying to rule and destroy every human and easter leftovers.  </p>
+	</section>
+	<section id="contributors">
+		<div class="contributors_title">Contributors</div>
+		<div class="contributor1">Blue Glue</div>
+	</section>
+</div>
+<!-- ACADEMIC FORM -->
+<div id='aca_form_button'>
+	Please leave some academic feedback
+</div>
+
+<div id='aca_form'>
+	<h1> Academic Feedback Form</h1><br><br>
+	<p>What was the filmmakers objective when making this documentary?</p>
+	<input type='text' name='feedback_1' placeholder='Please place your answer here...' class='aca_form_input'>
+	<br>
+	<p>How would you describe the quality of the cinematography?</p>
+	<input type='text' name='feedback_2' placeholder='Please place your answer here...' class='aca_form_input'>
+	<br>
+	<p>How would you describe the quality of the audio?</p>
+	<input type='text' name='feedback_3' placeholder='Please place your answer here...' class='aca_form_input'>
+	<br>
+	<p>How did the editing/structure of this documentary help establish character and plot?</p>
+	<input type='text' name='feedback_4' placeholder='Please place your answer here...' class='aca_form_input'>
+	<br>
+	<p>What were the most & least engaging elements of this documentary and why?</p>
+	<input type='text' name='feedback_5' placeholder='Please place your answer here...' class='aca_form_input'>
+	<br>
+	<input type='submit' value='submit'>
 </div>
 
 <script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
@@ -70,67 +94,48 @@
  						$("#star"+i).addClass("star_full");
  					} 
 
+					var videolink = value.video_link;
+
+				    var str = "youtube";
+
+				    // if video was on youtube
+					if(videolink.indexOf(str) > -1){
+						var videolinkiframe = videolink.replace("watch?v=", "v/");
+
+						//get youtube id
+					   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
+						
 
 
+					} else {
+						// if video was on vimeo
+						var videolinkiframe = videolink.replace("//", "//player.");
+				    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
+				    	var videolinkiframe = videolinkiframe.concat("?api=1&player_id=player1");
+				    }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
- 					var videolink = value.video_link;
-
-		    var str = "youtube";
-
-		    // if video was on youtube
-			if(videolink.indexOf(str) > -1){
-				var videolinkiframe = videolink.replace("watch?v=", "v/");
-
-				//get youtube id
-			   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
-				
-
-
-			} else {
-				// if video was on vimeo
-				var videolinkiframe = videolink.replace("//", "//player.");
-		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
-		    	var videolinkiframe = videolinkiframe.concat("?api=1&player_id=player1");
-		    }
-
-
-		    $("#video").attr("src", videolinkiframe);
- 					console.log(value);
- 					//$('#displayvideo').html('');
-					//$('#displayvideo').append( "<p>"+value['title']+"</p><p>"+value['synopsis']+"</p> " );
-					//
-					// WHEN THE CONENT IS NOT IN THE DATABASE
-    				if(value['id'] == null){
-						$('#displayvideo').html('');
- 						$('#displayvideo').append("<p>Sorry there are no results</p>");
- 					}	 
-				});
+				    $("#video").attr("src", videolinkiframe);
+		 					console.log(value);
+		 					//$('#displayvideo').html('');
+							//$('#displayvideo').append( "<p>"+value['title']+"</p><p>"+value['synopsis']+"</p> " );
+							//
+							// WHEN THE CONENT IS NOT IN THE DATABASE
+		    				if(value['id'] == null){
+								$('#displayvideo').html('');
+		 						$('#displayvideo').append("<p>Sorry there are no results</p>");
+		 					}	 
+						});
 			}
 		});
 	}
 	return_project()
+
+	// ACADEMIC FORM
+	$('#aca_form').hide();
+	$('#aca_form_button').on ('click touch', function() {
+		$('#aca_form').show();
+		$('#aca_form').scrollView();
+	});
 </script>
+
