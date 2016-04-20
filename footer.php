@@ -55,12 +55,16 @@ $(function() {
         });
 });
 </script>
-<div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
+
+
 
 <script>
-$body = $("#searchList");
+$body = $("body");
+
 $(document).on({
     ajaxStart: function() { $body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 });
 </script>
+
+<div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
