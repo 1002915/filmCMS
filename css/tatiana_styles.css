@@ -233,6 +233,8 @@ input[type=checkbox] {
 
 .site_content #displayvideo #details #rating:not(old) .star {
     -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
     float: right;
 }
 
@@ -252,6 +254,7 @@ input[type=checkbox] {
 
 .site_content #displayvideo #details #rating:not(old) > .star:hover:before,
 .site_content #displayvideo #details #rating:not(old) > .star:hover ~ .star:before,
+.site_content #displayvideo #details #rating:not(old) > .star:checked,
 .site_content #displayvideo #details #rating:not(:hover) > :checked,
 .site_content #displayvideo #details #rating:not(:hover) > :checked ~ .star:before{
     background-image: url("../images/star_full.png");
