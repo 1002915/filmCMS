@@ -7,7 +7,6 @@
 		<div id='searchBar'>
 			<p class='center_text'>Search Bar</p>
 			<link href='https://fonts.googleapis.com/css?family=Oswald|Poiret+One' rel='stylesheet' type='text/css'>
-			<div class='logoTestdiv'><p class='logotest'> Doco<span class='locofont'>loco</span></p></div>
 			<!-- SEARCH BOX -->
 			<div class='middle_postition'>
 				<input type='text' name='target' placeholder='Search...' id='search' value="<?php if(isset($_POST['search'])) { echo $_POST['search']; } ?>">

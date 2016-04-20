@@ -1,6 +1,11 @@
 <?php
 // MAKES SURE THAT A PERSON IS LOGED IN OR NOT
 	session_start();
+<<<<<<< HEAD
+=======
+	$user_type = 0;
+
+>>>>>>> master
 	include('header.php');
 	if (isset($_SESSION['id'])){
 		$user_id = $_SESSION['id'];
@@ -45,6 +50,7 @@
 		</table>
 	</section>
 
+<<<<<<< HEAD
 	<div class="hide_film">
 		<label id="hide" for="edit_active">Hide film</label>
 		<?php
@@ -59,6 +65,22 @@
 		?>
 	</div>
 
+=======
+	<?php
+		if($user_type == 1) {
+	?>	
+		<div class="hide_film">
+			<label id="hide" for="edit_active">Hide film</label>
+			<div class="slideThree">	
+				<input type="checkbox" value="0" id="slideThree" name="check" />
+				<label for="slideThree"></label>
+			</div>
+		</div>
+	<?php
+		}
+	?>
+	
+>>>>>>> master
 </div>
 <!-- ACADEMIC FORM -->
 <?php
@@ -209,7 +231,19 @@ include('footer.php');
 			var feedback_4 = $('#feedback_4').val();
 			var feedback_5 = $('#feedback_5').val();
 			var film_id = <?php echo $_GET['id']?>;
+<<<<<<< HEAD
 			var user_id = <?php echo $user_id?>;
+=======
+			var user_id = 
+			<?php 
+				if(isset($_SESSION['id'])) {
+					echo $user_id;
+				} else {
+					echo '';
+				}
+			?>
+				
+>>>>>>> master
 			console.log(feedback_1);
 			console.log(feedback_2);
 			console.log(feedback_3);
@@ -280,6 +314,7 @@ include('footer.php');
 			}
 	 	});
 
+<<<<<<< HEAD
 	}
 
 
@@ -326,3 +361,48 @@ include('footer.php');
 
 </script>
 
+=======
+	$(document).ready(function(){ 
+		//$('#aca_form').validate();
+		$("#aca_form #submit").on('click touch', function() {
+			academic_form();
+		});
+
+		$('.slideThree label').on('click touch', function() {
+			hide_project();
+		});
+
+		$('input.star').on('click touch', function(){
+
+			var rating = $(this).val();
+			console.log(rating);
+			//var rating = $(this).val();
+			var target = <?php echo $_GET['id']?>;
+			var ip = 'hjhjhj';
+
+			$.ajax({
+				type: "POST",
+				url: "overlord.php",
+				data: {
+					function: 'add_rating',
+					target: target,
+					rating: rating,
+					ip: ip
+				},
+				dataType : 'json',
+				success: function(res) {
+					console.log('yay!!! success');
+				},
+				error: function(res){
+					console.log(res);
+				}
+			 });
+			
+		});
+
+	});
+
+
+</script>
+
+>>>>>>> master
