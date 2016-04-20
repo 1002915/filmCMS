@@ -229,8 +229,22 @@ span {
   color: black;
 }
 
-.cover_image_profile {
+.profile_edit_box {
+    margin: 0 auto;
+    width: 450px;
+    padding: 20px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cover_image_edit {
   width: 100%;
+  height: 200px;
+  background-repeat: no-repeat;
+    background-position: center; 
 }
 
 #lean_overlay {
@@ -264,6 +278,8 @@ span {
 .btn:hover {
   background-color: #ffe98d
 }
+
+
 
 .btn {
   padding: 10px 20px;
@@ -438,6 +454,10 @@ input[type="submit"] {
   height: 37px;
 }
 
+input[type="submit"] .grey {
+
+}
+
 .float {
   display: flex;
   justify-content: space-between;
@@ -478,4 +498,19 @@ body.loading .popper {
 .logo {
   width: 55px;
   height: 70px;
+}
+
+.logo_loading {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 180px;
+  width: 110px;
+  height: 140px;
+}
+
+.has-validation-callback .long_button {
+  width: 100%;
 }
