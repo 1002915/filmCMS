@@ -117,26 +117,6 @@ select {
 	margin:0 auto;
 }
 
-.logoTestdiv {
-	width:200px;
-	height:90px;
-	background-repeat: no-repeat;
-	background-image: url(../img/logotest.png)
-}
-
-.logotest {
-	font-family: 'Oswald', sans-serif;
-	font-size: 30px;
-	padding-top:25px;
-	text-align: center;
-}
-
-.locofont {
-	font-family: 'Poiret One', cursive;
-	font-size: 30px;
-	color:#ffffff;
-}
-
 /* DISPLY FILM PAGE */
 #aca_form_button {
 	background-color: #ffd00b;
