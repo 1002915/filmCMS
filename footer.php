@@ -54,13 +54,11 @@ $(function() {
                 return false;
         });
 });
-//popup dialog end//
 </script>
 <div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
 
 <script>
-$body = $("body");
-
+$body = $("#searchList");
 $(document).on({
     ajaxStart: function() { $body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
