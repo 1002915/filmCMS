@@ -16,9 +16,8 @@
 	<section id="details">
 		
 		<section id="details2">
-			<div id="film_title" class="film_title">The Bunny Attack </div>
-			<div class="student_name">Robertson Ave</div>
-			<div class="campus">Brisbane Campus</div>
+			<div id="film_title" class="film_title"></div>
+			<div id="campus" class="campus"></div>
 		</section>
 		<section id="rating"> 
 			<div class="star" id="star1"></div>
@@ -30,15 +29,24 @@
 	</section>
 
 	<section id="synopsis">
-		<p>In a futuristic world where bunnies have multiplied like a plague and evolved like pokemons are trying to rule and destroy every human and easter leftovers.  </p>
 	</section>
 	<section id="contributors">
 		<div class="contributors_title">Contributors</div>
-		<div class="contributor1">Blue Glue</div>
+		<table id="display_collaborators">
+			<thead>
+				<tr>
+					<td>Role</td>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Email</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
 	</section>
 
 	<div class="hide_film">
-		<label for="edit_active">Hide film</label>
+		<label id="hide" for="edit_active">Hide film</label>
 		<?php
 			if($user_type == 1) {
 			?>	
@@ -104,25 +112,39 @@ include('footer.php');
 			},
 			dataType:'json',
 			success:function(res) {
-
-
-
-
 				// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
 				//$('#displayvideo').html('');
  				$.each(res, function(index,value) {
- 					$('#film_title').html(value.title);
- 					//$('#contributors').html(value.title);
- 					$('#synopsis').html('<p>'+value.synopsis+'</p>');
 
- 					for(var i=1;i < value.rating;i++) {
+ 					$('#film_title').html(value.title);
+ 					$('#synopsis').html('<p>'+value.synopsis+'</p>');
+ 					$('#campus').html(value.campus);
+
+ 					for(var i=1;i < value.average_rating;i++) {
  						$("#star"+i).addClass("star_full");
  					} 
 
+ 					// adjust hide project switch if film is inactive
  					if(value.active == 0){
  						$("input[type='checkbox']" ).prop( "checked", "true");
  						console.log($( "input[type='checkbox']" ).prop('checked'));
  					}
+
+ 					// add rows to table with collab values input
+	 				var table 	= $('#display_collaborators > tbody');
+					var props 	= ["role", "first_name", "last_name", "email"];
+					var fred 	= 1;
+
+					$.each(value['collab'], function(i, val) {
+						var tr = $('<tr>');
+						$.each(props, function(i, prop) {
+						   	$('<td>').html(val[prop]).appendTo(tr);
+						});
+						fred++;
+						table.append(tr);
+					});
+
+
 
 					var videolink = value.video_link;
 
