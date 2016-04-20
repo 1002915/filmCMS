@@ -20,11 +20,11 @@
 			<div id="campus" class="campus"></div>
 		</section>
 		<section id="rating"> 
-			<div class="star" id="star1"></div>
-			<div class="star" id="star2"></div>
-			<div class="star" id="star3"></div>
-			<div class="star" id="star4"></div>
-			<div class="star" id="star5"></div>
+			<input type="radio" name="rating" class="star" id="star5" value="5">
+			<input type="radio" name="rating" class="star" id="star4" value="4">
+			<input type="radio" name="rating" class="star" id="star3" value="3">
+			<input type="radio" name="rating" class="star" id="star2" value="2">
+			<input type="radio" name="rating" class="star" id="star1" value="1">
 		</section>
 	</section>
 
@@ -120,9 +120,10 @@ include('footer.php');
  					$('#synopsis').html('<p>'+value.synopsis+'</p>');
  					$('#campus').html(value.campus);
 
- 					for(var i=1;i < value.average_rating;i++) {
- 						$("#star"+i).addClass("star_full");
- 					} 
+ 					// check star with rating
+ 					var rating = Math.round(value.average_rating);
+ 					$("#star"+rating).prop('checked', true);
+ 					
 
  					// adjust hide project switch if film is inactive
  					if(value.active == 0){
@@ -260,6 +261,28 @@ include('footer.php');
 
 	}
 
+	function add_rating(rating) {
+		//var rating = $(this).val();
+		var target = <?php echo $_GET['id']?>;
+		var ip = '';
+		$.ajax({
+			type: "POST",
+			url: "overlord.php",
+			data: {
+				function: 'add_rating',
+				target: target,
+				rating: rating,
+				ip: ip
+			},
+			dataType : 'json',
+			success: function(res) {
+				console.log('yay!!! success');
+			}
+	 	});
+
+	}
+
+
 	$(document).ready(function(){ 
 		//$('#aca_form').validate();
 		$("#submit").on('click touch', function() {
@@ -269,6 +292,35 @@ include('footer.php');
 		$('.slideThree label').on('click touch', function() {
 			hide_project();
 		});
+
+		$('input.star').on('click touch', function(){
+
+			var rating = $(this).val();
+			console.log(rating);
+			//var rating = $(this).val();
+			var target = <?php echo $_GET['id']?>;
+			var ip = 'hjhjhj';
+
+			$.ajax({
+				type: "POST",
+				url: "overlord.php",
+				data: {
+					function: 'add_rating',
+					target: target,
+					rating: rating,
+					ip: ip
+				},
+				dataType : 'json',
+				success: function(res) {
+					console.log('yay!!! success');
+				},
+				error: function(res){
+					console.log(res);
+				}
+			 });
+			
+		});
+
 	});
 
 

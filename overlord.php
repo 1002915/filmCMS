@@ -561,7 +561,7 @@
 						$rating = $_POST['rating'];
 						$ip = $_POST['ip'];
 
-						$sql = "INSERT INTO rating (rating, IP, film_id) VALUES (?,?,?)";
+						$sql = "INSERT INTO rating (rating, ip, film_id) VALUES (?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}

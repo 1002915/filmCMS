@@ -222,3 +222,39 @@ input[type=checkbox] {
 .slideThree input[type=checkbox]:checked + label {
     left: 72px;
 }
+
+
+
+.site_content #displayvideo #details #rating:not(old) {
+    float: right;
+    width: 30%;
+    padding-top: 6px;
+}
+
+.site_content #displayvideo #details #rating:not(old) .star {
+    -webkit-appearance: none;
+    float: right;
+}
+
+.site_content #displayvideo #details #rating:not(old) .star:before {
+    background-image: url("../images/star_empty.png");
+    content: '';
+    display: inline-block;
+    webkit-appearance: none;
+    background-size: contain;
+    cursor: pointer;
+    opacity: 0;
+    background-repeat: no-repeat;
+    height: 41px;
+    width: 43px;
+    transition: opacity 0.1s linear;
+}
+
+.site_content #displayvideo #details #rating:not(old) > .star:hover:before,
+.site_content #displayvideo #details #rating:not(old) > .star:hover ~ .star:before,
+.site_content #displayvideo #details #rating:not(:hover) > :checked,
+.site_content #displayvideo #details #rating:not(:hover) > :checked ~ .star:before{
+    background-image: url("../images/star_full.png");
+    opacity: 1;
+}
+
