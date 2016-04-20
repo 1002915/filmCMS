@@ -1,22 +1,12 @@
 <?php
 // MAKES SURE THAT A PERSON IS LOGED IN OR NOT
-	if (!isset($_SESSION['id'])) {
-   		header('Location: index.php');
-	} else {
-		include('header.php');
+	session_start();
+	include('header.php');
+	if (isset($_SESSION['id'])){
+		$user_id = $_SESSION['id'];
 	}
+	
 ?>
-
-	<script>
-			$(document).ready(function(){ 
-			<?php 
-			if (isset($_POST['user_id'])) {
-				$userid = $_POST['user_id']; 
-				?>
-				return_project();
-			<?php } ?>
-		});
-	</script>
 
 <div id="displayvideo">
 	
@@ -61,23 +51,27 @@
 		<div id='aca_form'>
 			<h1> Academic Feedback Form</h1><br><br>
 			<p>What was the filmmakers objective when making this documentary?</p>
-			<input type='text' name='feedback_1' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_1' id='feedback_1' placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How would you describe the quality of the cinematography?</p>
-			<input type='text' name='feedback_2' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_2' id='feedback_2' placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How would you describe the quality of the audio?</p>
-			<input type='text' name='feedback_3' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_3' id='feedback_3' placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How did the editing/structure of this documentary help establish character and plot?</p>
-			<input type='text' name='feedback_4' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_4' id='feedback_4' placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>What were the most & least engaging elements of this documentary and why?</p>
-			<input type='text' name='feedback_5' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_5' id='feedback_5' placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
-			<input type='submit' value='submit' id='submit'>
+			<input type='button' value='submit' id='submit'>
 		</div>
-<?php } ?>
+<?php } 
+
+include('footer.php');
+
+?>
 
 <script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
@@ -141,13 +135,22 @@
 			}
 		});
 	}
-	return_project()
+	return_project();
+	
+	//});
 
-	// ACADEMIC FORM
+// ACADEMIC FORM
+function scrollWin() {
+		$('body').animate({
+			scrollTop: $('#aca_form').offset().top
+		},1000);
+    }
+
+
 	$('#aca_form').hide();
 	$('#aca_form_button').on ('click touch', function() {
 		$('#aca_form').show();
-		$('#aca_form').scrollView();
+		scrollWin();
 	});
 
 	//SENDING THE FORM INFORMATION TO THE OVERLORD FILE
@@ -156,29 +159,40 @@
 			var feedback_1 = $('#feedback_1').val();
 			var feedback_2 = $('#feedback_2').val();
 			var feedback_3 = $('#feedback_3').val();
+			var feedback_4 = $('#feedback_4').val();
+			var feedback_5 = $('#feedback_5').val();
+			var film_id = <?php echo $_GET['id']?>;
+			var user_id = <?php echo $user_id?>;
 			console.log(feedback_1);
 			console.log(feedback_2);
 			console.log(feedback_3);
+			console.log(feedback_4);
+			console.log(feedback_5);
 			$.ajax({
 				type:"POST",
 				url:"overlord.php",
 				data:{
 					function:'add_academic_feedback',
-					target:search,// this is a combination of (what is variable links to the overlord):(what varible you are trying to trigger the function named in the current file {above variable})
+					target:film_id,// this is a combination of (what is variable links to the overlord):(what varible you are trying to trigger the function named in the current file {above variable})
+					user_id:user_id,
 					feedback_1:feedback_1,
 					feedback_2:feedback_2,
-					feedback_3:feedback_3
+					feedback_3:feedback_3,
+					feedback_4:feedback_4,
+					feedback_5:feedback_5
 				},
-				dataType:'json',
+				//dataType:'json',
 				success:function(res) {
 					// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
 					$('#aca_form').html('');
-					$('#aca_form').append('<p>thank you for your feedback.</p>');
+					$('#aca_form').append('<p>Thank you for your feedback.</p>');
 				}
-			}
+			});
 	}
 
 			$(document).ready(function(){ 
+
+				//$('#aca_form').validate();
 
 				$("#submit").on('click touch', function() {
 					academic_form();
