@@ -117,24 +117,47 @@ select {
 	margin:0 auto;
 }
 
-.logoTestdiv {
-	width:200px;
-	height:90px;
-	background-repeat: no-repeat;
-	background-image: url(../img/logotest.png)
+/* DISPLY FILM PAGE */
+#aca_form_button {
+	background-color: #ffd00b;
+	width:312px;
+	padding:20px;
+	margin:0 auto;
+	color:#454545;
+	margin-top:40px;
 }
 
-.logotest {
-	font-family: 'Oswald', sans-serif;
-	font-size: 30px;
-	padding-top:25px;
-	text-align: center;
+#aca_form_button:hover {
+	background-color: #ffe98d;
 }
 
-.locofont {
-	font-family: 'Poiret One', cursive;
-	font-size: 30px;
-	color:#ffffff;
+#aca_form {
+	width:700px;
+	min-height: 400px;
+	margin:0 auto;
+	padding:20px;
+	border: 1px solid #ffd00b;
+	margin-top:20px;
+}
+
+.aca_form_input {
+	width:100%;
+	background-color: #ffffff;
+	border:1px #ffd00b solid;
+
+}
+
+#submit{
+	background-color: #ffd00b;
+	padding:10px;
+	margin:0 auto;
+	color:#454545;
+	margin-top:20px;
+	border:none;
+}
+
+#submit:hover{
+	background-color: #ffe98d;
 }
 
 /* DISPLY FILM PAGE */

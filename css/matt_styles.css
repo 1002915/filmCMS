@@ -1,5 +1,3 @@
-/* General Divs: */
-
 .error_box {
   width: 100%;
   height: 40px;
@@ -8,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.security_box, .project_profile {
+.security_box, project_profile {
     margin: 0 auto;
     width: 450px;
     display:flex;
@@ -21,13 +19,30 @@
     background-color: rgba(0, 0, 0, 0.3);
 }
 
+.project_profile {
+  margin: 0 auto;
+  width: 450px;
+  padding: 20px;
+  height: auto;
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 400;
+  margin-bottom: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+}
+
+
+
 .login_error {
     color: red;
     text-align: center;
     margin-top: 100px;
 }
+#campus_id {
+    margin: 10px;
+}
 
 .campus_id select {
+
    width: 268px;
    padding: 5px;
    font-size: 16px;
@@ -36,7 +51,7 @@
    border-radius: 0;
    height: 34px;
    -webkit-appearance: none;
-}
+   }
 
 .footer_col_one, .footer_col_two, .footer_col_three, .footer_col_four {
   width: 25%;
@@ -47,18 +62,15 @@
   color: grey;
 }
 
-.footer_col_four {
-  text-align: right;
-}
 
 .footer {
-  background-color: rgba(0, 0, 0, 0.65);
+  background-color: rgba(0, 0, 0, 0.3);
   padding: 5px;
   width: 100%;
   box-sizing: border-box;
   display: flex;
   justify-content: space-around;
-  height: 50px;
+
 }
 
 #loginForm input[type=text] {
@@ -77,6 +89,7 @@
 }
 
 .text_box {
+
     height: 35px;
     background-color: rgba(255, 255, 255, 1);
     border: 3px solid #ffd00b;
@@ -96,13 +109,10 @@
   background-color: #ffd00b;
   font-family: 'Montserrat', sans-serif;
   font-weight: 400;
-  margin: 5px 0px 0px 0px;
-
   box-sizing: border-box;
   border: none;
   text-decoration: none;
-  font-size: 12px;
-  float: right;
+  font-size: 1em;
 }
 
 input[type="submit"]:hover{
@@ -116,9 +126,14 @@ input[type="submit"]:hover{
   text-shadow: none;
 }
 
+.login_button {
+  float: right;
+}
+
 .header_navigation #search_bar {
   width: 50%;
 }
+
 
 .header_navigation {
   width: 100%;
@@ -131,7 +146,7 @@ input[type="submit"]:hover{
 }
 
 .header_navigation input[type="text"], input[type="password"] {
-  width: calc(100% - 100px);
+  width: 80%;
   margin: 5px 0px 0px 0px;
 }
 
@@ -192,7 +207,7 @@ select {
 }
 
 .site_content .reset_email input[type="text"] {
-  width: calc(100% - 100px);
+  width: calc(100% - 80px);
 }
 
 .contribute  input[type="submit"]{
@@ -229,35 +244,62 @@ span {
   color: black;
 }
 
-.cover_image_profile {
+.profile_edit_box {
+    margin: 0 auto;
+    width: 450px;
+    padding: 20px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cover_image_edit {
   width: 100%;
+
+}
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  color: #666;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 60px;
+  height: 200px;
+  background-repeat: no-repeat;
+  background-position: center; 
 }
 
 #lean_overlay {
-  position: fixed;
-  z-index: 100;
-  top: 0px;
-  left: 0px;
-  height: 100%;
-  width: 100%;
-  background: #000;
-  display: none;
+        position: fixed;
+        z-index: 100;
+        top: 0px;
+        left: 0px;
+        height: 100%;
+        width: 100%;
+        background: #000;
+        display: none;
 }
 
 .popupContainer {
-  position: absolute;
-  width: 330px;
-  height: auto;
-  left: 45%;
-  top: 60px;
-  background: #FFF;
+        position: absolute;
+        width: 330px;
+        height: auto;
+        left: 45%;
+        top: 60px;
+        background: #FFF;
 }
 
 #modal_trigger {
-  margin: 40px auto;
-  width: 130px;
-  display: block;
-  border-radius: 1px;
+        margin: 40px auto;
+        width: 130px;
+        display: block;
+        border-radius: 1px;
 }
 
 
@@ -266,145 +308,157 @@ span {
 }
 
 .btn {
-  padding: 10px 20px;
-  background: #ffd00b;
-  font-family: 'Montserrat', sans-serif;
-  font-weight: 400;
-  font-size: 12px;
-  color: #454545;
-  height: 14px
+        padding: 10px 20px;
+        background: #ffd00b;
+        font-family: 'Montserrat', sans-serif;
+        font-weight: 400;
+        color: #454545;
 }
 
 a.btn {
-  text-align: center;
-  text-decoration: none;
+        text-align: center;
+        text-decoration: none;
 }
 
+a.btn_red {
+        color: #FFF;
+}
+
+.one_half {
+        width: 50%;
+        display: block;
+        float: left;
+}
+
+.one_half.last {
+        width: 45%;
+        margin-left: 5%;
+}
 /* Popup Styles*/
 
 .popupHeader {
-  font-size: 16px;
-  text-transform: uppercase;
+        font-size: 16px;
+        text-transform: uppercase;
 }
 
 .popupHeader {
-  background: #F4F4F2;
-  position: relative;
-  padding: 10px 20px;
-  border-bottom: 1px solid #DDD;
-  font-weight: bold;
+        background: #F4F4F2;
+        position: relative;
+        padding: 10px 20px;
+        border-bottom: 1px solid #DDD;
+        font-weight: bold;
 }
 
 .popupHeader .modal_close {
-  position: absolute;
-  right: 0;
-  top: 0;
-  padding: 10px 15px;
-  background: #E4E4E2;
-  cursor: pointer;
-  color: #aaa;
-  font-size: 16px;
+        position: absolute;
+        right: 0;
+        top: 0;
+        padding: 10px 15px;
+        background: #E4E4E2;
+        cursor: pointer;
+        color: #aaa;
+        font-size: 16px;
 }
 
 .popupBody {
-  padding: 20px;
-  background-color: #f9f9f9;
+        padding: 20px;
+        background-color: #f9f9f9;
 }
 
 .centeredText {
-  text-align: center;
-  margin: 20px 0;
-  clear: both;
-  overflow: hidden;
-  text-transform: uppercase;
+        text-align: center;
+        margin: 20px 0;
+        clear: both;
+        overflow: hidden;
+        text-transform: uppercase;
 }
 
 .action_btns {
-  clear: both;
-  overflow: hidden;
+        clear: both;
+        overflow: hidden;
 }
 
 .action_btns a {
-  display: block;
+        display: block;
 }
 /* User Login Form */
 
 .user_login {
-  display: none;
+        display: none;
 }
 
 .user_login label {
-  display: block;
-  margin-bottom: 5px;
+        display: block;
+        margin-bottom: 5px;
 }
 
 .user_login input[type="text"],
 .user_login input[type="email"],
 .user_login input[type="password"] {
-  display: block;
-  width: 100%;
-  padding: 10px;
-  border: 1px solid #DDD;
-  color: #666;
+        display: block;
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #DDD;
+        color: #666;
 }
 
 .user_login input[type="checkbox"] {
-  float: left;
-  margin-right: 5px;
+        float: left;
+        margin-right: 5px;
 }
 
 .user_login input[type="checkbox"]+label {
-  float: left;
+        float: left;
 }
 
 .user_login .checkbox {
-  margin-bottom: 10px;
-  clear: both;
-  overflow: hidden;
+        margin-bottom: 10px;
+        clear: both;
+        overflow: hidden;
 }
 
 .forgot_password {
-  display: block;
-  margin: 20px 0 10px;
-  clear: both;
-  text-decoration: none;
-  color: #ED6347;
+        display: block;
+        margin: 20px 0 10px;
+        clear: both;
+        overflow: hidden;
+        text-decoration: none;
+        color: #ED6347;
 }
-
 /* User Register Form */
 
 .user_register {
-  display: none;
+        display: none;
 }
 
 .user_register label {
-  display: block;
-  margin-bottom: 5px;
+        display: block;
+        margin-bottom: 5px;
 }
 
 .user_register input[type="text"],
 .user_register input[type="email"],
 .user_register input[type="password"] {
-  display: block;
-  width: 90%;
-  padding: 10px;
-  border: 1px solid #DDD;
-  color: #666;
+        display: block;
+        width: 90%;
+        padding: 10px;
+        border: 1px solid #DDD;
+        color: #666;
 }
 
 .user_register input[type="checkbox"] {
-  float: left;
-  margin-right: 5px;
+        float: left;
+        margin-right: 5px;
 }
 
 .user_register input[type="checkbox"]+label {
-  float: left;
+        float: left;
 }
 
 .user_register .checkbox {
-  margin-bottom: 10px;
-  clear: both;
-  overflow: hidden;
+        margin-bottom: 10px;
+        clear: both;
+        overflow: hidden;
 }
 
 .user_login label {
@@ -420,9 +474,7 @@ a.btn {
   color: black;
 }
 
-.user_register input[type="text"], 
-.user_register input[type="email"], 
-.user_register input[type="password"] {
+.user_register input[type="text"], .user_register input[type="email"], .user_register input[type="password"] {
   width: 100%;
 }
 
@@ -430,18 +482,22 @@ a.btn {
   margin: 5px;
   padding: 5px;
   text-align: center;
-  vertical-align: middle;
+vertical-align: middle;
 }
 
-input[type="submit"] {
-  width: 100px;
-  height: 37px;
+input[type="submit"] .grey {
+
+}
+
+input[type="submit"] .grey {
+
 }
 
 .float {
   display: flex;
   justify-content: space-between;
 }
+
 
 /* Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
@@ -479,3 +535,49 @@ body.loading .popper {
   width: 55px;
   height: 70px;
 }
+
+.logo_loading {
+  position: absolute;
+  margin: auto;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 180px;
+  width: 110px;
+  height: 140px;
+}
+
+.has-validation-callback .long_button {
+  width: 100%;
+}
+
+
+
+
+/* 
+============================================
+============  MEDIA QUERIES  ===============
+============================================
+*/
+
+@media only screen and (min-width: 720px) and (max-width: 1199px) {
+
+
+  .header_navigation input[type="text"], input[type="password"] {
+    
+    width: 63%;
+  }
+
+.logo {
+  width: 55px;
+  height: 70px;
+}
+
+.has-validation-callback .long_button {
+  width: 100%;
+}
+
+}
+
+}
+

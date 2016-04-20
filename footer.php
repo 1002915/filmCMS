@@ -54,9 +54,9 @@ $(function() {
                 return false;
         });
 });
-//popup dialog end//
 </script>
-<div class="popper"><!-- Place at bottom of page --></div>
+
+
 
 <script>
 $body = $("body");
@@ -66,3 +66,5 @@ $(document).on({
      ajaxStop: function() { $body.removeClass("loading"); }    
 });
 </script>
+
+<div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
