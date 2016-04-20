@@ -87,7 +87,7 @@
 					} else {
 						$target = $_POST['target']; // film id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1 AND active = 1";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -514,7 +514,7 @@
 						$errormsg = "Please select whether the project is active or not";
 					} else {
 						$target = $_POST['target']; // film id
-						$active = $_POST['active'];
+						$active = $_POST['active'];	
 						$sql = "UPDATE film SET active = ? WHERE id = ?";
 						if(!$stmt = $mysqli->prepare($sql)) {
 							$action = "hiding film prepare failed";
@@ -538,7 +538,7 @@
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
+						if(!$stmt->bind_param("iis", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -561,7 +561,7 @@
 						$rating = $_POST['rating'];
 						$ip = $_POST['ip'];
 
-						$sql = "INSERT INTO rating (rating, IP, film_id) VALUES (?,?,?)";
+						$sql = "INSERT INTO rating (rating, ip, film_id) VALUES (?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
