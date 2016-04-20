@@ -4,14 +4,14 @@
 	include('header.php');
 	if (isset($_SESSION['id'])){
 		$user_id = $_SESSION['id'];
+		$user_type = $_SESSION['user_type'];
 	}
 	
 ?>
 
 <div id="displayvideo">
 	
-	  <iframe id="video" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
-	
+	<iframe id="video" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
 
 	<section id="details">
 		
@@ -36,6 +36,21 @@
 		<div class="contributors_title">Contributors</div>
 		<div class="contributor1">Blue Glue</div>
 	</section>
+
+	<div class="hide_film">
+		<label for="edit_active">Hide film</label>
+		<?php
+			if($user_type == 1) {
+			?>	
+				<div class="slideThree">	
+					<input type="checkbox" value="0" id="slideThree" name="check" />
+					<label for="slideThree"></label>
+				</div>
+			<?php
+			}
+		?>
+	</div>
+
 </div>
 <!-- ACADEMIC FORM -->
 <?php
@@ -89,6 +104,10 @@ include('footer.php');
 			},
 			dataType:'json',
 			success:function(res) {
+
+
+
+
 				// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
 				//$('#displayvideo').html('');
  				$.each(res, function(index,value) {
@@ -99,6 +118,11 @@ include('footer.php');
  					for(var i=1;i < value.rating;i++) {
  						$("#star"+i).addClass("star_full");
  					} 
+
+ 					if(value.active == 0){
+ 						$("input[type='checkbox']" ).prop( "checked", "true");
+ 						console.log($( "input[type='checkbox']" ).prop('checked'));
+ 					}
 
 					var videolink = value.video_link;
 
@@ -139,8 +163,8 @@ include('footer.php');
 	
 	//});
 
-// ACADEMIC FORM
-function scrollWin() {
+	// ACADEMIC FORM
+	function scrollWin() {
 		$('body').animate({
 			scrollTop: $('#aca_form').offset().top
 		},1000);
@@ -190,14 +214,41 @@ function scrollWin() {
 			});
 	}
 
-			$(document).ready(function(){ 
+	function hide_project() {
+		var film_id = <?php echo $_GET['id']?>;
+		if($("input[type='checkbox']" ).prop("checked")){
+			var active = 1;
+		} else {
+			active = 0;
+		}
+		console.log(active);
+		$.ajax({
+			type: "POST",
+			url: "overlord.php",
+			data: {
+				function: 'hide_project',
+				target: film_id,
+				active: active
+			},
+			dataType : 'json',
+			success: function(res) {
+				console.log('yay!!! success');
+			}
+	 	});
 
-				//$('#aca_form').validate();
+	}
 
-				$("#submit").on('click touch', function() {
-					academic_form();
-				});
-				
-			});
+	$(document).ready(function(){ 
+		//$('#aca_form').validate();
+		$("#submit").on('click touch', function() {
+			academic_form();
+		});
+
+		$('.slideThree label').on('click touch', function() {
+			hide_project();
+		});
+	});
+
+
 </script>
 

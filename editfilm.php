@@ -11,7 +11,6 @@
 	include('uploader.php');
 
 	$user_id = $_SESSION['id'];
-	$user_type = $_SESSION['user_type'];
 	$film_id = $_GET['filmid'];
 ?>
 
@@ -66,18 +65,6 @@
 			<option value="0">Save Draft</option>
 			<option value="1">Publish</option>
 		</select>
-
-		<?php
-		if($user_type == 1) {
-		?>
-			<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
-		    <label class="active-label" for="edit_active">
-		        <span class="active-inner"></span>
-		        <span class="active-switch"></span>
-		    </label>
-		<?php
-		}
-		?>
 
 		<!-- hidden fields-->
 		<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>">
