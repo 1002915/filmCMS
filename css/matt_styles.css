@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.security_box, .project_profile {
+.security_box, project_profile {
     margin: 0 auto;
     width: 450px;
     display:flex;
@@ -261,24 +261,18 @@ span {
 }
 
 body {
-        font-family: 'Source Sans Pro', sans-serif;
-        font-size: 14px;
-        color: #666;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 14px;
+  color: #666;
 }
 
 h1 {
-        text-align: center;
-        margin-bottom: 0;
-        margin-top: 60px;
-
+  text-align: center;
+  margin-bottom: 0;
+  margin-top: 60px;
   height: 200px;
   background-repeat: no-repeat;
-    background-position: center; 
-
-  height: 200px;
-  background-repeat: no-repeat;
-    background-position: center; 
-
+  background-position: center; 
 }
 
 #lean_overlay {
@@ -312,8 +306,6 @@ h1 {
 .btn:hover {
   background-color: #ffe98d
 }
-
-
 
 .btn {
         padding: 10px 20px;
@@ -372,7 +364,6 @@ a.btn_red {
         padding: 20px;
         background-color: #f9f9f9;
 }
-
 
 .centeredText {
         text-align: center;
@@ -507,6 +498,7 @@ input[type="submit"] .grey {
   justify-content: space-between;
 }
 
+
 /* Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
    with position:fixed. Width, height, top and left speak
@@ -562,4 +554,30 @@ body.loading .popper {
 
 
 
+/* 
+============================================
+============  MEDIA QUERIES  ===============
+============================================
+*/
+
+@media only screen and (min-width: 720px) and (max-width: 1199px) {
+
+
+  .header_navigation input[type="text"], input[type="password"] {
+    
+    width: 63%;
+  }
+
+.logo {
+  width: 55px;
+  height: 70px;
+}
+
+.has-validation-callback .long_button {
+  width: 100%;
+}
+
+}
+
+}
 
