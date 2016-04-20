@@ -164,7 +164,7 @@
 					} else {
 						$target = $_POST['target']; // user id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, first_name, last_name, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND users.id = ? AND active = 1";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, users, campus WHERE film.user_id = users.id AND users.campus_id = campus.id AND users.id = ? AND active = 1";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -174,7 +174,8 @@
 						if(!$stmt->execute()){
 							echo "execute failied";
 						}
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $first_name, $last_name, $location)) {
+						$stmt->store_result();
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $location)) {
 							echo "binding results failed";
 						}
 						$data = array();
@@ -190,9 +191,6 @@
 								"user_id" => $user_id,
 								"published" => $published,
 								"active" => $active,
-								"average_rating" => $average_rating,
-								"first_name" => $first_name,
-								"last_name" => $last_name,
 								"campus" => $location
 							);
 						} // end while
@@ -313,7 +311,7 @@
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action = "Update project prepare failed";
 						}
-						if(!$stmt->bind_param("ssssiiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $target, $user_id)){
+						if(!$stmt->bind_param("sssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $target, $user_id)){
 							$action = "Update project binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -450,7 +448,7 @@
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action =  "Insert new film prepare failed";
 						}
-						if(!$stmt->bind_param("ssssiiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
+						if(!$stmt->bind_param("sssssiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
 							$action =  "Insert new film binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -594,18 +592,20 @@
 						$feedback_1 = $_POST['feedback_1'];
 						$feedback_2 = $_POST['feedback_2'];
 						$feedback_3 = $_POST['feedback_3'];
+						$feedback_4 = $_POST['feedback_4'];
+						$feedback_5 = $_POST['feedback_5'];
 
-						$sql = "INSERT INTO academic (film_id, user_id, feedback_1, feedback_2, feedback_3) VALUES (?,?,?,?,?)";
+						$sql = "INSERT INTO academic (film_id, user_id, feedback_1, feedback_2, feedback_3, feedback_4, feedback_5) VALUES (?,?,?,?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action =  "Inserting film feedback prepare failed";
 						}
-						if(!$stmt->bind_param("iisss", $target, $user_id, $feedback_1, $feedback_2, $feedback_3)) {
+						if(!$stmt->bind_param("iisssss", $target, $user_id, $feedback_1, $feedback_2, $feedback_3, $feedback_4, $feedback_5)) {
 							$action =  "Inserting film feedback binding param failed";
 						}
 						if(!$stmt->execute()){
 							$action =  "Inserting film feedback execute failed";
 						}
-						if(!$stmt->bind_result($film_id, $user_id, $feedback_1, $feedback_2, $feedback_3)){
+						if(!$stmt->bind_result($film_id, $user_id, $feedback_1, $feedback_2, $feedback_3,  $feedback_4, $feedback_5)){
 							$action =  "Inserting film feedback binding result failed";
 						} 
 						else {
