@@ -1,47 +1,57 @@
 <?php 
 	require "overlord.php";
-	include('header.php'); 
+	session_start();
+
+	if (!isset($_SESSION['id'])) {
+	   header('Location: index.php');
+	} else {
+		include('header.php');
+	}
+
+	include('uploader.php');
 
 	$user_id = $_SESSION['id'];
-	$user_type = $_SESSION['user_type'];
 	$film_id = $_GET['filmid'];
 ?>
 
-	<script src="js/form-validator/jquery.form-validator.js"></script>
-	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
-
-
-<div class="security_box"> 
-	<h2>Link Your Video</h2>
+<div class="filmdisplay_box"> 
+	<h2>Edit Your Video</h2>
 </div>
 
-<div class="security_box">
-    <form name="upload" id="upload" action="newfilm.php" class="dropzone">
-    </form>
-</div>
-
-
-<div class="security_box"> 
+<div class="filmdisplay_box"> 
 
 	<form method="POST" action="formsubmit.php">
 		<input type="hidden" name="function" value="update_project">
 
-		<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required"><br>
+		<label for="edit_title">Title</label>
+		<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250">
 
-		<input type="text" id="edit_runtime" name="runtime">
+		<label for="edit_video_link">Video</label>
+		<input type="text" id='edit_video_link' name="video_link" data-validation="youtube" data-validation="required">
+
+		<input type="hidden" id="edit_runtime" name="runtime">
 
 		<div class='display_video'>
-			<iframe id="player1" class="preview-video" width="960" height="540" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+			<iframe id="player1" class="preview-video" width="100%" height="540" frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1"></iframe>
 		</div>
 
-		<h3>Title:</h3><br>
-		<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<label for="edit_synopsis">Synopsis</label>
+		<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250">
 
-		<h3>Synopsis</h3><br>
-		<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<label for="cover_image">Cover Image</label>
+		<div class="cover_image">
+			<div id="upload" class="dropzone display_cover_image">
+				 <div class="dz-default dz-message"></div>
+			</div>
 
-		<h3>Collaborators</h3>
-		<table id="new_collaborator">
+			<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+			<div class="display_cover_image actual_display">
+				<img>
+			</div>
+		</div>
+
+			
+		<table id="edit_collaborator">
 			<tr>
 				<td>First Name</td>
 				<td>Last Name</td>
@@ -51,34 +61,19 @@
 			</tr>
 		</table>
 
-		<h3>Cover Image</h3><br>
-		<!--<div class="dropzone" id="cover_image" name="cover_image"></div>-->
-		<input type="text" id="edit_cover_image" name="cover_image">
-
 		<select id="edit_published" name="published">
 			<option value="0">Save Draft</option>
 			<option value="1">Publish</option>
 		</select>
 
-		<?php
-		if($user_type == 1) {
-		?>
-			<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
-		    <label class="active-label" for="edit_active">
-		        <span class="active-inner"></span>
-		        <span class="active-switch"></span>
-		    </label>
-		<?php
-		}
-		?>
-
 		<!-- hidden fields-->
-		<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>"><br>
+		<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>">
 
 		<input type="submit">
 	</form>
 </div>
 	
+
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 	<script src="js/dropzone.js"></script>
@@ -114,27 +109,34 @@
 	 					$('input#edit_user_id').val(val['user_id']);	 
 	 					$('input#edit_active').val(val['active']);
 
-	 					// get array length
-	 					var collablength = (Object.keys(val['collab']).length);
+	 					//display video from video link val
+	 					var videolink = $('#edit_video_link').val();
+					    var str = "youtube";
+					    // if video was on youtube
+						if(videolink.indexOf(str) > -1){
+							var videolinkiframe = videolink.replace("watch?v=", "v/");
+						} else {
+							var videolinkiframe = videolink.replace("//", "//player.");
+		    				var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
+		    				var videolinkiframe = videolinkiframe.concat("?api=1&player_id=player1");
+						}
+	 					$(".preview-video").attr("src", videolinkiframe);
+
+	 					$('.display_cover_image > img').attr("src", 'uploads/'+val['user_id']+'/'+val['cover_image']);
 
 						// add rows to table with collab values input
-	 					var table = $('#new_collaborator > tbody'),
-						    props = ["first_name", "last_name", "role", "email"];
-						    var fred = 1;
+	 					var table 	= $('#edit_collaborator > tbody');
+						var props 	= ["first_name", "last_name", "role", "email"];
+						var fred 	= 1;
 
 						$.each(val['collab'], function(i, val) {
 						  	var tr = $('<tr>');
-						  	var input = $('#new_collaborator > tbody > tr:last > td > input');
 
 						  	$.each(props, function(i, prop) {
-						   		$('<td>').html('<input type="text" class="' + prop + '" value=" ' + val[prop] + ' " name="collab[' + fred + '][' + prop + ']">').appendTo(tr);
-
+						   		$('<td>').html('<input type="text" data-validation="required" class="edit_' + prop + '" value=" ' + val[prop] + ' " name="collab[' + fred + '][' + prop + ']">').appendTo(tr);
 						  	});
-
-						  	$('<td>').html('<input type="button" id="remove" value="remove" name="collab[' + fred + '][remove]" onclick="deleteRow(this)">').appendTo(tr);
-
+						  	$('<td class="removerow">').html('<input type="button" id="remove" value="remove" name="collab[' + fred + '][remove]" onclick="deleteRow(this)">').appendTo(tr);
 						  	fred++;
-
 						  	table.append(tr);
 						});
 							
@@ -158,16 +160,18 @@
 			return time;
 		}
 
+
 		// append runtime to input field
 		function appendResults(text) {
-			$('input#runtime').val($('input#runtime').val() + text);
-			console.log($('input#runtime').val());
+			$('input#edit_runtime').val($('input#edit_runtime').val() + text);
+			console.log($('input#edit_runtime').val());
 		}
 		
-		// load video after user inputs link
-		$("#new_video_link").on('input', function () {
-		    var videolink = $('#new_video_link').val();
 
+		// load video after user inputs link
+		$("#edit_video_link").on('input', function () {
+		
+		    var videolink = $('#edit_video_link').val();
 		    var str = "youtube";
 
 		    // if video was on youtube
@@ -244,49 +248,108 @@
 				    player.api('getDuration', function(duration) {
 				    	duration = runtimeformat(duration);
 				        appendResults(duration);
-				    });
+				    });	
 				}
 		    }
 
 		    $(".preview-video").attr("src", videolinkiframe);
-
 		});	
 
-		// Increase collaborators as user inputs info
-		$("#new_collaborator > tbody > tr:last > td > .firstname").on('blur', function(){
-			if($("#new_collaborator > tbody > tr:last > td > .firstname").val() != ''){
 
-				// clone last row of table and empty its values
-				$('#new_collaborator > tbody > tr:last').clone(true).insertAfter('#new_collaborator > tbody > tr:last');
-				var input = $('#new_collaborator > tbody > tr:last > td > input');
-				$('#new_collaborator > tbody > tr:last > td > input.firstname').val('');
-				$('#new_collaborator > tbody > tr:last > td > input.lastname').val('');
-				$('#new_collaborator > tbody > tr:last > td > input.role').val('');
-				$('#new_collaborator > tbody > tr:last > td > input.email').val('');
 
-				// get number of rows in table
-				var rowcount = $('#new_collaborator tr').length;
-				var rowcurrent = rowcount -1;
 
-				// name each field in [collab][current row number]['xxxxx'] format
-				$('#new_collaborator > tbody > tr:last > td > input.firstname').attr('name', 'collab[' + rowcurrent + '][firstname]');
-				$('#new_collaborator > tbody > tr:last > td > input.lastname').attr('name', 'collab[' + rowcurrent + '][lastname]');
-				$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
-				$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
-				$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
+
+		/*
+		var errors = false;
+		var myDropzone = new Dropzone("#upload", {
+			error: function(file, errorMessage) {
+			    errors = true;
+			},
+			success: function(file, response ) {
+			    console.log(file);
+			    if(errors) {
+			        console.log("There were errors!");
+			   	} else {
+			        console.log("We're done!");
+			        var userid = $('input#user_id').val();
+					var filepathstring = 'uploads/';
+					var file_name = file['name'];
+					var filepath = filepathstring + userid + '/'+ file_name;
+					console.log(filepath);
+					$('input[name=cover_image]').val(file_name);
+
+					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+			    }
 			}
-
 		});
-	
+		*/
+
+		// dropzone function
+		Dropzone.autoDiscover = false;
+	    $("#upload").dropzone({
+	        url: "editfilm.php",
+	        addRemoveLinks: true,
+	        success: function (file, response) {
+	            var file_name = file['name'];
+	            file.previewElement.classList.add("dz-success");
+	            console.log('Successfully uploaded :' + file_name);
+	            $('input[name=cover_image]').val(file_name);
+				$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	        },
+	        error: function (file, response) {
+	            file.previewElement.classList.add("dz-error");
+	            console.log('error')
+	        }
+	    });
+
+
+
+
+
+		
+
+
 		// remove collaborators
 		function deleteRow(btn) {
-		  	var row = btn.parentNode.parentNode;
-		  	row.parentNode.removeChild(row);
+			var rowcount = $('#edit_collaborator tr').length;
+			var rowcurrent = rowcount -1;
+			if(rowcurrent > 1){
+				var row = btn.parentNode.parentNode;
+		  		row.parentNode.removeChild(row);
+			}
 		}
+
+
+
 
 		// do all the things
 		$(document).ready(function(){ 
 			return_project();
+
+			// Increase collaborators as user inputs info
+			$(document).on('blur',"#edit_collaborator > tbody > tr:last > td > input.edit_first_name", function(){
+				if($("#edit_collaborator > tbody > tr:last > td > input.edit_first_name").val() != ''){
+
+					// clone last row of table and empty its values
+					$('#edit_collaborator > tbody > tr:last').clone(true).insertAfter('#edit_collaborator > tbody > tr:last');
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_first_name').val('');
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_last_name').val('');
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_role').val('');
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_email').val('');
+
+					// get number of rows in table
+					var rowcount = $('#edit_collaborator tr').length;
+					var rowcurrent = rowcount -1;
+
+					// name each field in [collab][current row number]['xxxxx'] format
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_first_name').attr('name', 'collab[' + rowcurrent + '][first_name]');
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_last_name').attr('name', 'collab[' + rowcurrent + '][last_name]');
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_role').attr('name', 'collab[' + rowcurrent + '][role]');
+					$('#edit_collaborator > tbody > tr:last > td > input.edit_email').attr('name', 'collab[' + rowcurrent + '][email]');
+					$('#edit_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
+				}
+			});
+
 		});
 
 	</script>

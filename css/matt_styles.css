@@ -244,8 +244,20 @@ span {
   color: black;
 }
 
-.cover_image_profile {
+.profile_edit_box {
+    margin: 0 auto;
+    width: 450px;
+    padding: 20px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+}
+
+.cover_image_edit {
   width: 100%;
+<<<<<<< HEAD
 
 }
 
@@ -259,6 +271,11 @@ h1 {
         text-align: center;
         margin-bottom: 0;
         margin-top: 60px;
+=======
+  height: 200px;
+  background-repeat: no-repeat;
+    background-position: center; 
+>>>>>>> master
 }
 
 #lean_overlay {
@@ -292,6 +309,8 @@ h1 {
 .btn:hover {
   background-color: #ffe98d
 }
+
+
 
 .btn {
         padding: 10px 20px;
@@ -515,26 +534,11 @@ a.btn_red {
 vertical-align: middle;
 }
 
+input[type="submit"] .grey {
+
+}
+
 .float {
   display: flex;
   justify-content: space-between;
-}
-
-/* 
-============================================
-============  MEDIA QUERIES  ===============
-============================================
-*/
-
-@media only screen and (min-width: 720px) and (max-width: 1199px) {
-
-
-  .header_navigation input[type="text"], input[type="password"] {
-    
-    width: 63%;
-  }
-
-    #modal_trigger {
-      width: 93px;
-  }
 }

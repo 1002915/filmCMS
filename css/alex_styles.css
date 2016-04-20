@@ -2,6 +2,12 @@ body {
 	font-family: arial;
 }
 
+h1 {
+	text-decoration: underline;
+	font-size: 20px;
+	text-align: center;
+}
+
 input {
 	font-size: 16px;
 }
@@ -73,6 +79,7 @@ select {
 	margin-left: 20px;
 	margin-top:5px;
 	width:110px;
+	padding-bottom:8px;
 }
 
 .search_product {
@@ -128,6 +135,49 @@ select {
 	font-family: 'Poiret One', cursive;
 	font-size: 30px;
 	color:#ffffff;
+}
+
+/* DISPLY FILM PAGE */
+#aca_form_button {
+	background-color: #ffd00b;
+	width:312px;
+	padding:20px;
+	margin:0 auto;
+	color:#454545;
+	margin-top:40px;
+}
+
+#aca_form_button:hover {
+	background-color: #ffe98d;
+}
+
+#aca_form {
+	width:700px;
+	min-height: 400px;
+	margin:0 auto;
+	padding:20px;
+	border: 1px solid #ffd00b;
+	margin-top:20px;
+}
+
+.aca_form_input {
+	width:100%;
+	background-color: #ffffff;
+	border:1px #ffd00b solid;
+
+}
+
+#submit{
+	background-color: #ffd00b;
+	padding:10px;
+	margin:0 auto;
+	color:#454545;
+	margin-top:20px;
+	border:none;
+}
+
+#submit:hover{
+	background-color: #ffe98d;
 }
 @media screen and (max-width: 700px) {
 	#search {width:50%;}

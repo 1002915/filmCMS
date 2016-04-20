@@ -1,50 +1,260 @@
-select {
-    width: ;
+.edit_active_setting {
+    padding: 20px;
 }
 
-.active {
-    position: relative; width: 100px; 
-    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+.filmdisplay_box {
+    margin: 0 auto;
+    width: 960px;
+    display:flex;
+    justify-content: center;
+    padding: 20px;
+    height: auto;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
 }
-.active-checkbox {
-    display: none;
+
+.filmdisplay_box form {
+    width: 100%;
+
 }
-.active-label {
+
+.filmdisplay_box input[type="submit"] {
+    margin: 10px 0px 10px 0px;
+    height: 38px;
+}
+
+.site_content .filmdisplay_box input[type="text"] {
+    width: 100%;
+    margin-top: 10px;
+}
+
+.site_content .filmdisplay_box input[type="password"] {
+    width: 100%;
+}
+
+.site_content .filmdisplay_box table, .site_content #displayvideo #contributors table {
+    width: 100%;
+}
+
+.site_content .filmdisplay_box table input[type="text"]{
+    float: right;
+    width: 90%;
+    margin-right: 10%
+}
+
+.site_content .filmdisplay_box table input[type="button"]{
     width: 100px;
-    display: block; overflow: hidden; cursor: pointer;
-    border: 2px solid #FFFFFF; border-radius: 20px;
+    padding: 10px 20px;
+    color: #454545;
+    height: 38px;
+    background-color: #ffd00b;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    margin: 5px 0px 0px 0px;
+    box-sizing: border-box;
+    border: none;
+    text-decoration: none;
+    font-size: 12px;
+    float: right;
+    cursor: pointer;
 }
-.active-inner {
-    display: block; width: 200%; margin-left: -100%;
-    transition: margin 0.3s ease-in 0s;
+
+.site_content #displayvideo #contributors .contributors_title, .site_content #displayvideo .hide_film label#hide {
+    display: block;
+    margin: 30px 0 10px;
+    font-weight: 400;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #79797c; 
+    padding-bottom: 0;
 }
-.active-inner:before, .active-inner:after {
-    display: block; float: left; width: 50%; height: 30px; padding: 0; line-height: 30px;
-    font-size: 14px; color: white; font-weight: bold;
+
+.site_content #displayvideo #contributors table thead {
+    width: 100%;
+    color: #fff;
+    font-weight: 400;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+.site_content #displayvideo #contributors table td {
+    width: 25%;
+    padding-bottom: 10px;
+}
+
+
+input[type="button"]:hover{
+  color:black;
+  background-color: #ffe98d;
+  text-shadow: none;
+}
+
+.site_content .filmdisplay_box select#edit_published {
+    width: 120px;
+    -webkit-appearance: menulist;
+    height: 38px;
+}
+
+.site_content .filmdisplay_box .cover_image {
+    width: 100%;
+    height: auto;   
+    box-sixing: border-box;
+}
+
+.site_content .filmdisplay_box .cover_image .display_cover_image {
+    margin: 20px 0;
+    text-align: center;
+    height: 100px;
+    width: 49%;
+    float: left;
+    position: relative;
     box-sizing: border-box;
 }
-.active-inner:before {
-    content: "ACTIVE";
-    padding-left: 10px;
-    background-color: #FCE95D; color: #000000;
+
+.site_content .filmdisplay_box .cover_image .dropzone { 
+    margin-right: 5px;
 }
-.active-inner:after {
-    content: "HIDDEN";
-    padding-right: 10px;
-    background-color: #EEEEEE; color: #999999;
-    text-align: right;
+
+.site_content .filmdisplay_box .cover_image .actual_display { 
+    margin-left: 5px;
+    height: auto;
 }
-.active-switch {
-    display: block; width: 13px; margin: 8.5px;
-    background: #FFFFFF;
-    top: 0; bottom: 0;
-    right: 40px;
-    border: 2px solid #FFFFFF; border-radius: 20px;
-    transition: all 0.3s ease-in 0s; 
+
+.site_content .filmdisplay_box .display_cover_image img{
+    max-width: 100%;
+    margin: 0 auto;
 }
-.active-checkbox:checked + .active-label .active-inner {
-    margin-left: 0;
+
+
+.site_content .filmdisplay_box label {
+    display: block;
+    margin: 30px 0 10px;
+    font-weight: 400;
+    font-size: 0.8em;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: #79797c;
 }
-.active-checkbox:checked + .active-label .active-switch {
-    right: 0px; 
+
+.site_content #displayvideo #details #campus {
+    float: none;
 }
+
+
+input[type=checkbox] {
+    visibility: hidden;
+}
+
+.slideThree {
+    width: 150px;
+    height: 26px;
+    background: #333;
+    margin: 10px 0px;
+
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+    position: relative;
+
+    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
+}
+
+.slideThree:after {
+    content: 'ACTIVE';
+    font: 12px/26px Arial, sans-serif;
+    color: #ffd00b;
+    position: absolute;
+    right: 10px;
+    z-index: 0;
+    font-weight: bold;
+    text-shadow: 1px 1px 0px rgba(255,255,255,.15);
+}
+
+.slideThree:before {
+    content: 'HIDDEN';
+    font: 12px/26px Arial, sans-serif;
+    color: #000;
+    position: absolute;
+    left: 10px;
+    z-index: 0;
+    font-weight: bold;
+}
+
+.slideThree label {
+    display: block;
+    width: 75px;
+    height: 20px;
+
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    border-radius: 50px;
+
+    -webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    -o-transition: all .4s ease;
+    -ms-transition: all .4s ease;
+    transition: all .4s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 3px;
+    left: 3px;
+    z-index: 1;
+
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
+    background: #fcfff4;
+
+    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
+}
+
+.slideThree input[type=checkbox]:checked + label {
+    left: 72px;
+}
+
+
+
+.site_content #displayvideo #details #rating:not(old) {
+    float: right;
+    width: 30%;
+    padding-top: 6px;
+}
+
+.site_content #displayvideo #details #rating:not(old) .star {
+    -webkit-appearance: none;
+    float: right;
+}
+
+.site_content #displayvideo #details #rating:not(old) .star:before {
+    background-image: url("../images/star_empty.png");
+    content: '';
+    display: inline-block;
+    webkit-appearance: none;
+    background-size: contain;
+    cursor: pointer;
+    opacity: 0;
+    background-repeat: no-repeat;
+    height: 41px;
+    width: 43px;
+    transition: opacity 0.1s linear;
+}
+
+.site_content #displayvideo #details #rating:not(old) > .star:hover:before,
+.site_content #displayvideo #details #rating:not(old) > .star:hover ~ .star:before,
+.site_content #displayvideo #details #rating:not(:hover) > :checked,
+.site_content #displayvideo #details #rating:not(:hover) > :checked ~ .star:before{
+    background-image: url("../images/star_full.png");
+    opacity: 1;
+}
+

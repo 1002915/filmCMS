@@ -56,7 +56,7 @@ $(function() {
 });
 //popup dialog end//
 </script>
-<div class="popper"><!-- Place at bottom of page --></div>
+<div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
 
 <script>
 $body = $("body");
