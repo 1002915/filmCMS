@@ -155,7 +155,7 @@ include('footer.php');
 
 				    // if video was on youtube
 					if(videolink.indexOf(str) > -1){
-						var videolinkiframe = videolink.replace("watch?v=", "/embed");
+						var videolinkiframe = videolink.replace("watch?v=", "embed/");
 
 						//get youtube id
 					   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
