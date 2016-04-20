@@ -21,6 +21,11 @@ $user_type = $_SESSION['user_type'];
 ?>
 
 <div class="error_box"></div> 
+<div class="security_box">
+    <form method="post" action="newfilm.php">
+    <input type="submit" class="long_button" value="Upload new film">
+</form>
+</div>
     <div class="security_box">My details</div>
     <div class="security_box">
         <form name="registerForm" method="post" class="toggle-disabled" action="updateuser.php">
