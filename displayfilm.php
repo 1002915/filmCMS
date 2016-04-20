@@ -4,38 +4,61 @@
 	include('header.php');
 	if (isset($_SESSION['id'])){
 		$user_id = $_SESSION['id'];
+		$user_type = $_SESSION['user_type'];
 	}
 	
 ?>
 
 <div id="displayvideo">
 	
-	  <iframe id="video" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
-	
+	<iframe id="video" width="100%" height="450" frameborder="0" allowfullscreen></iframe>
 
 	<section id="details">
 		
 		<section id="details2">
-			<div id="film_title" class="film_title">The Bunny Attack </div>
-			<div class="student_name">Robertson Ave</div>
-			<div class="campus">Brisbane Campus</div>
+			<div id="film_title" class="film_title"></div>
+			<div id="campus" class="campus"></div>
 		</section>
 		<section id="rating"> 
-			<div class="star" id="star1"></div>
-			<div class="star" id="star2"></div>
-			<div class="star" id="star3"></div>
-			<div class="star" id="star4"></div>
-			<div class="star" id="star5"></div>
+			<input type="radio" name="rating" class="star" id="star5" value="5">
+			<input type="radio" name="rating" class="star" id="star4" value="4">
+			<input type="radio" name="rating" class="star" id="star3" value="3">
+			<input type="radio" name="rating" class="star" id="star2" value="2">
+			<input type="radio" name="rating" class="star" id="star1" value="1">
 		</section>
 	</section>
 
 	<section id="synopsis">
-		<p>In a futuristic world where bunnies have multiplied like a plague and evolved like pokemons are trying to rule and destroy every human and easter leftovers.  </p>
 	</section>
 	<section id="contributors">
 		<div class="contributors_title">Contributors</div>
-		<div class="contributor1">Blue Glue</div>
+		<table id="display_collaborators">
+			<thead>
+				<tr>
+					<td>Role</td>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Email</td>
+				</tr>
+			</thead>
+			<tbody></tbody>
+		</table>
 	</section>
+
+	<div class="hide_film">
+		<label id="hide" for="edit_active">Hide film</label>
+		<?php
+			if($user_type == 1) {
+			?>	
+				<div class="slideThree">	
+					<input type="checkbox" value="0" id="slideThree" name="check" />
+					<label for="slideThree"></label>
+				</div>
+			<?php
+			}
+		?>
+	</div>
+
 </div>
 <!-- ACADEMIC FORM -->
 <?php
@@ -92,13 +115,37 @@ include('footer.php');
 				// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
 				//$('#displayvideo').html('');
  				$.each(res, function(index,value) {
- 					$('#film_title').html(value.title);
- 					//$('#contributors').html(value.title);
- 					$('#synopsis').html('<p>'+value.synopsis+'</p>');
 
- 					for(var i=1;i < value.rating;i++) {
- 						$("#star"+i).addClass("star_full");
- 					} 
+ 					$('#film_title').html(value.title);
+ 					$('#synopsis').html('<p>'+value.synopsis+'</p>');
+ 					$('#campus').html(value.campus);
+
+ 					// check star with rating
+ 					var rating = Math.round(value.average_rating);
+ 					$("#star"+rating).prop('checked', true);
+ 					
+
+ 					// adjust hide project switch if film is inactive
+ 					if(value.active == 0){
+ 						$("input[type='checkbox']" ).prop( "checked", "true");
+ 						console.log($( "input[type='checkbox']" ).prop('checked'));
+ 					}
+
+ 					// add rows to table with collab values input
+	 				var table 	= $('#display_collaborators > tbody');
+					var props 	= ["role", "first_name", "last_name", "email"];
+					var fred 	= 1;
+
+					$.each(value['collab'], function(i, val) {
+						var tr = $('<tr>');
+						$.each(props, function(i, prop) {
+						   	$('<td>').html(val[prop]).appendTo(tr);
+						});
+						fred++;
+						table.append(tr);
+					});
+
+
 
 					var videolink = value.video_link;
 
@@ -139,8 +186,8 @@ include('footer.php');
 	
 	//});
 
-// ACADEMIC FORM
-function scrollWin() {
+	// ACADEMIC FORM
+	function scrollWin() {
 		$('body').animate({
 			scrollTop: $('#aca_form').offset().top
 		},1000);
@@ -190,14 +237,92 @@ function scrollWin() {
 			});
 	}
 
-			$(document).ready(function(){ 
+	function hide_project() {
+		var film_id = <?php echo $_GET['id']?>;
+		if($("input[type='checkbox']" ).prop("checked")){
+			var active = 1;
+		} else {
+			active = 0;
+		}
+		console.log(active);
+		$.ajax({
+			type: "POST",
+			url: "overlord.php",
+			data: {
+				function: 'hide_project',
+				target: film_id,
+				active: active
+			},
+			dataType : 'json',
+			success: function(res) {
+				console.log('yay!!! success');
+			}
+	 	});
 
-				//$('#aca_form').validate();
+	}
 
-				$("#submit").on('click touch', function() {
-					academic_form();
-				});
-				
-			});
+	function add_rating(rating) {
+		//var rating = $(this).val();
+		var target = <?php echo $_GET['id']?>;
+		var ip = '';
+		$.ajax({
+			type: "POST",
+			url: "overlord.php",
+			data: {
+				function: 'add_rating',
+				target: target,
+				rating: rating,
+				ip: ip
+			},
+			dataType : 'json',
+			success: function(res) {
+				console.log('yay!!! success');
+			}
+	 	});
+
+	}
+
+
+	$(document).ready(function(){ 
+		//$('#aca_form').validate();
+		$("#submit").on('click touch', function() {
+			academic_form();
+		});
+
+		$('.slideThree label').on('click touch', function() {
+			hide_project();
+		});
+
+		$('input.star').on('click touch', function(){
+
+			var rating = $(this).val();
+			console.log(rating);
+			//var rating = $(this).val();
+			var target = <?php echo $_GET['id']?>;
+			var ip = 'hjhjhj';
+
+			$.ajax({
+				type: "POST",
+				url: "overlord.php",
+				data: {
+					function: 'add_rating',
+					target: target,
+					rating: rating,
+					ip: ip
+				},
+				dataType : 'json',
+				success: function(res) {
+					console.log('yay!!! success');
+				},
+				error: function(res){
+					console.log(res);
+				}
+			 });
+			
+		});
+
+	});
+
+
 </script>
 

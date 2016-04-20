@@ -11,7 +11,6 @@
 	include('uploader.php');
 
 	$user_id = $_SESSION['id'];
-	$user_type = $_SESSION['user_type'];
 	$film_id = $_GET['filmid'];
 ?>
 
@@ -40,15 +39,18 @@
 		<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250">
 
 		<label for="cover_image">Cover Image</label>
-		<div id="upload" class="dropzone">
-			 <div class="dz-default dz-message"></div>
-		</div>
-		<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
-		<div class="display_cover_image">
-			<img>
+		<div class="cover_image">
+			<div id="upload" class="dropzone display_cover_image">
+				 <div class="dz-default dz-message"></div>
+			</div>
+
+			<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+			<div class="display_cover_image actual_display">
+				<img>
+			</div>
 		</div>
 
-		<label>Collaborators</label>
+			
 		<table id="edit_collaborator">
 			<tr>
 				<td>First Name</td>
@@ -63,18 +65,6 @@
 			<option value="0">Save Draft</option>
 			<option value="1">Publish</option>
 		</select>
-
-		<?php
-		if($user_type == 1) {
-		?>
-			<input type="checkbox" name="active" class="active-checkbox" id="edit_active" checked>
-		    <label class="active-label" for="edit_active">
-		        <span class="active-inner"></span>
-		        <span class="active-switch"></span>
-		    </label>
-		<?php
-		}
-		?>
 
 		<!-- hidden fields-->
 		<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>">

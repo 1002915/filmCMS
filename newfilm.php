@@ -1,25 +1,29 @@
 <?php
-	include('header.php');
+	session_start();
+
+	if (!isset($_SESSION['id'])) {
+	   header('Location: index.php');
+	} else {
+		include('header.php');
+	}
 	include('uploader.php');
 
 	$user_id = $_SESSION['id'];
 ?>
 
-<div class="edit"> 
+<div class="filmdisplay_box"> 
 	<h2>Link Your Video</h2>
 </div>
 
-<div class="security_box">
-    <form name="upload" id="upload" action="newfilm.php" class="dropzone">
-    </form>
-</div>
-
-<div class="security_box"> 
-
+<div class="filmdisplay_box"> 
 	<form method="POST" action="formsubmit.php" id="new_project">
 		<input type="hidden" name="function" value="new_project">
 
-		<input type="text" id='new_video_link' name="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
+		<label for="title">Title</label>
+		<input type="text" name="title" id="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+
+		<label for="video_link">Video</label>
+		<input type="text" id='new_video_link' name="video_link" id="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
 		
 		<input type="hidden" id="runtime" name="runtime">
 
@@ -27,18 +31,23 @@
 			<iframe id="player1" class="preview-video" width="100%" height="540" frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1"></iframe>
 		</div>
 
-		<h3>Title:</h3>
-		<input type="text" name="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<label for="synopsis">Synopsis</label>
+		<input type="text" name="synopsis" id="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-		<h3>Synopsis</h3>
-		<input type="text" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
-		<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
-		<div class="display_cover_image">
-			<img>
+		<label for="cover_image">Cover Image</label>
+		<div class="cover_image">
+			<div id="upload" class="dropzone display_cover_image">
+				 <div class="dz-default dz-message"></div>
+			</div>
+
+			<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+			<div class="display_cover_image actual_display">
+				<img>
+			</div>
 		</div>
 
-		<h3>Collaborators</h3>
+		<label class="collab_label">Collaborators</label>
 		<table id="new_collaborator">
 			<tr>
 				<td>First Name</td>
@@ -58,6 +67,9 @@
 				</td>
 				<td>
 					<input type="text" class="email" data-validation="required" name="collab[1][email]">
+				</td>
+				<td>
+					<input type="button" id="remove" value="remove" name="collab[1][remove]" onclick="deleteRow(this)">
 				</td>
 			</tr>
 		</table>
@@ -81,30 +93,23 @@
 	<script>
 		$.validate();
 
-		
 		// dropzone function
-		var errors = false;
-		var myDropzone = new Dropzone("#upload", {
-			error: function(file, errorMessage) {
-			    errors = true;
-			},
-			success: function(file, response ) {
-			    console.log(file);
-			    if(errors) {
-			        console.log("There were errors!");
-			   	} else {
-			        console.log("We're done!");
-			        var userid = $('input#user_id').val();
-					var filepathstring = 'uploads/';
-					var file_name = file['name'];
-					var filepath = filepathstring + userid + '/'+ file_name;
-					console.log(filepath);
-					$('input[name=cover_image]').val(file_name);
-
-					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
-			    }
-			}
-		});
+		Dropzone.autoDiscover = false;
+	    $("#upload").dropzone({
+	        url: "editfilm.php",
+	        addRemoveLinks: true,
+	        success: function (file, response) {
+	            var file_name = file['name'];
+	            file.previewElement.classList.add("dz-success");
+	            console.log('Successfully uploaded :' + file_name);
+	            $('input[name=cover_image]').val(file_name);
+				$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	        },
+	        error: function (file, response) {
+	            file.previewElement.classList.add("dz-error");
+	            console.log('error')
+	        }
+	    });
 
 		
 
@@ -231,14 +236,13 @@
 		}
 
 
-	
-
 
 		// do all the things
 		$(document).ready(function(){
 
 			// Increase collaborators as user inputs info
 			$(document).on('blur',"#new_collaborator > tbody > tr:last > td > input.first_name", function(){
+				console.log('blur');
 				if($("#new_collaborator > tbody > tr:last > td > input.first_name").val() != ''){
 
 					// clone last row of table and empty its values
@@ -259,9 +263,7 @@
 					$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
 					$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
 				}
-
 			});
-
 		});
 
 
