@@ -6,7 +6,7 @@
   box-sizing: border-box;
 }
 
-.security_box, project_profile {
+.security_box, .project_profile {
     margin: 0 auto;
     width: 450px;
     display:flex;
@@ -257,8 +257,6 @@ span {
 
 .cover_image_edit {
   width: 100%;
-<<<<<<< HEAD
-<<<<<<< HEAD
 
 }
 
@@ -272,16 +270,15 @@ h1 {
         text-align: center;
         margin-bottom: 0;
         margin-top: 60px;
-=======
+
   height: 200px;
   background-repeat: no-repeat;
     background-position: center; 
->>>>>>> master
-=======
+
   height: 200px;
   background-repeat: no-repeat;
     background-position: center; 
->>>>>>> master
+
 }
 
 #lean_overlay {
@@ -375,50 +372,7 @@ a.btn_red {
         padding: 20px;
         background-color: #f9f9f9;
 }
-/* Social Login Form */
 
-.social_login {}
-
-.social_login .social_box {
-        display: block;
-        clear: both;
-        padding: 10px;
-        margin-bottom: 10px;
-        background: #F4F4F2;
-        overflow: hidden;
-}
-
-.social_login .icon {
-        display: block;
-        width: 10px;
-        padding: 5px 10px;
-        margin-right: 10px;
-        float: left;
-        color: #FFF;
-        font-size: 16px;
-        text-align: center;
-}
-
-.social_login .fb .icon {
-        background: #3B5998;
-}
-
-.social_login .google .icon {
-        background: #DD4B39;
-}
-
-.social_login .icon_title {
-        display: block;
-        padding: 5px 0;
-        float: left;
-        font-weight: bold;
-        font-size: 16px;
-        color: #777;
-}
-
-.social_login .social_box:hover {
-        background: #E4E4E2;
-}
 
 .centeredText {
         text-align: center;
@@ -552,8 +506,6 @@ input[type="submit"] .grey {
   display: flex;
   justify-content: space-between;
 }
-<<<<<<< HEAD
-=======
 
 /* Start by setting display:none to make this hidden.
    Then we position it in relation to the viewport window
@@ -610,45 +562,4 @@ body.loading .popper {
 
 
 
-/* 
-============================================
-============  MEDIA QUERIES  ===============
-============================================
-*/
-
-@media only screen and (min-width: 720px) and (max-width: 1199px) {
-
-
-  .header_navigation input[type="text"], input[type="password"] {
-    
-    width: 63%;
-  }
-
-    #modal_trigger {
-      width: 93px;
-  }
-
-.logo {
-  width: 55px;
-  height: 70px;
-}
-
-.logo_loading {
-  position: absolute;
-  margin: auto;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 180px;
-  width: 110px;
-  height: 140px;
-}
-
-.has-validation-callback .long_button {
-  width: 100%;
-}
-
-}
-
-}
 
