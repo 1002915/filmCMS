@@ -2,12 +2,6 @@ body {
 	font-family: arial;
 }
 
-h1 {
-	text-decoration: underline;
-	font-size: 20px;
-	text-align: center;
-}
-
 input {
 	font-size: 16px;
 }
@@ -160,6 +154,10 @@ select {
 	background-color: #ffe98d;
 }
 
+.height_modorator {
+	height
+}
+
 /* DISPLY FILM PAGE */
 #aca_form_button {
 	background-color: #ffd00b;
@@ -201,6 +199,13 @@ select {
 
 #submit:hover{
 	background-color: #ffe98d;
+}
+
+.height_modorator {
+	text-decoration: underline;
+	font-size: 20px;
+	text-align: center;
+	height:30px;
 }
 @media screen and (max-width: 700px) {
 	#search {width:50%;}
