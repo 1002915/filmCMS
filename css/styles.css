@@ -48,12 +48,13 @@ html {
     text-align: center;
 
 }
-.bannervideo {
-	position: relative;
-	min-width: 100%;
-	min-height: 100%;
-	z-index:0;
 
+.bannervideo {
+   position: relative;
+   width: 100%;
+   min-width: 100%;
+   min-height: 100%;
+   z-index: 0;
 }
 
 .blurb {
@@ -225,7 +226,7 @@ height: 4em;
 }
 
 
-@media only screen and (max-width: 719px) {
+@media only screen and (max-width: 700px) {
 	.blurb {
 		width:70%;
 		font-size:.9em;
@@ -254,9 +255,7 @@ height: 4em;
 		font-size: 1em;
 
 	}
-}
 
-@media only screen and (min-width: 320px) and (max-width: 480px) {
 	.film_large .film_thumbnail {
 		width: 100%;
 	}
