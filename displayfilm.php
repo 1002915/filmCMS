@@ -74,7 +74,7 @@
 		</div>
 
 		<div id='aca_form'>
-			<h1> Academic Feedback Form</h1><br><br>
+			<h1 class='height_modorator'> Academic Feedback Form</h1><br><br>
 			<p>What was the filmmakers objective when making this documentary?</p>
 			<input type='text' name='feedback_1' id='feedback_1' placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
