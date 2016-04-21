@@ -108,8 +108,7 @@ input[type="button"]:hover{
 .site_content .filmdisplay_box .cover_image .display_cover_image {
     margin: 20px 0;
     text-align: center;
-    height: 100px;
-    width: 49%;
+    height: 150px;
     float: left;
     position: relative;
     box-sizing: border-box;
@@ -117,11 +116,26 @@ input[type="button"]:hover{
 
 .site_content .filmdisplay_box .cover_image .dropzone { 
     margin-right: 5px;
+    width: 60%;
+    margin-bottom: 50px;
+}
+
+.site_content .filmdisplay_box .cover_image .dropzone  .dz-message span {
+    color: #79797c;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
 }
 
 .site_content .filmdisplay_box .cover_image .actual_display { 
     margin-left: 5px;
     height: auto;
+    width: 25%;
+    float: right;
 }
 
 .site_content .filmdisplay_box .display_cover_image img{
@@ -177,7 +191,7 @@ input[type=checkbox] {
 }
 
 .slideThree:before {
-    content: 'HIDDEN';
+    content: 'REMOVE';
     font: 12px/26px Arial, sans-serif;
     color: #000;
     position: absolute;
@@ -224,40 +238,40 @@ input[type=checkbox] {
 }
 
 
-
-.site_content #displayvideo #details #rating:not(old) {
-    float: right;
-    width: 30%;
-    padding-top: 6px;
+.site_content #displayvideo #details #rating:not(old){
+  display        : inline-block;
+  height         : 41px;
+  overflow       : hidden;
+  vertical-align : bottom;
 }
 
-.site_content #displayvideo #details #rating:not(old) .star {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    float: right;
+
+.site_content #displayvideo #details #rating:not(old) > input{
+  margin-right : -100%;
+  opacity      : 0;
 }
 
-.site_content #displayvideo #details #rating:not(old) .star:before {
-    background-image: url("../images/star_empty.png");
-    content: '';
-    display: inline-block;
-    webkit-appearance: none;
-    background-size: contain;
-    cursor: pointer;
-    opacity: 0;
-    background-repeat: no-repeat;
-    height: 41px;
-    width: 43px;
-    transition: opacity 0.1s linear;
+.site_content #displayvideo #details #rating:not(old) > label{
+  display         : block;
+  float           : right;
+  position        : relative;
+  background      : url("../images/star_empty.png");
+  background-size : contain;
 }
 
-.site_content #displayvideo #details #rating:not(old) > .star:hover:before,
-.site_content #displayvideo #details #rating:not(old) > .star:hover ~ .star:before,
-.site_content #displayvideo #details #rating:not(old) > .star:checked,
-.site_content #displayvideo #details #rating:not(:hover) > :checked,
-.site_content #displayvideo #details #rating:not(:hover) > :checked ~ .star:before{
-    background-image: url("../images/star_full.png");
-    opacity: 1;
+.site_content #displayvideo #details #rating:not(old) > label:before{
+  content         : '';
+  display         : block;
+  width           : 43px;
+  height          : 41px;
+  background      : url("../images/star_full.png");
+  background-size : contain;
+  opacity         : 0;
+  transition      : opacity 0.2s linear;
 }
 
+.site_content #displayvideo #details #rating:not(old) > label:hover:before,
+.site_content #displayvideo #details #rating:not(old) > label:hover ~ label:before,
+.site_content #displayvideo #details #rating:not(:hover) > :checked ~ label:before{
+  opacity : 1;
+}
