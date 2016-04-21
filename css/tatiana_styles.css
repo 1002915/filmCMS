@@ -191,7 +191,7 @@ input[type=checkbox] {
 }
 
 .slideThree:before {
-    content: 'HIDDEN';
+    content: 'REMOVE';
     font: 12px/26px Arial, sans-serif;
     color: #000;
     position: absolute;
