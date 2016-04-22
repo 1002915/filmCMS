@@ -8,7 +8,7 @@ function e($text) {
    
 }
 ?>
-<div class="login_box"> <a href="register.php">REGISTER HERE</a>
+<div class="security_box">
     <?php
 /* 
 SELECT the 'id' of the user where their email address matches their input 
@@ -89,9 +89,9 @@ $sendmail->Host = "smtp.gmail.com";
 
 $sendmail->Port = 587;    
 
-$sendmail->Username = "1002915@student.sae.edu.au"; 
+$sendmail->Username = "filmcms@gmail.com"; 
 
-$sendmail->Password = "huyp35c5"; 
+$sendmail->Password = "filmcmspassword"; 
 
 $sendmail->AddReplyTo("1002915@student.sae.edu.au","Matthew Neal");
 
