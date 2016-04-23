@@ -22,6 +22,7 @@
 			<div id="campus" class="campus"></div>
 		</section>
 		<section id="rating"> 
+			<p>Rate this film</p>
 			<input type="radio" name="rating" id="star5" value="5">
 			<label for="star5">5</label>
 			<input type="radio" name="rating" id="star4" value="4">
@@ -126,10 +127,6 @@ include('footer.php');
  					$('#film_title').html(value.title);
  					$('#synopsis').html('<p>'+value.synopsis+'</p>');
  					$('#campus').html(value.campus);
-
- 					// check star with rating
- 					var rating = Math.round(value.average_rating);
- 					$("#star"+rating).prop('checked', true);
  					
 
  					// adjust hide project switch if film is inactive

@@ -237,6 +237,14 @@ input[type=checkbox] {
     left: 72px;
 }
 
+.site_content #displayvideo #details #rating {
+    width: 330px;
+}
+
+.site_content #displayvideo #details #rating p {
+    display: inline-block;
+    padding-top: 10px;
+}
 
 .site_content #displayvideo #details #rating:not(old){
   display        : inline-block;
