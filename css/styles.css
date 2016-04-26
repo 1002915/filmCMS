@@ -232,10 +232,13 @@ height: 4em;
 
 @media only screen and (max-width: 699px) {
 	.blurb {
-		width:92%;
-		font-size:.9em;
-		padding: 37px;
-		height: 69%;
+		width: 92%;
+	    font-size: .9em;
+	    padding-left: 5%;
+	    padding-right: 5%;
+	    padding-top: 27%;
+	    padding-bottom: 20%;
+	    height: 69%;
 	}
 
 
@@ -273,37 +276,33 @@ height: 4em;
     width: 100%;
     }
 
-	p {
+	.paragraph_about {
 		line-height: 15px;
 
 	}
 
 }
 
-@media only screen and (max-width: 446px) {
-
-
-}
-
-
-@media only screen and (max-width: 320px) {
-
+@media only screen and (max-width: 420px) {
 	.site_container {
 		max-width: 320px;
 	}
+
 	.blurb {
-		font-size: .8em;
-	}
+    width: 92%;
+    font-size: .87em;
+    /* padding-left: 5%; */
+    /* padding-right: 5%; */
+    /* padding-top: 27%; */
+    /* padding-bottom: 20%; */
+    height: 69%;
+    padding-bottom: 0%;
+    padding-top: 5.5%;
+    padding-left: 4%;
+    padding-right: 4%;
 
-	p {
-		line-height: 11px;
 
-		}
-
-
-
-
-
+}
 
 
 
