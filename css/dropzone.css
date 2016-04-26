@@ -175,8 +175,8 @@
 
 .dropzone {
   height: 80px;
-    /* background: white; */
-    border: 1px dashed #797979
+    background: #414042;
+    border: 1px dashed #ffd00b
 }
   .dropzone.dz-clickable {
     cursor: pointer; }

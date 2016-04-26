@@ -12,7 +12,7 @@
 	       <div class="footer_col_three">
                   <!--     <a href="register.php"> REGISTER</a> -->
 	       </div>
-	       <div class="footer_col_four">
+	       <div class="footer_col_four text_align_fix">
                   LocoDoco 2015 <!--      <a href="search.php"> SEARCH</a> -->
 	       </div>
         </div>

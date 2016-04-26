@@ -1,11 +1,8 @@
 <?php
 // MAKES SURE THAT A PERSON IS LOGED IN OR NOT
 	session_start();
-<<<<<<< HEAD
-=======
 	$user_type = 0;
 
->>>>>>> master
 	include('header.php');
 	if (isset($_SESSION['id'])){
 		$user_id = $_SESSION['id'];
@@ -25,11 +22,16 @@
 			<div id="campus" class="campus"></div>
 		</section>
 		<section id="rating"> 
-			<input type="radio" name="rating" class="star" id="star5" value="5">
-			<input type="radio" name="rating" class="star" id="star4" value="4">
-			<input type="radio" name="rating" class="star" id="star3" value="3">
-			<input type="radio" name="rating" class="star" id="star2" value="2">
-			<input type="radio" name="rating" class="star" id="star1" value="1">
+			<input type="radio" name="rating" id="star5" value="5">
+			<label for="star5">5</label>
+			<input type="radio" name="rating" id="star4" value="4">
+			<label for="star4">4</label>
+			<input type="radio" name="rating" id="star3" value="3">
+			<label for="star3">3</label>
+			<input type="radio" name="rating" id="star2" value="2">
+			<label for="star2">2</label>
+			<input type="radio" name="rating" id="star1" value="1">
+			<label for="star1">1</label>
 		</section>
 	</section>
 
@@ -50,27 +52,11 @@
 		</table>
 	</section>
 
-<<<<<<< HEAD
-	<div class="hide_film">
-		<label id="hide" for="edit_active">Hide film</label>
-		<?php
-			if($user_type == 1) {
-			?>	
-				<div class="slideThree">	
-					<input type="checkbox" value="0" id="slideThree" name="check" />
-					<label for="slideThree"></label>
-				</div>
-			<?php
-			}
-		?>
-	</div>
-
-=======
 	<?php
 		if($user_type == 1) {
 	?>	
 		<div class="hide_film">
-			<label id="hide" for="edit_active">Hide film</label>
+			<label id="hide" for="edit_active">Remove film</label>
 			<div class="slideThree">	
 				<input type="checkbox" value="0" id="slideThree" name="check" />
 				<label for="slideThree"></label>
@@ -80,7 +66,6 @@
 		}
 	?>
 	
->>>>>>> master
 </div>
 <!-- ACADEMIC FORM -->
 <?php
@@ -94,7 +79,7 @@
 		</div>
 
 		<div id='aca_form'>
-			<h1> Academic Feedback Form</h1><br><br>
+			<h1 class='height_modorator'> Academic Feedback Form</h1><br><br>
 			<p>What was the filmmakers objective when making this documentary?</p>
 			<input type='text' name='feedback_1' id='feedback_1' placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
@@ -231,9 +216,6 @@ include('footer.php');
 			var feedback_4 = $('#feedback_4').val();
 			var feedback_5 = $('#feedback_5').val();
 			var film_id = <?php echo $_GET['id']?>;
-<<<<<<< HEAD
-			var user_id = <?php echo $user_id?>;
-=======
 			var user_id = 
 			<?php 
 				if(isset($_SESSION['id'])) {
@@ -243,7 +225,6 @@ include('footer.php');
 				}
 			?>
 				
->>>>>>> master
 			console.log(feedback_1);
 			console.log(feedback_2);
 			console.log(feedback_3);
@@ -295,73 +276,7 @@ include('footer.php');
 
 	}
 
-	function add_rating(rating) {
-		//var rating = $(this).val();
-		var target = <?php echo $_GET['id']?>;
-		var ip = '';
-		$.ajax({
-			type: "POST",
-			url: "overlord.php",
-			data: {
-				function: 'add_rating',
-				target: target,
-				rating: rating,
-				ip: ip
-			},
-			dataType : 'json',
-			success: function(res) {
-				console.log('yay!!! success');
-			}
-	 	});
 
-<<<<<<< HEAD
-	}
-
-
-	$(document).ready(function(){ 
-		//$('#aca_form').validate();
-		$("#submit").on('click touch', function() {
-			academic_form();
-		});
-
-		$('.slideThree label').on('click touch', function() {
-			hide_project();
-		});
-
-		$('input.star').on('click touch', function(){
-
-			var rating = $(this).val();
-			console.log(rating);
-			//var rating = $(this).val();
-			var target = <?php echo $_GET['id']?>;
-			var ip = 'hjhjhj';
-
-			$.ajax({
-				type: "POST",
-				url: "overlord.php",
-				data: {
-					function: 'add_rating',
-					target: target,
-					rating: rating,
-					ip: ip
-				},
-				dataType : 'json',
-				success: function(res) {
-					console.log('yay!!! success');
-				},
-				error: function(res){
-					console.log(res);
-				}
-			 });
-			
-		});
-
-	});
-
-
-</script>
-
-=======
 	$(document).ready(function(){ 
 		//$('#aca_form').validate();
 		$("#aca_form #submit").on('click touch', function() {
@@ -405,4 +320,3 @@ include('footer.php');
 
 </script>
 
->>>>>>> master
