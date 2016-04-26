@@ -66,7 +66,7 @@
 								$('#searchList').append( "<div class='clear_float'></div>");
 	 							if (count < 1){
 	 								$('#searchList').html('');
-	 								$('#searchList').append("<p>Sorry there are no results</p>");
+	 								$('#searchList').append("<p class='empty_search'>Sorry there are no results</p>");
 	 							}
 								
 							}
