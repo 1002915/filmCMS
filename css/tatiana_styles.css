@@ -42,6 +42,7 @@
 .site_content .filmdisplay_box input[type="text"] {
     width: 100%;
     margin-top: 10px;
+    margin-bottom: 20px;
 }
 
 .site_content .filmdisplay_box input[type="password"] {
@@ -56,6 +57,7 @@
     float: right;
     width: 90%;
     margin-right: 10%;
+    margin-bottom: 5px;
 }
 
 .site_content .filmdisplay_box table tbody td {
@@ -100,10 +102,9 @@ input[type="button"]:hover{
 .site_content .filmdisplay_box select#edit_published {
     width: 120px;
     -webkit-appearance: menulist;
-    height: 38px;
+    height: 39px;
     font-size: 1em;
-    border: 1px #ffd00b solid;
-    padding: 0;
+    /*border: 1px #ffd00b solid;*/
 }
 
 .site_content .filmdisplay_box .cover_image {
@@ -119,6 +120,7 @@ input[type="button"]:hover{
     height: 150px;
     position: relative;
     box-sizing: border-box;
+    padding: 8px;
 }
 
 .site_content .filmdisplay_box .cover_image .dropzone { 
@@ -163,7 +165,6 @@ input[type="button"]:hover{
 .site_content #displayvideo #details #campus {
     float: none;
 }
-
 
 input[type=checkbox] {
     visibility: hidden;

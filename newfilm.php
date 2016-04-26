@@ -20,10 +20,10 @@
 		<input type="hidden" name="function" value="new_project">
 
 		<label for="title">Title</label>
-		<input type="text" name="title" id="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<input type="text" name="title" id="title" data-validation="required" data-validation="length" data-validation-length="max250">
 
 		<label for="video_link">Video</label>
-		<input type="text" id='new_video_link' name="video_link" id="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
+		<input type="text" id='new_video_link' name="video_link" id="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo">
 		
 		<input type="hidden" id="runtime" name="runtime">
 

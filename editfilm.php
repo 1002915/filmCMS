@@ -1,5 +1,4 @@
 <?php 
-	require "overlord.php";
 	session_start();
 
 	if (!isset($_SESSION['id'])) {
@@ -262,30 +261,6 @@
 
 
 
-		/*
-		var errors = false;
-		var myDropzone = new Dropzone("#upload", {
-			error: function(file, errorMessage) {
-			    errors = true;
-			},
-			success: function(file, response ) {
-			    console.log(file);
-			    if(errors) {
-			        console.log("There were errors!");
-			   	} else {
-			        console.log("We're done!");
-			        var userid = $('input#user_id').val();
-					var filepathstring = 'uploads/';
-					var file_name = file['name'];
-					var filepath = filepathstring + userid + '/'+ file_name;
-					console.log(filepath);
-					$('input[name=cover_image]').val(file_name);
-
-					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
-			    }
-			}
-		});
-		*/
 
 		// dropzone function
 		Dropzone.autoDiscover = false;
