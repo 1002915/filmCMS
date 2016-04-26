@@ -1,3 +1,10 @@
+.form-error {
+    color: #ff3e3e;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    line-height: 140%;
+}
+
 .edit_active_setting {
     padding: 20px;
 }
@@ -63,7 +70,6 @@
 .site_content .filmdisplay_box table span {
     font-size: 14px;
     vertical-align: top;
-    color: #ffd00b;
     width: 90%;
 }
 
