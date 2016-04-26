@@ -22,11 +22,17 @@
 			<div id="campus" class="campus"></div>
 		</section>
 		<section id="rating"> 
-			<input type="radio" name="rating" class="star" id="star5" value="5">
-			<input type="radio" name="rating" class="star" id="star4" value="4">
-			<input type="radio" name="rating" class="star" id="star3" value="3">
-			<input type="radio" name="rating" class="star" id="star2" value="2">
-			<input type="radio" name="rating" class="star" id="star1" value="1">
+			<p>Rate this film</p>
+			<input type="radio" name="rating" id="star5" value="5">
+			<label for="star5">5</label>
+			<input type="radio" name="rating" id="star4" value="4">
+			<label for="star4">4</label>
+			<input type="radio" name="rating" id="star3" value="3">
+			<label for="star3">3</label>
+			<input type="radio" name="rating" id="star2" value="2">
+			<label for="star2">2</label>
+			<input type="radio" name="rating" id="star1" value="1">
+			<label for="star1">1</label>
 		</section>
 	</section>
 
@@ -51,7 +57,7 @@
 		if($user_type == 1) {
 	?>	
 		<div class="hide_film">
-			<label id="hide" for="edit_active">Hide film</label>
+			<label id="hide" for="edit_active">Remove film</label>
 			<div class="slideThree">	
 				<input type="checkbox" value="0" id="slideThree" name="check" />
 				<label for="slideThree"></label>
@@ -121,10 +127,6 @@ include('footer.php');
  					$('#film_title').html(value.title);
  					$('#synopsis').html('<p>'+value.synopsis+'</p>');
  					$('#campus').html(value.campus);
-
- 					// check star with rating
- 					var rating = Math.round(value.average_rating);
- 					$("#star"+rating).prop('checked', true);
  					
 
  					// adjust hide project switch if film is inactive

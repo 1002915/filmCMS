@@ -87,7 +87,7 @@
 					} else {
 						$target = $_POST['target']; // film id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, AVG(rating) AS average_rating, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -98,7 +98,7 @@
 							echo "execute failied";
 						}
 						$stmt->store_result();
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $average_rating, $location)) {
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $location)) {
 							echo "binding results failed";
 						}
 						$data = array();
@@ -143,7 +143,6 @@
 								"user_id" => $user_id,
 								"published" => $published,
 								"active" => $active,
-								"average_rating" => $average_rating,
 								"campus" => $location,
 								"collab" => $collab
 							);

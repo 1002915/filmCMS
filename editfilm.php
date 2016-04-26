@@ -38,10 +38,10 @@
 		<label for="edit_synopsis">Synopsis</label>
 		<input type="text" id="edit_synopsis" name="synopsis" data-validation="required" data-validation="length" data-validation-length="max250">
 
-		<label for="cover_image">Cover Image</label>
+		<label id="label_cover" for="cover_image">Cover Image</label>
 		<div class="cover_image">
 			<div id="upload" class="dropzone display_cover_image">
-				 <div class="dz-default dz-message"></div>
+				 <div class="dz-default"></div>
 			</div>
 
 			<input type="hidden" name="cover_image" id="cover_image" value="cover_image">

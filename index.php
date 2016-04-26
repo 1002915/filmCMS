@@ -7,17 +7,12 @@
 			<div class="blurb"> 
 				<h3>ABOUT THE PROJECT </h3>
 				<br></br>
-				<p>  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet fermentum lectus, 
+				<p class="paragraph_about">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet fermentum lectus, 
 					eget blandit justo. Duis libero est, tempor et felis at, scelerisque ultricies odio. 
 
 Cposuere. Curabitur elementum est vitae leo vehicula, id rutrum leo luctus. Aenean sit amet odio et nisi pharetra efficitur 
-nec vel nulla. Donec dolor neque, semper sodales metus ac, feugiat efficitur mi. 
-Etiam in dui nulla. Nullam ac nunc mauris.putate in luctus vel, congue id augue.</p>
-				<p>Nam dolor mauris, pellentesque vitae tellus id, tincidunt venenatis sapien. 
-					Morbi vitae pretium mauris, vitae cursus est. Mauris sagittis felis est, vitae posuere neque 
-					maximus eget. Sed pharetra felis fringilla rhoncus suscipit. Vivamus varius, tellus nec mattis 
-					rutrum, elit libero sollicitudin nibh, in lobortis nisl magna vitae leo. Morbi interdum metus 
-					ac mi laoreet lacinia. Morbi bibendum mauris sapien, eu posuere risus ornare vel.</p>
+nec vel nulla. Donec dolor neque, semper sodales metus ac, feugia.</p>
+
 
 			</div>
 

@@ -1,27 +1,32 @@
 <!-- SITE CONTAINER AND LOGO -->
-<div class="site_container">
+
 	<div class="header_navigation">
 		<a href="index.php"><img src="img/logo.png" class="logo" alt="logo"></a>
 
 <!--SEARCH BAR IN HEADER -->
-		<div id='search_bar' class="search_holder">
+		<div class="search_holder">
 			<form action="search.php" method="post">
 				<input type='hidden' name='function' value='search_project'>
 				<input type='text' name='search' placeholder='Search...' class='search'>
-				<input type="submit" name="Search" value="Search">
+				<input id="search_button" type="submit" name="Search" value="">
 			</form>
 		</div>
 <!-- LOGGED IN CONTENT DISPLAY -->
 <?php if (isset($_SESSION['email'])) { ?>
-<div class="head_buttons">
-        <a href="profile.php" class="btn grey">Profile</a>
-        <a href="logout.php" class="btn">logout</a>
-    </div>
+<div class="dropdown">
+  <button onclick="myFunction()" class="dropbtn"><?php echo $_SESSION['first_name']; ?></button>
+  <div id="myDropdown" class="dropdown-content">
+    <a href="profile.php" class="btn">Profile</a>
+    <a href="logout.php" class="btn">logout</a>
+  </div>
+</div>
+
+
 <?php } else echo''; ?>
 <!-- BEGIN LOGIN FORM  - VISIBLE IN HEADER -->
 <?php if (!isset($_SESSION['email'])) { ?>
 	<div class="container">
-        <a id="modal_trigger" href="#modal" class="btn">Login or Register</a>
+        <a id="modal_trigger" href="#modal" class="btn">Login</a>
         	<div id="modal" class="popupContainer" style="display:none;">
            		<header class="popupHeader">
            		    <span class="header_title">Login</span>
@@ -72,7 +77,26 @@
 <?php }; ?>
     </div>
 	
-
+<div class="site_container">
 <div class="site_content">
+    <script>
+function myFunction() {
+    document.getElementById("myDropdown").classList.toggle("show");
+}
+
+// Close the dropdown menu if the user clicks outside of it
+window.onclick = function(event) {
+  if (!event.target.matches('.dropbtn')) {
+
+    var dropdowns = document.getElementsByClassName("dropdown-content");
+    var i;
+    for (i = 0; i < dropdowns.length; i++) {
+      var openDropdown = dropdowns[i];
+      if (openDropdown.classList.contains('show')) {
+        openDropdown.classList.remove('show');
+      }
+    }
+  }
+}</script>
 
 	

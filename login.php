@@ -19,15 +19,28 @@ if (!isset($_SESSION['first_name'])) {
 
 </div>
 <div class="error_box">  </div>
-    <div class="security_box">
-		<form name="loginForm" method="post" action="checklogin.php">
-  			<input type="text" data-validation="email" name='email' id='email' placeholder="email" maxlength="50" /><br/>
-  			<input type='password' data-validation="alphanumeric" name='password_hash' maxlength="50" placeholder="password"/><br/>
-  			<input type='submit' name='Submit' value='Submit' /><BR>
-  		
-  		<a href='resetpassword.php'>Forgot Password?</a><BR><BR>
-  		<a href='register.php'>register</a><BR><BR>
-	</form>
+<div class="flexbox_center">
+
+            <div class="container_register" >
+                <header class="popupHeader">
+                    <span class="header_title">Login</span><BR>
+<!-- Username & Password Login form -->
+                    
+                        <div class="user_login_main">
+                            <form method="post" action="checklogin.php">
+                           
+                                <input type="text" name='email' placeholder="email" maxlength="50"/><BR>
+                              
+                                <input type='password'  name='password_hash' maxlength="50" placeholder="password"/><BR>
+                                    <div class="action_btns float">
+                                        <a href="register.php" class="btn back_btn2"><i class="fa fa-angle-double-left"></i> sign up</a>
+                                        <input class="parallelogram" type='submit' name='Submit' value='login' />
+                                    </div>
+                            </form>
+                            <a href="resetpassword.php" class="forgot_password">Forgot password?</a>
+                        </div>
+          
+    </div>
 </div>
 
 <script src="js/jquery-2.2.2.min.js"></script>

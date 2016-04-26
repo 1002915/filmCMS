@@ -39,27 +39,28 @@ html {
 
 .banner {
 	width: 100%;
-	height: 560px;
-	/*background-image: url("http://stack.soldevi.net/img/sae.mp4"); */
+	height: 285px;
   	align-items: center;
   	justify-content: center;
   	position: relative;
     overflow: hidden;
+    text-align: center;
 
 }
-.bannervideo {
-	position: relative;
-	width: 100%;
-	height: 560px;
-	z-index:0;
 
+.bannervideo {
+   position: relative;
+   width: 100%;
+   min-width: 100%;
+   min-height: 100%;
+   z-index: 0;
 }
 
 .blurb {
     text-align: center;
-    width: 50%;
+    width: 80%;
     background-color: rgba(128, 130, 133, 0.5);
-    padding: 30px;
+    padding: 120px;
     position: absolute;
     z-index: 1;
     height: 61%;
@@ -68,6 +69,9 @@ html {
     right: 0;
     left: 0;
     bottom: 0;
+
+}
+
 
 }
 
@@ -187,20 +191,58 @@ height: 4em;
 ============================================
 */
 
-@media only screen and (min-width: 720px) and (max-width: 1199px) {
+@media only screen and (min-width: 700px) and (max-width: 1199px) {
 
 	.site_container {
 	    max-width: 720px;
 	}
 	
 	.blurb {
-		width:70%;
+		width:92%;
 		font-size:.9em;
-		padding: 20px;
+		padding: 37px;
+		height: 69%;
 	}
 
-	.bannervideo {
-	height: 460px;
+	.banner{
+		height: 238px;
+	    margin-top: 20px;
+		margin-bottom: 19px;
+	    
+	}
+
+	.film_large .film_thumbnail {
+   	 height: 206px;
+	}
+
+	.film_thumbnail {
+		height: 116px;
+	}
+	    
+	.film_title_large {
+		font-size: 1.2em;
+	}
+
+	.film_title_small {
+		font-size: 1em;
+
+	}
+}
+
+
+@media only screen and (max-width: 699px) {
+	.blurb {
+		width:92%;
+		font-size:.9em;
+		padding: 37px;
+		height: 69%;
+	}
+
+
+	.banner{
+		height: 238px;
+	    margin-top: 20px;
+	      margin-bottom: 20px;
 	}
 
 	.film_large .film_thumbnail {
@@ -219,4 +261,54 @@ height: 4em;
 		font-size: 1em;
 
 	}
+
+	.film_large .film_thumbnail {
+		width: 100%;
+	}
+	.content_left {
+	    width: 100%;
+    }
+
+   .content_right{
+    width: 100%;
+    }
+
+	p {
+		line-height: 15px;
+
+	}
+
+}
+
+@media only screen and (max-width: 446px) {
+
+
+}
+
+
+@media only screen and (max-width: 320px) {
+
+	.site_container {
+		max-width: 320px;
+	}
+	.blurb {
+		font-size: .8em;
+	}
+
+	p {
+		line-height: 11px;
+
+		}
+
+
+
+
+
+
+
+
+
+
+
+
 }
