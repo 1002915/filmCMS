@@ -2,6 +2,7 @@
 // MAKES SURE THAT A PERSON IS LOGED IN OR NOT
 	session_start();
 	$user_type = 0;
+	$ip = $_SERVER['REMOTE_ADDR'];
 
 	include('header.php');
 	if (isset($_SESSION['id'])){
@@ -290,7 +291,7 @@ include('footer.php');
 			console.log(rating);
 			//var rating = $(this).val();
 			var target = <?php echo $_GET['id']?>;
-			var ip = 'hjhjhj';
+			var ip = '<?php echo $ip; ?>';
 
 			$.ajax({
 				type: "POST",

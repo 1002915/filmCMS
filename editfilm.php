@@ -50,15 +50,17 @@
 			</div>
 		</div>
 
-			
+		<label class="collab_label">Collaborators</label>
 		<table id="edit_collaborator">
-			<tr>
-				<td>First Name</td>
-				<td>Last Name</td>
-				<td>Role</td>
-				<td>Email</td>
-				<td></td>
-			</tr>
+			<thead>
+				<tr>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Role</td>
+					<td>Email</td>
+				</tr>
+			</thead>
+			<tr></tr>
 		</table>
 
 		<select id="edit_published" name="published">
@@ -130,6 +132,7 @@
 						var fred 	= 1;
 
 						$.each(val['collab'], function(i, val) {
+							console.log(val);
 						  	var tr = $('<tr>');
 
 						  	$.each(props, function(i, prop) {
@@ -346,7 +349,7 @@
 					$('#edit_collaborator > tbody > tr:last > td > input.edit_last_name').attr('name', 'collab[' + rowcurrent + '][last_name]');
 					$('#edit_collaborator > tbody > tr:last > td > input.edit_role').attr('name', 'collab[' + rowcurrent + '][role]');
 					$('#edit_collaborator > tbody > tr:last > td > input.edit_email').attr('name', 'collab[' + rowcurrent + '][email]');
-					$('#edit_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
+					$('#edit_collaborator > tbody > tr:last > td > input#remove').attr('name', 'collab[' + rowcurrent + '][remove]');
 				}
 			});
 
