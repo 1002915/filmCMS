@@ -117,9 +117,9 @@ $sendmail->Host = "smtp.gmail.com";
 
 $sendmail->Port = 587;    
 
-$sendmail->Username = "1002915@student.sae.edu.au"; 
+$sendmail->Username = "filmcms@gmail.com"; 
 
-$sendmail->Password = "huyp35c5"; 
+$sendmail->Password = "filmcmspassword"; 
 
 $sendmail->AddReplyTo("1002915@student.sae.edu.au","Matthew Neal");
 
