@@ -16,9 +16,9 @@ $lecturer_email = array('sae.edu');
 
 $matches = array();
 
-preg_match("/^(.+)@([^\(\);:,<>]+\.[a-zA-Z]{2,4})/", $email, &$matches);
+preg_match("/^(.+)@([^\(\);:,<>]+\.[a-zA-Z]{2,4})/", $email, $matches);
 
-$domain = $matches[3];
+$domain = $matches[2];
 
 if(in_array($domain, $lecturer_email))
 {
