@@ -28,7 +28,7 @@
 		<input type="hidden" id="runtime" name="runtime">
 
 		<div class='display_video'>
-			<iframe id="player1" class="preview-video" width="100%" height="540" frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1"></iframe>
+			<iframe id="player1" class="preview-video" width="100%" heigh="0"frameborder="0" webkitallowfullscreen="1" mozallowfullscreen="1" allowfullscreen="1"></iframe>
 		</div>
 
 		<label for="synopsis">Synopsis</label>
@@ -49,24 +49,26 @@
 
 		<label class="collab_label">Collaborators</label>
 		<table id="new_collaborator">
+			<thead>
+				<tr>
+					<td>First Name</td>
+					<td>Last Name</td>
+					<td>Role</td>
+					<td>Email</td>
+				</tr>
+			</thead>
 			<tr>
-				<td>First Name</td>
-				<td>Last Name</td>
-				<td>Role</td>
-				<td>Email</td>
-			</tr>
-			<tr>
 				<td>
-					<input type="text" class="first_name" data-validation="required" name="collab[1][first_name]">
+					<input type="text" class="first_name" data-validation="required" name="collab[1][first_name]" placeholder="First Name">
 				</td>
 				<td>
-					<input type="text" class="last_name" data-validation="required" name="collab[1][last_name]">
+					<input type="text" class="last_name" data-validation="required" name="collab[1][last_name]" placeholder="Last Name">
 				</td>
 				<td>
-					<input type="text" class="role" data-validation="required" name="collab[1][role]">
+					<input type="text" class="role" data-validation="required" name="collab[1][role]" placeholder="Role">
 				</td>
 				<td>
-					<input type="text" class="email" data-validation="required" name="collab[1][email]">
+					<input type="text" class="email" data-validation="required" name="collab[1][email]" placeholder="Email">
 				</td>
 				<td>
 					<input type="button" id="remove" value="remove" name="collab[1][remove]" onclick="deleteRow(this)">
@@ -136,6 +138,8 @@
 		
 		// load video after user inputs link
 		$("#new_video_link").on('input', function () {
+			$('#player1').attr('height', '540');
+
 		    var videolink = $('#new_video_link').val();
 
 		    var str = "youtube";
@@ -227,7 +231,7 @@
 
 		// remove collaborators
 		function deleteRow(btn) {
-			var rowcount = $('#edit_collaborator tr').length;
+			var rowcount = $('#new_collaborator tr').length;
 			var rowcurrent = rowcount -1;
 			if(rowcurrent > 1){
 				var row = btn.parentNode.parentNode;
@@ -253,15 +257,16 @@
 					$('#new_collaborator > tbody > tr:last > td > input.email').val('');
 
 					// get number of rows in table
-					var rowcount = $('#edit_collaborator tr').length;
+					var rowcount = $('#new_collaborator tr').length;
 					var rowcurrent = rowcount -1;
+					console.log(rowcurrent);
 
 					// name each field in [collab][current row number]['xxxxx'] format
 					$('#new_collaborator > tbody > tr:last > td > input.first_name').attr('name', 'collab[' + rowcurrent + '][first_name]');
 					$('#new_collaborator > tbody > tr:last > td > input.last_name').attr('name', 'collab[' + rowcurrent + '][last_name]');
 					$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
 					$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
-					$('#new_collaborator > tbody > tr:last > td > button.remove').attr('name', 'collab[' + rowcurrent + '][remove]');
+					$('#new_collaborator > tbody > tr:last > td > input#remove').attr('name', 'collab[' + rowcurrent + '][remove]');
 				}
 			});
 		});
