@@ -8,7 +8,8 @@
 
 .security_box, .project_profile {
     margin: 0 auto;
-    width: 450px;
+    max-width: 450px;
+    width:100%;
     display:flex;
     justify-content: center;
     padding: 20px;
@@ -16,6 +17,7 @@
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.3);
+    box-sizing:border-box;
 }
 
 .project_profile {
@@ -197,7 +199,7 @@ input:-webkit-autofill {
 select {
   margin-top: 10px;
   color: #454545;
-  background: #ffd00b;
+  background: rgba(255, 255, 255, 0.95);
   width: 100%;
   padding: 5px;
   font-size: 0.8em;
@@ -262,10 +264,15 @@ span {
     font-family: 'Montserrat', sans-serif;
     margin-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.3);
+    overflow: auto;
+    box-sizing:border-box;
 }
 
 .cover_image_edit {
   width: 100%;
+  height: 250px;
+  background-size: cover;
+  margin-bottom: 10px;
 
 }
 
@@ -759,3 +766,34 @@ body.loading .popper {
 .container {
   margin-right: 20px;
 }
+
+.edit_film_button {
+  width: 37px;
+  height: 37px;
+  background-color: #ffd00b;
+  padding: 5px 10px 5px 10px;
+  height: 37px;
+  border: none;
+  cursor: pointer;
+  background: url('../img/pencil.png') center no-repeat;
+  background-size: 30px;
+  float:right;
+}
+
+.edit_title {
+  width: 70%;
+  float: left;
+  font-size: 1.2em;
+  padding-top:15px;
+  box-sizing: border-box;
+  float:left;
+}
+
+.profile_left, .profile_right {
+  float: left;
+  width: 50%;
+  box-sizing:border-box;
+  max-width:50%;
+
+}
+

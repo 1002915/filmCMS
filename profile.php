@@ -20,7 +20,7 @@ $user_type = $_SESSION['user_type'];
 
 ?>
 
-<div class="error_box"></div> 
+<div class="profile_left">
 <div class="security_box">
     <form method="post" action="newfilm.php">
     <input type="submit" class="long_button" value="Upload new film">
@@ -45,7 +45,8 @@ $user_type = $_SESSION['user_type'];
             <input id="SubmitButton" type='submit' name='Submit' value='Submit' />
         </form><BR>
     </div>
-
+</div>
+<div class="profile_right">
 <?php if($user_type == 1) { ?>
 <div class="security_box">
     <form method="POST" action="overlord.php">
@@ -77,7 +78,7 @@ $(document).ready(function(){
         $.each(res, function(index,value) {
         console.log(value);
         
-        $('.placeholder').append( "<div class='profile_edit_box'><form action='editfilm.php' method='GET'>" + "<input type='hidden' name='filmid' value='"+value['id']+"'> <input type='submit' value='edit'> </form><div class='cover_image_edit' style='background-image:url(uploads"+"/"+"<?php echo $_SESSION['id'] ?>/"+value['cover_image']+"'></div><BR><p>"+value['title']+"</p></div>" );
+        $('.placeholder').append( "<div class='profile_edit_box'><div class='cover_image_edit' style='background-image:url(uploads"+"/"+"<?php echo $_SESSION['id'] ?>/"+value['cover_image']+")'></div><div class='edit_title'>"+value['title']+"</div><a href='editfilm.php?filmid="+value['id']+"'>"+"<div class='edit_film_button'></div>" );
 
                             });
                         },
@@ -96,5 +97,5 @@ $(document).ready(function(){
     modules : 'security'
   });
 </script>
-
+</div>
 <?php include('footer.php'); };?>
