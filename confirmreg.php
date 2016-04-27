@@ -21,8 +21,12 @@ if ($databasekey == $getemailconfirm) {
 	$verifiedupdate = "UPDATE users SET verified='1' WHERE id = '$idconfirm'";
 
 if ($mysqli->query($verifiedupdate) === TRUE) {
+	include('header.php');?>
+	<div class='confirm_container'>
+		<?php echo "<p>Thank you for registering. Click <span id=link>HERE</span> to login.</p>";?>
+	</div>
 
-	echo "updated! Thank you for registering. click <a href='login.php'>HERE</a> to login.";
+	<?include('footer.php');
 }
 
 } else {
@@ -30,7 +34,12 @@ if ($mysqli->query($verifiedupdate) === TRUE) {
 	echo 'nah';
 }
 
-
-
-
 ?>
+
+<script>
+	$('#link').on('click touch', function() {
+  		$('#modal_trigger').click();
+	});
+		
+
+</script>

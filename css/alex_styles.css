@@ -227,6 +227,21 @@ select {
 	color:#454545;
 }
 
+/* CONFIRM LOHING PAGE */
+.confirm_container {
+	width:370px;
+	font-size: 16px;
+	margin:0 auto;
+	padding-top:200px;
+}
+
+#link  {
+	color:#ffd00b;
+}
+
+#link:hover {
+	text-decoration: underline;
+}
 /* FOOTER */
 
 .text_align_fix {
@@ -253,8 +268,13 @@ select {
 	.search_product{width:90%; float:none; margin:0 auto; margin-top:10px;}
 }
 
+@media screen and (max-width: 480px) {
+	.confirm_container{padding-top:70px;}
+}
+
 @media screen and (max-width: 340px) {
 	#searchBar {width:95%;}
 	.middle_postition {width:100%;}
 	.search_product{width:90%; float:none; margin:0 auto; margin-top:10px;}
+	.confirm_container{width:95%; padding-top:50px;}
 }
