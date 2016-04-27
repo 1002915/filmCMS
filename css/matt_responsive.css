@@ -8,3 +8,11 @@
     }
 	
 }
+
+@media screen and (max-width: 1199px) {
+	.profile_left, .profile_right, .profile_edit_box {
+		width:100%;
+		max-width:450px;
+		float:none;
+	}
+}

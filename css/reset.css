@@ -25,6 +25,7 @@ time, mark, audio, video {
 	font-family: 'Montserrat', sans-serif;
 	color: white;
 	text-decoration: none;
+
 }
 /* HTML5 display-role reset for older browsers */
 article, aside, details, figcaption, figure, 
@@ -55,4 +56,8 @@ table {
 }
 html, body {
   height: 100%;
+}
+
+a, button, select {
+	cursor:pointer;
 }

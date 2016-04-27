@@ -7,6 +7,8 @@ html {
 	width: 100%;
 	min-height: 100%;
 	margin: 0 auto;
+	box-sizing: border-box;
+	padding: 0px 10px 0px 10px;
 }
 
 .logo img {
@@ -45,31 +47,36 @@ html {
   	position: relative;
     overflow: hidden;
     text-align: center;
-
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .bannervideo {
-   position: relative;
-   width: 100%;
-   min-width: 100%;
-   min-height: 100%;
-   z-index: 0;
+    position: absolute;
+    width: 100%;
+    min-width: 100%;
+    min-height: 100%;
+    z-index: -100;
+    top: 0;
+    left: 0;
+    background-color: #000000;
 }
 
 .blurb {
     text-align: center;
-    width: 80%;
+    width: 100%;
     background-color: rgba(128, 130, 133, 0.5);
-    padding: 120px;
-    position: absolute;
-    z-index: 1;
+    z-index: 100;
     height: 61%;
     margin: auto;
-    top: 0;
-    right: 0;
-    left: 0;
-    bottom: 0;
+    box-sizing: border-box;
+    padding: 5%;
+    height:100%;
 
+}
+
+.paragraph_about {
+	line-height: 26px;
+	font-size: 1em;
 }
 
 
@@ -80,23 +87,34 @@ html {
     font-size: 1.5em;
 }
 
+#film_content {
+	margin-top: 20px;
+}
+
 .content_left {
-	
-	width:50%;
+	width: calc(50% - 15px);
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
-	align-items: center;
+    justify-content: space-between;
+   	align-items: center;
 	float: left;
+	box-sizing:border-box;
+	margin-right: 15px;
 }
 
 .content_right {
-	margin-top: 30px;
-	width:50%;
+	width: calc(50% - 15px);
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
+	float: left;
+	box-sizing:border-box;
+	margin-left: 15px;
+}
+
+#content_right_1 {
+
 }
 
 .content_bottom {
@@ -110,10 +128,14 @@ html {
 .film_thumbnail {
 	background-size: cover;
 	width: 100%;
-	height: 200px;
+	padding-bottom: 56.25%;
+
 }
 .film_large .film_thumbnail {
-	height: 400px;
+	max-width: 100%;
+	width: auto;
+	padding-bottom: 56.25%;
+	box-sizing:border-box;
 }
 
 .film_large {
@@ -121,9 +143,9 @@ html {
 	box-sizing: border-box;
 	background-color: rgba(87, 86, 88, .8);
 	height: 50%;
-	margin: 10px;
 	float: left;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .film_large img {
@@ -141,13 +163,13 @@ html {
 }
 
 .film_small {
-	width: calc(50% - 30px);
+	width: calc(50% - 20px);
 	box-sizing: border-box;
 	/*background-color: rgba(87, 86, 88, .8); */
 	height: 50%;
-	margin: 10px;
 	float: left;
-	margin-bottom: 50px;
+	margin-bottom: 30px;
+	box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
 
 .film_small img {
@@ -160,6 +182,7 @@ html {
 	font-size: 1.2em;
 	position: relative;
     top: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .film_medium {
@@ -185,38 +208,20 @@ html {
 height: 4em;
 }
 
-/* 
-============================================
+/* =========================================
 ============  MEDIA QUERIES  ===============
-============================================
-*/
+==========================================*/
 
 @media only screen and (min-width: 700px) and (max-width: 1199px) {
 
 	.site_container {
-	    max-width: 720px;
-	}
-	
-	.blurb {
-		width:92%;
-		font-size:.9em;
-		padding: 37px;
-		height: 69%;
+	    max-width: 100%;
 	}
 
 	.banner{
-		height: 238px;
 	    margin-top: 20px;
 		margin-bottom: 19px;
 	    
-	}
-
-	.film_large .film_thumbnail {
-   	 height: 206px;
-	}
-
-	.film_thumbnail {
-		height: 116px;
 	}
 	    
 	.film_title_large {
@@ -231,26 +236,24 @@ height: 4em;
 
 
 @media only screen and (max-width: 699px) {
-	.blurb {
-		width:92%;
-		font-size:.9em;
-		padding: 37px;
-		height: 69%;
-	}
-
 
 	.banner{
 		height: 238px;
 	    margin-top: 20px;
-	      margin-bottom: 20px;
+	     margin-bottom: 20px;
+	}
+
+	.film_large {
+		margin-bottom: 30px;
+	}
+
+	.film_small {
+		width: calc(50% - 10px);
+		margin-bottom: 10px;
 	}
 
 	.film_large .film_thumbnail {
     height: 206px;
-	}
-
-	.film_thumbnail {
-		height: 116px;
 	}
 	    
 	.film_title_large {
@@ -270,45 +273,19 @@ height: 4em;
     }
 
    .content_right{
-    width: 100%;
+    	width: 100%;
+    	padding:10px;
+    	margin-left:0px;
     }
 
-	p {
-		line-height: 15px;
+    .blurb {
+    	font-size: 0.8em;
+    	line-height: 18px;
+    }
 
-	}
-
-}
-
-@media only screen and (max-width: 446px) {
-
-
-}
-
-
-@media only screen and (max-width: 320px) {
-
-	.site_container {
-		max-width: 320px;
-	}
-	.blurb {
-		font-size: .8em;
-	}
-
-	p {
-		line-height: 11px;
-
-		}
-
-
-
-
-
-
-
-
-
-
-
+    .paragraph_about {
+    	font-size: 0.95em;
+    	line-height: 18px;
+    }
 
 }

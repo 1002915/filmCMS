@@ -42,7 +42,7 @@
                                 <input type='password'  name='password_hash' maxlength="50" placeholder="password"/><BR>
                                     <div class="action_btns float">
                                         <a href="#" class="btn back_btn2"><i class="fa fa-angle-double-left"></i> sign up</a>
-                                        <input class="parallelogram" type='submit' name='Submit' value='login' />
+                                        <input class="parallelogram" onclick="this.disabled=true;this.value='logging in...'; this.form.submit();" type='submit' name='Submit' value='login' />
                                     </div>
                             </form>
                             <a href="resetpassword.php" class="forgot_password">Forgot password?</a>
@@ -67,7 +67,7 @@
                                     </select><BR><BR>
                                     <div class="float">
                                         <a href="#" class="btn loginform"><i class="fa fa-angle-double-left"></i> Back</a>
-                                        <input id="SubmitButton" class="popup_button big" type='submit' name='Submit' value='Register' />
+                                        <input id="SubmitButton" onclick="this.disabled=true;this.value='please wait...'; this.form.submit();" class="popup_button big" type='submit' name='Submit' value='Register' />
                                     </div>
                             </form><BR>
                         </div>
@@ -99,4 +99,16 @@ window.onclick = function(event) {
   }
 }</script>
 
+<script>
+$body = $("body");
+
+$(document).on({
+    ajaxStart: function() { $body.addClass("loading");    },
+     ajaxStop: function() { $body.removeClass("loading"); }    
+});
+</script>
+
+
+
+<div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
 	

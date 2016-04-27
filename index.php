@@ -7,11 +7,11 @@
 			<div class="blurb"> 
 				<h3>ABOUT THE PROJECT </h3>
 				<br></br>
-				<p class="paragraph_about">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet fermentum lectus, 
+				<div class="paragraph_about">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet fermentum lectus, 
 					eget blandit justo. Duis libero est, tempor et felis at, scelerisque ultricies odio. 
 
 Cposuere. Curabitur elementum est vitae leo vehicula, id rutrum leo luctus. Aenean sit amet odio et nisi pharetra efficitur 
-nec vel nulla. Donec dolor neque, semper sodales metus ac, feugia.</p>
+nec vel nulla. Donec dolor neque, semper sodales metus ac, feugia.</div>
 
 
 			</div>
@@ -46,13 +46,13 @@ $(document).ready(function(){
  								if (group == "content_left") {
  									if (inner == 1) {
  										$("#film_content").append('<div class="content_left" id="content_left_'+counter+'"></div>');
- 										$('#content_left_'+counter).append('<div class="film_large"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_large">'+value.title+'</div></div></a></div>');
+ 										$('#content_left_'+counter).append('<div class="film_large"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_large">'+value.title+'</div></a></div>');
  										inner++;
  									} else if (inner == 2) {
- 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
+ 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_small">'+value.title+'</div></a></div>');
  										inner++
  									} else {
- 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
+ 										$('#content_left_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_small">'+value.title+'</div></a></div>');
  										group = 'content_right'
  										inner = 1 
  									};
@@ -60,15 +60,15 @@ $(document).ready(function(){
  								} else if (group == "content_right") {
  									if (inner == 1) {
  										$("#film_content").append('<div class="content_right" id="content_right_'+counter+'" ></div>');
- 										$('#content_right_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
+ 										$('#content_right_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_small">'+value.title+'</div></a></div>');
  										inner++;
 
  									} else if (inner == 2) {
- 										$('#content_right_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_small">'+value.title+'</div></div></a></div>');
+ 										$('#content_right_'+counter).append('<div class="film_small"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_small">'+value.title+'</div></a></div>');
  										inner++;
 
  									} else {
- 										$('#content_right_'+counter).append('<div class="film_large"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_large">'+value.title+'</div></div></a></div>');
+ 										$('#content_right_'+counter).append('<div class="film_large"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_large">'+value.title+'</div></a></div>');
  										group = 'content_bottom'
  										inner = 1 
  									};
@@ -76,14 +76,14 @@ $(document).ready(function(){
  								} else {
  									if (inner == 1) {
  										$("#film_content").append('<div class="content_bottom" id="content_bottom_'+counter+'" ></div>');
- 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_medium">'+value.title+'</div></div></a></div>');
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'<div class="film_title_medium">'+value.title+'</div></div></a></div>');
  										inner++;
  									} else if (inner == 2) {
- 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_medium">'+value.title+'</div></div></a></div>');
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'<div class="film_title_medium">'+value.title+'</div></div></a></div>');
  										inner++;
 
  									} else {
- 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+value.cover_image+')"><div class="film_title_medium">'+value.title+'</div></div></a></div>');
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'<div class="film_title_medium">'+value.title+'</div></div></a></div>');
  										group = 'content_left';
  										inner = 1;
  										counter++;
