@@ -227,6 +227,21 @@ select {
 	color:#454545;
 }
 
+/* CONFIRM LOHING PAGE */
+.confirm_container {
+	width:370px;
+	font-size: 16px;
+	margin:0 auto;
+	padding-top:200px;
+}
+
+#link  {
+	color:#ffd00b;
+}
+
+#link:hover {
+	text-decoration: underline;
+}
 /* FOOTER */
 
 .text_align_fix {
