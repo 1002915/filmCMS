@@ -206,6 +206,7 @@ select {
   font-size: 0.8em;
   border-radius: 1px;
   height: 35px;
+  -webkit-appearance: none;
   font-family: 'Montserrat', sans-serif;
 
 }
