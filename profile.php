@@ -42,7 +42,7 @@ $user_type = $_SESSION['user_type'];
                 <option value="6" name="6">Perth</option>
                 <option value="7" name="7">Online</option>
             </select><BR><BR>
-            <input id="SubmitButton" type='submit' name='Submit' value='Submit' />
+            <input id="SubmitButton" onclick="this.disabled=true;this.value='updating...'; this.form.submit();"type='submit' name='Submit' value='Submit' />
         </form><BR>
     </div>
 </div>
