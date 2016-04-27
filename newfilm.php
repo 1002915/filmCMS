@@ -16,7 +16,7 @@
 </div>
 
 <div class="filmdisplay_box"> 
-	<form method="POST" action="formsubmit.php" id="new_project">
+	<form id="new_project">
 		<input type="hidden" name="function" value="new_project">
 
 		<label for="title">Title</label>
@@ -59,16 +59,16 @@
 			</thead>
 			<tr>
 				<td>
-					<input type="text" class="first_name" data-validation="required" name="collab[1][first_name]" placeholder="First Name">
+					<input type="text" class="first_name" id="first_name-1" data-validation="required" name="collab[1][first_name]" placeholder="First Name">
 				</td>
 				<td>
-					<input type="text" class="last_name" data-validation="required" name="collab[1][last_name]" placeholder="Last Name">
+					<input type="text" class="last_name" id="last_name-1" data-validation="required" name="collab[1][last_name]" placeholder="Last Name">
 				</td>
 				<td>
-					<input type="text" class="role" data-validation="required" name="collab[1][role]" placeholder="Role">
+					<input type="text" class="role" id="role-1" data-validation="required" name="collab[1][role]" placeholder="Role">
 				</td>
 				<td>
-					<input type="text" class="email" data-validation="required" name="collab[1][email]" placeholder="Email">
+					<input type="text" class="email" id="email-1" data-validation="required" name="collab[1][email]" placeholder="Email">
 				</td>
 				<td>
 					<input type="button" id="remove" value="remove" name="collab[1][remove]" onclick="deleteRow(this)">
@@ -241,8 +241,63 @@
 
 
 
+
+
+		function submit_form() {
+			var mega_array = [];
+			$('.first_name').each(function() {
+				var tempArray = [];
+				var rowId = $(this).attr('id').split('-')[1];
+
+				//if(($('#first_name-'+rowId).val() = '') && ($('#last_name-'+rowId).val() = '') && ($('#role-'+rowId).val() = '') && ($('#email-'+rowId).val() = '')) {
+					// do not add to temp array
+				//}
+
+				tempArray.first_name = $('#first_name-'+rowId).val();
+				tempArray.last_name = $('#last_name-'+rowId).val();
+				tempArray.role = $('#role-'+rowId).val();
+				tempArray.email = $('#email-'+rowId).val();
+
+				mega_array.push(tempArray);
+			});
+
+			console.log(mega_array);
+		
+			
+			$.ajax({
+				type: "POST",
+				url: "overlord.php",
+				data: {
+					function: 'new_project',
+					title: $('input#title'.val()),
+					synopsis: $('input#synopsis'.val()),
+					cover_image: $('input#cover_image'.val()),
+					video_link: $('input#video_link'.val()),
+					runtime: $('input#runtime'.val()),
+					user_id: <?php echo $user_id;?>,
+					published: $('input#published'.val()),
+					active: $('input#active'.val()),
+					collab: mega_array
+				},
+				dataType: "json",
+				success: function(res){
+					console.log(res);
+				},
+				error: function(res){
+					console.log(res);
+				}
+			});
+			
+		}
+
+
+
 		// do all the things
 		$(document).ready(function(){
+
+			$('#new_project').on('submit', function(){
+				submit_form();
+			});
 
 			// Increase collaborators as user inputs info
 			$(document).on('blur',"#new_collaborator > tbody > tr:last > td > input.first_name", function(){
@@ -267,6 +322,12 @@
 					$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
 					$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
 					$('#new_collaborator > tbody > tr:last > td > input#remove').attr('name', 'collab[' + rowcurrent + '][remove]');
+
+					// edit id for each row
+					$('#new_collaborator > tbody > tr:last > td > input.first_name').attr('id', 'first_name-' + rowcurrent);
+					$('#new_collaborator > tbody > tr:last > td > input.last_name').attr('id', 'last_name-' + rowcurrent);
+					$('#new_collaborator > tbody > tr:last > td > input.role').attr('id', 'role-' + rowcurrent);
+					$('#new_collaborator > tbody > tr:last > td > input.email').attr('id', 'email-' + rowcurrent);
 				}
 			});
 		});
