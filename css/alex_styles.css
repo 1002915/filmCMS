@@ -218,6 +218,15 @@ select {
 	margin-top: 0px;
 }
 
+/* INDEX */
+.film_title_large {
+	color:#454545;
+}
+
+.film_title {
+	color:#454545;
+}
+
 /* FOOTER */
 
 .text_align_fix {
