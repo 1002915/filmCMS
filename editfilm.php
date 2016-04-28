@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<label class="collab_label">Collaborators</label>
+		<label class="collab_label">Contributors</label>
 		<table id="edit_collaborator">
 			<thead>
 				<tr>
@@ -96,7 +96,7 @@
 				type:"POST",
 				url:"overlord.php",
 				data:{
-					function:'return_project',
+					function:'return_edit_project',
 					target: target
 				},
 				dataType:'json',
@@ -145,6 +145,21 @@
 						  	fred++;
 						  	table.append(tr);
 						});
+
+						var rowcount = $('#edit_collaborator tr').length;
+						var rowlast = rowcount -1;
+						var tr = $('<tr>');
+
+						for(i = 0; i < 1; i++) {
+							console.log(i);
+							$.each(props, function(i , prop) {
+								$('<td>').html('<input type="text" data-validation="required" class="edit_' + prop + '" name="collab[' + rowlast + '][' + prop + ']">').appendTo(tr);
+							});
+							$('<td class="removerow">').html('<input type="button" id="remove" value="remove" name="collab[' + rowlast + '][remove]" onclick="deleteRow(this)">').appendTo(tr);	
+						}
+						table.append(tr);
+
+
 							
 					});
 				}, 
@@ -340,6 +355,9 @@
 			var form = $('form#edit_project');
 			form.on('submit', function(e){
 				e.preventDefault();
+				if(($("#new_collaborator > tbody > tr:last > td > input.first_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.last_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.role").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.email").val() == '') ) {
+					$('tr:last', this).remove();
+				}
 				submit_form();
 			})
 
