@@ -72,6 +72,9 @@
 		<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>">
 		<input type="hidden" id="edit_active" name="active" value="1">
 		<input type="submit">
+
+		<input type="button" id="hide_project" class="hide_project" value="Delete Film">
+
 	</form>
 </div>
 	
@@ -318,6 +321,25 @@
 
 
 
+		function hide_project() {
+			var active = 0;
+			$.ajax({
+				type: "POST",
+				url: "overlord.php",
+				data: {
+					function: 'hide_project',
+					target: target,
+					active: active
+				},
+				success: function(res) {
+					console.log('yay!!! success');
+					window.location="index.php";
+				}
+		 	});
+		}
+
+
+
 
 
 
@@ -360,6 +382,11 @@
 				}
 				submit_form();
 			})
+
+			$('input#hide_project').on('click touch', function(e){
+				e.preventDefault();
+				hide_project();
+			});
 
 
 			// Increase collaborators as user inputs info

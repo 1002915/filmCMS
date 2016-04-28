@@ -24,6 +24,22 @@
 
 }
 
+.filmdisplay_box .hide_project {
+    margin: 10px 0px 10px 0px;
+    height: 38px;
+    cursor: pointer;
+    float: right;
+    padding: 10px 20px;
+    color: #454545;
+    font-family: 'Montserrat', sans-serif;
+    box-sizing: border-box;
+    border: none;
+    text-decoration: none;
+    background-size: 100%;
+    background-color: #ffd00b;
+    font-size: 16px;
+}
+
 .filmdisplay_box .display_video #player1 {
     margin-top: 30px;
     border: 1px dashed #414042;
@@ -103,7 +119,7 @@ input[type="button"]:hover{
   text-shadow: none;
 }
 
-.site_content .filmdisplay_box select#edit_published {
+.site_content .filmdisplay_box select#edit_published, .site_content .filmdisplay_box select#published {
     width: 120px;
     -webkit-appearance: menulist;
     height: 38px;
