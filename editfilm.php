@@ -145,6 +145,21 @@
 						  	fred++;
 						  	table.append(tr);
 						});
+
+						var rowcount = $('#edit_collaborator tr').length;
+						var rowlast = rowcount -1;
+						var tr = $('<tr>');
+
+						for(i = 0; i < 1; i++) {
+							console.log(i);
+							$.each(props, function(i , prop) {
+								$('<td>').html('<input type="text" data-validation="required" class="edit_' + prop + '" name="collab[' + rowlast + '][' + prop + ']">').appendTo(tr);
+							});
+							$('<td class="removerow">').html('<input type="button" id="remove" value="remove" name="collab[' + rowlast + '][remove]" onclick="deleteRow(this)">').appendTo(tr);	
+						}
+						table.append(tr);
+
+
 							
 					});
 				}, 

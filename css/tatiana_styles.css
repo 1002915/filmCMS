@@ -106,9 +106,10 @@ input[type="button"]:hover{
 .site_content .filmdisplay_box select#edit_published {
     width: 120px;
     -webkit-appearance: menulist;
-    height: 39px;
+    height: 38px;
     font-size: 1em;
-    /*border: 1px #ffd00b solid;*/
+    box-sizing: border-box;
+    padding: 10px 10px;
 }
 
 .site_content .filmdisplay_box .cover_image {
