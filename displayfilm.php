@@ -274,7 +274,6 @@ include('footer.php');
 
 	}
 
-
 	$(document).ready(function(){ 
 		//$('#aca_form').validate();
 		$("#aca_form #submit").on('click touch', function() {
@@ -285,14 +284,22 @@ include('footer.php');
 			hide_project();
 		});
 
-		$('input.star').on('click touch', function(){
-
-			var rating = $(this).val();
-			console.log(rating);
+		$('#rating label').on('click touch', function(){
+			// USERS CAN ONLY RATE THE VIDEO ONCE
+			$('#rating label').off();
+			console.log('off');
+			var rating = $('#rating label').val();
+			console.log('rating:'+rating);
 			//var rating = $(this).val();
 			var target = <?php echo $_GET['id']?>;
+			console.log('filmID:'+target);
 			var ip = '<?php echo $ip; ?>';
+			console.log('ipadd'+ip);
 
+			// USERS CAN ONLY RATE THE VIDEO ONCE
+			//$('input.star').removeAttr('onclick');
+			//console.log('rate once');
+			
 			$.ajax({
 				type: "POST",
 				url: "overlord.php",
@@ -304,6 +311,10 @@ include('footer.php');
 				},
 				dataType : 'json',
 				success: function(res) {
+					console.log(res);
+					$('#rating label').removeAttr('onclick'); //allows to click once
+					console.log('rate once');
+					$('#rating').append('<div class="rating_once">Thank you for rating</div>'); // Return "Thank you for rating"
 					console.log('yay!!! success');
 				},
 				error: function(res){

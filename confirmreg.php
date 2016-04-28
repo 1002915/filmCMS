@@ -26,7 +26,7 @@ if ($mysqli->query($verifiedupdate) === TRUE) {
 		<?php echo "<p>Thank you for registering. Click <span id=link>HERE</span> to login.</p>";?>
 	</div>
 
-	<?include('footer.php');
+	<?php include('footer.php');
 }
 
 } else {
