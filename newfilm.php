@@ -76,6 +76,7 @@
 			</tr>
 		</table>
 
+
 		<select id="published" name="published">
 			<option value="0">Save Draft</option>
 			<option value="1">Publish</option>
@@ -93,7 +94,15 @@
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 	<script>
-		$.validate();
+		
+		var form = $('form#new_project');
+		$.validate({
+			form : form,
+		});
+
+
+
+
 
 		// dropzone function
 		Dropzone.autoDiscover = false;
@@ -114,7 +123,6 @@
 	    });
 
 		
-
 
 
 
@@ -241,8 +249,6 @@
 
 
 
-
-
 		function submit_form() {
 			/*
 			var mega_array = [];
@@ -265,23 +271,21 @@
 			console.log(mega_array);
 			*/
 
-			var data = $('form#new_project').serialize();
-
 			$.ajax({
 				type: "POST",
 				url: "overlord.php",
-				data: data,
-				dataType: "json",
-				success: function(res){
-					$.each(res, function(i, val) {
-						console.log(val);
-					});
-					//window.location="displayfilm.php?id=";
+				data: form.serialize(),
+				success:function(res){
+					var published = $('select#published').val();
+					if(published == 0) {
+						var location = "profile.php";
+					} else {
+						var location = "displayfilm.php?id="+res;
+					}
+					window.location=location;
 				},
-				error: function(res){
-					$.each(res, function(i, val) {
-						console.log(val);
-					});
+				error:function(res){
+					console.log(res);
 				}
 			});
 			
@@ -291,9 +295,17 @@
 
 		// do all the things
 		$(document).ready(function(){
+			var form = $('form#new_project');
 
-			$('#new_project').on('submit', function(){
+			form.on('submit', function(e){
+				e.preventDefault();
 				submit_form();
+			})
+
+			$.validate({
+			    form : form,
+			    onSuccess : function($form) {
+			    },
 			});
 
 			// Increase collaborators as user inputs info

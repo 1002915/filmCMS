@@ -87,7 +87,7 @@
 					} else {
 						$target = $_POST['target']; // film id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, users, campus WHERE film.user_id = users.id AND users.campus_id = campus.id AND film.id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -319,6 +319,9 @@
 						else {
 							$action = "Project updated";
 						}
+
+						$data = $target;
+
 						$stmt->close();
 
 
@@ -412,7 +415,7 @@
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
+						if(!$stmt->bind_param("iis", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -459,15 +462,15 @@
 						else {
 							$action = "New film inserted";
 						}
-						
+
 						$target = $mysqli->insert_id; // film id
-						
-						$data = array($target);
-						
+
+						$data = $target;
+
 						$stmt->close();
-						
-						
-						
+
+
+
 						// Insert collaborators
 						$collab = $_POST['collab'];
 						foreach($collab as $i=>$v) {
