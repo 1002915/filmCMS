@@ -107,6 +107,7 @@ include('footer.php');
 
 <script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
+<script src="js/form-validator/jquery.form-validator.js"></script>
 
 <script>
 //VALIDATE THE FEEDBACK FROM
