@@ -50,7 +50,7 @@
 			</div>
 		</div>
 
-		<label class="collab_label">Collaborators</label>
+		<label class="collab_label">Contributors</label>
 		<table id="edit_collaborator">
 			<thead>
 				<tr>
@@ -96,7 +96,7 @@
 				type:"POST",
 				url:"overlord.php",
 				data:{
-					function:'return_project',
+					function:'return_edit_project',
 					target: target
 				},
 				dataType:'json',

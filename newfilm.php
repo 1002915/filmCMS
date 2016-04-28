@@ -47,7 +47,7 @@
 			</div>
 		</div>
 
-		<label class="collab_label">Collaborators</label>
+		<label class="collab_label">Contributors</label>
 		<table id="new_collaborator">
 			<thead>
 				<tr>
