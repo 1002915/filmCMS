@@ -16,14 +16,14 @@
 </div>
 
 <div class="filmdisplay_box"> 
-	<form method="POST" action="formsubmit.php" id="new_project">
+	<form id="new_project" method="POST" action="">
 		<input type="hidden" name="function" value="new_project">
 
 		<label for="title">Title</label>
-		<input type="text" name="title" id="title" data-validation="required" data-validation="length" data-validation-length="max250"><br>
+		<input type="text" name="title" id="title" data-validation="required" data-validation="length" data-validation-length="max250">
 
 		<label for="video_link">Video</label>
-		<input type="text" id='new_video_link' name="video_link" id="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo"><br>
+		<input type="text" id='new_video_link' name="video_link" id="video_link" data-validation="youtube" data-validation="required" placeholder="Video link to Youtube OR Vimeo">
 		
 		<input type="hidden" id="runtime" name="runtime">
 
@@ -59,22 +59,23 @@
 			</thead>
 			<tr>
 				<td>
-					<input type="text" class="first_name" data-validation="required" name="collab[1][first_name]" placeholder="First Name">
+					<input type="text" class="first_name" id="first_name-1" data-validation="required" name="collab[1][first_name]" placeholder="First Name">
 				</td>
 				<td>
-					<input type="text" class="last_name" data-validation="required" name="collab[1][last_name]" placeholder="Last Name">
+					<input type="text" class="last_name" id="last_name-1" data-validation="required" name="collab[1][last_name]" placeholder="Last Name">
 				</td>
 				<td>
-					<input type="text" class="role" data-validation="required" name="collab[1][role]" placeholder="Role">
+					<input type="text" class="role" id="role-1" data-validation="required" name="collab[1][role]" placeholder="Role">
 				</td>
 				<td>
-					<input type="text" class="email" data-validation="required" name="collab[1][email]" placeholder="Email">
+					<input type="text" class="email" id="email-1" data-validation="required" name="collab[1][email]" placeholder="Email">
 				</td>
 				<td>
 					<input type="button" id="remove" value="remove" name="collab[1][remove]" onclick="deleteRow(this)">
 				</td>
 			</tr>
 		</table>
+
 
 		<select id="published" name="published">
 			<option value="0">Save Draft</option>
@@ -93,7 +94,15 @@
 	<script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
 	<script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 	<script>
-		$.validate();
+		
+		var form = $('form#new_project');
+		$.validate({
+			form : form,
+		});
+
+
+
+
 
 		// dropzone function
 		Dropzone.autoDiscover = false;
@@ -125,7 +134,6 @@
    				});
  			}
 	    });
-
 
 
 
@@ -252,8 +260,64 @@
 
 
 
+		function submit_form() {
+			/*
+			var mega_array = [];
+			$('.first_name').each(function() {
+				var tempArray = [];
+				var rowId = $(this).attr('id').split('-')[1];
+
+				//if(($('#first_name-'+rowId).val() = '') && ($('#last_name-'+rowId).val() = '') && ($('#role-'+rowId).val() = '') && ($('#email-'+rowId).val() = '')) {
+					// do not add to temp array
+				//}
+
+				tempArray.first_name = $('#first_name-'+rowId).val();
+				tempArray.last_name = $('#last_name-'+rowId).val();
+				tempArray.role = $('#role-'+rowId).val();
+				tempArray.email = $('#email-'+rowId).val();
+
+				mega_array.push(tempArray);
+			});
+
+			console.log(mega_array);
+			*/
+
+			$.ajax({
+				type: "POST",
+				url: "overlord.php",
+				data: form.serialize(),
+				success:function(res){
+					var published = $('select#published').val();
+					if(published == 0) {
+						var location = "profile.php";
+					} else {
+						var location = "displayfilm.php?id="+res;
+					}
+					window.location=location;
+				},
+				error:function(res){
+					console.log(res);
+				}
+			});
+			
+		}
+
+
+
 		// do all the things
 		$(document).ready(function(){
+			var form = $('form#new_project');
+
+			form.on('submit', function(e){
+				e.preventDefault();
+				submit_form();
+			})
+
+			$.validate({
+			    form : form,
+			    onSuccess : function($form) {
+			    },
+			});
 
 			// Increase collaborators as user inputs info
 			$(document).on('blur',"#new_collaborator > tbody > tr:last > td > input.first_name", function(){
@@ -278,6 +342,12 @@
 					$('#new_collaborator > tbody > tr:last > td > input.role').attr('name', 'collab[' + rowcurrent + '][role]');
 					$('#new_collaborator > tbody > tr:last > td > input.email').attr('name', 'collab[' + rowcurrent + '][email]');
 					$('#new_collaborator > tbody > tr:last > td > input#remove').attr('name', 'collab[' + rowcurrent + '][remove]');
+
+					// edit id for each row
+					$('#new_collaborator > tbody > tr:last > td > input.first_name').attr('id', 'first_name-' + rowcurrent);
+					$('#new_collaborator > tbody > tr:last > td > input.last_name').attr('id', 'last_name-' + rowcurrent);
+					$('#new_collaborator > tbody > tr:last > td > input.role').attr('id', 'role-' + rowcurrent);
+					$('#new_collaborator > tbody > tr:last > td > input.email').attr('id', 'email-' + rowcurrent);
 				}
 			});
 		});

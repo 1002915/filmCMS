@@ -1,5 +1,4 @@
 <?php 
-	require "overlord.php";
 	session_start();
 
 	if (!isset($_SESSION['id'])) {
@@ -20,8 +19,9 @@
 
 <div class="filmdisplay_box"> 
 
-	<form method="POST" action="formsubmit.php">
+	<form method="POST" action="" id="edit_project">
 		<input type="hidden" name="function" value="update_project">
+		<input type="hidden" name="target" value="<?php echo $film_id; ?>">
 
 		<label for="edit_title">Title</label>
 		<input type="text" id="edit_title" name="title" data-validation="required" data-validation="length" data-validation-length="max250">
@@ -70,7 +70,7 @@
 
 		<!-- hidden fields-->
 		<input type="hidden" id="edit_user_id" name="user_id" value="<?php echo $user_id;?>">
-
+		<input type="hidden" id="edit_active" name="active" value="1">
 		<input type="submit">
 	</form>
 </div>
@@ -82,7 +82,10 @@
 
 	<script>
 
-		$.validate();
+		var form = $('form#edit_project');
+		$.validate({
+			form : form,
+		});
 
 		// relevant film id
 		var target = <?php echo $film_id; ?>;
@@ -262,30 +265,6 @@
 
 
 
-		/*
-		var errors = false;
-		var myDropzone = new Dropzone("#upload", {
-			error: function(file, errorMessage) {
-			    errors = true;
-			},
-			success: function(file, response ) {
-			    console.log(file);
-			    if(errors) {
-			        console.log("There were errors!");
-			   	} else {
-			        console.log("We're done!");
-			        var userid = $('input#user_id').val();
-					var filepathstring = 'uploads/';
-					var file_name = file['name'];
-					var filepath = filepathstring + userid + '/'+ file_name;
-					console.log(filepath);
-					$('input[name=cover_image]').val(file_name);
-
-					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
-			    }
-			}
-		});
-		*/
 
 		// dropzone function
 		Dropzone.autoDiscover = false;
@@ -325,9 +304,45 @@
 
 
 
+
+
+		function submit_form() {
+			$.ajax({
+				type: "POST",
+				url: "overlord.php",
+				data: form.serialize(),
+				//dataType: 'json',
+				success:function(res){
+					console.log(res);
+					var published = $('select#published').val();
+					if(published == 0) {
+						var location = "profile.php";
+					} else {
+						var location = "displayfilm.php?id="+res;
+					}
+					window.location=location;
+					
+				},
+				error:function(res){
+					console.log(res);
+				}
+			});
+			
+		}
+
+
+
+
 		// do all the things
 		$(document).ready(function(){ 
 			return_project();
+
+			var form = $('form#edit_project');
+			form.on('submit', function(e){
+				e.preventDefault();
+				submit_form();
+			})
+
 
 			// Increase collaborators as user inputs info
 			$(document).on('blur',"#edit_collaborator > tbody > tr:last > td > input.edit_first_name", function(){
