@@ -16,7 +16,7 @@
 </div>
 
 <div class="filmdisplay_box"> 
-	<form id="new_project">
+	<form id="new_project" method="POST" action="">
 		<input type="hidden" name="function" value="new_project">
 
 		<label for="title">Title</label>
@@ -244,6 +244,7 @@
 
 
 		function submit_form() {
+			/*
 			var mega_array = [];
 			$('.first_name').each(function() {
 				var tempArray = [];
@@ -262,29 +263,25 @@
 			});
 
 			console.log(mega_array);
-		
-			
+			*/
+
+			var data = $('form#new_project').serialize();
+
 			$.ajax({
 				type: "POST",
 				url: "overlord.php",
-				data: {
-					function: 'new_project',
-					title: $('input#title'.val()),
-					synopsis: $('input#synopsis'.val()),
-					cover_image: $('input#cover_image'.val()),
-					video_link: $('input#video_link'.val()),
-					runtime: $('input#runtime'.val()),
-					user_id: <?php echo $user_id;?>,
-					published: $('input#published'.val()),
-					active: $('input#active'.val()),
-					collab: mega_array
-				},
+				data: data,
 				dataType: "json",
 				success: function(res){
-					console.log(res);
+					$.each(res, function(i, val) {
+						console.log(val);
+					});
+					//window.location="displayfilm.php?id=";
 				},
 				error: function(res){
-					console.log(res);
+					$.each(res, function(i, val) {
+						console.log(val);
+					});
 				}
 			});
 			

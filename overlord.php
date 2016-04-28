@@ -446,31 +446,36 @@
 						$sql  = "INSERT INTO film (title, synopsis, video_link, cover_image, runtime, user_id, published, active) VALUES (?,?,?,?,?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action =  "Insert new film prepare failed";
+							echo "prepare failed";
 						}
 						if(!$stmt->bind_param("sssssiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
 							$action =  "Insert new film binding param failed";
+							echo "bind param failed";
 						}
 						if(!$stmt->execute()){
 							$action =  "Insert new film execute failed";
+							echo "execute failed";
 						} 
 						else {
 							$action = "New film inserted";
 						}
-
+						
 						$target = $mysqli->insert_id; // film id
-
+						
+						$data = array($target);
+						
 						$stmt->close();
-
-
-
+						
+						
+						
 						// Insert collaborators
 						$collab = $_POST['collab'];
-						foreach($collab as $value=>$data) {
-							if(!empty($data['first_name'] && $data['last_name'] && $data['role'] && $data['email'])){
-								$collab_fn = $data['first_name'];
-							     $collab_ln = $data['last_name'];
-							     $collab_role = $data['role'];
-							     $collab_email = $data['email'];
+						foreach($collab as $i=>$v) {
+							if(!empty($v['first_name'] && $v['last_name'] && $v['role'] && $v['email'])){
+								$collab_fn = $v['first_name'];
+							     $collab_ln = $v['last_name'];
+							     $collab_role = $v['role'];
+							     $collab_email = $v['email'];
 
 							     $sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES (?,?,?,?,?)";
 							     if(!$stmt = $mysqli->prepare ($sql)){
