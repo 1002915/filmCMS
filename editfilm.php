@@ -340,6 +340,9 @@
 			var form = $('form#edit_project');
 			form.on('submit', function(e){
 				e.preventDefault();
+				if(($("#new_collaborator > tbody > tr:last > td > input.first_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.last_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.role").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.email").val() == '') ) {
+					$('tr:last', this).remove();
+				}
 				submit_form();
 			})
 

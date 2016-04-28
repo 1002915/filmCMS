@@ -266,20 +266,12 @@
 			$('.first_name').each(function() {
 				var tempArray = [];
 				var rowId = $(this).attr('id').split('-')[1];
-
-				//if(($('#first_name-'+rowId).val() = '') && ($('#last_name-'+rowId).val() = '') && ($('#role-'+rowId).val() = '') && ($('#email-'+rowId).val() = '')) {
-					// do not add to temp array
-				//}
-
 				tempArray.first_name = $('#first_name-'+rowId).val();
 				tempArray.last_name = $('#last_name-'+rowId).val();
 				tempArray.role = $('#role-'+rowId).val();
 				tempArray.email = $('#email-'+rowId).val();
-
 				mega_array.push(tempArray);
 			});
-
-			console.log(mega_array);
 			*/
 
 			$.ajax({
@@ -310,14 +302,13 @@
 
 			form.on('submit', function(e){
 				e.preventDefault();
+				if(($("#new_collaborator > tbody > tr:last > td > input.first_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.last_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.role").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.email").val() == '') ) {
+					$('tr:last', this).remove();
+				}
+
 				submit_form();
 			})
 
-			$.validate({
-			    form : form,
-			    onSuccess : function($form) {
-			    },
-			});
 
 			// Increase collaborators as user inputs info
 			$(document).on('blur',"#new_collaborator > tbody > tr:last > td > input.first_name", function(){

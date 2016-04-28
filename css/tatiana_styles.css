@@ -45,6 +45,10 @@
     margin-bottom: 20px;
 }
 
+.site_content .filmdisplay_box input#synopsis {
+    color: #000;
+}
+
 .site_content .filmdisplay_box input[type="password"] {
     width: 100%;
 }
