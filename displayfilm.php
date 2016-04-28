@@ -77,25 +77,25 @@
 
 	} else { ?>
 		<div id='aca_form_button'>
-			Please leave some academic feedback
+			Please leave some feedback
 		</div>
 
 		<div id='aca_form'>
 			<h1 class='height_modorator'> Academic Feedback Form</h1><br><br>
 			<p>What was the filmmakers objective when making this documentary?</p>
-			<input type='text' name='feedback_1' id='feedback_1' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_1' id='feedback_1' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How would you describe the quality of the cinematography?</p>
-			<input type='text' name='feedback_2' id='feedback_2' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_2' id='feedback_2' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How would you describe the quality of the audio?</p>
-			<input type='text' name='feedback_3' id='feedback_3' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_3' id='feedback_3' data-validation="required"  data-validation="length"placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How did the editing/structure of this documentary help establish character and plot?</p>
-			<input type='text' name='feedback_4' id='feedback_4' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_4' id='feedback_4' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>What were the most & least engaging elements of this documentary and why?</p>
-			<input type='text' name='feedback_5' id='feedback_5' placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_5' id='feedback_5' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<input type='button' value='submit' id='submit'>
 		</div>
@@ -109,6 +109,9 @@ include('footer.php');
 <script src="https://f.vimeocdn.com/js/froogaloop2.min.js"></script>
 
 <script>
+//VALIDATE THE FEEDBACK FROM
+	$.validate();
+	console.log('validate');
 
 	function return_project() {
 		var target = <?PHP echo $_GET['id'];?>;
@@ -204,7 +207,7 @@ include('footer.php');
 		$('#aca_form').show();
 		scrollWin();
 	});
-
+	
 	//SENDING THE FORM INFORMATION TO THE OVERLORD FILE
 	function academic_form() {
 		console.log('academic form in process!');
