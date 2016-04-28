@@ -76,14 +76,14 @@ $(document).ready(function(){
  								} else {
  									if (inner == 1) {
  										$("#film_content").append('<div class="content_bottom" id="content_bottom_'+counter+'" ></div>');
- 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'<div class="film_title_medium">'+value.title+'</div></div></a></div>');
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_medium">'+value.title+'</div></a></div>');
  										inner++;
  									} else if (inner == 2) {
- 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'<div class="film_title_medium">'+value.title+'</div></div></a></div>');
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_medium">'+value.title+'</div></a></div>');
  										inner++;
 
  									} else {
- 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'<div class="film_title_medium">'+value.title+'</div></div></a></div>');
+ 										$('#content_bottom_'+counter).append('<div class="film_medium"><a href="displayfilm.php?id='+value.id+'"><div class="film_thumbnail" style="background-image:url('+"'uploads/"+value.user_id+'/'+value.cover_image+"'"+')">'+'</div><div class="film_title_medium">'+value.title+'</div></a></div>');
  										group = 'content_left';
  										inner = 1;
  										counter++;

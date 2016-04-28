@@ -1,5 +1,47 @@
 @media screen and (max-width: 700px) {
+		.profile_left, .profile_right, .profile_edit_box {
+		padding: 0px;
+    float: none;
+    width: 100%;
+    max-width: 100%;
 
+        padding: 20px;
+    float: none;
+    width: 100%;
+    max-width: 100%;
+
+	}
+
+    .logo_style {
+        width: 100%;
+    }
+
+    .dropbtn {
+    background-image: url('../img/user.png');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 40px;
+    color: rgba(0,0,0,0);
+    }
+
+    .logo {
+    width: 230px;
+    height: 70px;
+    margin-left: 40%;
+    }
+
+    .header_navigation {
+        height: auto;
+    }
+
+    .search_holder {
+    width: calc(100% - 60px);
+    }
+
+    .dropdown {
+        margin-right: 0px;
+    }
 }
 
 @media screen and (max-width: 1024px) {
@@ -10,9 +52,5 @@
 }
 
 @media screen and (max-width: 1199px) {
-	.profile_left, .profile_right, .profile_edit_box {
-		width:100%;
-		max-width:450px;
-		float:none;
-	}
+
 }
