@@ -5,7 +5,6 @@
 	<body id='search_body'>
 
 		<div id='searchBar'>
-			<p class='center_text'>Search Bar</p>
 			<link href='https://fonts.googleapis.com/css?family=Oswald|Poiret+One' rel='stylesheet' type='text/css'>
 			<!-- SEARCH BOX -->
 			<div class='middle_postition'>
@@ -66,7 +65,7 @@
 								$('#searchList').append( "<div class='clear_float'></div>");
 	 							if (count < 1){
 	 								$('#searchList').html('');
-	 								$('#searchList').append("<p>Sorry there are no results</p>");
+	 								$('#searchList').append("<p class='empty_search'>Sorry there are no results</p>");
 	 							}
 								
 							}

@@ -12,6 +12,23 @@ $password = e($_POST['pass_confirmation']);
 
 $campus_id = e($_POST['campus_id']);
 
+$lecturer_email = array('sae.edu');
+
+$matches = array();
+
+preg_match("/^(.+)@([^\(\);:,<>]+\.[a-zA-Z]{2,4})/", $email, $matches);
+
+$domain = $matches[2];
+
+if(in_array($domain, $lecturer_email))
+{
+    $user_type = 1;
+
+} else {
+
+    $user_type = 0;
+}
+
 $last_row = mysqli_insert_id($mysqli);
 
 $hashed_password = password_hash($password, PASSWORD_DEFAULT);
@@ -70,9 +87,9 @@ function e($text) {
 }
 
 
-$sql = "INSERT INTO users (campus_id, first_name, Last_name, email, password_hash, verify_hash) 
+$sql = "INSERT INTO users (campus_id, first_name, Last_name, email, password_hash, verify_hash, user_type) 
 
-        VALUES ('$campus_id', '$first_name', '$last_name', '$email', '$hashed_password', '$verify_hash')";
+        VALUES ('$campus_id', '$first_name', '$last_name', '$email', '$hashed_password', '$verify_hash', '$user_type')";
 
 if (mysqli_query($mysqli, $sql)) {
 
@@ -134,7 +151,7 @@ $sendmail->Send();
 <div class="error_box">  </div>  
 <div class="security_box reset_email">
 <?php
-echo 'Thanks for registering. Please check your student email for the confirmation link to finalise the registration process.';
+echo 'Thanks for registering. Please check your email for the confirmation link to finalise the registration process.';
 ?>
 </div>
 <?php

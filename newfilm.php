@@ -107,8 +107,14 @@
 		// dropzone function
 		Dropzone.autoDiscover = false;
 	    $("#upload").dropzone({
+	    	acceptedFiles: "image/jpeg",
 	        url: "editfilm.php",
+	        maxFiles: 1, // Number of files at a time
+			maxFilesize: 1, //in MB
 	        addRemoveLinks: true,
+	        maxfilesexceeded: function(file) {
+				alert('You have uploaded more than 1 Image. Only the first file will be uploaded!');
+			},
 	        success: function (file, response) {
 	            var file_name = file['name'];
 	            file.previewElement.classList.add("dz-success");
@@ -119,10 +125,15 @@
 	        error: function (file, response) {
 	            file.previewElement.classList.add("dz-error");
 	            console.log('error')
-	        }
+	        },
+	        init: function() {
+   				this.on("addedfile", function() {
+     				if (this.files[1]!=null){
+       					this.removeFile(this.files[0]);
+     				}
+   				});
+ 			}
 	    });
-
-		
 
 
 
@@ -340,9 +351,6 @@
 				}
 			});
 		});
-
-
-
 	</script>
 
 	<?php include('footer.php') ?>
