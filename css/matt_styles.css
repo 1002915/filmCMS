@@ -18,7 +18,7 @@
     margin-bottom: 10px;
     background-color: rgba(0, 0, 0, 0.3);
     box-sizing:border-box;
-        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 
 }
 
@@ -490,7 +490,7 @@ a.btn_red {
         display: block;
         margin: 20px 0 10px;
         clear: both;
-        overflow: hidden;
+        overflow: inherit;
         text-decoration: none;
         color: #ED6347;
 }
