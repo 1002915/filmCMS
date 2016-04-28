@@ -1,7 +1,7 @@
 <!-- SITE CONTAINER AND LOGO -->
 
 	<div class="header_navigation">
-		<a href="index.php"><img src="img/logo.png" class="logo" alt="logo"></a>
+		<a href="index.php"><img src="img/logo2.0_locodoco_final-05.png" class="logo" alt="logo"></a>
 
 <!--SEARCH BAR IN HEADER -->
 		<div class="search_holder">
