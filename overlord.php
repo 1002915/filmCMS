@@ -87,7 +87,83 @@
 					} else {
 						$target = $_POST['target']; // film id
 
-						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, rating, users, campus WHERE film.id = rating.film_id AND film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND published = 1";
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, users, campus WHERE film.user_id = users.id AND users.campus_id = campus.id AND film.id = ? AND film.published = 1";
+						if(!$stmt = $mysqli->prepare ($sql)) {
+							echo "prepare failed";
+						}
+						if(!$stmt->bind_param("i", $target)){
+							echo "binding param failed";
+						}
+						if(!$stmt->execute()){
+							echo "execute failied";
+						}
+						$stmt->store_result();
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active, $location)) {
+							echo "binding results failed";
+						}
+						$data = array();
+						
+						while($stmt->fetch()) {
+
+							$sql = "SELECT collaborators.first_name, collaborators.last_name, collaborators.role, collaborators.email FROM collaborators WHERE collaborators.film_id = ?";
+							if(!$stmt2 = $mysqli->prepare ($sql)) { 
+								echo "stmt2 prepare failed";
+							}
+							if(!$stmt2->bind_param("i", $id)){
+								echo "stmt2 binding param failed";
+							}
+							if(!$stmt2->execute()){
+								echo "stmt2 execute failied";
+							}
+							$stmt2->store_result();
+							if(!$stmt2->bind_result($first_name, $last_name, $role, $email)) {
+								echo "stmt2 binding results failed";
+							}
+
+							$collab = array();
+
+							while($stmt2->fetch()){
+								$collab[] = array(
+									"first_name" => $first_name,
+									"last_name" => $last_name,
+									"role" => $role,
+									"email" => $email
+								);
+							}
+
+							$stmt2->close();
+
+							$data[] = array(
+								"id" => $id,
+								"title" => $title,
+								"synopsis" => $synopsis,
+								"video_link" => $video_link,
+								"cover_image" => $cover_image,
+								"runtime" => $runtime,
+								"user_id" => $user_id,
+								"published" => $published,
+								"active" => $active,
+								"campus" => $location,
+								"collab" => $collab
+							);
+						} // end while
+
+						$stmt->close();
+
+					} // end if target is set
+
+				break; // end return single project
+
+
+
+
+				case "return_edit_project":
+					if(!isset($_POST['target'])){
+						$errormsg = "No film has been selected";
+					} else {
+						$target = $_POST['target']; // film id
+
+						$sql = "SELECT film.id, title, synopsis, video_link, cover_image, runtime, user_id, published, active, location FROM film, users, campus WHERE film.user_id = users.id AND users.campus_id = campus.id AND film.id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
@@ -319,6 +395,9 @@
 						else {
 							$action = "Project updated";
 						}
+
+						$data = $target;
+
 						$stmt->close();
 
 
@@ -412,7 +491,7 @@
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							echo "prepare failed";
 						}
-						if(!$stmt->bind_param("iiss", $target, $user_id, $action)){
+						if(!$stmt->bind_param("iis", $target, $user_id, $action)){
 							echo "binding param failed";
 						}
 						if(!$stmt->execute()){
@@ -446,12 +525,15 @@
 						$sql  = "INSERT INTO film (title, synopsis, video_link, cover_image, runtime, user_id, published, active) VALUES (?,?,?,?,?,?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
 							$action =  "Insert new film prepare failed";
+							echo "prepare failed";
 						}
 						if(!$stmt->bind_param("sssssiii", $title, $synopsis, $video_link, $cover_image, $runtime, $user_id, $published, $active)){
 							$action =  "Insert new film binding param failed";
+							echo "bind param failed";
 						}
 						if(!$stmt->execute()){
 							$action =  "Insert new film execute failed";
+							echo "execute failed";
 						} 
 						else {
 							$action = "New film inserted";
@@ -459,18 +541,20 @@
 
 						$target = $mysqli->insert_id; // film id
 
+						$data = $target;
+
 						$stmt->close();
 
 
 
 						// Insert collaborators
 						$collab = $_POST['collab'];
-						foreach($collab as $value=>$data) {
-							if(!empty($data['first_name'] && $data['last_name'] && $data['role'] && $data['email'])){
-								$collab_fn = $data['first_name'];
-							     $collab_ln = $data['last_name'];
-							     $collab_role = $data['role'];
-							     $collab_email = $data['email'];
+						foreach($collab as $i=>$v) {
+							if(!empty($v['first_name'] && $v['last_name'] && $v['role'] && $v['email'])){
+								$collab_fn = $v['first_name'];
+							     $collab_ln = $v['last_name'];
+							     $collab_role = $v['role'];
+							     $collab_email = $v['email'];
 
 							     $sql = "INSERT INTO collaborators (film_id, first_name, last_name, role, email) VALUES (?,?,?,?,?)";
 							     if(!$stmt = $mysqli->prepare ($sql)){

@@ -200,8 +200,11 @@ html {
 
 .film_title_medium {
 	box-sizing: border-box;
-	padding: 5px;
-	font-size: 1.4em;
+    padding: 5px;
+    font-size: 1.2em;
+    position: relative;
+    top: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .push {

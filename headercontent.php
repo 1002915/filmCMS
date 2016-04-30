@@ -35,14 +35,14 @@
 <!-- Username & Password Login form -->
                 	<section class="popupBody">      
                         <div class="user_login">
-                            <form method="post" action="checklogin.php">
-                                <label>SAE email Address</label>
-                                <input type="text" name='email' placeholder="email" maxlength="50"/><BR>
+                            <form method="post" action="">
+                                <label>SAE email Address</label><div id="error"></div>
+                                <input id="email_var" type="text" name='email' placeholder="email" maxlength="50"/><BR>
                                 <label>Password</label>
-                                <input type='password'  name='password_hash' maxlength="50" placeholder="password"/><BR>
+                                <input id="password_var" type='password'  name='password_hash' maxlength="50" placeholder="password"/><BR>
                                     <div class="action_btns float">
                                         <a href="#" class="btn back_btn2"><i class="fa fa-angle-double-left"></i> sign up</a>
-                                        <input class="parallelogram" onclick="this.disabled=true;this.value='logging in...'; this.form.submit();" type='submit' name='Submit' value='login' />
+                                        <input id="login_var" class="parallelogram" type='submit' name='Submit' value='login' />
                                     </div>
                             </form>
                             <a href="resetpassword.php" class="forgot_password">Forgot password?</a>
@@ -111,4 +111,4 @@ $(document).on({
 
 
 <div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
-	
+
