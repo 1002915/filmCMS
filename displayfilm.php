@@ -80,25 +80,25 @@
 			Please leave some feedback
 		</div>
 
-		<div id='aca_form'>
-			<h1 class='height_modorator'> Academic Feedback Form</h1><br><br>
+		<form id='aca_form'>
+			<h1 class='height_modorator'>Feedback Form</h1><br><br>
 			<p>What was the filmmakers objective when making this documentary?</p>
-			<input type='text' name='feedback_1' id='feedback_1' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_1' id='feedback_1' data-validation="required" placeholder='Please place your answer here...' class='aca_form_input' >
 			<br>
 			<p>How would you describe the quality of the cinematography?</p>
-			<input type='text' name='feedback_2' id='feedback_2' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_2' id='feedback_2' data-validation="required" placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How would you describe the quality of the audio?</p>
-			<input type='text' name='feedback_3' id='feedback_3' data-validation="required"  data-validation="length"placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_3' id='feedback_3' data-validation="required" placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>How did the editing/structure of this documentary help establish character and plot?</p>
-			<input type='text' name='feedback_4' id='feedback_4' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_4' id='feedback_4' data-validation="required" placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
 			<p>What were the most & least engaging elements of this documentary and why?</p>
-			<input type='text' name='feedback_5' id='feedback_5' data-validation="required" data-validation="length" placeholder='Please place your answer here...' class='aca_form_input'>
+			<input type='text' name='feedback_5' id='feedback_5' data-validation="required"placeholder='Please place your answer here...' class='aca_form_input'>
 			<br>
-			<input type='button' value='submit' id='submit'>
-		</div>
+			<input type='button' value='Submit' id='submit'>
+		</form>
 <?php } 
 
 include('footer.php');
@@ -110,10 +110,6 @@ include('footer.php');
 <script src="js/form-validator/jquery.form-validator.js"></script>
 
 <script>
-//VALIDATE THE FEEDBACK FROM
-	$.validate();
-	console.log('validate');
-
 	function return_project() {
 		var target = <?PHP echo $_GET['id'];?>;
 		$.ajax({
@@ -330,6 +326,16 @@ include('footer.php');
 
 	});
 
+	//VALIDATE THE FEEDBACK FROM
+		/*$.validate();
+		$.validate({
+	    	modules : 'security'
+	  	});*/
+	  	var form = $('form#aca_form');
+		$.validate({
+			form : form,
+		});
+		console.log('validate');
 
 </script>
 
