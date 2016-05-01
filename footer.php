@@ -34,6 +34,7 @@ $(function() {
                 $(".social_login").hide();
                 $(".user_login").show();
                 $(".user_register").hide();
+                $(".reset_email").hide();
 
                 return false;
         });
@@ -42,6 +43,7 @@ $(function() {
                 $(".user_login").hide();
                 $(".user_register").show();
                 $(".social_login").hide();
+                $(".reset_email").hide();
                 $(".header_title").text('Login');
                 return false;
         });
@@ -50,6 +52,16 @@ $(function() {
         $(".loginform").click(function() {
                 $(".user_login").show();
                 $(".user_register").hide();
+                $(".reset_email").hide();
+                $(".header_title").text('Login');
+                return false;
+        });
+
+          // Forgot Password show
+        $(".forgot_password").click(function() {
+                $(".user_login").hide();
+                $(".user_register").hide();
+                $(".reset_email").show();
                 $(".header_title").text('Login');
                 return false;
         });
@@ -88,6 +100,51 @@ $(function() {
 
               $("#login_var").val('Login')
               $("#error").html("<span style='color:#cc0000; font-size:0.9em;'>Error: Invalid username or password.</span> ");
+            }
+          }
+        });
+      }
+return false;
+    });
+
+});
+</script>
+
+<script>
+  $(document).ready(function() {
+    
+    $('#reset_password').click(function() {
+
+      var email=$("#email_reset").val();
+      var dataString = 'email='+email;
+    
+      if($.trim(email).length>0) {
+        
+        $.ajax({
+          type: "POST",
+          url: "reset.php",
+          data: dataString,
+          cache: false,
+  
+          beforeSend: function(){ 
+          
+            $("#reset_password").val('resetting...');
+            $("#reset_password").attr('disabled', true);
+
+          },
+          
+          success: function(data){
+            
+            if(data) {
+              
+                $("#success").html("<span style='color:#cc0000; font-size:0.9em;'>Success! please check your email for a reset link.</span> ");
+                $("#reset_password").val('reset');
+            }
+            
+            else {
+
+              $("#reset_email").val('Reset');
+              $("#error").html("<span style='color:#cc0000; font-size:0.9em;'>Sorry, that email isn't valid.</span> ");
             }
           }
         });
