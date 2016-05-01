@@ -1,5 +1,4 @@
 <?php 
-include('header.php');
 include('connection.php');
 
 function e($text) {
@@ -7,9 +6,7 @@ function e($text) {
     return htmlspecialchars($text, ENT_QUOTES, 'UTF-8');
    
 }
-?>
-<div class="security_box">
-    <?php
+
 /* 
 SELECT the 'id' of the user where their email address matches their input 
 */
@@ -28,13 +25,10 @@ if ($result->num_rows > 0) {
 
         $row_id = $row["id"];
 
-
-
 /* 
-UPDATE 'verify_hash' in the database. This wey, we can send the hash to the users email 
+UPDATE 'verify_hash' in the database. This way, we can send the hash to the users email 
 which will then link to the page where the user can update their password 
 */
-
 
 $update_hash = "UPDATE users SET verify_hash='$verify_hash' WHERE id='$row_id'";
 
@@ -72,46 +66,30 @@ $body = "Hello ".$row['first_name']."!<BR>\r\n\r\n".
     "The Web Team @ SAE\r\n";
 
 $sendmail = new PHPMailer(); // Start the phpmailer function
-
 $sendmail->CharSet = 'utf-8';
-
 $sendmail->IsSMTP();
-
 $sendmail->Host = "smtp.google.com";
-
 $sendmail->MTPDebug = 2;
-
 $sendmail->SMTPAuth = true;     
-
 $sendmail->SMTPSecure = "tls";  
-
 $sendmail->Host = "smtp.gmail.com"; 
-
 $sendmail->Port = 587;    
-
 $sendmail->Username = "filmcms@gmail.com"; 
-
 $sendmail->Password = "filmcmspassword"; 
-
 $sendmail->AddReplyTo("1002915@student.sae.edu.au","Matthew Neal");
-
 $sendmail->Subject = "FILM CMS Password Reset";
-
 $sendmail->MsgHTML($body);
-
 $sendmail->AddAddress($email, $row['first_name']);
-
 $sendmail->Send();
-
 if(!$sendmail->Send()) {
+
 echo 'Message could not be sent.';
+
 echo 'Mailer Error: ' . $sendmail->ErrorInfo;
+
 }
 
-echo '<h3>Thanks for being a part of Film CMS.</h3>We have sent your password to your eamil address. <BR>
-	Please follow the instructions to reset  your password. May your grades be high and your <BR>
-	framerate cinematic!.<BR><BR><a href="login.php">HOME</a>';
-
+echo 'Thanks for being a part of Film CMS. We have sent your password to your eamil address. Please follow the instructions to reset  your password.';
 
 } else {
     
@@ -126,5 +104,3 @@ echo '<h3>Thanks for being a part of Film CMS.</h3>We have sent your password to
 }
 
 ?>
-</div>
-<?php include('footer.php'); ?>
