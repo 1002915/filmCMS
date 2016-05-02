@@ -72,9 +72,15 @@ $sql = "INSERT INTO users (campus_id, first_name, Last_name, email, password_has
 
 if (mysqli_query($mysqli, $sql)) {
 
-    $confirm_url = 'localhost/filmCMS/confirmreg.php?code='.$verify_hash;
-
     $confirm_id = $mysqli->insert_id;
+
+    $confirm_url = 'localhost/filmCMS/confirmreg.php?code='. $verify_hash . '&email='.$email . '&id='.$confirm_id; 
+
+    $message = file_get_contents('email.htm');
+
+    $message = str_replace('%first_name%', $first_name, $message);
+
+    $message = str_replace('%register%', $confirm_url, $message);
 
     require_once('PHPMailerAutoload.php');
 
@@ -97,6 +103,8 @@ if (mysqli_query($mysqli, $sql)) {
     $sendmail->CharSet = 'utf-8';
     
     $sendmail->IsSMTP();
+
+    $sendmail->IsHTML(true);
     
     $sendmail->Host = "smtp.google.com";
     
@@ -116,7 +124,7 @@ if (mysqli_query($mysqli, $sql)) {
     
     $sendmail->Subject = "Your registration with FILMCMS";
     
-    $sendmail->MsgHTML($body);
+    $sendmail->MsgHTML($message);
     
     $sendmail->AddAddress($formvars['email'],$formvars['first_name']);
     

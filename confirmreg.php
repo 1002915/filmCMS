@@ -31,7 +31,7 @@ if ($mysqli->query($verifiedupdate) === TRUE) {
 
 } else {
 
-	echo 'nah';
+	echo 'sorry, this link has expired. Please click <a href="index.php">here</a>';
 }
 
 ?>
