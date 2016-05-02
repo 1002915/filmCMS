@@ -295,7 +295,7 @@
 						} else {
 							$searchstring = '%';
 						}
-						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID 
+						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID, users.id 
 						FROM film, campus, users, collaborators 
 						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
 						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
@@ -312,7 +312,7 @@
 							echo "execute failed";
 						}
 						$stmt->store_result();
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $location, $campus_id)) {
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $location, $campus_id, $user_id)) {
 							echo "binding results failed";
 						}
 						$data = array();
@@ -646,16 +646,17 @@
 
 						$sql = "INSERT INTO rating (rating, ip, film_id) VALUES (?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
+							$action =  "add rating prepare failed";
 						}
 						if(!$stmt->bind_param("isi", $rating, $ip, $target)) {
-							echo "binding param failed";
+							$action = "add rating binding param failed";
 						}
 						if(!$stmt->execute()){
-							echo "execute failed";
+							$action = "add rating execute failed";
 						}
-						if(!$stmt->bind_result($rating, $ip, $film_id)){
-							echo "binding result failed";
+
+						else {
+							$action = "Add rating successful";
 						}
 						$stmt->close();
 
@@ -722,7 +723,7 @@
 
 				case "return_academic_feedback":
 					$target = $_POST['target']; // campus id based on teacher making request
-					$sql = "SELECT campus.location, users.first_name, users.last_name, academic.feedback_1, academic.feedback_2, academic.feedback_3 FROM 
+					$sql = "SELECT campus.location, film.id, film.title, academic.feedback_1, academic.feedback_2, academic.feedback_3, academic.feedback_4, academic.feedback_5 FROM 
 					((academic INNER JOIN film ON academic.film_id = film.id) INNER JOIN users ON film.user_id = users.id) INNER JOIN campus ON users.campus_id = campus.id WHERE campus.id=?";
 							
 					if(!$stmt = $mysqli->prepare ($sql)) {
@@ -734,19 +735,71 @@
 					if(!$stmt->execute()){
 						echo "execute failed";
 					}
-					if(!$stmt->bind_result($location, $first_name, $last_name, $feedback_1, $feedback_2, $feedback_3)){
-						echo "binding result failed";
+
+					$stmt->store_result();
+					if(!$stmt->bind_result($location, $film_id, $title, $feedback_1, $feedback_2, $feedback_3, $feedback_4, $feedback_5)) {
+						echo "binding results failed";
 					}
-					$res = $stmt->get_result();
-					$rows = $res->fetch_all();
+					
+					$data = array();
+
+					while($stmt->fetch()) {
+
+						$sql = "SELECT collaborators.first_name, collaborators.last_name FROM collaborators WHERE collaborators.film_id = ?";
+						if(!$stmt2 = $mysqli->prepare ($sql)) { 
+							echo "stmt2 prepare failed";
+						}
+						if(!$stmt2->bind_param("i", $film_id)){
+							echo "stmt2 binding param failed";
+						}
+						if(!$stmt2->execute()){
+							echo "stmt2 execute failied";
+						}
+						$stmt2->store_result();
+
+						if(!$stmt2->bind_result($first_name, $last_name)) {
+							echo "stmt2 binding results failed";
+						}
+
+						//concat collabs
+
+						$collab = array();
+
+						while($stmt2->fetch()){
+							$collab[] = array(
+								"first_name" => $first_name,
+								"last_name" => $last_name,
+							);
+
+						}
+
+						$collab_out = implode(" & ",array_map(function($a) {return implode(" ",$a);},$collab));
+
+						$stmt2->close();
+
+						$data[] = array(
+							"location" => $location,
+							"title" => $title,
+							"collab" => $collab_out,
+							"feedback_1" => $feedback_1,
+							"feedback_2" => $feedback_2,
+							"feedback_3" => $feedback_3,
+							"feedback_4" => $feedback_4, 
+							"feedback_5" => $feedback_5
+						);
+					}
+					
+					//$res = $stmt->get_result();
+					//$rows = $res->fetch_all();
 					$stmt->close();
+					
 					
 					// output array as csv file
 					$output = fopen("php://output", 'w') or die("Could not open php://output");
 					header("Content-Type:application/csv");
 					header("Content-Disposition:attachment;filename=studentfeedback.csv");
-					fputcsv($output, array('Location','First name','Last name','Feedback 1','Feedback 2','Feedback 3'));
-					foreach($rows as $row){
+					fputcsv($output, array('Location','Film Title','Film Makers','What was the filmmakers objective when making this documentary?','How would you describe the quality of the cinematography?','How would you describe the quality of the audio', 'How did the editing/structure of this documentary help establish character and plot?', 'What were the most and least engaging elements of this documentary and why?'));
+					foreach($data as $row){
 						fputcsv($output, $row);
 					}
 					fclose($output) or die("Could not close php://output");
