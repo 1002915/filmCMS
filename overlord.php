@@ -347,7 +347,7 @@
 								"video_link" => $video_link,
 								"cover_image" => $cover_image,
 								"runtime" => $runtime,
-								//"user_id" => $user_id,
+								"user_id" => $user_id,
 								"published" => $published,
 								"active" => $active,
 								"campus" => $location,
