@@ -646,16 +646,17 @@
 
 						$sql = "INSERT INTO rating (rating, ip, film_id) VALUES (?,?,?)";
 						if(!$stmt = $mysqli->prepare ($sql)) {
-							echo "prepare failed";
+							$action =  "add rating prepare failed";
 						}
 						if(!$stmt->bind_param("isi", $rating, $ip, $target)) {
-							echo "binding param failed";
+							$action = "add rating binding param failed";
 						}
 						if(!$stmt->execute()){
-							echo "execute failed";
+							$action = "add rating execute failed";
 						}
-						if(!$stmt->bind_result($rating, $ip, $film_id)){
-							echo "binding result failed";
+
+						else {
+							$action = "Add rating successful";
 						}
 						$stmt->close();
 
@@ -769,17 +770,17 @@
 								"first_name" => $first_name,
 								"last_name" => $last_name,
 							);
-							$collab_space = implode(" ", $collab);
+
 						}
 
-						$collab_cs = implode(",", $collab_space);
+						$collab_out = implode(" & ",array_map(function($a) {return implode(" ",$a);},$collab));
 
 						$stmt2->close();
 
 						$data[] = array(
 							"location" => $location,
 							"title" => $title,
-							"collab" => $collab_cs,
+							"collab" => $collab_out,
 							"feedback_1" => $feedback_1,
 							"feedback_2" => $feedback_2,
 							"feedback_3" => $feedback_3,
@@ -791,6 +792,7 @@
 					//$res = $stmt->get_result();
 					//$rows = $res->fetch_all();
 					$stmt->close();
+					
 					
 					// output array as csv file
 					$output = fopen("php://output", 'w') or die("Could not open php://output");
