@@ -289,8 +289,8 @@ include('footer.php');
             $('#rating label').off();
             console.log('off');
             var label = this.htmlFor;
-            var ratingid = document.getElementById(label).value;
-            console.log('rating:'+ratingid);
+            var rating = document.getElementById(label).value;
+            console.log('rating:'+rating);
 
             var target = <?php echo $_GET['id']?>;
             console.log('filmID:'+target);
