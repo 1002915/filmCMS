@@ -7,11 +7,8 @@
 			<div class="blurb"> 
 				<h3>ABOUT THE PROJECT </h3>
 				<br></br>
-				<div class="paragraph_about">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas sit amet fermentum lectus, 
-					eget blandit justo. Duis libero est, tempor et felis at, scelerisque ultricies odio. 
-
-Cposuere. Curabitur elementum est vitae leo vehicula, id rutrum leo luctus. Aenean sit amet odio et nisi pharetra efficitur 
-nec vel nulla. Donec dolor neque, semper sodales metus ac, feugia.</div>
+				<div class="paragraph_about"> Welcome to doco-loco a place to share our student films with you, our community. Here you can watch short documentaries and films produced by SAE students, both local and abroad. Come and meet some of the characters that inspire us into action, the causes that need to be shown, and the issues that can't be ignored. 
+This is also a shared space, and we need your feedback so, please rate and review our work.</div>
 
 
 			</div>
