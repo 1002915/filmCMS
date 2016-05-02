@@ -24,15 +24,15 @@
 		</section>
 		<section id="rating"> 
 			<p>Rate this film</p>
-			<input type="radio" name="rating" id="star5" value="5">
+			<input type="radio" name="rating" id="star5" value="5" class='radioBox'>
 			<label for="star5">5</label>
-			<input type="radio" name="rating" id="star4" value="4">
+			<input type="radio" name="rating" id="star4" value="4" class='radioBox'>
 			<label for="star4">4</label>
-			<input type="radio" name="rating" id="star3" value="3">
+			<input type="radio" name="rating" id="star3" value="3" class='radioBox'>
 			<label for="star3">3</label>
-			<input type="radio" name="rating" id="star2" value="2">
+			<input type="radio" name="rating" id="star2" value="2" class='radioBox'>
 			<label for="star2">2</label>
-			<input type="radio" name="rating" id="star1" value="1">
+			<input type="radio" name="rating" id="star1" value="1" class='radioBox'>
 			<label for="star1">1</label>
 		</section>
 	</section>
@@ -288,7 +288,12 @@ include('footer.php');
 			// USERS CAN ONLY RATE THE VIDEO ONCE
 			$('#rating label').off();
 			console.log('off');
-			var rating = $('#rating label').val();
+
+			$('.radioBox').each(function(){
+				if($(this).prop('checked')){
+					var rating = $(this).val();
+				}
+			});
 			console.log('rating:'+rating);
 			//var rating = $(this).val();
 			var target = <?php echo $_GET['id']?>;
