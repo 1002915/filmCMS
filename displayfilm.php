@@ -286,24 +286,16 @@ include('footer.php');
 
 		$('#rating label').on('click touch', function(){
 			// USERS CAN ONLY RATE THE VIDEO ONCE
-			$('#rating label').off();
-			console.log('off');
+            $('#rating label').off();
+            console.log('off');
+            var label = this.htmlFor;
+            var ratingid = document.getElementById(label).value;
+            console.log('rating:'+ratingid);
 
-			$('.radioBox').each(function(){
-				if($(this).prop('checked')){
-					var rating = $(this).val();
-				}
-			});
-			console.log('rating:'+rating);
-			//var rating = $(this).val();
-			var target = <?php echo $_GET['id']?>;
-			console.log('filmID:'+target);
-			var ip = '<?php echo $ip; ?>';
-			console.log('ipadd'+ip);
-
-			// USERS CAN ONLY RATE THE VIDEO ONCE
-			//$('input.star').removeAttr('onclick');
-			//console.log('rate once');
+            var target = <?php echo $_GET['id']?>;
+            console.log('filmID:'+target);
+            var ip = '<?php echo $ip; ?>';
+            console.log('ipadd'+ip);
 			
 			$.ajax({
 				type: "POST",
