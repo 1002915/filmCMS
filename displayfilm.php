@@ -213,7 +213,7 @@ include('footer.php');
 			var feedback_3 = $('#feedback_3').val();
 			var feedback_4 = $('#feedback_4').val();
 			var feedback_5 = $('#feedback_5').val();
-			var film_id = <?php echo $_GET['id']?>;
+			var film_id = <?php echo $_GET['id'];?>;
 			var user_id = 
 			<?php 
 				if(isset($_SESSION['id'])) {
@@ -292,7 +292,7 @@ include('footer.php');
             var rating = document.getElementById(label).value;
             console.log('rating:'+rating);
 
-            var target = <?php echo $_GET['id']?>;
+            var target = <?php echo $_GET['id'];?>;
             console.log('filmID:'+target);
             var ip = '<?php echo $ip; ?>';
             console.log('ipadd'+ip);
@@ -306,9 +306,7 @@ include('footer.php');
 					rating: rating,
 					ip: ip
 				},
-				dataType : 'json',
 				success: function(res) {
-					console.log(res);
 					$('#rating label').removeAttr('onclick'); //allows to click once
 					console.log('rate once');
 					$('#rating').append('<div class="rating_once">Thank you for rating</div>'); // Return "Thank you for rating"
