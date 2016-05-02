@@ -55,3 +55,45 @@ $(function() {
         });
 });
 </script>
+<script>
+  $(document).ready(function() {
+    
+    $('#login_var').click(function() {
+
+      var username=$("#email_var").val();
+      var password=$("#password_var").val();
+      var dataString = 'email='+username+'&password_hash='+password;
+    
+      if($.trim(username).length>0 && $.trim(password).length>0) {
+        
+        $.ajax({
+          type: "POST",
+          url: "checklogin.php",
+          data: dataString,
+          cache: false,
+  
+          beforeSend: function(){ 
+          
+            $("#login_var").val('Connecting...');
+          },
+          
+          success: function(data){
+            
+            if(data) {
+              
+              $("body").load("index.php").hide().fadeIn(1500).delay(6000);
+            }
+            
+            else {
+
+              $("#login_var").val('Login')
+              $("#error").html("<span style='color:#cc0000; font-size:0.9em;'>Error: Invalid username or password.</span> ");
+            }
+          }
+        });
+      }
+return false;
+    });
+
+});
+</script>
