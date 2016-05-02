@@ -295,7 +295,7 @@
 						} else {
 							$searchstring = '%';
 						}
-						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID 
+						$sql = "SELECT DISTINCT film.id, film.title, film.synopsis, film.video_link, film.cover_image, film.runtime, film.published, film.active, campus.location, campus.ID, users.id 
 						FROM film, campus, users, collaborators 
 						WHERE film.title Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
 						OR collaborators.first_name Like ? AND film.user_id = users.ID AND film.ID = collaborators.film_id AND campus.ID = users.campus_id AND published = 1 AND active = 1".$campus."
@@ -312,7 +312,7 @@
 							echo "execute failed";
 						}
 						$stmt->store_result();
-						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $location, $campus_id)) {
+						if(!$stmt->bind_result($id, $title, $synopsis, $video_link, $cover_image, $runtime, $published, $active, $location, $campus_id, $user_id)) {
 							echo "binding results failed";
 						}
 						$data = array();
