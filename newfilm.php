@@ -260,7 +260,27 @@
 
 
 
+		jQuery.fn.preventDoubleSubmission = function() {
+  		$(this).on('submit',function(e){
+		    var form = $(this);
+
+		    if (form.data('submitted') === true) {
+		      // Previously submitted - don't submit again
+		      e.preventDefault();
+		    } else {
+		      // Mark it so that the next submit can be ignored
+		      form.data('submitted', true);
+		    }
+		  });
+
+		  // Keep chainability
+		  return this;
+		};
+
+
+
 		function submit_form() {
+
 			/*
 			var mega_array = [];
 			$('.first_name').each(function() {
@@ -302,6 +322,9 @@
 
 			form.on('submit', function(e){
 				e.preventDefault();
+
+				$('form').preventDoubleSubmission();
+
 				if(($("#new_collaborator > tbody > tr:last > td > input.first_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.last_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.role").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.email").val() == '') ) {
 					$('tr:last', this).remove();
 				}
