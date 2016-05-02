@@ -45,7 +45,16 @@
                                         <input id="login_var" class="parallelogram" type='submit' name='Submit' value='login' />
                                     </div>
                             </form>
-                            <a href="resetpassword.php" class="forgot_password">Forgot password?</a>
+                            <a href="#" class="forgot_password">Forgot password?</a>
+                        </div>
+<!--FORGOT PASSWORD BOX -->
+                        <div class="reset_email"><div id="success"></div>
+                          <form method="post" action="">
+                            <input type='text' name='email' id='email_reset' maxlength="50" placeholder="your SAE email" />
+                            <a href="#" class="btn loginform"><i class="fa fa-angle-double-left"></i> Back</a>
+                            <input id="reset_password" type='submit' name='Submit' value='Submit' />
+                          </form>
+
                         </div>
 
 <!-- BEGIN REGISTER FORM -->

@@ -322,7 +322,7 @@ h1 {
 }
 
 #modal_trigger {
-        margin: 40px auto;
+     /*   margin: 40px auto;  */
         display: block;
         border-radius: 1px;
         background-color: #ffd00b;
