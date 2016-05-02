@@ -161,6 +161,11 @@ input[type="button"]:hover{
     transform: translate(-50%, -50%);
 }
 
+.site_content .filmdisplay_box .cover_image .dropzone .dz-preview .dz-image {
+    width: 100px;
+    height: 100px;
+}
+
 .site_content .filmdisplay_box .cover_image .actual_display { 
     margin: 0 auto;
     height: auto;
