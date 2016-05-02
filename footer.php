@@ -84,6 +84,7 @@ $(document).ready(function() {
   
           beforeSend: function(){ 
             $("#login_var").val('Connecting...');
+            $("#login_var").attr('disabled', true);
           },
           
           success: function(data){
@@ -94,6 +95,7 @@ $(document).ready(function() {
 
               $("#login_var").val('Login')
               $("#error").html("<span style='color:#cc0000; font-size:0.9em;'>Error: Invalid username or password.</span> ");
+              $("#login_var").attr('disabled', false);
             }
           }
         });

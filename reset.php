@@ -27,26 +27,38 @@ if ($result->num_rows > 0) {
         /* THIS SECTION WILL EMAIL THE RESET CODE. The reset code is simply a randomly generated hash that
         will be emailed to the user.
         */
-        if (isset($_POST['email'])) {
+        if (isset($_POST['email'])) { 
+
+                $confirm_url = 'localhost/filmCMS/resetlink.php?code='.$verify_hash . '&id=' . $row['id'];
+
+                $message = file_get_contents('reset.htm');
+
+                $first_name = $row['first_name'];
+
+                $message = str_replace('%first_name%', $first_name, $message);
+
+                $message = str_replace('%reset%', $confirm_url, $message);
         
             require_once('PHPMailerAutoload.php');
         
-            $confirm_url = 'localhost/filmCMS/resetlink.php?code='.$verify_hash;
+           
         
             $confirm_id = $mysqli->insert_id;
         
         
-            $body = "Hello ".$row['first_name']."!<BR>\r\n\r\n".
+          /*  $body = "Hello ".$row['first_name']."!<BR>\r\n\r\n".
                     "It looks like you've forgotten your password! :( We can reset that for you. :)\r\n<BR><BR>".
                     "Please click the link below to reset your password.\r\n".
                     "<a href='$confirm_url&id=$row_id'>Click here to reset your password</a>\r\n"."\r\n".
-                        "Regards,\r\n". "The Web Team @ SAE\r\n";
+                        "Regards,\r\n". "The Web Team @ SAE\r\n"; */
         
             $sendmail = new PHPMailer(); // Start the phpmailer function
             
             $sendmail->CharSet = 'utf-8';
             
             $sendmail->IsSMTP();
+
+            $sendmail->IsHTML(true);
             
             $sendmail->Host = "smtp.google.com";
             
@@ -68,7 +80,7 @@ if ($result->num_rows > 0) {
             
             $sendmail->Subject = "FILM CMS Password Reset";
             
-            $sendmail->MsgHTML($body);
+            $sendmail->MsgHTML($message);
             
             $sendmail->AddAddress($email, $row['first_name']);
             
