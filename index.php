@@ -3,7 +3,7 @@
 	<div id="content">
 		<div class="banner">
 		<video class="bannervideo" src="http://stack.soldevi.net/img/sae.mp4" autoplay loop> </video>
-			<img src="" alt/>
+			
 			<div class="blurb"> 
 				<h3>ABOUT THE PROJECT </h3>
 				<br></br>
