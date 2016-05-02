@@ -14,7 +14,7 @@
 <!-- LOGGED IN CONTENT DISPLAY -->
 <?php if (isset($_SESSION['email'])) { ?>
 <div class="dropdown">
-  <button onclick="myFunction()" class="dropbtn"><?php echo $_SESSION['first_name']; ?></button>
+  <button onclick="myFunction()" class="dropbtn"><div class="hide"><?php echo $_SESSION['first_name']; ?></div></button>
   <div id="myDropdown" class="dropdown-content">
     <a href="profile.php" class="btn">Profile</a>
     <a href="logout.php" class="btn">logout</a>
@@ -49,7 +49,7 @@
                         </div>
 <!--FORGOT PASSWORD BOX -->
                         <div class="reset_email"><div id="success"></div>
-                          <form method="post" action="">
+                          <form method="post" action="reset.php">
                             <input type='text' name='email' id='email_reset' maxlength="50" placeholder="your SAE email" />
                             <a href="#" class="btn loginform"><i class="fa fa-angle-double-left"></i> Back</a>
                             <input id="reset_password" type='submit' name='Submit' value='Submit' />
@@ -59,11 +59,12 @@
 
 <!-- BEGIN REGISTER FORM -->
 	                   <div class="user_register">
-                            <form name="registerForm" method="post" class="toggle-disabled" action="registeruser.php">
-                                <input name='first_name' type='text' data-validation="length required" data-validation-length="min2" data-validation-error-msg="Please enter your first name" placeholder="first Name" maxlength="50" /><br/>
-                                <input name='last_name' type='text' data-validation="length required" data-validation-length="min2" placeholder="Last Name" data-validation-error-msg="Please enter your last name" maxlength="50" /><br/>
-                                <input name="email" type="text" data-validation="email" placeholder="email address" data-validation-error-msg="Please enter your SAE email address" maxlength="50" /><br/>
-                                <input name="pass_confirmation" type="password" data-validation="length" data-validation-length="min8"  data-validation-error-msg="Please enter a password using at least eight alphanumeric characters long"placeholder="password" maxlength="50" /><br/>
+                      <div id="success2"></div>
+                            <form id="register_user" name="registerForm" method="post" class="toggle-disabled" action="#">
+                                <input id="reg_first_name" name='first name' type='text' data-validation="length required" data-validation-length="min2" data-validation-error-msg="Please enter your first name" placeholder="first Name" maxlength="50" /><br/>
+                                <input id="reg_last_name" name='last name' type='text' data-validation="length required" data-validation-length="min2" placeholder="Last Name" data-validation-error-msg="Please enter your last name" maxlength="50" /><br/>
+                                <input id="reg_email" name="email address" type="text" data-validation="email" placeholder="email address" data-validation-error-msg="Please enter your SAE email address" maxlength="50" /><br/>
+                                <input id="reg_password" name="pass confirmation" type="password" data-validation="length" data-validation-length="min8"  data-validation-error-msg="Please enter a password using at least eight alphanumeric characters long"placeholder="password" maxlength="50" /><br/>
                                     <select name="campus_id"class="styled_select" data-validation="required">
                                         <option value="">Select Campus</option>
                                         <option value="1" name="1">Brisbane</option>
@@ -76,7 +77,8 @@
                                     </select><BR><BR>
                                     <div class="float">
                                         <a href="#" class="btn loginform"><i class="fa fa-angle-double-left"></i> Back</a>
-                                        <input id="SubmitButton" onclick="this.disabled=true;this.value='please wait...'; this.form.submit();" class="popup_button big" type='submit' name='Submit' value='Register' />
+                                        <input id="SubmitButton" class="popup_button big toggle-disabled" type='submit' name='Submit' value='Register' />
+
                                     </div>
                             </form><BR>
                         </div>
@@ -119,5 +121,5 @@ $(document).on({
 
 
 
-<div class="popper"><img src="img/logo.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
+<div class="popper"><img src="img/logo2.0_locodoco_final-05.png" class="logo_loading" alt="logo"><!-- Place at bottom of page --></div>
 

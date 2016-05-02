@@ -1,16 +1,20 @@
 @media screen and (max-width: 700px) {
-		.profile_left, .profile_right, .profile_edit_box {
-		padding: 0px;
+	.profile_left, .profile_right, .profile_edit_box {
+	padding: 0px;
     float: none;
     width: 100%;
     max-width: 100%;
-
-        padding: 20px;
+    padding: 20px;
     float: none;
     width: 100%;
     max-width: 100%;
+    box-sizing: border-box;
 
 	}
+
+    .hide {
+        display:none;
+    }
 
     .logo_style {
         width: 100%;
@@ -28,7 +32,7 @@
     .logo {
     width: 230px;
     height: 70px;
-    margin-left: 40%;
+        margin-left: 30%;
     }
 
     .header_navigation {
@@ -36,15 +40,19 @@
     }
 
     .search_holder {
-    width: calc(100% - 60px);
+        width: calc(100% - 100px);
     }
 
     .dropdown {
         margin-right: 0px;
     }
+
+    .container {
+  margin-right: 0px;
+}
 }
 
-@media screen and (max-width: 1024px) {
+/*@media screen and (max-width: 1024px) {
 	 body {
    
     }
@@ -53,4 +61,4 @@
 
 @media screen and (max-width: 1199px) {
 
-}
+} */

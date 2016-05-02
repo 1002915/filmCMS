@@ -19,7 +19,7 @@
 	<link rel="stylesheet" type="text/css" href="css/dropzone.css">
 
 	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
 		<script src="js/form-validator/jquery.form-validator.js"></script>
 		<script src="js/jquery.leanModal.min.js"></script>
 		<script src="js/dropzone.js"></script>
