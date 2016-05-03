@@ -58,11 +58,8 @@
 		if($user_type == 1) {
 	?>	
 		<div class="hide_film">
-			<label id="hide" for="edit_active">Remove film</label>
-			<div class="slideThree">	
-				<input type="checkbox" value="0" id="slideThree" name="check" />
-				<label for="slideThree"></label>
-			</div>
+			<label for="remove_film">Teacher Controls</label>
+			<input type="button" name="remove" value="Remove Film" id="remove_film">
 		</div>
 	<?php
 		}
