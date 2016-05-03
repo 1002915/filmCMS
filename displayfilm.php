@@ -163,10 +163,10 @@ include('footer.php');
 		 						$('#displayvideo').append("<p>Sorry there are no results</p>");
 		 					}	 
 				});
-				if (localStorage.getItem('rating') != undefined && localStorage.getItem('rating') != '') {
+				if (localStorage.getItem('rating_<?php echo $_GET['id'];?>') != undefined && localStorage.getItem('rating_<?php echo $_GET['id'];?>') != '') {
 					
 					// Retrieve
-    				$('#star'+localStorage.getItem("rating")).prop('checked','checked');
+    				$('#star'+localStorage.getItem("rating_<?php echo $_GET['id'];?>")).prop('checked','checked');
     				$('#rating input').prop('disabled','disabled');
     				$('#rating label').removeClass('hover_class');
 				}
@@ -263,7 +263,7 @@ include('footer.php');
 			hide_project();
 		});
 		// RATING SYSTEM
-		if (localStorage.getItem('rating') == undefined || localStorage.getItem('rating') == '') {
+		if (localStorage.getItem('rating_<?php echo $_GET['id'];?>') == undefined || localStorage.getItem('rating_<?php echo $_GET['id'];?>') == '') {
 			$('#rating label').on('click touch', function(){
 				// USERS CAN ONLY RATE THE VIDEO ONCE
 	            
@@ -280,7 +280,7 @@ include('footer.php');
 	            var ip = '<?php echo $ip; ?>';
 	            console.log('ipadd'+ip);
 				
-				localStorage.setItem("rating", rating);
+				localStorage.setItem("rating_<?php echo $_GET['id'];?>", rating);
 				$.ajax({
 					type: "POST",
 					url: "overlord.php",
@@ -293,7 +293,7 @@ include('footer.php');
 					success: function(res) {
 						$('#rating label').removeAttr('onclick'); //allows to click once
 						console.log('rate once');
-						$('#rating').append('<div class="rating_once">Thank you for rating</div>'); // Return "Thank you for rating"
+						$('#rating').after('<div class="rating_once">Thank you for rating</div>'); // Return "Thank you for rating"
 						console.log('yay!!! success');
 					},
 					error: function(res){
