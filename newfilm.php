@@ -119,8 +119,8 @@
 	            var file_name = file['name'];
 	            file.previewElement.classList.add("dz-success");
 	            console.log('Successfully uploaded :' + file_name);
-	            $('input[name=cover_image]').val(file_name);
 	            file_name = file_name.replace(/\s+/g, '_');
+	            $('input[name=cover_image]').val(file_name);
 				$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
 	        },
 	        error: function (file, response) {
@@ -163,6 +163,8 @@
 		    var videolink = $('#new_video_link').val();
 
 		    var str = "youtube";
+
+		    var str2 = "vimeo";
 
 		    // if video was on youtube
 			if(videolink.indexOf(str) > -1){
@@ -218,7 +220,9 @@
 			        });
 		        }
 
-			} else {
+			} 
+
+			if(videolink.indexOf(str2) > -1){
 				// if video was on vimeo
 				var videolinkiframe = videolink.replace("//", "//player.");
 		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
@@ -239,10 +243,13 @@
 				        appendResults(duration);
 				    });
 				}
+			}
+
+			else {
+		    	var videolinkiframe = videolinkiframe.concat("");
 		    }
+
 		    $(".preview-video").attr("src", videolinkiframe);
-
-
 		});	
 
 
