@@ -120,6 +120,7 @@
 	            file.previewElement.classList.add("dz-success");
 	            console.log('Successfully uploaded :' + file_name);
 	            $('input[name=cover_image]').val(file_name);
+	            file_name = file_name.replace(/\s+/g, '_');
 				$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
 	        },
 	        error: function (file, response) {
