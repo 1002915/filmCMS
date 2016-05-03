@@ -42,6 +42,7 @@
 
 .filmdisplay_box .display_video {
     width: 100%;
+    position: relative;
 }
 
 .filmdisplay_box .display_video #player1 {
@@ -373,7 +374,7 @@ input[type=checkbox] {
   opacity : 1;
 }
 
-.site_content #displayvideo #details #rating:not(old) label:checked ~ label:before{
+.site_content #displayvideo #details #rating:not(old) :checked ~ label:before{
   opacity : 1;
 }
 
