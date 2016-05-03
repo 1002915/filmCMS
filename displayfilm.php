@@ -3,7 +3,6 @@
 	session_start();
 	$user_type = 0;
 	$ip = $_SERVER['REMOTE_ADDR'];
-
 	include('header.php');
 	if (isset($_SESSION['id'])){
 		$user_id = $_SESSION['id'];
@@ -71,7 +70,6 @@
 // MAKES SURE THAT A PERSON IS LOGED IN OR NOT
 	if (!isset($_SESSION['id'])) {
 		echo('');
-
 	} else { ?>
 		<div id='aca_form_button'>
 			Please leave some feedback
@@ -97,9 +95,7 @@
 			<input type='button' value='Submit' id='submit'>
 		</form>
 <?php } 
-
 include('footer.php');
-
 ?>
 
 <script src="https://apis.google.com/js/client.js?onload=OnLoadCallback"></script>
@@ -121,23 +117,19 @@ include('footer.php');
 				// LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
 				//$('#displayvideo').html('');
  				$.each(res, function(index,value) {
-
  					$('#film_title').html(value.title);
  					$('#synopsis').html('<p>'+value.synopsis+'</p>');
  					$('#campus').html(value.campus);
  					
-
  					// adjust hide project switch if film is inactive
  					if(value.active == 0){
  						$("input[type='checkbox']" ).prop( "checked", "true");
  						console.log($( "input[type='checkbox']" ).prop('checked'));
  					}
-
  					// add rows to table with collab values input
 	 				var table 	= $('#display_collaborators > tbody');
 					var props 	= ["role", "first_name", "last_name", "email"];
 					var fred 	= 1;
-
 					$.each(value['collab'], function(i, val) {
 						var tr = $('<tr>');
 						$.each(props, function(i, prop) {
@@ -146,30 +138,20 @@ include('footer.php');
 						fred++;
 						table.append(tr);
 					});
-
-
-
 					var videolink = value.video_link;
-
 				    var str = "youtube";
-
 				    // if video was on youtube
 					if(videolink.indexOf(str) > -1){
 						var videolinkiframe = videolink.replace("watch?v=", "embed/");
-
 						//get youtube id
 					   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
 						
-
-
 					} else {
 						// if video was on vimeo
 						var videolinkiframe = videolink.replace("//", "//player.");
 				    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
 				    	var videolinkiframe = videolinkiframe.concat("?api=1&player_id=player1");
 				    }
-
-
 				    $("#video").attr("src", videolinkiframe);
 		 					console.log(value);
 		 					//$('#displayvideo').html('');
@@ -194,15 +176,12 @@ include('footer.php');
 	return_project();
 	
 	//});
-
 	// ACADEMIC FORM
 	function scrollWin() {
 		$('body').animate({
 			scrollTop: $('#aca_form').offset().top
 		},1000);
     }
-
-
 	$('#aca_form').hide();
 	$('#aca_form_button').on ('click touch', function() {
 		$('#aca_form').show();
@@ -253,7 +232,6 @@ include('footer.php');
 				}
 			});
 	}
-
 	function hide_project() {
 		var film_id = <?php echo $_GET['id']?>;
 		if($("input[type='checkbox']" ).prop("checked")){
@@ -275,44 +253,34 @@ include('footer.php');
 				console.log('yay!!! success');
 			}
 	 	});
-
 	}
-
 	$(document).ready(function(){ 
 		//$('#aca_form').validate();
 		$("#aca_form #submit").on('click touch', function() {
 			academic_form();
 		});
-
 		$('.slideThree label').on('click touch', function() {
 			hide_project();
 		});
-
 		// RATING SYSTEM
 		if (localStorage.getItem('rating') == undefined || localStorage.getItem('rating') == '') {
-
 			$('#rating label').on('click touch', function(){
 				// USERS CAN ONLY RATE THE VIDEO ONCE
 	            
-
 	            var label = this.htmlFor;
 	            var rating = document.getElementById(label).value;
 	            $('#star'+rating).prop('checked','checked');
 	            console.log('rating:'+rating);
 	            $('#rating label').removeClass('hover_class');
-
 	            $('#rating label').off();
 	            $('#rating input').prop('disabled','disabled');
 	            console.log('off');
-
 	            var target = <?php echo $_GET['id'];?>;
 	            console.log('filmID:'+target);
 	            var ip = '<?php echo $ip; ?>';
 	            console.log('ipadd'+ip);
 				
 				localStorage.setItem("rating", rating);
-
-
 				$.ajax({
 					type: "POST",
 					url: "overlord.php",
@@ -341,6 +309,4 @@ include('footer.php');
 			form : form,
 		});
 		console.log('validate');
-
 </script>
-
