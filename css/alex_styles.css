@@ -221,6 +221,13 @@ select {
 	margin-top: 0px;
 }
 
+.rating_once {
+	width: 142px;
+    float: right;
+    padding-top:10px;
+    padding-right:5px;
+}
+
 /* INDEX */
 .film_title_large {
 	color:#454545;
