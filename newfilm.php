@@ -163,6 +163,8 @@
 
 		    var str = "youtube";
 
+		    var str2 = "vimeo";
+
 		    // if video was on youtube
 			if(videolink.indexOf(str) > -1){
 				var videolinkiframe = videolink.replace("watch?v=", "embed/");
@@ -217,7 +219,9 @@
 			        });
 		        }
 
-			} else {
+			} 
+
+			if(videolink.indexOf(str2) > -1){
 				// if video was on vimeo
 				var videolinkiframe = videolink.replace("//", "//player.");
 		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
@@ -238,10 +242,13 @@
 				        appendResults(duration);
 				    });
 				}
+			}
+
+			else {
+		    	var videolinkiframe = videolinkiframe.concat("");
 		    }
+
 		    $(".preview-video").attr("src", videolinkiframe);
-
-
 		});	
 
 
