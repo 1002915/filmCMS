@@ -232,11 +232,8 @@ include('footer.php');
 				}
 			});
 	}
-	function hide_project() {
+	function hide_project(active) {
 		var film_id = <?php echo $_GET['id']?>;
-
-		var active = 0;
-
 		$.ajax({
 			type: "POST",
 			url: "overlord.php",
@@ -256,9 +253,21 @@ include('footer.php');
 		$("#aca_form #submit").on('click touch', function() {
 			academic_form();
 		});
+
+
 		$('#remove_film').on('click touch', function() {
-			hide_project();
+			if($('#remove_film').attr('value') == 'Remove Film'){
+				console.log('remove');
+				hide_project(0);
+				$('#remove_film').attr('value', 'Reinstate');
+			} else {
+				console.log('Reinstate');
+				hide_project(1);
+				$('#remove_film').attr('value', 'Remove Film');
+			}	
 		});
+
+
 		// RATING SYSTEM
 		if (localStorage.getItem('rating_<?php echo $_GET['id'];?>') == undefined || localStorage.getItem('rating_<?php echo $_GET['id'];?>') == '') {
 			$('#rating label').on('click touch', function(){
