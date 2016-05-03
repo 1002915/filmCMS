@@ -184,12 +184,12 @@ include('footer.php');
 		 						$('#displayvideo').append("<p>Sorry there are no results</p>");
 		 					}	 
 				});
-				if (localStorage.getItem('rating') != undefined) {
+				if (localStorage.getItem('rating') != undefined && localStorage.getItem('rating') != '') {
 					
 					// Retrieve
     				$('#star'+localStorage.getItem("rating")).prop('checked','checked');
     				$('#rating input').prop('disabled','disabled');
-    				$('#rating label').removeClass('.hover_class');
+    				$('#rating label').removeClass('hover_class');
 				}
 			}
 		});
@@ -292,47 +292,52 @@ include('footer.php');
 		});
 
 		// RATING SYSTEM
+		if (localStorage.getItem('rating') == undefined || localStorage.getItem('rating') == '') {
 
-		$('#rating label').on('click touch', function(){
-			// USERS CAN ONLY RATE THE VIDEO ONCE
-            $('#rating label').off();
-            $('#rating input').prop('disabled','disabled');
-            console.log('off');
+			$('#rating label').on('click touch', function(){
+				// USERS CAN ONLY RATE THE VIDEO ONCE
+	            
 
-            var label = this.htmlFor;
-            var rating = document.getElementById(label).value;
-            console.log('rating:'+rating);
+	            var label = this.htmlFor;
+	            var rating = document.getElementById(label).value;
+	            $('#star'+rating).prop('checked','checked');
+	            console.log('rating:'+rating);
+	            $('#rating label').removeClass('hover_class');
 
-            var target = <?php echo $_GET['id'];?>;
-            console.log('filmID:'+target);
-            var ip = '<?php echo $ip; ?>';
-            console.log('ipadd'+ip);
-			
-			localStorage.setItem("rating", rating);
+	            $('#rating label').off();
+	            $('#rating input').prop('disabled','disabled');
+	            console.log('off');
+
+	            var target = <?php echo $_GET['id'];?>;
+	            console.log('filmID:'+target);
+	            var ip = '<?php echo $ip; ?>';
+	            console.log('ipadd'+ip);
+				
+				localStorage.setItem("rating", rating);
 
 
-			$.ajax({
-				type: "POST",
-				url: "overlord.php",
-				data: {
-					function: 'add_rating',
-					target: target,
-					rating: rating,
-					ip: ip
-				},
-				success: function(res) {
-					$('#rating label').removeAttr('onclick'); //allows to click once
-					console.log('rate once');
-					$('#rating').append('<div class="rating_once">Thank you for rating</div>'); // Return "Thank you for rating"
-					console.log('yay!!! success');
-				},
-				error: function(res){
-					console.log(res);
-				}
-			 });
-			
-		});
-
+				$.ajax({
+					type: "POST",
+					url: "overlord.php",
+					data: {
+						function: 'add_rating',
+						target: target,
+						rating: rating,
+						ip: ip
+					},
+					success: function(res) {
+						$('#rating label').removeAttr('onclick'); //allows to click once
+						console.log('rate once');
+						$('#rating').append('<div class="rating_once">Thank you for rating</div>'); // Return "Thank you for rating"
+						console.log('yay!!! success');
+					},
+					error: function(res){
+						console.log(res);
+					}
+				 });
+				
+			});
+		}
 	});
 	  	var form = $('form#aca_form');
 		$.validate({
