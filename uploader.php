@@ -8,7 +8,10 @@ $user_directory = 'uploads/'.$id;
 // If the file is sent, create a directory with the users' ID. //
 if (isset($_FILES['file']['name'])) { 
 
-	$image_name = $_FILES['file']['name'];}
+	$image_name = $_FILES['file']['name'];
+
+    $image_name = str_replace(' ', '_', $image_name);
+}
 
 if (!file_exists($user_directory)) { 
 
