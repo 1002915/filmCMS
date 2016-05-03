@@ -11,7 +11,7 @@ $id = $_GET['id'];
 }
 
 ?>
-
+<div class="security_box">
 <p>Reset your Password</p>
 	<form action="resetlink.php" method="post" >
 	    <input type='hidden' name='submitted' id='post_confirmation' value='<?php echo $confirmation?>'/>
@@ -20,7 +20,7 @@ $id = $_GET['id'];
 	    <input type='password' name='verify_password' id='verify_password' maxlength="50" placeholder="verify password"/><br/>
 	    <input type='submit' name='Submit' value='Submit' />
 	</form>
-
+</div>
 <?php
 
 if (isset($_POST['password'])){ 
@@ -39,7 +39,7 @@ if ($mysqli->query($sql) === TRUE) {
     echo "Error updating record: " . $mysqli->error;
 }
 } else {
-	echo 'please update your password';
+	echo '<div class="security_box">please update your password</div>';
 }
 include('footer.php');
 ?>

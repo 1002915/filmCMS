@@ -292,3 +292,17 @@ height: 4em;
     }
 
 }
+
+@media only screen and (max-width: 440px) {
+
+	.paragraph_about {
+    font-size: 0.86em;
+    line-height: 15px;
+	}
+	
+	.bannervideo { 
+		width: auto;
+		height: 100%;
+	}
+
+}

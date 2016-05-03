@@ -35,7 +35,7 @@
 <!-- Username & Password Login form -->
                 	<section class="popupBody">      
                         <div class="user_login">
-                            <form method="post" action="">
+                            <form id="login_form" method="post" action="">
                                 <label>SAE email Address</label><div id="error"></div>
                                 <input id="email_var" type="text" name='email' placeholder="email" maxlength="50"/><BR>
                                 <label>Password</label>
@@ -50,7 +50,7 @@
 <!--FORGOT PASSWORD BOX -->
                         <div class="reset_email"><div id="success"></div>
                           <form method="post" action="reset.php">
-                            <input type='text' name='email' id='email_reset' maxlength="50" placeholder="your SAE email" />
+                            <input id='email_reset' type='text' name='email' maxlength="50" placeholder="your SAE email" />
                             <a href="#" class="btn loginform"><i class="fa fa-angle-double-left"></i> Back</a>
                             <input id="reset_password" type='submit' name='Submit' value='Submit' />
                           </form>
@@ -117,6 +117,20 @@ $(document).on({
     ajaxStart: function() { $body.addClass("loading");    },
      ajaxStop: function() { $body.removeClass("loading"); }    
 });
+
+// PRE FILL EMAIL FORMS FROM LOGIN PAGE //
+$('#email_var').keyup(function () {
+  $('#reg_email').val(this.value);
+});
+
+$('#password_var').keyup(function () {
+  $('#reg_password').val(this.value);
+});
+
+$('#email_var').keyup(function () {
+  $('#email_reset').val(this.value);
+});
+
 </script>
 
 

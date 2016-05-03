@@ -18,6 +18,8 @@ $campus_id = $_SESSION['campus_id'];
 
 $user_type = $_SESSION['user_type'];
 
+$selected = 'selected="selected"';
+
 ?>
 
 <div class="profile_left">
@@ -34,13 +36,13 @@ $user_type = $_SESSION['user_type'];
             <input name="email" type="text" value="<?php echo $_SESSION['email']; ?>" data-validation="email" placeholder="email address" data-validation-error-msg="Please enter your SAE email address" maxlength="50" /><br/>
             <select class="styled_select" name="campus_id" data-validation="required">
                 <option value="">Select Campus</option>
-                <option value="1" name="1">Brisbane</option>
-                <option value="2" name="2">Byron Bay</option>
-                <option value="3" name="3">Sydney</option>
-                <option value="4" name="4">Adelaide</option>
-                <option value="5" name="5">Melbourne</option>
-                <option value="6" name="6">Perth</option>
-                <option value="7" name="7">Online</option>
+                <option value="1" <?php if($_SESSION['campus_id'] == 1) {echo $selected;} ?> name="1">Brisbane</option>
+                <option value="2" <?php if($_SESSION['campus_id'] == 2) {echo $selected;} ?>name="2">Byron Bay</option>
+                <option value="3" <?php if($_SESSION['campus_id'] == 3) {echo $selected;} ?>name="3">Sydney</option>
+                <option value="4" <?php if($_SESSION['campus_id'] == 4) {echo $selected;} ?>name="4">Adelaide</option>
+                <option value="5" <?php if($_SESSION['campus_id'] == 5) {echo $selected;} ?>name="5">Melbourne</option>
+                <option value="6" <?php if($_SESSION['campus_id'] == 6) {echo $selected;} ?>name="6">Perth</option>
+                <option value="7" <?php if($_SESSION['campus_id'] == 7) {echo $selected;} ?>name="7">Online</option>
             </select><BR><BR>
             <input id="SubmitButton" onclick="this.disabled=true;this.value='updating...'; this.form.submit();"type='submit' name='Submit' value='Submit' />
         </form><BR>
