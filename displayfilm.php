@@ -234,12 +234,9 @@ include('footer.php');
 	}
 	function hide_project() {
 		var film_id = <?php echo $_GET['id']?>;
-		if($("input[type='checkbox']" ).prop("checked")){
-			var active = 1;
-		} else {
-			active = 0;
-		}
-		console.log(active);
+
+		var active = 0;
+
 		$.ajax({
 			type: "POST",
 			url: "overlord.php",
@@ -259,7 +256,7 @@ include('footer.php');
 		$("#aca_form #submit").on('click touch', function() {
 			academic_form();
 		});
-		$('.slideThree label').on('click touch', function() {
+		$('#remove_film').on('click touch', function() {
 			hide_project();
 		});
 		// RATING SYSTEM
