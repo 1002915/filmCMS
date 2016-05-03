@@ -44,8 +44,7 @@
 			<thead>
 				<tr>
 					<td>Role</td>
-					<td>First Name</td>
-					<td>Last Name</td>
+					<td>Name</td>
 					<td>Email</td>
 				</tr>
 			</thead>
@@ -132,9 +131,11 @@ include('footer.php');
 					var fred 	= 1;
 					$.each(value['collab'], function(i, val) {
 						var tr = $('<tr>');
-						$.each(props, function(i, prop) {
-						   	$('<td>').html(val[prop]).appendTo(tr);
-						});
+						//$.each(props, function(i, prop) {
+						   	//$('<td>').html(val[prop]).appendTo(tr);
+						//});
+						console.log(val);
+						$(tr).html('<td>'+val['role']+'</td><td>'+val['first_name']+' '+val['last_name']+'</td><td>'+val['email']+'</td>')
 						fred++;
 						table.append(tr);
 					});
