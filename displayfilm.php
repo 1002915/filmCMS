@@ -24,16 +24,16 @@
 		</section>
 		<section id="rating"> 
 			<p>Rate this film</p>
-			<input type="radio" name="rating" id="star5" value="5" class='radioBox'>
-			<label for="star5">5</label>
-			<input type="radio" name="rating" id="star4" value="4" class='radioBox'>
-			<label for="star4">4</label>
-			<input type="radio" name="rating" id="star3" value="3" class='radioBox'>
-			<label for="star3">3</label>
-			<input type="radio" name="rating" id="star2" value="2" class='radioBox'>
-			<label for="star2">2</label>
-			<input type="radio" name="rating" id="star1" value="1" class='radioBox'>
-			<label for="star1">1</label>
+			<input type="radio" name="rating" id="star5" value="5">
+			<label for="star5" class='hover_class'>5</label>
+			<input type="radio" name="rating" id="star4" value="4">
+			<label for="star4" class='hover_class'>4</label>
+			<input type="radio" name="rating" id="star3" value="3">
+			<label for="star3" class='hover_class'>3</label>
+			<input type="radio" name="rating" id="star2" value="2">
+			<label for="star2" class='hover_class'>2</label>
+			<input type="radio" name="rating" id="star1" value="1" >
+			<label for="star1" class='hover_class'>1</label>
 		</section>
 	</section>
 
@@ -184,6 +184,13 @@ include('footer.php');
 		 						$('#displayvideo').append("<p>Sorry there are no results</p>");
 		 					}	 
 				});
+				if (localStorage.getItem('rating') != undefined) {
+					
+					// Retrieve
+    				$('#star'+localStorage.getItem("rating")).prop('checked','checked');
+    				$('#rating input').prop('disabled','disabled');
+    				$('#rating label').removeClass('.hover_class');
+				}
 			}
 		});
 	}
@@ -284,10 +291,14 @@ include('footer.php');
 			hide_project();
 		});
 
+		// RATING SYSTEM
+
 		$('#rating label').on('click touch', function(){
 			// USERS CAN ONLY RATE THE VIDEO ONCE
             $('#rating label').off();
+            $('#rating input').prop('disabled','disabled');
             console.log('off');
+
             var label = this.htmlFor;
             var rating = document.getElementById(label).value;
             console.log('rating:'+rating);
@@ -297,6 +308,9 @@ include('footer.php');
             var ip = '<?php echo $ip; ?>';
             console.log('ipadd'+ip);
 			
+			localStorage.setItem("rating", rating);
+
+
 			$.ajax({
 				type: "POST",
 				url: "overlord.php",
@@ -320,12 +334,6 @@ include('footer.php');
 		});
 
 	});
-
-	//VALIDATE THE FEEDBACK FROM
-		/*$.validate();
-		$.validate({
-	    	modules : 'security'
-	  	});*/
 	  	var form = $('form#aca_form');
 		$.validate({
 			form : form,
