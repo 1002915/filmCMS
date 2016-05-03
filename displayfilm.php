@@ -184,7 +184,7 @@ include('footer.php');
 		 						$('#displayvideo').append("<p>Sorry there are no results</p>");
 		 					}	 
 				});
-				if (localStorage.getItem('rating') != undefined) {
+				if (localStorage.getItem('rating') != undefined && localStorage.getItem('rating') != '') {
 					
 					// Retrieve
     				$('#star'+localStorage.getItem("rating")).prop('checked','checked');
