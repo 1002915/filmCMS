@@ -369,10 +369,13 @@ input[type=checkbox] {
 
 .site_content #displayvideo #details #rating:not(old) > label.hover_class:hover:before,
 .site_content #displayvideo #details #rating:not(old) > label.hover_class:hover ~ label.hover_class:before,
-.site_content #displayvideo #details #rating:not(:hover) > :checked ~ label:before{
+.site_content #displayvideo #details #rating:not(:hover) > :checked ~ label.hover_class:before{
   opacity : 1;
 }
 
+.site_content #displayvideo #details #rating:not(old) label:checked ~ label:before{
+  opacity : 1;
+}
 
 
 
@@ -440,7 +443,20 @@ input[type=checkbox] {
         width: 100%;
     }
 
+    .filmdisplay_box .hide_project, .filmdisplay_box input[type="submit"], .site_content .filmdisplay_box select#edit_published, .site_content .filmdisplay_box select#published  {
+        font-size: 0.8em;
+    }
 
+    .filmdisplay_box .hide_project {
+        padding: 5px 5px;
+    }
+    .site_content .filmdisplay_box select#edit_published, .site_content .filmdisplay_box select#published {
+        width: 90px;
+    }
+
+    .filmdisplay_box input[type="submit"] {
+        padding: 10px 10px;
+    }
 
 
 }
