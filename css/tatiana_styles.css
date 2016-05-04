@@ -439,5 +439,6 @@ input[type=checkbox] {
 
     .site_content #displayvideo #contributors table td:nth-of-type(3) {
         border-bottom: solid 1px #79797c;
+        padding-bottom: 20px;
     }
 }
