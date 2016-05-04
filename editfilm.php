@@ -380,13 +380,14 @@
 				data: form.serialize(),
 				//dataType: 'json',
 				success:function(res){
-
-
+					
 					var published = $('select#published').val();
 					if(published == 0) {
 						var location = "profile.php";
 					} else {
-						var location = 'displayfilm.php?id='+res;
+						var editid = JSON.parse(res);
+						var editid = res.replace(/\"/g, "");
+						var location = 'displayfilm.php?id='+editid;
 
 					}
 					console.log(location);
