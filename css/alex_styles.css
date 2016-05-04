@@ -252,6 +252,17 @@ select {
 #link:hover {
 	text-decoration: underline;
 }
+
+/* PROFILE PAGE */
+#student_films {
+	padding:20px;
+}
+
+.search_product_teacher {
+	width:41%;
+	padding:0 0 10px 10px;
+}
+
 /* FOOTER */
 
 .text_align_fix {

@@ -294,19 +294,28 @@
 		// dropzone function
 		Dropzone.autoDiscover = false;
 	    $("#upload").dropzone({
+	    	acceptedFiles: "image/jpeg, image/png",
+	    	maxFiles: 1, // Number of files at a time
+			maxFilesize: 2, //in MB
 	        url: "editfilm.php",
 	        addRemoveLinks: true,
 	        success: function (file, response) {
-	            var file_name = file['name'];
-	            file.previewElement.classList.add("dz-success");
-	            console.log('Successfully uploaded :' + file_name);
-	            file_name = file_name.replace(/\s+/g, '_');
-	            $('input[name=cover_image]').val(file_name);
-				$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	        	if (file.type == "image/jpeg" || file.type == "image/png") {
+	            	var file_name = file['name'];
+	            	file.previewElement.classList.add("dz-success");
+	            	console.log('Successfully uploaded :' + file_name);
+	            	file_name = file_name.replace(/\s+/g, '_');
+	            	$('input[name=cover_image]').val(file_name);
+					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	      		} else {
+	       			alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
+	       		}
 	        },
 	        error: function (file, response) {
 	            file.previewElement.classList.add("dz-error");
 	            console.log('error')
+	            alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
+	            this.removeFile(file)
 	        }
 	    });
 

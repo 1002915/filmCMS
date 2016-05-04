@@ -12,13 +12,42 @@
 
 	}
 
-    .hide {
-        display:none;
-    }
-
     .logo_style {
         width: 100%;
     }
+
+    .logo {
+    width: 230px;
+    height: 70px;
+    margin-left:0px;
+    }
+
+    .header_navigation {
+        height: auto;
+    }
+
+    .search_holder {
+        width: auto;
+        margin-right: -40px;
+    }
+
+    .dropdown {
+        margin-right: 0px;
+    }
+
+    .container {
+  margin-right: 0px;
+}
+
+
+}
+
+@media screen and (max-width: 580px) {
+    .search {
+        display:none;
+    }
+
+@media screen and (max-width: 480px) {
 
     .dropbtn {
     background-image: url('../img/user.png');
@@ -29,30 +58,12 @@
     color: rgba(0,0,0,0);
     }
 
-    .logo {
-    width: 230px;
-    height: 70px;
-        margin-left: 30%;
+    .hide {
+        display:none;
     }
-
-    .header_navigation {
-        height: auto;
-    }
-
-    .search_holder {
-        width: calc(100% - 100px);
-    }
-
-    .dropdown {
-        margin-right: 0px;
-    }
-
-    .container {
-  margin-right: 0px;
-}
 }
 
-/*@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1024px) {
 	 body {
    
     }

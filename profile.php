@@ -34,9 +34,9 @@ $selected = 'selected="selected"';
             <input name='first_name' type='text' data-validation="length required" data-validation-length="min2" data-validation-error-msg="Please enter your first name" value="<?php echo $_SESSION['first_name']; ?>"placeholder="first Name" maxlength="50" /><br/>
             <input name='last_name' value="<?php echo $_SESSION['last_name']; ?>" type='text' data-validation="length required" data-validation-length="min2" placeholder="Last Name" data-validation-error-msg="Please enter your last name" maxlength="50" /><br/>
             <input name="email" type="text" value="<?php echo $_SESSION['email']; ?>" data-validation="email" placeholder="email address" data-validation-error-msg="Please enter your SAE email address" maxlength="50" /><br/>
-            <select class="styled_select" name="campus_id" data-validation="required">
+            <select class="styled_select" name="campus_id" id='campus_selection_teacher' data-validation="required">
                 <option value="">Select Campus</option>
-                <option value="1" <?php if($_SESSION['campus_id'] == 1) {echo $selected;} ?> name="1">Brisbane</option>
+                <option value="1" <?php if($_SESSION['campus_id'] == 1) {echo $selected;} ?>name="1">Brisbane</option>
                 <option value="2" <?php if($_SESSION['campus_id'] == 2) {echo $selected;} ?>name="2">Byron Bay</option>
                 <option value="3" <?php if($_SESSION['campus_id'] == 3) {echo $selected;} ?>name="3">Sydney</option>
                 <option value="4" <?php if($_SESSION['campus_id'] == 4) {echo $selected;} ?>name="4">Adelaide</option>
@@ -57,13 +57,22 @@ $selected = 'selected="selected"';
     <input type="submit" class="long_button" value="Get academic Feedback">
 </form>
 </div>
+<div class='security_box'>Your Campus's Student Films</div>
+<div class='security_box'>
+<div id='student_films'></div>
+</div>
 <?php }; ?>
 
 <div class="placeholder">
 </div>
+
+
+
  <script>
 $(document).ready(function(){
     
+
+    console.log('ssd');
     var target = <?php echo $user_id; ?>;
                     
         $.ajax({
@@ -80,7 +89,7 @@ $(document).ready(function(){
         $.each(res, function(index,value) {
         console.log(value);
         
-        $('.placeholder').append( "<div class='profile_edit_box'><div class='cover_image_edit' style='background-image:url(uploads"+"/"+"<?php echo $_SESSION['id'] ?>/"+value['cover_image']+")'></div><div class='edit_title'>"+value['title']+"</div><a href='editfilm.php?filmid="+value['id']+"'>"+"<div class='edit_film_button'></div>" );
+    $('.placeholder').append( "<div class='profile_edit_box'><div class='cover_image_edit' style='background-image:url(uploads"+"/"+"<?php echo $_SESSION['id'] ?>/"+value['cover_image']+")'></div><div class='edit_title'>"+value['title']+"</div><a href='editfilm.php?filmid="+value['id']+"'>"+"<div class='edit_film_button'></div>" );
 
                             });
                         },
@@ -91,13 +100,59 @@ $(document).ready(function(){
                             console.log(error);
                         }
                     });
+
+    // MAKEING LECTURES SEE STUDENT PER CAMPUS
+ if(<?php echo $_SESSION['user_type']; ?> == 1) { 
+    console.log('student films per capmus');
+            var campus_selection = $('#campus_selection_teacher').val();
+            var search = '';
+            console.log(campus_selection);
+            //if (capmus_selection != '') {
+                $.ajax({
+                    type:"POST",
+                    url:"overlord.php",
+                    data:{
+                        function:'search_project',
+                        target:search,
+                        campus:campus_selection
+                    },
+                    dataType:'json',
+                    success:function(res) {
+                        console.log(res);
+                        // LOOP THROUGH THE DATA IN THE DATABASE IF SOMEONE SEARCHES SOMETHING
+                        $('#student_films').html('');
+                        var count = 0;
+                        $.each(res, function(index,value) {
+                            if(value['id'] != null){
+                                console.log(value);
+                                var rating = parseInt(value['average_rating']);
+                               var decimal = rating.toFixed(1);
+                                $('#student_films').append("<div class='search_product_teacher'><a href='displayfilm.php?id="+value['id']+"'><p class='film_title_search text_width'>"+value['title']+"</p></a><div class''><p>Current Rating:</p>"+decimal+"</div>");
+                                // WHEN THE CONENT IS NOT IN THE DATABASE
+                            
+                                count++;        
+                            }
+                        });
+                        $('#student_films').append( "<div class='clear_float'></div>");
+                        if (count < 1){
+                            $('#student_films').html('');
+                            $('#student_films').append("<p class='empty_search'>Sorry there are no results</p>");
+                        }
+                        
+                    }
                 });
+            /*} else {
+                $('#student_films').html('');
+            }*/
+        }
+    });
         
 
         $.validate();
   $.validate({
     modules : 'security'
   });
+
 </script>
 </div>
 <?php include('footer.php'); };?>
