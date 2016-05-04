@@ -154,9 +154,10 @@ $(document).ready(function() {
       var password=$("#reg_password").val();
       var campus=$("#campus_id").val();
 
+
       var dataString = 'first_name='+firstname+'&last_name='+lastname+'&email='+email+'&pass_confirmation='+password+'&campus_id='+campus;
       
-      if($.trim(email).length>0) {
+      if(($.trim(email).length>0) && (campus != 0)) {
         $.ajax({
           type: "POST",
           url: "registeruser.php",

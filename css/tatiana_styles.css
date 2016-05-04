@@ -5,6 +5,10 @@
     line-height: 140%;
 }
 
+.popupBody .user_register #register_user select {
+    border: solid 1px #fff;
+}
+
 .edit_active_setting {
     padding: 20px;
 }
