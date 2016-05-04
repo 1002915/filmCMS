@@ -5,6 +5,10 @@
     line-height: 140%;
 }
 
+.popupBody .user_register #register_user select {
+    border: solid 1px #fff;
+}
+
 .edit_active_setting {
     padding: 20px;
 }
@@ -56,6 +60,7 @@
 
 .filmdisplay_box input[type="submit"] {
     margin: 10px 0px 10px 0px;
+    -webkit-appearance: none;
     height: 38px;
 }
 
@@ -105,6 +110,7 @@
     color: #454545;
     height: 38px;
     background-color: #ffd00b;
+    -webkit-appearance: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin: 10px 0px 0px 0px;
@@ -368,7 +374,7 @@ input[type=checkbox] {
 
 
 
-@media screen and (max-width: 700px) {
+@media screen and (max-width: 699px) {
     .site_content #displayvideo #details #rating p {
         
     }
@@ -396,6 +402,7 @@ input[type=checkbox] {
     .filmdisplay_box input[type="submit"] {
         padding: 10px 10px;
     }
+
 
 
 }
@@ -439,5 +446,6 @@ input[type=checkbox] {
 
     .site_content #displayvideo #contributors table td:nth-of-type(3) {
         border-bottom: solid 1px #79797c;
+        padding-bottom: 20px;
     }
 }

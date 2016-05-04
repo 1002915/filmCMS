@@ -35,7 +35,7 @@
 		<input type="text" name="synopsis" id="synopsis" data-validation="required" data-validation="length" data-validation-length="max250"><br>
 
 
-		<label id="label_cover" for="cover_image">Cover Image</label>
+		<label id="label_cover" for="cover_image">Cover Image: JPG AND PNG FILES ONLY! Max file size: 2MB</label>
 		<div class="cover_image">
 			<div id="upload" class="dropzone display_cover_image">
 				 <div class="dz-default"></div>
@@ -107,25 +107,33 @@
 		// dropzone function
 		Dropzone.autoDiscover = false;
 	    $("#upload").dropzone({
-	    	acceptedFiles: "image/jpeg",
+	    	acceptedFiles: "image/jpeg, image/png",
 	        url: "editfilm.php",
 	        maxFiles: 1, // Number of files at a time
-			maxFilesize: 1, //in MB
+			maxFilesize: 2, //in MB
 	        addRemoveLinks: true,
 	        maxfilesexceeded: function(file) {
 				alert('You have uploaded more than 1 Image. Only the first file will be uploaded!');
 			},
 	        success: function (file, response) {
-	            var file_name = file['name'];
-	            file.previewElement.classList.add("dz-success");
-	            console.log('Successfully uploaded :' + file_name);
-	            file_name = file_name.replace(/\s+/g, '_');
-	            $('input[name=cover_image]').val(file_name);
-				$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	        	if (file.type == "image/jpeg" || file.type == "image/png") {
+		            var file_name = file['name'];
+		            file.previewElement.classList.add("dz-success");
+		            console.log('Successfully uploaded :' + file_name);
+		            file_name = file_name.replace(/\s+/g, '_');
+		            
+		            $('input[name=cover_image]').val(file_name);
+					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	       		} else {
+	       			alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
+	       		}	
 	        },
 	        error: function (file, response) {
 	            file.previewElement.classList.add("dz-error");
 	            console.log('error')
+	            alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
+	            this.removeFile(file)
+
 	        },
 	        init: function() {
    				this.on("addedfile", function() {

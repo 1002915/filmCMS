@@ -6,7 +6,6 @@
 			
 			<div class="blurb"> 
 				<h3>ABOUT THE PROJECT </h3>
-				<br></br>
 				<div class="paragraph_about"> Welcome to doco-loco a place to share our student films with you, our community. Here you can watch short documentaries and films produced by SAE students, both local and abroad. Come and meet some of the characters that inspire us into action, the causes that need to be shown, and the issues that can't be ignored. 
 This is also a shared space, and we need your feedback so, please rate and review our work.</div>
 
@@ -21,6 +20,9 @@ This is also a shared space, and we need your feedback so, please rate and revie
 $(document).ready(function(){
 
 					console.log('Keypress!');
+
+
+					
 					
 					$.ajax({
 						type:"POST",
@@ -33,13 +35,23 @@ $(document).ready(function(){
 							// loop through all film
 
 							var counter = 1;
-
 							var group = "content_left";
 							var inner = 1;
 
+							function sorty(a,b){
+								if (a.average_rating > b.average_rating) {
+									return -1;
+								}
+								if (a.average_rating < b.average_rating) {
+									return 1;
+								} else {
+									return 0;
+								}
+							}
+							res.sort(sorty);
 
  							$.each(res, function(index,value) {
- 								console.log(counter);
+
  								if (group == "content_left") {
  									if (inner == 1) {
  										$("#film_content").append('<div class="content_left" id="content_left_'+counter+'"></div>');

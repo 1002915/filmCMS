@@ -421,6 +421,7 @@
 						}
 
 						$res = $stmt->get_result();
+						$delete = 0;
 						
 						// loop through sql response
 						while($row = $res->fetch_assoc()){

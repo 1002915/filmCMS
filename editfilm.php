@@ -142,7 +142,7 @@
 						  	var tr = $('<tr>');
 
 						  	$.each(props, function(i, prop) {
-						   		$('<td>').html('<input type="text" data-validation="required" class="edit_' + prop + '" value=" ' + val[prop] + ' " name="collab[' + fred + '][' + prop + ']">').appendTo(tr);
+						   		$('<td>').html('<input type="text" data-validation="required" class="edit_'+prop+'" value="'+val[prop]+'" name="collab[' + fred + '][' + prop + ']">').appendTo(tr);
 						  	});
 						  	$('<td class="removerow">').html('<input type="button" id="remove" value="remove" name="collab[' + fred + '][remove]" onclick="deleteRow(this)">').appendTo(tr);
 						  	fred++;
@@ -294,19 +294,28 @@
 		// dropzone function
 		Dropzone.autoDiscover = false;
 	    $("#upload").dropzone({
+	    	acceptedFiles: "image/jpeg, image/png",
+	    	maxFiles: 1, // Number of files at a time
+			maxFilesize: 2, //in MB
 	        url: "editfilm.php",
 	        addRemoveLinks: true,
 	        success: function (file, response) {
-	            var file_name = file['name'];
-	            file.previewElement.classList.add("dz-success");
-	            console.log('Successfully uploaded :' + file_name);
-	            file_name = file_name.replace(/\s+/g, '_');
-	            $('input[name=cover_image]').val(file_name);
-				$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	        	if (file.type == "image/jpeg" || file.type == "image/png") {
+	            	var file_name = file['name'];
+	            	file.previewElement.classList.add("dz-success");
+	            	console.log('Successfully uploaded :' + file_name);
+	            	file_name = file_name.replace(/\s+/g, '_');
+	            	$('input[name=cover_image]').val(file_name);
+					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+	      		} else {
+	       			alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
+	       		}
 	        },
 	        error: function (file, response) {
 	            file.previewElement.classList.add("dz-error");
 	            console.log('error')
+	            alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
+	            this.removeFile(file)
 	        }
 	    });
 
@@ -321,7 +330,8 @@
 		function deleteRow(btn) {
 			var rowcount = $('#edit_collaborator tr').length;
 			var rowcurrent = rowcount -1;
-			if(rowcurrent > 1){
+			console.log(rowcurrent);
+			if(rowcurrent > 2){
 				var row = btn.parentNode.parentNode;
 		  		row.parentNode.removeChild(row);
 			}
@@ -379,13 +389,17 @@
 				data: form.serialize(),
 				//dataType: 'json',
 				success:function(res){
-					console.log(res);
+					
 					var published = $('select#published').val();
 					if(published == 0) {
 						var location = "profile.php";
 					} else {
-						var location = "displayfilm.php?id="+res;
+						var editid = JSON.parse(res);
+						var editid = res.replace(/\"/g, "");
+						var location = 'displayfilm.php?id='+editid;
+
 					}
+					console.log(location);
 					window.location=location;
 					
 				},
@@ -410,9 +424,12 @@
 				$('form').preventDoubleSubmission();
 
 				
-				if(($("#new_collaborator > tbody > tr:last > td > input.first_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.last_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.role").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.email").val() == '') ) {
+				if(($("#edit_collaborator > tbody > tr:last > td > input.edit_first_name").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_last_name").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_role").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_email").val() == '') ) {
 					$('tr:last', this).remove();
 				}
+
+				console.log($("#edit_collaborator > tbody > tr:last > td > input.edit_first_name").val());
+
 				submit_form();
 			})
 

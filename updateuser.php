@@ -1,14 +1,13 @@
-<?php
-include('header.php');
+<?php 
+if(session_id() == '') {
+    session_start();
+}
 
 include('connection.php');
 
 $first_name = $_POST['first_name'];
-
 $last_name = $_POST['last_name'];
-
 $email = $_POST['email']; 
-
 $campus_id = $_POST['campus_id'];
 
 if(isset($_POST['campus_id'])) {
@@ -23,9 +22,16 @@ $sql = "UPDATE users SET first_name = '$first_name', last_name = '$last_name', e
 $result = mysqli_query($mysqli, $sql);
 
 if ($mysqli->query($sql) === TRUE) {
-    echo "Record updated successfully. click <a href='index.php'>here</a> to return to the home screen.";
+
+	$_SESSION['first_name'] = $_POST['first_name'];
+	$_SESSION['last_name'] = $_POST['last_name'];
+	$_SESSION['email'] = $_POST['email'];
+	$_SESSION['campus_id'] = $_POST['campus_id'];
+
+    header("location:profile.php");
+
 } else {
     echo "Error updating record: " . $mysqli->error;
 }
 
-include('footer.php');
+?>
