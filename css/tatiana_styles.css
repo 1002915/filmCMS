@@ -56,6 +56,7 @@
 
 .filmdisplay_box input[type="submit"] {
     margin: 10px 0px 10px 0px;
+    -webkit-appearance: none;
     height: 38px;
 }
 
@@ -105,6 +106,7 @@
     color: #454545;
     height: 38px;
     background-color: #ffd00b;
+    -webkit-appearance: none;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     margin: 10px 0px 0px 0px;
