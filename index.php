@@ -21,6 +21,9 @@ This is also a shared space, and we need your feedback so, please rate and revie
 $(document).ready(function(){
 
 					console.log('Keypress!');
+
+
+					
 					
 					$.ajax({
 						type:"POST",
@@ -33,13 +36,23 @@ $(document).ready(function(){
 							// loop through all film
 
 							var counter = 1;
-
 							var group = "content_left";
 							var inner = 1;
 
+							function sorty(a,b){
+								if (a.average_rating > b.average_rating) {
+									return -1;
+								}
+								if (a.average_rating < b.average_rating) {
+									return 1;
+								} else {
+									return 0;
+								}
+							}
+							res.sort(sorty);
 
  							$.each(res, function(index,value) {
- 								console.log(counter);
+
  								if (group == "content_left") {
  									if (inner == 1) {
  										$("#film_content").append('<div class="content_left" id="content_left_'+counter+'"></div>');
