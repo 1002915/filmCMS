@@ -4,7 +4,7 @@
 <footer>
         <div class="footer">
 		<div class="footer_col_one"> 
-			  contact@email.com<!-- <a href="index.php">HOME</a> 	-->
+			  filmcms@gmail.com<!-- <a href="index.php">HOME</a> 	-->
 		</div>
 	       <div class="footer_col_two">
 		     <!--  <a href="login.php"> LOGIN</a> -->
@@ -13,7 +13,7 @@
                   <!--     <a href="register.php"> REGISTER</a> -->
 	       </div>
 	       <div class="footer_col_four text_align_fix">
-                  LocoDoco 2015 <!--      <a href="search.php"> SEARCH</a> -->
+                  Doco Loco 2015 <!--      <a href="search.php"> SEARCH</a> -->
 	       </div>
         </div>
 </footer>

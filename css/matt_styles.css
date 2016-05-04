@@ -113,12 +113,13 @@
   text-decoration: none;
   background-size: 100%;
   background-color: #ffd00b;
+  border-radius: 1px;
 }
 
 #search_button {
   padding: 10px 20px;
   color: #454545;
-  height: 37px;
+  height: 35px;
   font-family: 'Montserrat', sans-serif;
   box-sizing: border-box;
   border: none;
@@ -128,6 +129,7 @@
   background-size: 150%;
   background-color: #ffd00b;
   transition:.2s;
+      border-radius: 1px;
 }
 
 #search_button:hover, input[type="submit"]:hover{
@@ -167,7 +169,7 @@
 }
 
 input[type="text"], input[type="password"] {
-  height: 37px;
+  height: 35px;
   background-color: rgba(255, 255, 255, 0.9);
   border: 1px solid #d8d8d8;
   color: #2f2f2f;
@@ -330,6 +332,7 @@ h1 {
         display: block;
         border-radius: 1px;
         background-color: #ffd00b;
+        height: 15px;
 }
 
 
@@ -338,7 +341,7 @@ h1 {
 }
 
 .btn {
-  padding: 10px 20px;
+  padding: 10px 10px;
   background: rgba(255, 255, 255, 0.9);
   font-family: 'Montserrat', sans-serif;
   color: #454545;
@@ -729,13 +732,14 @@ body.loading .popper {
     background-color: #ffd00b;
     color: #454545;
     padding: 5px 10px 5px 10px;
-    height: 37px;
+    height: 35px;
     font-size: 16px;
     border: none;
     cursor: pointer;
     font-family: 'Montserrat', sans-serif;
     font-size: 1em;
     transition:.2s;
+    border-radius:1px;
 }
 
 /* Dropdown button on hover & focus */
