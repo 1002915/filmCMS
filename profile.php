@@ -101,7 +101,9 @@ $(document).ready(function(){
                         }
                     });
 
- console.log('student films per capmus');
+    // MAKEING LECTURES SEE STUDENT PER CAMPUS
+ if(<?php echo $_SESSION['user_type']; ?> == 1) { 
+    console.log('student films per capmus');
             var campus_selection = $('#campus_selection_teacher').val();
             var search = '';
             console.log(campus_selection);
@@ -142,7 +144,7 @@ $(document).ready(function(){
             /*} else {
                 $('#student_films').html('');
             }*/
-
+        }
     });
         
 
@@ -150,8 +152,6 @@ $(document).ready(function(){
   $.validate({
     modules : 'security'
   });
-
-  // MAKEING LECTURES SEE STUDENT PER CAMPUS 
 
 </script>
 </div>
