@@ -179,7 +179,7 @@ $(document).ready(function() {
               alert(data);
               $("#reset_password").val('reset');
               $("#reset_password").attr('disabled', false);
-              $("#success2").html("<span style='color:#cc0000; font-size:0.9em;'>Success! Please check your email for your confirmation code.</span> ");
+              //$("#success2").html("<span style='color:#cc0000; font-size:0.9em;'>Success! Please check your email for your confirmation code.</span> ");
           }
         
         });
