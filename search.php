@@ -53,7 +53,7 @@
 	 							$.each(res, function(index,value) {
 	 								if(value['id'] != null){
 		 								console.log(value);
-										$('#searchList').append("<div class='search_product'><a href='displayfilm.php?id="+value['id']+"'><p class='film_title_search text_width'>"+value['title']+"</p></a><p class='max_length text_width'>"+value['synopsis']+"</p>");
+										$('#searchList').append("<div class='search_product'><a href='displayfilm.php?id="+value['id']+"'><div class='film_cover_image' style='background-image:url("+'uploads/'+value['user_id']+'/'+value['cover_image']+");'></div></a><a href='displayfilm.php?id="+value['id']+"'><p class='film_title_search text_width'>"+value['title']+"</p></a><p class='max_length text_width'>"+value['synopsis']+"</p>");
 										// WHEN THE CONENT IS NOT IN THE DATABASE
 	    							
 										count++;		
