@@ -142,7 +142,7 @@
 						  	var tr = $('<tr>');
 
 						  	$.each(props, function(i, prop) {
-						   		$('<td>').html('<input type="text" data-validation="required" class="edit_' + prop + '" value=" ' + val[prop] + ' " name="collab[' + fred + '][' + prop + ']">').appendTo(tr);
+						   		$('<td>').html('<input type="text" data-validation="required" class="edit_'+prop+'" value="'+val[prop]+'" name="collab[' + fred + '][' + prop + ']">').appendTo(tr);
 						  	});
 						  	$('<td class="removerow">').html('<input type="button" id="remove" value="remove" name="collab[' + fred + '][remove]" onclick="deleteRow(this)">').appendTo(tr);
 						  	fred++;
@@ -321,7 +321,8 @@
 		function deleteRow(btn) {
 			var rowcount = $('#edit_collaborator tr').length;
 			var rowcurrent = rowcount -1;
-			if(rowcurrent > 1){
+			console.log(rowcurrent);
+			if(rowcurrent > 2){
 				var row = btn.parentNode.parentNode;
 		  		row.parentNode.removeChild(row);
 			}
@@ -379,13 +380,16 @@
 				data: form.serialize(),
 				//dataType: 'json',
 				success:function(res){
-					console.log(res);
+
+
 					var published = $('select#published').val();
 					if(published == 0) {
 						var location = "profile.php";
 					} else {
-						var location = "displayfilm.php?id="+res;
+						var location = 'displayfilm.php?id='+res;
+
 					}
+					console.log(location);
 					window.location=location;
 					
 				},
@@ -410,9 +414,12 @@
 				$('form').preventDoubleSubmission();
 
 				
-				if(($("#new_collaborator > tbody > tr:last > td > input.first_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.last_name").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.role").val() == '') && ($("#new_collaborator > tbody > tr:last > td > input.email").val() == '') ) {
+				if(($("#edit_collaborator > tbody > tr:last > td > input.edit_first_name").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_last_name").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_role").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_email").val() == '') ) {
 					$('tr:last', this).remove();
 				}
+
+				console.log($("#edit_collaborator > tbody > tr:last > td > input.edit_first_name").val());
+
 				submit_form();
 			})
 
