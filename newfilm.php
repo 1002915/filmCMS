@@ -110,7 +110,7 @@
 	    	acceptedFiles: "image/jpeg, image/png",
 	        url: "editfilm.php",
 	        maxFiles: 1, // Number of files at a time
-			maxFilesize: 1, //in MB
+			maxFilesize: 2, //in MB
 	        addRemoveLinks: true,
 	        maxfilesexceeded: function(file) {
 				alert('You have uploaded more than 1 Image. Only the first file will be uploaded!');
