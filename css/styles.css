@@ -62,12 +62,10 @@ html {
 .paragraph_about {
 	line-height: 26px;
 	font-size: 1em;
+	padding-top: 20px;
 }
 
-
-}
-
-.blurb h3 {
+.banner .blurb h3 {
     font-weight: 900;
     font-size: 1.5em;
 }
@@ -231,9 +229,13 @@ height: 4em;
 @media only screen and (max-width: 699px) {
 
 	.banner{
-		height: 238px;
+		height: 300px;
 	    margin-top: 20px;
-	     margin-bottom: 20px;
+	    margin-bottom: 20px;
+	}
+
+	.bannervideo {
+		width: 100%;
 	}
 
 	.film_large {
@@ -288,27 +290,24 @@ height: 4em;
 	    margin-bottom: 20px;
     }
     .blurb {
-    	font-size: 0.8em;
     	line-height: 18px;
+    	padding: 30px 10px;
     }
 
     .paragraph_about {
-    	font-size: 0.95em;
-    	line-height: 18px;
+
     }
 
 }
 
-@media only screen and (max-width: 440px) {
-
-	.paragraph_about {
-    font-size: 0.86em;
-    line-height: 15px;
-	}
-	
-	.bannervideo { 
+@media only screen and (max-width: 550px) {
+	.bannervideo {
 		width: auto;
 		height: 100%;
+	}
+
+	.paragraph_about {
+		line-height: 16px;
 	}
 
 }
