@@ -42,7 +42,6 @@
 
 .filmdisplay_box .display_video {
     width: 100%;
-    position: relative;
 }
 
 .filmdisplay_box .display_video #player1 {
@@ -183,7 +182,7 @@ input[type="button"]:hover{
 }
 
 
-.site_content .filmdisplay_box label {
+.site_content .filmdisplay_box label, .site_content #displayvideo .hide_film label {
     display: block;
     margin: 30px 0 10px;
     font-weight: 400;
@@ -201,84 +200,22 @@ input[type=checkbox] {
     visibility: hidden;
 }
 
-.site_content #displayvideo #details .hide_film {
-
+.site_content #displayvideo .hide_film {
+    padding-bottom: 40px;
 }
 
-
-.slideThree {
-    width: 180px;
-    height: 26px;
-    background: #333;
-    margin: 10px 0px;
-
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-    position: relative;
-
-    -webkit-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-    -moz-box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.5), 0px 1px 0px rgba(255,255,255,0.2);
-}
-
-.slideThree:after {
-    content: 'REMOVE';
-    font: 12px/26px Arial, sans-serif;
-    color: #ffd00b;
-    position: absolute;
-    right: 10px;
-    z-index: 0;
-    font-weight: bold;
-    text-shadow: 1px 1px 0px rgba(255,255,255,.15);
-}
-
-.slideThree:before {
-    content: 'REINSTATE';
-    font: 12px/26px Arial, sans-serif;
-    color: #000;
-    position: absolute;
-    left: 10px;
-    z-index: 0;
-    font-weight: bold;
-}
-
-.slideThree label {
-    display: block;
-    width: 90px;
-    height: 20px;
-
-    -webkit-border-radius: 50px;
-    -moz-border-radius: 50px;
-    border-radius: 50px;
-
-    -webkit-transition: all .4s ease;
-    -moz-transition: all .4s ease;
-    -o-transition: all .4s ease;
-    -ms-transition: all .4s ease;
-    transition: all .4s ease;
+.site_content #displayvideo .hide_film #remove_film{
+    float: left;
+    height: 38px;
+    background-color: #ffd00b;
+    border: none;
     cursor: pointer;
-    position: absolute;
-    top: 3px;
-    left: 3px;
-    z-index: 1;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.9em;
+    padding: 10px 20px;
 
-    -webkit-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-    -moz-box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-    box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.3);
-    background: #fcfff4;
-
-    background: -webkit-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: -moz-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: -o-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: -ms-linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    background: linear-gradient(top, #fcfff4 0%, #dfe5d7 40%, #b3bead 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#fcfff4', endColorstr='#b3bead',GradientType=0 );
 }
 
-.slideThree input[type=checkbox]:checked + label {
-    left: 87px;
-}
 
 
 
@@ -298,7 +235,7 @@ input[type=checkbox] {
 
 
 .site_content #displayvideo {
-    width: 80%;
+    width: 100%;
     max-width: 800px;
 }
 
@@ -323,8 +260,9 @@ input[type=checkbox] {
 }
 
 .site_content #displayvideo #contributors table td {
-    width: 25%;
+    width: 30%;
     padding-bottom: 10px;
+    padding-right: 10px;
 }
 
 .site_content #displayvideo #details #rating {
@@ -462,3 +400,44 @@ input[type=checkbox] {
 
 }
 
+@media screen and (max-width: 500px) {
+    .site_content #displayvideo #contributors table,  .site_content #displayvideo #contributors table tr, .site_content #displayvideo #contributors table td { 
+        display: block;
+    }
+
+    .site_content #displayvideo #contributors table thead tr {
+        position: absolute;
+        top: -9999px;
+        left: -9999px;
+    }
+
+    .site_content #displayvideo #contributors table td { 
+        border: none;
+        position: relative;
+        padding-left: 22%; 
+        width: auto;
+    }
+
+    .site_content #displayvideo #contributors table td:before { 
+        position: absolute;
+        left: 0px;
+        width: 20%; 
+        padding-right: 10px; 
+        white-space: nowrap;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        font-size: 0.8em;
+    }
+
+    .site_content #displayvideo #contributors table td:nth-of-type(1) {
+        margin-top: 20px;
+    }
+
+    .site_content #displayvideo #contributors table td:nth-of-type(1):before { content: "Role:"; }
+    .site_content #displayvideo #contributors table td:nth-of-type(2):before { content: "Name:"; }
+    .site_content #displayvideo #contributors table td:nth-of-type(3):before { content: "Email:"; }
+
+    .site_content #displayvideo #contributors table td:nth-of-type(3) {
+        border-bottom: solid 1px #79797c;
+    }
+}

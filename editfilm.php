@@ -197,6 +197,7 @@
 		
 		    var videolink = $('#edit_video_link').val();
 		    var str = "youtube";
+		    var str2 = "vimeo";
 
 		    // if video was on youtube
 			if(videolink.indexOf(str) > -1){
@@ -253,7 +254,9 @@
 			        });
 		        }
 
-			} else {
+			} 
+
+			if(videolink.indexOf(str2) > -1){
 				// if video was on vimeo
 				var videolinkiframe = videolink.replace("//", "//player.");
 		    	var videolinkiframe = videolinkiframe.replace(".com", ".com/video");
@@ -272,8 +275,12 @@
 				    player.api('getDuration', function(duration) {
 				    	duration = runtimeformat(duration);
 				        appendResults(duration);
-				    });	
+				    });
 				}
+			}
+
+			else {
+		    	var videolinkiframe = videolinkiframe.concat("");
 		    }
 
 		    $(".preview-video").attr("src", videolinkiframe);

@@ -44,8 +44,7 @@
 			<thead>
 				<tr>
 					<td>Role</td>
-					<td>First Name</td>
-					<td>Last Name</td>
+					<td>Name</td>
 					<td>Email</td>
 				</tr>
 			</thead>
@@ -132,9 +131,11 @@ include('footer.php');
 					var fred 	= 1;
 					$.each(value['collab'], function(i, val) {
 						var tr = $('<tr>');
-						$.each(props, function(i, prop) {
-						   	$('<td>').html(val[prop]).appendTo(tr);
-						});
+						//$.each(props, function(i, prop) {
+						   	//$('<td>').html(val[prop]).appendTo(tr);
+						//});
+						console.log(val);
+						$(tr).html('<td>'+val['role']+'</td><td>'+val['first_name']+' '+val['last_name']+'</td><td>'+val['email']+'</td>')
 						fred++;
 						table.append(tr);
 					});
@@ -232,14 +233,8 @@ include('footer.php');
 				}
 			});
 	}
-	function hide_project() {
+	function hide_project(active) {
 		var film_id = <?php echo $_GET['id']?>;
-		if($("input[type='checkbox']" ).prop("checked")){
-			var active = 1;
-		} else {
-			active = 0;
-		}
-		console.log(active);
 		$.ajax({
 			type: "POST",
 			url: "overlord.php",
@@ -259,9 +254,21 @@ include('footer.php');
 		$("#aca_form #submit").on('click touch', function() {
 			academic_form();
 		});
-		$('.slideThree label').on('click touch', function() {
-			hide_project();
+
+
+		$('#remove_film').on('click touch', function() {
+			if($('#remove_film').attr('value') == 'Remove Film'){
+				console.log('remove');
+				hide_project(0);
+				$('#remove_film').attr('value', 'Reinstate');
+			} else {
+				console.log('Reinstate');
+				hide_project(1);
+				$('#remove_film').attr('value', 'Remove Film');
+			}	
 		});
+
+
 		// RATING SYSTEM
 		if (localStorage.getItem('rating_<?php echo $_GET['id'];?>') == undefined || localStorage.getItem('rating_<?php echo $_GET['id'];?>') == '') {
 			$('#rating label').on('click touch', function(){
