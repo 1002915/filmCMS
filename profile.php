@@ -57,14 +57,15 @@ $selected = 'selected="selected"';
     <input type="submit" class="long_button" value="Get academic Feedback">
 </form>
 </div>
-<?php }; ?>
-
-<div class="placeholder">
-</div>
 <div class='security_box'>Your Campus's Student Films</div>
 <div class='security_box'>
 <div id='student_films'></div>
 </div>
+<?php }; ?>
+
+<div class="placeholder">
+</div>
+
 
 
  <script>
@@ -100,7 +101,9 @@ $(document).ready(function(){
                         }
                     });
 
- console.log('student films per capmus');
+    // MAKEING LECTURES SEE STUDENT PER CAMPUS
+ if(<?php echo $_SESSION['user_type']; ?> == 1) { 
+    console.log('student films per capmus');
             var campus_selection = $('#campus_selection_teacher').val();
             var search = '';
             console.log(campus_selection);
@@ -141,7 +144,7 @@ $(document).ready(function(){
             /*} else {
                 $('#student_films').html('');
             }*/
-
+        }
     });
         
 
@@ -149,8 +152,6 @@ $(document).ready(function(){
   $.validate({
     modules : 'security'
   });
-
-  // MAKEING LECTURES SEE STUDENT PER CAMPUS 
 
 </script>
 </div>
