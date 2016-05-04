@@ -57,14 +57,15 @@ $selected = 'selected="selected"';
     <input type="submit" class="long_button" value="Get academic Feedback">
 </form>
 </div>
-<?php }; ?>
-
-<div class="placeholder">
-</div>
 <div class='security_box'>Your Campus's Student Films</div>
 <div class='security_box'>
 <div id='student_films'></div>
 </div>
+<?php }; ?>
+
+<div class="placeholder">
+</div>
+
 
 
  <script>
