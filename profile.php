@@ -61,8 +61,11 @@ $selected = 'selected="selected"';
 
 <div class="placeholder">
 </div>
-
+<div class='security_box'>Your Campus's Student Films</div>
+<div class='security_box'>
 <div id='student_films'></div>
+</div>
+
 
  <script>
 $(document).ready(function(){
@@ -85,7 +88,7 @@ $(document).ready(function(){
         $.each(res, function(index,value) {
         console.log(value);
         
-        $('.placeholder').append( "<div class='profile_edit_box'><div class='edit_title'>"+value['title']+"</div><a href='editfilm.php?filmid="+value['id']+"'>"+"<div class='edit_film_button'></div><div class=''>"+value['collaborators.first_name']+"</div>");
+    $('.placeholder').append( "<div class='profile_edit_box'><div class='cover_image_edit' style='background-image:url(uploads"+"/"+"<?php echo $_SESSION['id'] ?>/"+value['cover_image']+")'></div><div class='edit_title'>"+value['title']+"</div><a href='editfilm.php?filmid="+value['id']+"'>"+"<div class='edit_film_button'></div>" );
 
                             });
                         },
