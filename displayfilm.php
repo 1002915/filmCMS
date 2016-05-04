@@ -205,8 +205,7 @@ include('footer.php');
 				} else {
 					echo '';
 				}
-			?>
-				
+			?>	
 			console.log(feedback_1);
 			console.log(feedback_2);
 			console.log(feedback_3);
@@ -250,8 +249,7 @@ include('footer.php');
 	 	});
 	}
 	$(document).ready(function(){ 
-		//$('#aca_form').validate();
-		$("#aca_form #submit").on('click touch', function() {
+		$("#aca_form #submit").on('submit', function() {
 			academic_form();
 		});
 
