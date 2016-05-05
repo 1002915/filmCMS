@@ -201,7 +201,10 @@
 
 		    // if video was on youtube
 			if(videolink.indexOf(str) > -1){
-				var videolinkiframe = videolink.replace("watch?v=", "embed/");
+				var videolink1 = videolink.replace("watch?v=", "embed/");
+				var values = videolink1.split('&feature');
+				var videolinkiframe = values[0];
+				console.log(videolinkiframe);
 
 				//get youtube id
 			   	var videoid = videolink.match(/(?:youtube\.com\/(?:[^\/]+\/.+\/|(?:v|e(?:mbed)?)\/|.*[?&]v=)|youtu\.be\/)([^"&?\/ ]{11})/i)[1];
@@ -284,6 +287,7 @@
 		    }
 
 		    $(".preview-video").attr("src", videolinkiframe);
+		    $('#edit_video_link').val(videolinkiframe);
 		});	
 
 
