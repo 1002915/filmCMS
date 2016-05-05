@@ -233,6 +233,8 @@ height: 4em;
 	    margin-top: 20px;
 	    margin-bottom: 20px;
 	    box-shadow: none;
+	    background: url('../img/saestill.PNG');
+	    background-size: cover;
 	}
 
 	.bannervideo {

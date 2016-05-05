@@ -65,8 +65,8 @@
                                 <input id="reg_last_name" name='last name' type='text' data-validation="length required" data-validation-length="min2" placeholder="Last Name" data-validation-error-msg="Please enter your last name" maxlength="50" /><br/>
                                 <input id="reg_email" name="email address" type="text" data-validation="email" placeholder="email address" data-validation-error-msg="Please enter your SAE email address" maxlength="50" /><br/>
                                 <input id="reg_password" name="pass confirmation" type="password" data-validation="length" data-validation-length="min8"  data-validation-error-msg="Please enter a password using at least eight alphanumeric characters long"placeholder="password" maxlength="50" /><br/>
-                                    <select name="campus_id"class="styled_select" data-validation="required" id="campus_id">
-                                        <option value="">Select Campus</option>
+                                    <select name="campus_id"class="styled_select" data-validation="required">
+                                       
                                         <option value="1" name="1">Brisbane</option>
                                         <option value="2" name="2">Byron Bay</option>
                                         <option value="3" name="3">Sydney</option>

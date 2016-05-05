@@ -7,7 +7,10 @@
 
 .popupBody .user_register #register_user select {
     border: solid 1px #fff;
+    margin: 0px;
 }
+
+
 
 .edit_active_setting {
     padding: 20px;

@@ -2,7 +2,10 @@
 
 	<div id="content">
 		<div class="banner">
-		<video class="bannervideo" src="http://stack.soldevi.net/img/sae.mp4" autoplay loop> </video>
+		<video class="bannervideo" autoplay loop> 
+		   	<source src="http://stack.soldevi.net/img/sae.mp4" type="video/mp4">
+		   	<source src="http://doco-loco.net.au/img/sae.webm" type="video/webm">
+		</video>
 			
 			<div class="blurb"> 
 				<h3>ABOUT THE PROJECT </h3>
