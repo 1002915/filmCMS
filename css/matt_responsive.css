@@ -28,7 +28,7 @@
 
     .search_holder {
         width: auto;
-        margin-right: -40px;
+        margin-right: -30px;
     }
 
     .dropdown {
@@ -46,6 +46,15 @@
     .search {
         display:none;
     }
+}
+
+@media screen and (max-width: 374px) {
+    .logo {
+    width: 161px;
+    height: 49px;
+    margin-left:0px;
+    }
+}
 
 @media screen and (max-width: 480px) {
 
