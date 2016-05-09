@@ -1,4 +1,5 @@
 <?php 
+	require 'overlord.php';
 	session_start();
 
 	if (!isset($_SESSION['id'])) {
@@ -19,7 +20,7 @@
 
 <div class="filmdisplay_box"> 
 
-	<form method="POST" action="" id="edit_project">
+	<form method="POST" id="edit_project">
 		<input type="hidden" name="function" value="update_project">
 		<input type="hidden" name="target" value="<?php echo $film_id; ?>">
 
@@ -44,7 +45,7 @@
 				 <div class="dz-default"></div>
 			</div>
 
-			<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+			<input type="hidden" name="cover_image" id="cover_image" value="">
 			<div class="display_cover_image actual_display">
 				<img>
 			</div>
@@ -112,7 +113,7 @@
 	 					$('input#edit_video_link').val(val['video_link']);
 	 					$('input#edit_title').val(val['title']);
 	 					$('input#edit_synopsis').val(val['synopsis']);	 
-	 					$('input#edit_cover_image').val(val['cover_image']);
+	 					$('input#cover_image').val(val['cover_image']);
 	 					$('input#edit_published').val(val['published']);
 	 					$('input#edit_user_id').val(val['user_id']);	 
 	 					$('input#edit_active').val(val['active']);
@@ -309,8 +310,11 @@
 	            	file.previewElement.classList.add("dz-success");
 	            	console.log('Successfully uploaded :' + file_name);
 	            	file_name = file_name.replace(/\s+/g, '_');
-	            	$('input[name=cover_image]').val(file_name);
+
+		            $('input#cover_image').val(file_name);
 					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+					console.log($('#cover_image').val());
+					
 	      		} else {
 	       			alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
 	       		}
@@ -387,14 +391,15 @@
 
 
 		function submit_form() {
+			console.log(form.serialize());
+
 			$.ajax({
 				type: "POST",
 				url: "overlord.php",
 				data: form.serialize(),
 				//dataType: 'json',
 				success:function(res){
-					
-					var published = $('select#published').val();
+					var published = $('select#edit_published').val();
 					if(published == 0) {
 						var location = "profile.php";
 					} else {
@@ -404,12 +409,11 @@
 
 					}
 					console.log(location);
-					window.location=location;
-					
-				},
-				error:function(res){
+					//window.location=location;
 					console.log(res);
-				}
+
+				},
+
 			});
 			
 		}
@@ -427,9 +431,8 @@
 
 				$('form').preventDoubleSubmission();
 
-				
 				if(($("#edit_collaborator > tbody > tr:last > td > input.edit_first_name").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_last_name").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_role").val() == '') && ($("#edit_collaborator > tbody > tr:last > td > input.edit_email").val() == '') ) {
-					$('tr:last', this).remove();
+					$('#edit_collaborator > tbody > tr:last', this).remove();
 				}
 
 				console.log($("#edit_collaborator > tbody > tr:last > td > input.edit_first_name").val());

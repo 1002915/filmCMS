@@ -3,39 +3,12 @@
 ?>
 
 <form method="POST" action="#">
-	<h2>Search</h2>
-	<input type='hidden' name='function' value='search_project'>
-	<input type='text' name='target'>
-	<input type="submit">
-</form>
--->
-
-
-<form method="POST" action="#">
-	<h2>Get all projects</h2>
-	<input type='hidden' name='function' value='return_all_projects'>
-	<input type="submit">
-</form>
-
-
-
-
-
-<form method="POST" action="#">
-	<h2>Get ONE project (Insert film id)</h2>
-	<input type="hidden" name="function" value="return_project">
-	<input type="text" name="target">
-	<input type="submit">
-</form>
-
-
-
-
-<form method="POST" action="#">
 	<h2>Update a project</h2>
 	<input type="hidden" name="function" value="update_project">
 	<h3>Film Id:</h3><br>
 	<input type="number" name="target">
+	<h3>User Id:</h3><br>
+	<input type="number" name="user_id">
 	<h3>Title:</h3><br>
 	<input type="text" name="title"><br>
 	<h3>Synopsis</h3><br>
@@ -73,109 +46,6 @@
 </form>
 
 
-
-
-
-<form method="POST" action="#">
-	<h2>Create a project</h2>
-	<input type="hidden" name="function" value="new_project">
-	<h3>Title:</h3><br>
-	<input type="text" name="title"><br>
-	<h3>Synopsis</h3><br>
-	<input type="text" name="synopsis"><br>
-	<h3>Video Link</h3><br>
-	<input type="text" name="video_link"><br>
-	<h3>Cover Image</h3><br>
-	<input type="text" name="cover_image"><br>
-	<h3>Runtime</h3><br>
-	<input type="text" name="runtime"><br>
-	<h3>User ID</h3><br>
-	<input type="text" name="user_id"><br>
-	<h3>Published</h3><br>
-	<input type="text" name="published"><br>
-	<h3>Active</h3><br>
-	<input type="text" name="active"><br>
-
-	<h3>Collaborator 1 First Name</h3><br>
-	<input type="text" name="collab[1][firstname]"><br>
-	<h3>Collaborator 1 Last Name</h3><br>
-	<input type="text" name="collab[1][lastname]"><br>
-	<h3>Collaborator 1 Role</h3><br>
-	<input type="text" name="collab[1][role]"><br>
-	<h3>Collaborator 1 Email</h3><br>
-	<input type="text" name="collab[1][email]"><br>
-
-	<h3>Collaborator 2 First Name</h3><br>
-	<input type="text" name="collab[2][firstname]"><br>
-	<h3>Collaborator 2 Last Name</h3><br>
-	<input type="text" name="collab[2][lastname]"><br>
-	<h3>Collaborator 2 Role</h3><br>
-	<input type="text" name="collab[2][role]"><br>
-	<h3>Collaborator 2 Email</h3><br>
-	<input type="text" name="collab[2][email]"><br>
-	<input type="submit">
-</form>
-
-
-
-
-
-<form method="POST" action="#">
-	<h2>Hide a project</h2>
-	<input type="hidden" name="function" value="hide_project">
-	<h3>Film Id:</h3><br>
-	<input type="number" name="target">
-	<h3>Active</h3><br>
-	<input type="text" name="active"><br>
-	<input type="submit">
-</form>
-
-
-
-
-
-
-
-<form method="POST" action="#">
-	<h2>Rate a project</h2>
-	<input type="hidden" name="function" value="add_rating">
-	<h3>Film Id:</h3><br>
-	<input type="number" name="target">
-	<h3>Rating</h3><br>
-	<input type="text" name="active"><br>
-	<input type="submit">
-</form>
-
-
-
--->
-
-
-
-<form method="POST" action="#">
-	<h2>Provide Academic Feedback</h2>
-	<input type="hidden" name="function" value="add_academic_feedback">
-	<h3>Film Id:</h3><br>
-	<input type="number" name="target">
-	<h3>User Id:</h3><br>
-	<input type="number" name="user_id">
-	<h3>Question 1</h3><br>
-	<input type="text" name="feedback_1"><br>
-	<h3>Question 2</h3><br>
-	<input type="text" name="feedback_2"><br>
-	<h3>Question 3</h3><br>
-	<input type="text" name="feedback_3"><br>
-	<input type="submit">
-</form>
-
-
-<form method="POST" action="#">
-	<h2>Return Academic Feedback</h2>
-	<input type="hidden" name="function" value="return_academic_feedback">
-	<h3>Campus Id:</h3><br>
-	<input type="number" name="target">
-	<input type="submit">
-</form>
 
 
 

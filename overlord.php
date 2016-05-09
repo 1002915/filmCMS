@@ -402,13 +402,9 @@
 
 
 
-
-						// The Collaborator Incident of 2016
-						// or When Tatiana Nearly Ate Her Own Fingers Out Of Frustration
 						$collab = $_POST['collab'];
 
 						// loop through collaborators currently listed for that film
-						
 						$sql = "SELECT id, first_name, last_name, role, email FROM collaborators WHERE film_id = ?";
 						if(!$stmt = $mysqli->prepare ($sql)){
 							echo "prepare failed";
@@ -421,33 +417,77 @@
 						}
 
 						$res = $stmt->get_result();
-						$delete = 0;
+						$delete = [];
+						$existing = [];
 						
 						// loop through sql response
 						while($row = $res->fetch_assoc()){
+
 							$found = 0;
 
 							//loop through collabs input in form
 							foreach($collab as $k => $collabrow){
+
 								$rowcompare = array_slice($row, 1);
 
 								// if current collab loop matches sql response
 								if($collabrow == $rowcompare){
 									$found = 1;
+
+
+									array_push($existing, $collab[$k]);
+									
 									unset($collab[$k]);
-								} else {
-									//add to delete array -> value should be the id
-									$delete = array(
-										"id" => $row['id']
-									);
+								} 
+
+								// if current collab loop DOES NOT match sql response
+								else {
+
+									// if there are rows that have been added to the existing array check they are not the same as those to be deleted
+									if(!empty($existing)) {
+										foreach($existing as $e => $val){
+
+											
+											if($existing[$e] != $rowcompare) {
+												echo "row to delete : ";
+												print_r($rowcompare);
+												print_r($existing[$e]);
+
+												array_push($delete, $row['id']);
+
+											} else {
+												echo "row to keep : ";
+												print_r($rowcompare);
+												unset($delete[$e]);
+
+												echo "new delete array : ";
+												print_r( $delete);
+											}
+
+										}
+									} 
+									else {
+										echo "row to delete :";
+										print_r($rowcompare);
+										array_push($delete, $row['id']);
+									}
+								
 								} // end else 
 								
 							} // end foreach
 
  						} // end while
 
+ 						echo "delete array: ";
+ 						print_r($delete);
+ 						echo "existing array: ";
+ 						print_r($existing);
+ 						echo "collabs array: ";
+ 						print_r($collab);
+
  						if($delete > 0){
  							foreach($delete as $rowtodelete) {
+ 								echo "row to delete: ".$rowtodelete." - ";
  								$sql = "DELETE FROM collaborators WHERE id = ?";
  								$stmt = $mysqli->prepare($sql);
  								$stmt->bind_param("i", $rowtodelete);

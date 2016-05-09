@@ -41,7 +41,7 @@
 				 <div class="dz-default"></div>
 			</div>
 
-			<input type="hidden" name="cover_image" id="cover_image" value="cover_image">
+			<input type="hidden" name="cover_image" id="cover_image" value="">
 			<div class="display_cover_image actual_display">
 				<img>
 			</div>
@@ -122,8 +122,9 @@
 		            console.log('Successfully uploaded :' + file_name);
 		            file_name = file_name.replace(/\s+/g, '_');
 		            
-		            $('input[name=cover_image]').val(file_name);
+		            $('input#cover_image').val(file_name);
 					$('.display_cover_image > img').attr("src", 'uploads/'+<?php echo $user_id; ?>+'/'+file_name);
+					console.log($('#cover_image').val());
 	       		} else {
 	       			alert('Sorry, you need to upload an image file! JPG AND PNG FILES ONLY! MAX FILE SIZE: 2MB')
 	       		}	
