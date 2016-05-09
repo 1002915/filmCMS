@@ -434,43 +434,16 @@
 								if($collabrow == $rowcompare){
 									$found = 1;
 
-
-									array_push($existing, $collab[$k]);
+									array_push($existing, $row['id']);
 									
 									unset($collab[$k]);
 								} 
 
 								// if current collab loop DOES NOT match sql response
 								else {
-
-									// if there are rows that have been added to the existing array check they are not the same as those to be deleted
-									if(!empty($existing)) {
-										foreach($existing as $e => $val){
-
-											
-											if($existing[$e] != $rowcompare) {
-												echo "row to delete : ";
-												print_r($rowcompare);
-												print_r($existing[$e]);
-
-												array_push($delete, $row['id']);
-
-											} else {
-												echo "row to keep : ";
-												print_r($rowcompare);
-												unset($delete[$e]);
-
-												echo "new delete array : ";
-												print_r( $delete);
-											}
-
-										}
-									} 
-									else {
-										echo "row to delete :";
-										print_r($rowcompare);
-										array_push($delete, $row['id']);
-									}
+									
+									print_r($rowcompare);
+									array_push($delete, $row['id']);
 								
 								} // end else 
 								
@@ -480,13 +453,19 @@
 
  						echo "delete array: ";
  						print_r($delete);
+
  						echo "existing array: ";
  						print_r($existing);
- 						echo "collabs array: ";
+
+
+ 						$result = array_diff($delete, $existing);
+ 						print_r($result);
+
+ 						echo "collabs to add: ";
  						print_r($collab);
 
- 						if($delete > 0){
- 							foreach($delete as $rowtodelete) {
+ 						if($result > 0){
+ 							foreach($result as $rowtodelete) {
  								echo "row to delete: ".$rowtodelete." - ";
  								$sql = "DELETE FROM collaborators WHERE id = ?";
  								$stmt = $mysqli->prepare($sql);
