@@ -430,6 +430,14 @@
 
 								$rowcompare = array_slice($row, 1);
 
+								//echo 'Looping';
+
+								//print_r($rowcompare);
+
+								//echo 'vs';
+
+								//print_r($collab);
+
 								// if current collab loop matches sql response
 								if($collabrow == $rowcompare){
 									$found = 1;
@@ -439,15 +447,15 @@
 									unset($collab[$k]);
 								} 
 
-								// if current collab loop DOES NOT match sql response
-								else {
-									
-									print_r($rowcompare);
-									array_push($delete, $row['id']);
+							}
+
+							// if current collab loop DOES NOT match sql response
+							if ($found == 0) {
 								
-								} // end else 
-								
-							} // end foreach
+								print_r($rowcompare);
+								array_push($delete, $row['id']);
+							
+							} // end else 
 
  						} // end while
 
@@ -458,14 +466,14 @@
  						print_r($existing);
 
 
- 						$result = array_diff($delete, $existing);
- 						print_r($result);
+ 						//$result = array_diff($delete, $existing);
+ 						//print_r($result);
 
  						echo "collabs to add: ";
  						print_r($collab);
 
- 						if($result > 0){
- 							foreach($result as $rowtodelete) {
+						if($delete > 0){
+ 							foreach($delete as $rowtodelete) {
  								echo "row to delete: ".$rowtodelete." - ";
  								$sql = "DELETE FROM collaborators WHERE id = ?";
  								$stmt = $mysqli->prepare($sql);
@@ -502,7 +510,7 @@
  							} // end foreach
 
  						} // end if collabs to add
-
+ 					
 
 
 

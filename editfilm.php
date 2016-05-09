@@ -410,7 +410,7 @@
 					}
 					console.log(location);
 					window.location=location;
-					//console.log(res);
+					/console.log(res);
 
 				},
 
