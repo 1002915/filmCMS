@@ -409,8 +409,8 @@
 
 					}
 					console.log(location);
-					//window.location=location;
-					console.log(res);
+					window.location=location;
+					//console.log(res);
 
 				},
 
